@@ -41,7 +41,8 @@
                                 </path>
                             </svg></div>
                         <div class="sa-toast-text" data-id="sa-toast-text">
-                            <div class="sa-type-small">Creating this page will generate a new resource and login URL automatically</div>
+                            <div class="sa-type-small">Creating this page will generate a new resource and login URL
+                                automatically</div>
                         </div>
                         <div class="sa-toast-actions"></div>
                     </div>
@@ -135,11 +136,7 @@
 
                         <div class="form-group" id="redirecToField">
                             <label>Redirect To</label>
-                            <div class="d-flex align-items-center">
-                                <input type="text" disabled="true" style="width: 75%;" />
-                                <a id="createRealm" class="ml-3"
-                                    style="cursor: not-allowed; pointer-events: none;">Create Realm</a>
-                            </div>
+                            <input type="text" disabled="true" />
                         </div>
 
                         <div id="realmCreated">
@@ -148,7 +145,7 @@
                                     <div class="sa-header-block-text">
                                         <div
                                             class="sa-box-stack-top-medium-padding sa-box-stack-left-medium-padding form-group-padding sa-box-stack-right-medium-padding">
-                                            <h3 class="sa-type-header-3 sa-type-bold">Redirect URL</h3>
+                                            <h3 class="sa-type-header-3 sa-type-bold">Redirect Information</h3>
                                             <div
                                                 class="sa-box-stack-top-small-padding sa-box-stack-bottom-xsmall-padding">
                                                 <div color="tertiary" class="sa-type-body sa-color-tertiary">
@@ -156,9 +153,10 @@
                                                 </div>
                                             </div>
                                             <div class="sa-box-stack-top-medium-padding mb-2">
-                                                <a color="info" rel="noopener noreferrer nofollow" target="_blank"
-                                                    href="https://secureauth.company.com/SecureAuth283"
-                                                    class="sa-type-link sa-color-info">https://secureauth.company.com/secureauth1/Customs.aspx</a>
+                                                <a color="info" rel="noopener noreferrer nofollow"
+                                                    class="sa-type-link sa-color-info">
+                                                    https://secureauth.company.com/secureauth1/Customs.aspx
+                                                </a>
                                             </div>
                                             <div class="sa-box-stack-top-medium-padding sa-box-stack-right-small-padding"
                                                 style="display: inline;"><svg xmlns="http://www.w3.org/2000/svg"
@@ -211,8 +209,15 @@
             <div class="buttons-footer">
                 <div class="d-flex float-right" id="createConnection">
                     <button class="sa-button-tertiary"><a href="redirect-manager.html">Cancel</a></button>
-                    <button class="sa-button-primary">
+                    <button class="sa-button-primary" id="btnCreateConnection" disabled>
                         Create Connection
+                    </button>
+                </div>
+                <div class="float-right" id="btnGoBack">
+                    <button class="sa-button-secondary">
+                        <a href="redirect-manager.html">
+                            Go back to Redirect Manager
+                        </a>
                     </button>
                 </div>
             </div>
@@ -242,8 +247,9 @@
             $(function () {
                 $('#selectRedirect').change(function () {
                     var input = $(this).val();
-                    $("#createRealm").css("cursor", "pointer");
-                    $("#createRealm").css("pointer-events", "auto");
+                    $("#btnCreateConnection").prop("disabled", false);
+                    $("#createConnection").css("cursor", "pointer");
+                    $("#createConnection").css("pointer-events", "auto");
 
                     if ($(this).val() == "custom") {
                         $("#redirecToField input").prop("disabled", false);
@@ -281,8 +287,11 @@
             });
 
             $("#realmCreated").hide();
-            $("#createRealm").on('click', function () {
+            $("#btnGoBack").hide();
+            $("#createConnection").on('click', function () {
                 $("#realmCreated").show();
+                $("#btnGoBack").show();
+                $("#createConnection").addClass("d-none").removeClass("d-flex");
             });
         });
     </script>

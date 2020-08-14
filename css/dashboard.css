@@ -1,0 +1,154 @@
+.dashboard-container {
+  width: 100%;
+  min-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.flex {
+  display: flex
+}
+
+.widgets-layout {
+  height: 577px;
+}
+
+.widgets-left-column {
+  flex-direction: column;
+  width: 70%;
+  margin-right: 20px;
+}
+
+.widgets-left_top-row {
+  margin-bottom: 20px;
+}
+
+.widgets-left_bottom-row {
+  height: 250px;
+}
+
+.widgets-right-column {
+  flex-direction: column;
+  width: 30%;
+  height: 570px;
+}
+
+.logins-apps-container {
+  flex: 1;
+  height: 250px;
+}
+
+.os-logins-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.mfa-methods {
+  height: 220px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1600px) {
+  .dashboard-container {
+    width: initial;
+    margin: initial;
+    padding: 30px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .widgets-layout {
+    flex-wrap: wrap;
+  }
+  .widgets-left-column {
+    width: 100%;
+    margin-right: 0;
+  }
+  .widgets-right-column {
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+  .widgets-left_bottom-row {
+    margin-bottom: 20px;
+  }
+  .logins-apps-container {
+    width: 50%;
+    height: 300px;
+  }
+  .os-logins-container {
+    width: 50%;
+    flex: initial;
+    margin-right: 20px;
+  }
+  .mfa-methods {
+    width: 50%;
+    margin-bottom: 0px;
+    margin-right: 20px;
+    height: 300px;
+  }
+}
+
+.error-screen {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.header {
+  justify-content: space-between;
+  min-height: 50px;
+  margin-bottom: 50px;
+}
+
+.summary-detail {
+  flex-direction: column;
+  width: 135px;
+  justify-content: space-around;
+  padding-left: 33px;
+}
+
+.summary-detail:not(:last-child) {
+  border-right: 1px solid gray;
+}
+
+.card {
+  flex: 1;
+  display: block !important;
+}
+
+.card:not(:last-child) {
+  margin-right: 20px;
+}
+
+.mfa-methods {
+  height: 220px;
+  margin-bottom: 20px;
+}
+
+.mfa-app-height {
+  height: 100%;
+}
+
+@media only screen and (max-width: 1400px) {
+  .mfa-methods {
+    width: 50%;
+    margin-bottom: 0px;
+    margin-right: 20px;
+    height: 300px;
+  }
+}
+
+.mfa-enrollment {
+  flex: 1;
+  height: 250px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .mfa-enrollment {
+    width: 50%;
+  }
+}
