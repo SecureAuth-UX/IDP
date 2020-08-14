@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth IDP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="bkgGrey">
+
+    <div id="header"></div>
+
+    <main role="main">
+        <div class="title-top">
+            <div class="float-left">
+                <h1 class="sa-type-header-1">
+                    <div class="sa-header-no-margin">
+                        <div class="sa-header-text">Welcome John!</div>
+                    </div>
+
+                    <div class="sa-box-stack-bottom-xxmedium-padding">
+                        <div class="sa-type-body">
+                            <div class="sa-color-secondary">
+                                Here's an overview of your system.
+                            </div>
+                        </div>
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <div class="sa-view-body mt-5">
+            <div class="flex header">
+                <div class="flex summary">
+                    <div class="summary-detail">
+                        <div color="tertiary" class="sa-type-small sa-color-tertiary"><strong>Application</strong></div>
+                        <h3 class="sa-type-header-3">44</h3>
+                    </div>
+                    <div class="summary-detail">
+                        <div color="tertiary" class="sa-type-small sa-color-tertiary"><strong>Data Stores</strong></div>
+                        <h3 class="sa-type-header-3">89</h3>
+                    </div>
+                    <div class="summary-detail">
+                        <div color="tertiary" class="sa-type-small sa-color-tertiary"><strong>MFA Methods</strong></div>
+                        <h3 class="sa-type-header-3">9</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div class="sa-color-black sa-color-bg-white card card-shadow sa-widget-link card sa-widget-border">
+                    <div class="sa-type-small sa-card-title sa-color-black" color="black"><strong>Logins (Past
+                            24h)</strong></div>
+                    <div class="sa-card-footer">
+                        <h1 color="black" class="sa-type-header-1 sa-color-black"><strong>0</strong></h1>
+                    </div>
+                </div>
+                <div class="sa-color-black sa-color-bg-white card card-shadow sa-widget-link card sa-widget-border">
+                    <div class="sa-type-small sa-card-title sa-color-black" color="black"><strong>Logins (Past 7
+                            Days)</strong>
+                    </div>
+                    <div class="sa-card-footer">
+                        <h1 color="black" class="sa-type-header-1 sa-color-black"><strong>7</strong></h1>
+                    </div>
+                </div>
+                <div class="sa-color-black sa-color-bg-white card card-shadow sa-widget-link card sa-widget-border">
+                    <div class="sa-type-small sa-card-title sa-color-black" color="black"><strong>Logins (Past 30
+                            Days)</strong>
+                    </div>
+                    <div class="sa-card-footer">
+                        <h1 color="black" class="sa-type-header-1 sa-color-black"><strong>19</strong></h1>
+                    </div>
+                </div>
+                <div class="sa-color-black sa-color-bg-white card card-shadow sa-widget-link card sa-widget-border">
+                    <div class="sa-type-small sa-card-title sa-color-black" color="black"><strong>Logins (Past
+                            Year)</strong>
+                    </div>
+                    <div class="sa-card-footer">
+                        <h1 color="black" class="sa-type-header-1 sa-color-black"><strong>835</strong></h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex widgets-layout" id="draggContainer">
+                <div class="flex widgets-left-column">
+                    <div class="widgets-left_top-row dragg">
+                        <div height="300"
+                            class="sa-color-black sa-color-bg-white card card-shadow sa-widget-container sa-widget-border"
+                            style="height: 300px;">
+                            <div class="sa-chart-header">
+                                <div class="sa-type-paragraph"><strong>Successful V. Failed Logins</strong></div>
+                                <div class="sa-dropdown-wrap">
+                                    <div class="sa-dropdown-selected">
+                                        <div color="info" class="sa-type-caption sa-color-info">
+                                            <select name="dates"
+                                                class="label ui selection fluid dropdown select-noborder">
+                                                <option>Past 24 hs.</option>
+                                                <option>Past 7 days</option>
+                                                <option selected>Past 30 days</option>
+                                                <option>Past year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sa-chart-container">
+                                <div class="recharts-responsive-container" style="width: 100%; height: 200px;">
+                                    <div class="recharts-wrapper"
+                                        style="position: relative; cursor: default; width: 100%px; height: 200px;">
+                                        <svg class="recharts-surface" width="100%" height="200" version="1.1">
+                                            <defs>
+                                                <clipPath id="recharts3-clip">
+                                                    <rect x="60" y="15" height="143.15625" width="818"></rect>
+                                                </clipPath>
+                                            </defs>
+                                            <g class="recharts-cartesian-grid">
+                                                <g class="recharts-cartesian-grid-horizontal">
+                                                    <line stroke-dasharray="4 4" stroke="#ccc" fill="none" x="60" y="15"
+                                                        width="818" height="143.15625" x1="60" y1="158.15625" x2="100%"
+                                                        y2="158.15625"></line>
+                                                    <line stroke-dasharray="4 4" stroke="#ccc" fill="none" x="60" y="15"
+                                                        width="818" height="143.15625" x1="60" y1="86.578125" x2="100%"
+                                                        y2="86.578125"></line>
+                                                    <line stroke-dasharray="4 4" stroke="#ccc" fill="none" x="60" y="15"
+                                                        width="818" height="143.15625" x1="60" y1="15" x2="100%"
+                                                        y2="15"></line>
+                                                </g>
+                                            </g>
+                                            <g class="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis">
+                                                <line class="recharts-cartesian-axis-line" angle="0" dy="0" dx="0"
+                                                    width="818" height="30" x="60" y="158.15625" stroke="#838586"
+                                                    fill="none" x1="60" y1="158.15625" x2="100%" y2="158.15625"></line>
+                                                <g class="recharts-cartesian-axis-ticks">
+                                                    <g class="recharts-layer recharts-cartesian-axis-tick"><text
+                                                            width="818" height="30" x="141.8" y="166.15625"
+                                                            stroke="none" fill="#6f8a99" font-size="10"
+                                                            class="recharts-text recharts-cartesian-axis-tick-value"
+                                                            text-anchor="middle">
+                                                            <tspan x="141.8" dy="0.71em">6/18</tspan>
+                                                        </text></g>
+                                                    <g class="recharts-layer recharts-cartesian-axis-tick"><text
+                                                            width="818" height="30" x="305.4" y="166.15625"
+                                                            stroke="none" fill="#6f8a99" font-size="10"
+                                                            class="recharts-text recharts-cartesian-axis-tick-value"
+                                                            text-anchor="middle">
+                                                            <tspan x="305.4" dy="0.71em">6/21</tspan>
+                                                        </text></g>
+                                                    <g class="recharts-layer recharts-cartesian-axis-tick"><text
+                                                            width="818" height="30" x="469" y="166.15625" stroke="none"
+                                                            fill="#6f8a99" font-size="10"
+                                                            class="recharts-text recharts-cartesian-axis-tick-value"
+                                                            text-anchor="middle">
+                                                            <tspan x="469" dy="0.71em">6/22</tspan>
+                                                        </text></g>
+                                                    <g class="recharts-layer recharts-cartesian-axis-tick"><text
+                                                            width="818" height="30" x="632.5999999999999" y="166.15625"
+                                                            stroke="none" fill="#6f8a99" font-size="10"
+                                                            class="recharts-text recharts-cartesian-axis-tick-value"
+                                                            text-anchor="middle">
+                                                            <tspan x="632.5999999999999" dy="0.71em">7/8</tspan>
+                                                        </text></g>
+                                                    <g class="recharts-layer recharts-cartesian-axis-tick"><text
+                                                            width="818" height="30" x="796.1999999999999" y="166.15625"
+                                                            stroke="none" fill="#6f8a99" font-size="10"
+                                                            class="recharts-text recharts-cartesian-axis-tick-value"
+                                                            text-anchor="middle">
+                                                            <tspan x="796.1999999999999" dy="0.71em">7/9</tspan>
+                                                        </text></g>
+                                                </g>
+                                            </g>
+                                            <g class="recharts-layer recharts-cartesian-axis recharts-yAxis yAxis">
+                                                <line class="recharts-cartesian-axis-line" text-anchor="middle"
+                                                    width="60" height="143.15625" x="0" y="15" stroke="#838586"
+                                                    fill="none" x1="60" y1="15" x2="60" y2="158.15625"></line>
+                                                <g class="recharts-cartesian-axis-ticks">
+                                                    <g class="recharts-layer recharts-cartesian-axis-tick"><text
+                                                            width="60" height="143.15625" x="44" y="158.15625"
+                                                            stroke="none" fill="#6f8a99"
+                                                            class="recharts-text recharts-cartesian-axis-tick-value"
+                                                            text-anchor="middle">
+                                                            <tspan x="44" dy="0.355em">0</tspan>
+                                                        </text></g>
+                                                    <g class="recharts-layer recharts-cartesian-axis-tick"><text
+                                                            width="60" height="143.15625" x="44" y="86.578125"
+                                                            stroke="none" fill="#6f8a99"
+                                                            class="recharts-text recharts-cartesian-axis-tick-value"
+                                                            text-anchor="middle">
+                                                            <tspan x="44" dy="0.355em">3</tspan>
+                                                        </text></g>
+                                                    <g class="recharts-layer recharts-cartesian-axis-tick"><text
+                                                            width="60" height="143.15625" x="44" y="15" stroke="none"
+                                                            fill="#6f8a99"
+                                                            class="recharts-text recharts-cartesian-axis-tick-value"
+                                                            text-anchor="middle">
+                                                            <tspan x="44" dy="0.355em">6</tspan>
+                                                        </text></g>
+                                                </g><text fill="#6f8a99" x="5" y="86.578125"
+                                                    transform="rotate(-90, 5, 86.578125)"
+                                                    class="recharts-text recharts-label" text-anchor="middle"
+                                                    style="font-weight: 600;">
+                                                    <tspan x="5" dy="0.355em">Number of Logins</tspan>
+                                                </text>
+                                            </g>
+                                            <g class="recharts-layer recharts-bar">
+                                                <g class="recharts-layer recharts-bar-rectangles">
+                                                    <g class="recharts-layer">
+                                                        <g class="recharts-layer recharts-bar-rectangle">
+                                                            <path fill="#85EA8F" radius="5,5,0,0" width="16"
+                                                                height="47.718749999999986" x="125"
+                                                                y="110.43750000000001" class="recharts-rectangle" d="M125,115.43750000000001A 5,5,0,0,1,130,110.43750000000001L 136,110.43750000000001A 5,5,0,0,1,
+          141,115.43750000000001L 141,158.15625L 125,158.15625Z"></path>
+                                                        </g>
+                                                        <g class="recharts-layer recharts-bar-rectangle">
+                                                            <path fill="#85EA8F" radius="5,5,0,0" width="16"
+                                                                height="143.15625" x="288.6" y="15"
+                                                                class="recharts-rectangle" d="M288.6,20A 5,5,0,0,1,293.6,15L 299.6,15A 5,5,0,0,1,
+          304.6,20L 304.6,158.15625L 288.6,158.15625Z"></path>
+                                                        </g>
+                                                        <g class="recharts-layer recharts-bar-rectangle">
+                                                            <path fill="#85EA8F" radius="5,5,0,0" width="16"
+                                                                height="23.859375" x="452.2" y="134.296875"
+                                                                class="recharts-rectangle" d="M452.2,139.296875A 5,5,0,0,1,457.2,134.296875L 463.2,134.296875A 5,5,0,0,1,
+          468.2,139.296875L 468.2,158.15625L 452.2,158.15625Z"></path>
+                                                        </g>
+                                                        <g class="recharts-layer recharts-bar-rectangle">
+                                                            <path fill="#85EA8F" radius="5,5,0,0" width="16"
+                                                                height="47.718749999999986" x="615.8"
+                                                                y="110.43750000000001" class="recharts-rectangle" d="M615.8,115.43750000000001A 5,5,0,0,1,620.8,110.43750000000001L 626.8,110.43750000000001A 5,5,0,0,1,
+          631.8,115.43750000000001L 631.8,158.15625L 615.8,158.15625Z"></path>
+                                                        </g>
+                                                        <g class="recharts-layer recharts-bar-rectangle">
+                                                            <path fill="#85EA8F" radius="5,5,0,0" width="16"
+                                                                height="119.296875" x="779.4" y="38.859375"
+                                                                class="recharts-rectangle" d="M779.4,43.859375A 5,5,0,0,1,784.4,38.859375L 790.4,38.859375A 5,5,0,0,1,
+          795.4,43.859375L 795.4,158.15625L 779.4,158.15625Z"></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                            <g class="recharts-layer recharts-bar">
+                                                <g class="recharts-layer recharts-bar-rectangles">
+                                                    <g class="recharts-layer">
+                                                        <g class="recharts-layer recharts-bar-rectangle">
+                                                            <path fill="#2372B8" radius="5,5,0,0" width="16" height="2"
+                                                                x="141" y="156.15625" class="recharts-rectangle" d="M141,157.15625A 1,1,0,0,1,142,156.15625L 156,156.15625A 1,1,0,0,1,
+          157,157.15625L 157,158.15625L 141,158.15625Z"></path>
+                                                        </g>
+                                                        <g class="recharts-layer recharts-bar-rectangle">
+                                                            <path fill="#2372B8" radius="5,5,0,0" width="16"
+                                                                height="71.578125" x="304.6" y="86.578125"
+                                                                class="recharts-rectangle" d="M304.6,91.578125A 5,5,0,0,1,309.6,86.578125L 315.6,86.578125A 5,5,0,0,1,
+          320.6,91.578125L 320.6,158.15625L 304.6,158.15625Z"></path>
+                                                        </g>
+                                                        <g class="recharts-layer recharts-bar-rectangle">
+                                                            <path fill="#2372B8" radius="5,5,0,0" width="16" height="2"
+                                                                x="468.2" y="156.15625" class="recharts-rectangle" d="M468.2,157.15625A 1,1,0,0,1,469.2,156.15625L 483.2,156.15625A 1,1,0,0,1,
+          484.2,157.15625L 484.2,158.15625L 468.2,158.15625Z"></path>
+                                                        </g>
+                                                        <g class="recharts-layer recharts-bar-rectangle">
+                                                            <path fill="#2372B8" radius="5,5,0,0" width="16" height="2"
+                                                                x="631.8" y="156.15625" class="recharts-rectangle" d="M631.8,157.15625A 1,1,0,0,1,632.8,156.15625L 646.8,156.15625A 1,1,0,0,1,
+          647.8,157.15625L 647.8,158.15625L 631.8,158.15625Z"></path>
+                                                        </g>
+                                                        <g class="recharts-layer recharts-bar-rectangle">
+                                                            <path fill="#2372B8" radius="5,5,0,0" width="16" height="2"
+                                                                x="795.4" y="156.15625" class="recharts-rectangle" d="M795.4,157.15625A 1,1,0,0,1,796.4,156.15625L 810.4,156.15625A 1,1,0,0,1,
+          811.4,157.15625L 811.4,158.15625L 795.4,158.15625Z"></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <div class="recharts-legend-wrapper"
+                                            style="position: absolute; width: auto; height: auto; top: 210px; left: 55px;">
+                                            <ul class="recharts-default-legend"
+                                                style="padding: 0px; margin: 0px; text-align: center;">
+                                                <li class="recharts-legend-item legend-item-0"
+                                                    style="display: inline-block; margin-right: 10px;"><svg
+                                                        class="recharts-surface" width="11" height="11"
+                                                        viewBox="0 0 32 32" version="1.1"
+                                                        style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                                                        <path fill="#85EA8F" class="recharts-symbols"
+                                                            transform="translate(16, 16)"
+                                                            d="M16,0A16,16,0,1,1,-16,0A16,16,0,1,1,16,0"></path>
+                                                    </svg>
+                                                    <span class="recharts-legend-item-text">Successful Logins</span>
+                                                </li>
+                                                <li class="recharts-legend-item legend-item-1"
+                                                    style="display: inline-block; margin-right: 10px;"><svg
+                                                        class="recharts-surface" width="11" height="11"
+                                                        viewBox="0 0 32 32" version="1.1"
+                                                        style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                                                        <path fill="#2372B8" class="recharts-symbols"
+                                                            transform="translate(16, 16)"
+                                                            d="M16,0A16,16,0,1,1,-16,0A16,16,0,1,1,16,0"></path>
+                                                    </svg>
+                                                    <span class="recharts-legend-item-text">Failed Logins</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex widgets-left_bottom-row">
+                        <div class="os-logins-container dragg">
+                            <div height="100%"
+                                class="sa-color-black sa-color-bg-white card card-shadow sa-widget-container sa-widget-statistic-container-with-footer sa-widget-border"
+                                style="height: 100%;">
+                                <div class="sa-widget-statistic-title">
+                                    <div class="sa-type-paragraph"><strong>Login by OS</strong></div>
+                                    <div class="sa-dropdown-wrap">
+                                        <div class="sa-dropdown-selected">
+                                            <div color="info" class="sa-type-caption sa-color-info">
+                                                <select name="dates"
+                                                    class="label ui selection fluid dropdown select-noborder">
+                                                    <option>Past 24 hs.</option>
+                                                    <option>Past 7 days</option>
+                                                    <option selected>Past 30 days</option>
+                                                    <option>Past year</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sa-widget-statistic-list-container">
+                                    <div>
+                                        <ul class="sa-list-none sa-widget-statistic-list" color="secondary">
+                                            <li><span class="sa-widget-statistic-list-bar">
+                                                    <div bold="true" class="sa-type-micro sa-type-bold">Mac OS X</div>
+                                                    <div
+                                                        class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                        <div class="sa-color-bg-pink_light sa-widget-statistic-list-value-bar"
+                                                            style="width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                                <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                    style="border-radius: 5px;">
+                                                    <div class="sa-type-caption">
+                                                        <div bold="true" class="sa-type-small sa-type-bold">11</div>
+                                                    </div>
+                                                </span>
+                                            </li>
+                                            <li><span class="sa-widget-statistic-list-bar">
+                                                    <div bold="true" class="sa-type-micro sa-type-bold">Windows 10</div>
+                                                    <div
+                                                        class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                        <div class="sa-color-bg-orange_light sa-widget-statistic-list-value-bar"
+                                                            style="width: 72.7273%;"></div>
+                                                    </div>
+                                                </span>
+                                                <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                    style="border-radius: 5px;">
+                                                    <div class="sa-type-caption">
+                                                        <div bold="true" class="sa-type-small sa-type-bold">8</div>
+                                                    </div>
+                                                </span>
+                                            </li>
+                                            <li><span class="sa-widget-statistic-list-bar">
+                                                    <div bold="true" class="sa-type-micro sa-type-bold">Android</div>
+                                                    <div
+                                                        class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                        <div class="sa-color-bg-green_light sa-widget-statistic-list-value-bar"
+                                                            style="width: 0%;">
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                                <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                    style="border-radius: 5px;">
+                                                    <div class="sa-type-caption">
+                                                        <div bold="true" class="sa-type-small sa-type-bold">0</div>
+                                                    </div>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div color="blue_main"
+                                        class="sa-type-small sa-widget-statistic-footer sa-color-blue_main">
+                                        <a href="login-by-os-details.html">View all</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="dragg sa-color-black sa-color-bg-white card card-shadow sa-widget-container mfa-enrollment sa-widget-border">
+                            <div class="sa-widget-statistic-title">
+                                <div class="sa-type-paragraph"><strong>MFA Enrollments</strong></div>
+                            </div>
+                            <div class="sa-widget-statistic-list-container">
+                                <div>
+                                    <ul class="sa-list-none sa-widget-statistic-list-table" color="secondary">
+                                        <li><span mode="light" class="sa-tag sa-tag-orange tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <h2 bold="true" color="orange_main"
+                                                        class="sa-type-header-2 sa-color-orange_main sa-type-bold">
+                                                        <strong>0</strong></h2>
+                                                </div>
+                                            </span>
+                                            <div class="sa-widget-statistic-table-value-label">
+                                                <div color="secondary" class="sa-type-small sa-color-secondary">
+                                                    <strong>Past 24h</strong></div>
+                                            </div>
+                                        </li>
+                                        <li><span mode="light" class="sa-tag sa-tag-success tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <h2 bold="true" color="green_main"
+                                                        class="sa-type-header-2 sa-color-green_main sa-type-bold">
+                                                        <strong>7</strong></h2>
+                                                </div>
+                                            </span>
+                                            <div class="sa-widget-statistic-table-value-label">
+                                                <div color="secondary" class="sa-type-small sa-color-secondary">
+                                                    <strong>Past 7 Days</strong>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li><span mode="light" class="sa-tag sa-tag-violet tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <h2 bold="true" color="violet_main"
+                                                        class="sa-type-header-2 sa-color-violet_main sa-type-bold">
+                                                        <strong>19</strong></h2>
+                                                </div>
+                                            </span>
+                                            <div class="sa-widget-statistic-table-value-label">
+                                                <div color="secondary" class="sa-type-small sa-color-secondary">
+                                                    <strong>Past 30 Days</strong>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li><span mode="light" class="sa-tag sa-tag-pink tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <h2 bold="true" color="pink_light"
+                                                        class="sa-type-header-2 sa-color-pink_light sa-type-bold">
+                                                        <strong>835</strong></h2>
+                                                </div>
+                                            </span>
+                                            <div class="sa-widget-statistic-table-value-label">
+                                                <div color="secondary" class="sa-type-small sa-color-secondary">
+                                                    <strong>Past Year</strong></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex widgets-right-column">
+                    <div class="mfa-methods dragg">
+                        <div
+                            class="sa-color-black sa-color-bg-white card card-shadow sa-widget-container mfa-app-height sa-widget-border">
+                            <div class="sa-widget-statistic-title">
+                                <div class="sa-type-paragraph"><strong>MFA Methods</strong></div>
+                                <div class="sa-dropdown-wrap">
+                                    <div class="sa-dropdown-selected">
+                                        <div color="info" class="sa-type-caption sa-color-info">
+                                            <select name="dates"
+                                                class="label ui selection fluid dropdown select-noborder">
+                                                <option>Past 24 hs.</option>
+                                                <option>Past 7 days</option>
+                                                <option selected>Past 30 days</option>
+                                                <option>Past year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sa-widget-statistic-list-container">
+                                <div>
+                                    <ul class="sa-list-none sa-widget-statistic-list" color="secondary">
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" color="blue_main"
+                                                    class="sa-type-micro sa-widget-statistic-item-info sa-color-blue_main sa-type-bold">
+                                                    <strong>NONE</strong></div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-pink_light sa-widget-statistic-list-value-bar"
+                                                        style="width: 100%;">
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">17</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" color="blue_main"
+                                                    class="sa-type-micro sa-widget-statistic-item-info sa-color-blue_main sa-type-bold">
+                                                    <strong>PIN</strong></div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-orange_light sa-widget-statistic-list-value-bar"
+                                                        style="width: 11.7647%;"></div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">2</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" color="blue_main"
+                                                    class="sa-type-micro sa-widget-statistic-item-info sa-color-blue_main sa-type-bold">
+                                                    <strong>YUBIKEY</strong></div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-green_light sa-widget-statistic-list-value-bar"
+                                                        style="width: 0%;">
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">0</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" color="blue_main"
+                                                    class="sa-type-micro sa-widget-statistic-item-info sa-color-blue_main sa-type-bold">
+                                                    <strong>SMSLINK</strong></div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-violet_light sa-widget-statistic-list-value-bar"
+                                                        style="width: 0%;">
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">0</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" color="blue_main"
+                                                    class="sa-type-micro sa-widget-statistic-item-info sa-color-blue_main sa-type-bold">
+                                                    <strong>SMS</strong></div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-pink_main sa-widget-statistic-list-value-bar"
+                                                        style="width: 0%;">
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">0</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logins-apps-container dragg">
+                        <div height="100%"
+                            class="sa-color-black sa-color-bg-white card card-shadow sa-widget-container sa-widget-statistic-container-with-footer sa-widget-border"
+                            style="height: 100%;">
+                            <div class="sa-widget-statistic-title">
+                                <div class="sa-type-paragraph"><strong>Login by Application</strong></div>
+                                <div class="sa-dropdown-wrap">
+                                    <div class="sa-dropdown-selected">
+                                        <div color="info" class="sa-type-caption sa-color-info">
+                                            <select name="dates"
+                                                class="label ui selection fluid dropdown select-noborder">
+                                                <option>Past 24 hs.</option>
+                                                <option>Past 7 days</option>
+                                                <option selected>Past 30 days</option>
+                                                <option>Past year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sa-widget-statistic-list-container">
+                                <div>
+                                    <ul class="sa-list-none sa-widget-statistic-list" color="secondary">
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" class="sa-type-micro sa-type-bold">SecureAuth0</div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-pink_light sa-widget-statistic-list-value-bar"
+                                                        style="width: 100%;">
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">368</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" class="sa-type-micro sa-type-bold">SecureAuth111</div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-orange_light sa-widget-statistic-list-value-bar"
+                                                        style="width: 36.413%;"></div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">134</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" class="sa-type-micro sa-type-bold">SecureAuth101</div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-green_light sa-widget-statistic-list-value-bar"
+                                                        style="width: 10.3261%;"></div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">38</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" class="sa-type-micro sa-type-bold">SecureAuth66</div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-violet_light sa-widget-statistic-list-value-bar"
+                                                        style="width: 7.6087%;"></div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">28</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" class="sa-type-micro sa-type-bold">SecureAuth110</div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-pink_main sa-widget-statistic-list-value-bar"
+                                                        style="width: 7.33696%;"></div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">27</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" class="sa-type-micro sa-type-bold">SecureAuth48</div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-bronze_main sa-widget-statistic-list-value-bar"
+                                                        style="width: 5.43478%;"></div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">20</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li><span class="sa-widget-statistic-list-bar">
+                                                <div bold="true" class="sa-type-micro sa-type-bold">SecureAuth50</div>
+                                                <div
+                                                    class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
+                                                    <div class="sa-color-bg-blue_dark sa-widget-statistic-list-value-bar"
+                                                        style="width: 5.43478%;"></div>
+                                                </div>
+                                            </span>
+                                            <span mode="light" class="sa-tag sa-tag-disabled tag-light"
+                                                style="border-radius: 5px;">
+                                                <div class="sa-type-caption">
+                                                    <div bold="true" class="sa-type-small sa-type-bold">20</div>
+                                                </div>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div color="blue_main" class="sa-type-small sa-widget-statistic-footer sa-color-blue_main">
+                                    <a href="login-by-application.html">View all</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/RubaXa/Sortable/Sortable.min.js"></script>
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+
+    <script>
+        Sortable.create(draggContainer, {
+            animation: 100,
+            group: 'widgets-layout',
+            draggable: '.dragg',
+            handle: '.dragg',
+            swapThreshold: 0.65,
+            fallbackOnBody: true
+        });
+    </script>
+    <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+
+</body>
+
+</html>

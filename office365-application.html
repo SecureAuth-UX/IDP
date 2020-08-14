@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth IDP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <main role="main" class="pb-5 main-container">
+        <div class="title-top title-top-internal">
+            <div class="float-left">
+                <h1 class="sa-type-header-1">
+                    <div class="sa-header-no-margin">
+                        <div class="sa-header-text">New Office 365 Application</div>
+                    </div>
+                </h1>
+                <div class="d-flex align-items-center">
+                    <div class="steper step-active" id="stepApp">
+                        <span>Step 1</span>
+                    </div>
+                    <div class="steper">
+                        <span>Step 2</span>
+                    </div>
+                    <div class="steper">
+                        <span>Step 3</span>
+                    </div>
+                    <div class="d-flex">
+                        <div class='circle-step circle-grey circle-active'></div>
+                        <div class='circle-step circle-grey'></div>
+                        <div class='circle-step circle-grey'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sa-view-body">
+            <div class="step active">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="sa-header">
+                            <div class="sa-type-header-2 sa-type-bold">Application Details</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
+                                        style="display: none;"></p>
+
+                                <p class="image-cropper m-auto mb-3"><img id="output" class="profile-pic"
+                                        src="images/office365.png" /></p>
+                                <p class="text-center mt-3"><svg xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                        class="sa-icon-info sa-icon-medium" transform="translate(5,2)">
+                                        <path d="M0 17H14V15H0V17ZM14 6H10V0H4V6H0L7 13L14 6Z"></path>
+                                    </svg>
+                                    <label for="file" style="cursor: pointer; color: #2995F5;"> Upload Image</label></p>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-group">
+                                    <label>Application Name <span class="asterisk">*</span></label>
+                                    <input type="text" value="Office 365 Application" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Application Description</label>
+                                    <input type="text" />
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-3">
+                                <div id="default__0_group_templateRoot__1_static_authAndAccessHeader"
+                                    class="sa-header-small">
+                                    <div class="sa-header-text-small">AUTHENTICATION AND ACCESS</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Data Store <span class="asterisk">*</span></label>
+                                    <p class="subtitle">Select the data stores for this application. Only users in these
+                                        data
+                                        stores
+                                        can access this OIDC Configuration.</p>
+                                    <select name="skills" multiple="" class="label ui selection fluid dropdown">
+                                        <option>Data Store 01</option>
+                                        <option>Data Store 02</option>
+                                        <option>Data Store 03</option>
+                                        <option>Data Store 04</option>
+                                        <option>Data Store 05</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group d-flex">
+                                    <label class="mr-3">Allow every group in your selected data stores to access this
+                                        application.</label>
+                                    <div class="material-switch pull-right">
+                                        <input id="groupsSwitch" name="someSwitchOption002" type="checkbox" />
+                                        <label for="groupsSwitch" class="label-default"></label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="groupFields">
+                                    <label>Group Restrictions <span class="asterisk">*</span></label>
+                                    <p class="subtitle">Only these groups will have access to this OIDC Configuration.
+                                    </p>
+                                    <select name="skills" multiple="" data-placeholder="Select Group"
+                                        class="label ui selection fluid dropdown">
+                                        <option>Group 01</option>
+                                        <option>Group 02</option>
+                                        <option>Group 03</option>
+                                        <option>Group 04</option>
+                                        <option>Group 05</option>
+                                        <option>Group 06</option>
+                                        <option>Group 07</option>
+                                        <option>Group 08</option>
+                                        <option>Group 09</option>
+                                        <option>Group 10</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Authentication Policy <span class="asterisk">*</span></label>
+                                    <p class="subtitle">Select the authentication policy that will apply to this OIDC
+                                        Configuration.
+                                    </p>
+                                    <select name="policies" class="label ui selection fluid dropdown">
+                                        <option>Policy 01</option>
+                                        <option>Policy 02</option>
+                                        <option>Policy 03</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="row">
+                    <div class="col-12">
+
+                        <div id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="card-header" role="tab" id="accordionHeadingOne">
+                                <div class="mb-0 row">
+                                    <div class="col-12 no-padding accordion-head">
+                                        <a data-toggle="collapse" data-parent="#accordion"
+                                            href="#accordionBodyOneConfigCon" aria-expanded="true"
+                                            aria-controls="accordionBodyOneConfigCon" class="collapsed ">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                            <p>Configure Connection <span><img src="images/chevron-down.svg"
+                                                        alt="" /></span></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="accordionBodyOneConfigCon" class="collapse show mt-3" role="tabpanel"
+                                aria-labelledby="accordionHeadingOne" aria-expanded="true" data-parent="accordion">
+                                <div class="form-group">
+                                    <label class="d-block">User ID Profile Field</label>
+                                    <p class="subtitle">Select the property in your data store that is mapped to
+                                        objectGUID</p>
+                                    <select name="connectionType" id="selectConnectionType"
+                                        class="label ui selection dropdown">
+                                        <option value="UserId">Authenticated User ID</option>
+                                        <option value="Phone1">Phone 1 (Work)</option>
+                                        <option value="Phone2">Phone 2 (Mobile)</option>
+                                        <option value="Phone3">Phone 3 (Alternate)</option>
+                                        <option value="Phone4">Phone 4 (Alternate)</option>
+                                        <option value="Email1">Email 1 (Work)</option>
+                                        <option value="Email2">Email 2 (Personal)</option>
+                                        <option value="Email3">Email 3 (Alternate)</option>
+                                        <option value="Email4">Email 4 (Alternate)</option>
+                                        <option value="AuxID1">Aux ID 1</option>
+                                        <option value="AuxID2">Aux ID 2</option>
+                                        <option value="AuxID3">Aux ID 3</option>
+                                        <option value="AuxID4">Aux ID 4</option>
+                                        <option value="AuxID5">Aux ID 5</option>
+                                        <option value="AuxID6">Aux ID 6</option>
+                                        <option value="AuxID7">Aux ID 7</option>
+                                        <option value="AuxID8">Aux ID 8</option>
+                                        <option value="AuxID9">Aux ID 9</option>
+                                        <option value="AuxID10">Aux ID 10</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group d-flex align-items-center">
+
+                                    <div class="material-switch pull-right">
+                                        <input id="SAMLAss" name="someSwitchOption001" type="checkbox" />
+                                        <label for="SAMLAss" class="label-default"></label>
+                                    </div>
+                                    <label class="ml-3">Encode to Base64</label>
+                                </div>
+                            </div>
+
+                            <div class="card-header mt-3" role="tab" id="accordionHeadingTwo">
+                                <div class="mb-0 row">
+                                    <div class="col-12 no-padding accordion-head">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyTwo"
+                                            aria-expanded="true" aria-controls="accordionHeadingTwo" class="collapsed ">
+                                            <p>WS-FEDERATION <span><img src="images/chevron-down.svg" alt="" /></span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="accordionBodyTwo" class="collapse show" role="tabpanel"
+                                aria-labelledby="accordionHeadingTwo" aria-expanded="true" data-parent="accordion">
+                                <div class="col-6 mt-4">
+                                    <div class="form-group">
+                                        <label>SecureAuth Public Hostname <span class="asterisk">*</span></label>
+                                        <input type="text" value="https://" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>O365 Login URL</label>
+                                        <input type="text" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="d-block">WS-Fed Version</label>
+                                        <select name="ws-fed" id="selectConnectionType"
+                                            class="label ui selection dropdown">
+                                            <option>1.2</option>
+                                            <option>1.3</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="" style="display: inline-block;">
+                                        <label
+                                            id="default__0_group_templateRoot__13_group_assertionWillBeValid__0_static_label"
+                                            class="sa-form-label">Assertion will be valid for:</label>
+                                        <div class="sa-box-stack-top-small" style="display: inline-block;">
+                                            <fieldset class="sa-form-fieldset">
+                                                <div class="" style="width: 75%;">
+                                                    <div class="sa-layout">
+                                                        <div
+                                                            class="sa-layout-item sa-layout-item-align-left sa-layout-item-v-align-middle">
+                                                            <div class="sa-form-input-block"><input type="number"
+                                                                    id="default__0_group_templateRoot__13_group_assertionWillBeValid__1_entry_assertionValidHours"
+                                                                    name="assertionValidHours" autocomplete="off"
+                                                                    class="sa-form-input" value="8"></div>
+                                                        </div>
+                                                        <div
+                                                            class="sa-layout-item sa-layout-item-align-left sa-layout-item-v-align-middle sa-layout-item-auto-width">
+                                                            <div id="default__0_group_templateRoot__13_group_assertionWillBeValid__0_static_body"
+                                                                class="sa-type-body">&nbsp;&nbsp;Hours&nbsp;</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="sa-box-stack-top-small" style="display: inline-block;">
+                                            <fieldset class="sa-form-fieldset">
+                                                <div class="" style="width: 75%;">
+                                                    <div class="sa-layout">
+                                                        <div
+                                                            class="sa-layout-item sa-layout-item-align-left sa-layout-item-v-align-middle">
+                                                            <div class="sa-form-input-block"><input type="number"
+                                                                    id="default__0_group_templateRoot__13_group_assertionWillBeValid__2_entry_assertionValidMinutes"
+                                                                    name="assertionValidMinutes" autocomplete="off"
+                                                                    class="sa-form-input" value="0"></div>
+                                                        </div>
+                                                        <div
+                                                            class="sa-layout-item sa-layout-item-align-left sa-layout-item-v-align-middle sa-layout-item-auto-width">
+                                                            <div id="default__0_group_templateRoot__13_group_assertionWillBeValid__0_static_body"
+                                                                class="sa-type-body">&nbsp;&nbsp;Minutes&nbsp;</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
+                                    <fieldset class="sa-form-fieldset"><label class="sa-form-label">Offset
+                                            Minutes</label>
+                                        <div class="" style="width: 25%;">
+                                            <div class="sa-layout">
+                                                <div
+                                                    class="sa-layout-item sa-layout-item-align-left sa-layout-item-v-align-middle">
+                                                    <div class="sa-form-input-block"><input type="number"
+                                                            id="default__0_group_templateRoot__14_entry_assertionOffsetMinutes"
+                                                            name="assertionOffsetMinutes" autocomplete="off"
+                                                            class="sa-form-input" value=""></div>
+                                                </div>
+                                                <div
+                                                    class="sa-layout-item sa-layout-item-align-left sa-layout-item-v-align-middle sa-layout-item-auto-width">
+                                                    <div id="default__0_group_templateRoot__0_static_body"
+                                                        class="sa-type-body">
+                                                        &nbsp;&nbsp;Minutes&nbsp;</div>
+                                                </div>
+                                                <div
+                                                    class="sa-layout-item sa-layout-item-align-left sa-layout-item-v-align-middle sa-layout-item-auto-width">
+                                                    <div class="sa-tooltip-inline sa-tooltip-relative">
+                                                        <div class="sa-tooltip-inline sa-tooltip-relative"><svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                                viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
+                                                                <path
+                                                                    d="M11.5 15.996v-4h-1a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v5h1a1 1 0 0 1 0 2h-4a1 1 0 0 1 0-2h1zM22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-8-3.004a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
+                                                                </path>
+                                                            </svg></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    <div class="sa-box-stack-bottom-small-padding">
+                                        <div class="form-group">
+                                            <fieldset
+                                                id="default__0_group_templateRoot__15_group_signingCertOptions__2_static_signingCertNameFieldset"
+                                                class="sa-form-fieldset">
+                                                <div class="sa-box-stack-right-small-padding"
+                                                    style="display: inline-block;"><label
+                                                        id="default__0_group_templateRoot__15_group_signingCertOptions__0_static_label"
+                                                        class="sa-form-label">IdP Signing Certificate</label></div>
+                                                <div class="" style="display: inline-block;">
+                                                    <div id="default__0_group_templateRoot__15_group_signingCertOptions__1_other_importance"
+                                                        class="sa-type-small">
+                                                        <div class="sa-color-red">*</div>
+                                                    </div>
+                                                </div>
+                                                <div id="default__0_group_templateRoot__15_group_signingCertOptions__2_static_signingCertName"
+                                                    class="sa-type-body">No Certificate Selected&nbsp;&nbsp;&nbsp;<a
+                                                        id="default__0_group_templateRoot__15_group_signingCertOptions__0_static_signingCertLink"
+                                                        name="signingCertLink"
+                                                        class="sa-type-link">Select&nbsp;Certificate</a>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset
+                                                id="default__0_group_templateRoot__15_group_signingCertOptions__3_static_signingCertSerialNoFieldset"
+                                                class="sa-form-fieldset"><label
+                                                    id="default__0_group_templateRoot__15_group_signingCertOptions__0_static_label"
+                                                    class="sa-form-label">IdP Signing Certificate Serial
+                                                    Number</label>
+                                                <div id="default__0_group_templateRoot__15_group_signingCertOptions__1_static_signingCertSerialNo"
+                                                    class="sa-type-body"></div><a
+                                                    id="default__0_group_templateRoot__15_group_signingCertOptions__2_other_signingCertCopy"
+                                                    name="signingCertCopy" class="sa-type-link"><svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                        viewBox="0 0 24 24"
+                                                        class="sa-vertical-align-middle sa-icon-primary sa-icon-small">
+                                                        <path
+                                                            d="M15.4545 18.1818H5.45455V5.45455H15.4545V18.1818ZM15.4545 3.63636H5.45455C4.97233 3.63636 4.50987 3.82792 4.1689 4.1689C3.82792 4.50987 3.63636 4.97233 3.63636 5.45455V18.1818C3.63636 18.664 3.82792 19.1265 4.1689 19.4675C4.50987 19.8084 4.97233 20 5.45455 20H15.4545C15.9368 20 16.3992 19.8084 16.7402 19.4675C17.0812 19.1265 17.2727 18.664 17.2727 18.1818V5.45455C17.2727 4.97233 17.0812 4.50987 16.7402 4.1689C16.3992 3.82792 15.9368 3.63636 15.4545 3.63636V3.63636ZM12.7273 0H1.81818C1.33597 0 0.873508 0.191558 0.532533 0.532533C0.191558 0.873508 0 1.33597 0 1.81818V14.5455H1.81818V1.81818H12.7273V0Z">
+                                                        </path>
+                                                    </svg><span class="sa-vertical-align-middle"> Copy to
+                                                        Clipboard</span></a>
+                                            </fieldset>
+                                            <fieldset class="sa-form-fieldset-no-margin"><label
+                                                    class="sa-form-label">Signing
+                                                    Algorithm</label>
+                                                <div class="sa-box-stack-top-small sa-box-stack-right-medium sa-box-stack-bottom-small"
+                                                    style="display: inline-block;">
+                                                    <div class="sa-form-radio">
+                                                        <fieldset class="sa-form-fieldset-no-margin"><label
+                                                                for="Tzh3PDNK" class="sa-form-radio-label"><input
+                                                                    name="signingAlgorithm" id="Tzh3PDNK" type="radio"
+                                                                    checked><span
+                                                                    class="sa-form-radio-pseudo-input"><span></span></span><span
+                                                                    class="sa-form-radio-label-text">SHA1</span></label>
+                                                        </fieldset>
+                                                        <div class="sa-form-radio-children"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="sa-box-stack-top-small sa-box-stack-right-medium sa-box-stack-bottom-small"
+                                                    style="display: inline-block;">
+                                                    <div class="sa-form-radio">
+                                                        <fieldset class="sa-form-fieldset-no-margin"><label
+                                                                for="KLdtHfmV" class="sa-form-radio-label"><input
+                                                                    name="signingAlgorithm" id="KLdtHfmV"
+                                                                    type="radio"><span
+                                                                    class="sa-form-radio-pseudo-input"><span></span></span><span
+                                                                    class="sa-form-radio-label-text">SHA2</span></label>
+                                                        </fieldset>
+                                                        <div class="sa-form-radio-children"></div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="form-group d-flex align-items-center">
+
+                                            <div class="material-switch pull-right">
+                                                <input id="SAMLAss" name="someSwitchOption001" type="checkbox" />
+                                                <label for="SAMLAss" class="label-default"></label>
+                                            </div>
+                                            <label class="ml-3">Sign WS-Fed Assertion</label>
+                                        </div>
+
+                                        <div class="form-group d-flex align-items-center">
+                                            <div class="material-switch pull-right">
+                                                <input id="SAMLMess" name="someSwitchOption001" type="checkbox" />
+                                                <label for="SAMLMess" class="label-default"></label>
+                                            </div>
+                                            <label class="ml-3">Sign WS-Fed Message</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="row">
+                    <div class="col-12">
+                        <div id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="card-header" role="tab" id="samlAccordionHeadingOne">
+                                <div class="mb-0 row">
+                                    <div class="col-12 no-padding accordion-head">
+                                        <a data-toggle="collapse" data-parent="#accordion"
+                                            href="#accordionBodyOneSamlAssertion" aria-expanded="true"
+                                            aria-controls="accordionBodyOneSamlAssertion" class="collapsed ">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                            <p>WS-TRUST Endpoints <span><img src="images/chevron-down.svg"
+                                                        alt="" /></span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="accordionBodyOneSamlAssertion" class="collapse show mt-3" role="tabpanel"
+                                aria-labelledby="samlAccordionHeadingOne" aria-expanded="true" data-parent="accordion">
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label class="sa-form-label d-block">Enable O365 Legacy Endpoints</label>
+                                        <p class="subtitle">Enable these endpoints if you are using the legacy version
+                                            of O365</p>
+                                    </div>
+                                    <div class="form-group d-flex align-items-center">
+                                        <div class="material-switch pull-right">
+                                            <input id="enableEndpoints" name="enableEndpoints" type="checkbox" />
+                                            <label for="enableEndpoints" class="label-default"></label>
+                                        </div>
+                                        <label class="ml-3">Enable Endpoints</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="card-header mt-3" role="tab" id="samlAccordionHeadingTwo">
+                                <div class="mb-0 row">
+                                    <div class="col-12 no-padding accordion-head">
+                                        <a data-toggle="collapse" data-parent="#accordion"
+                                            href="#accordionBodyTwoSamlAttr" aria-expanded="true"
+                                            aria-controls="accordionBodyTwoSamlAttr" class="collapsed ">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                            <p>WS-FEDERATION Attributes <span><img src="images/chevron-down.svg"
+                                                        alt="" /></span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="accordionBodyTwoSamlAttr" class="collapse show mt-3 mb-5" role="tabpanel"
+                                aria-labelledby="samlAccordionHeadingTwo" aria-expanded="true" data-parent="accordion">
+                                <div class="col-12">
+                                    <div class="sa-box-stack-bottom-small">
+                                        <button id="btnAdd" name="attributeAddButton" class="sa-button-secondary">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
+                                                <path
+                                                    d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
+                                                </path>
+                                            </svg>
+                                            Add WS-Fed Attribute
+                                        </button>
+                                    </div>
+
+                                    <div id="samlAttribute">
+                                        <div class="row"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons-footer">
+                <button class="sa-button-secondary" id="prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                        <path
+                            d="M11.5575 12.5302L8.1225 9.09521L11.5575 5.65271L10.5 4.59521L6 9.09521L10.5 13.5952L11.5575 12.5302Z"
+                            fill="#2995F5" />
+                    </svg>
+                    Previous Step
+                </button>
+                <div class="d-flex float-right">
+                    <button class="sa-button-tertiary">
+                        <a href="applications.html">
+                            Cancel
+                        </a>
+                    </button>
+                    <button class="sa-button-primary" id="next">Next Step
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path
+                                d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".table .table-row").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#selectConnectionType').change(function () {
+                if (document.getElementById('selectConnectionType').value == "SP") {
+                    $("#radioConnection").show();
+                }
+                else {
+                    $("#radioConnection").hide();
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#btnAdd").bind("click", Add);
+            $(".btnDelete").bind("click", Delete);
+
+            function Add() {
+                $("#samlAttribute .row").prepend('<div class="col-6">' +
+                    '<div class="sa-callout mt-3">' +
+                    '<div class="sa-callout-body">' +
+                    '<div class="form-group">' +
+                    '<label class="sa-form-label">Attribute Name</label>' +
+                    '<div class="sa-form-input-block">' +
+                    '<input id="1e7e__1_entry_attributeName" name="name" type="text"' +
+                    'autocomplete="off" class="sa-form-input" value="">' +
+                    ' </div>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label class="sa-form-label">Data Store Property</label>' +
+                    '<div class="sa-select-wrapper">' +
+                    '<select name="property" class="label ui selection fluid dropdown">' +
+                    '<option value=""></option>' +
+                    '<option value="AuthenticatedUserId">Authenticated User ID' +
+                    '</option>' +
+                    '<option value="FirstName">First Name</option>' +
+                    '<option value="LastName">Last Name</option>' +
+                    '<option value="Phone1">Phone 1 (Work)</option>' +
+                    '<option value="Phone2">Phone 2 (Mobile)</option>' +
+                    '<option value="Phone3">Phone 3 (Alternate)</option>' +
+                    '<option value="Phone4">Phone 4 (Alternate)</option>' +
+                    '<option value="Email1">Email 1 (Work)</option>' +
+                    '<option value="Email2">Email 2 (Personal)</option>' +
+                    '<option value="Email3">Email 3 (Alternate)</option>' +
+                    '<option value="Email4">Email 4 (Alternate)</option>' +
+                    '<option value="AuxID1">Aux ID 1</option>' +
+                    '<option value="AuxID2">Aux ID 2</option>' +
+                    '<option value="AuxID3">Aux ID 3</option>' +
+                    '<option value="AuxID4">Aux ID 4</option>' +
+                    '<option value="AuxID5">Aux ID 5</option>' +
+                    '<option value="AuxID6">Aux ID 6</option>' +
+                    '<option value="AuxID7">Aux ID 7</option>' +
+                    '<option value="AuxID8">Aux ID 8</option>' +
+                    '<option value="AuxID9">Aux ID 9</option>' +
+                    '<option value="AuxID10">Aux ID 10</option>' +
+                    '<option value="GroupList">Groups</option>' +
+                    '<option value="FullGroupDnLis">Full Group DN List</option>' +
+                    '</select>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label class="sa-form-label">Namespace (1.1)</label>' +
+                    '<div class="sa-form-input-block">' +
+                    '<input name="namespace" type="text" autocomplete="off"' +
+                    'class="sa-form-input" value="">' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label class="sa-form-label">Format</label>' +
+                    '<div class="sa-select-wrapper">' +
+                    '<select name="property" class="label ui selection fluid dropdown">' +
+                    '<option value=""></option>' +
+                    '<option value="Basic">Basic</option>' +
+                    '<option value="URI">URI</option>' +
+                    '<option value="Unspecified">Unspecified</option>' +
+                    '<option value="Base64 Encoded">Base64 Encoded</option>' +
+                    '<option value="Group List">Group List</option>' +
+                    '</select>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label class="sa-form-label">Filtered Group</label>' +
+                    '<div class="sa-form-input-block">' +
+                    '<input name="filterGroup" type="text" autocomplete="off"' +
+                    'class="sa-form-input" value="">' +
+                    '</div>' +
+                    '</div>' +
+                    '<button name="attributeDeleteButton"' +
+                    'class="sa-button-destructive sa-button-secondary btnDelete">' +
+                    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24" class="sa-icon-destructive sa-icon-medium"><path d="M10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 0C8.68678 0 7.38642 0.258658 6.17317 0.761205C4.95991 1.26375 3.85752 2.00035 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C3.85752 17.9997 4.95991 18.7362 6.17317 19.2388C7.38642 19.7413 8.68678 20 10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 8.68678 19.7413 7.38642 19.2388 6.17317C18.7362 4.95991 17.9997 3.85752 17.0711 2.92893C16.1425 2.00035 15.0401 1.26375 13.8268 0.761205C12.6136 0.258658 11.3132 0 10 0ZM5 11H15V9H5" fill="white"></path></svg>' +
+                    'Delete Attribute' +
+                    '</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>');
+                callDropdown();
+                $(".btnDelete").bind("click", Delete);
+            };
+
+            function Delete() {
+                var par = $(this).parent().parent().parent();
+                par.remove();
+            };
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js" defer></script>
+    <script>
+        function callDropdown() {
+            $('.label.ui.dropdown')
+                .dropdown();
+
+            $('.no.label.ui.dropdown')
+                .dropdown({
+                    useLabels: false
+                });
+
+            $('.ui.button').on('click', function () {
+                $('.ui.dropdown')
+                    .dropdown('restore defaults')
+            })
+        }
+    </script>
+
+    <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth IDP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <main role="main" class="pb-5 main-container">
+        <div class="title-top title-top-internal">
+            <div class="float-left">
+                <h1 class="sa-type-header-1">
+                    <div class="sa-header-no-margin">
+                        <div class="sa-header-text d-flex">
+                            Email
+                            <div class="material-switch pull-right ml-3">
+                                <input id="yubikeySwitch" name="someSwitchOption002" type="checkbox" checked />
+                                <label for="yubikeySwitch" class="label-default"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sa-box-stack-bottom-xxmedium-padding">
+                        <div class="sa-type-body">
+                            <div class="sa-color-secondary">
+                                Users receive authentication emails at the email addresses associated with their profile
+                                as mapped in method store settings.
+                            </div>
+                        </div>
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <div class="sa-view-body">
+            <div class="row">
+                <div class="col-8 mt-5">
+                    <div class="form-group">
+                        <h2 class="sa-type-header-2 sa-type-bold">Configuration mode</h2>
+                    </div>
+                    <div class="form-group">
+                        <div class="sa-form-checkbox">
+                            <div class="sa-layout">
+                                <div
+                                    class="sa-layout-item sa-layout-item-align-left sa-layout-item-v-align-top sa-layout-item-auto-width">
+                                    <label for="NxvGn5Ym" class="sa-form-checkbox-label"><input name="LTA" id="NxvGn5Ym"
+                                            type="checkbox" checked=""><span
+                                            class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                            class="sa-form-checkbox-label-text"><strong>Login confirmation</strong>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="sa-form-checkbox-children">
+                                <div class="sa-type-small">
+                                    Users receive a login confirmation via email to approve or deny a request
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="sa-form-checkbox">
+                            <div class="sa-layout">
+                                <div
+                                    class="sa-layout-item sa-layout-item-align-left sa-layout-item-v-align-top sa-layout-item-auto-width">
+                                    <label for="kVgOiZgh" class="sa-form-checkbox-label"><input name="OTP" id="kVgOiZgh"
+                                            type="checkbox" checked=""><span
+                                            class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                            class="sa-form-checkbox-label-text"><strong>One-time
+                                                passcode</strong></span></label></div>
+                            </div>
+                            <div class="sa-form-checkbox-children">
+                                <div class="sa-type-small">Users receive a one-time passcode via email
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sa-border-bottom sa-border-margin" style="border-width: 1px;"></div>
+                    <div class="form-group">
+                        <h2 class="sa-type-header-2 sa-type-bold">Email Settings</h2>
+                    </div>
+                    <div class="form-group">
+                        <div class="sa-box-stack-bottom-xsmall">
+                            <div class="sa-type-paragraph sa-type-bold">Email Format</div>
+                        </div>
+                        <div class="sa-grid">
+                            <div class="sa-grid-row">
+                                <div class="sa-grid-column-2">
+                                    <div class="sa-form-radio"><label for="k9MmjB08" class="sa-form-radio-label"><input
+                                                name="email_format" id="k9MmjB08" type="radio" checked=""><span
+                                                class="sa-form-radio-pseudo-input"><span></span></span><span
+                                                class="sa-form-radio-label-text">HTML</span></label></div>
+                                </div>
+                                <div class="sa-grid-column-2">
+                                    <div class="sa-form-radio"><label for="yYhymh2k" class="sa-form-radio-label"><input
+                                                name="email_format" id="yYhymh2k" type="radio"><span
+                                                class="sa-form-radio-pseudo-input"><span></span></span><span
+                                                class="sa-form-radio-label-text">Plain text</span></label></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="sa-type-paragraph sa-type-bold">Passcode length</div>
+                        <div class="sa-box-stack-bottom-xsmall">
+                            <div color="tertiary" class="sa-type-small sa-color-tertiary">Set the passcodes length for
+                                your Text Message, Email and Voice Phone Call MFA methods</div>
+                        </div>
+                        <div class="sa-grid">
+                            <div class="sa-grid-row">
+                                <div class="sa-grid-column-2">
+                                    <div class="sa-select-wrapper">
+                                        <select name="otp_length" class="label ui selection dropdown">
+                                            <option value="4">4</option>
+                                            <option value="5" selected="">5</option>
+                                            <option value="6">6</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="sa-type-paragraph sa-type-bold">Associated Data Store Properties</div>
+                        <div class="sa-box-stack-bottom-small">
+                            <div color="tertiary" class="sa-type-small sa-color-tertiary">Set the data store properties
+                                that store email data for this method.</div>
+                        </div>
+                        <div class="sa-grid">
+                            <div class="sa-grid-row">
+                                <div class="sa-grid-column-4">
+                                    <div class="sa-box-stack-bottom-xsmall">
+                                        <div class="sa-form-checkbox"><label for="IqIRKI3h"
+                                                class="sa-form-checkbox-label"><input name="email1" id="IqIRKI3h"
+                                                    type="checkbox" checked=""><span
+                                                    class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                    class="sa-form-checkbox-label-text">Email 1 (Work)</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="sa-form-checkbox"><label for="PNGHq1at"
+                                            class="sa-form-checkbox-label"><input name="email2" id="PNGHq1at"
+                                                type="checkbox" checked=""><span
+                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                class="sa-form-checkbox-label-text">Email 2 (Personal)</span></label>
+                                    </div>
+                                </div>
+                                <div class="sa-grid-column-4">
+                                    <div class="sa-box-stack-bottom-xsmall">
+                                        <div class="sa-form-checkbox"><label for="ZGk9e3qT"
+                                                class="sa-form-checkbox-label"><input name="email3" id="ZGk9e3qT"
+                                                    type="checkbox"><span
+                                                    class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                    class="sa-form-checkbox-label-text">Email 3
+                                                    (Alternate)</span></label></div>
+                                    </div>
+                                    <div class="sa-form-checkbox"><label for="wafpnOMp"
+                                            class="sa-form-checkbox-label"><input name="email4" id="wafpnOMp"
+                                                type="checkbox"><span
+                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                class="sa-form-checkbox-label-text">Email 4 (Alternate)</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="buttons-footer">
+                        <div class="d-flex float-right">
+                            <button class="sa-button-tertiary"><a href="multi-factor.html">Cancel</a></button>
+                            <button class="sa-button-primary"><a href="multi-factor.html">Save</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+    <script src="js/custom.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth IDP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <main role="main" class="pb-5 main-container">
+        <div class="title-top title-top-internal">
+            <div class="float-left">
+                <h1 class="sa-type-header-1">
+                    <div class="sa-header-no-margin">
+                        <div class="sa-header-text">New Client</div>
+                    </div>
+                </h1>
+                <div class="d-flex align-items-center">
+                    <div class="steper step-active">
+                        <span>Step 1</span>
+                    </div>
+                    <div class="steper">
+                        <span>Step 2</span>
+                    </div>
+                    <div class="steper">
+                        <span>Step 3</span>
+                    </div>
+                    <div class="d-flex">
+                        <div class='circle-step circle-grey circle-active'></div>
+                        <div class='circle-step circle-grey'></div>
+                        <div class='circle-step circle-grey'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sa-view-body">
+            <div class="step active">
+                <div class="col-8">
+                    <div class="form-group">
+                        <label>Client Name <span class="asterisk">*</span></label>
+                        <input type="text" placeholder="eg. Client 01, etc." />
+                    </div>
+                    <div class="form-group d-flex">
+                        <label class="mr-3">Status</label>
+                        <div class="material-switch pull-right">
+                            <input id="statusSwitch" name="someSwitchOption001" type="checkbox" checked />
+                            <label for="statusSwitch" class="label-default"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group d-flex">
+                        <label class="mr-3">JSON Web Encryption</label>
+                        <div class="material-switch pull-right">
+                            <input id="jsonSwitch" name="jsonSwitch" type="checkbox" checked />
+                            <label for="jsonSwitch" class="label-default"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="jsonField">
+                        <label>JSON Web Key URL <span class="asterisk">*</span></label>
+                        <input type="text" placeholder="Insert URL" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>OIDC Configuration Associated <span class="asterisk">*</span></label>
+                        <p class="subtitle">Select the OIDC Configuration that be associated with this client.</p>
+                        <select name="oidc" class="label ui selection fluid dropdown">
+                            <option>OIDC Configuration 01</option>
+                            <option>OIDC Configuration 02</option>
+                            <option>OIDC Configuration 03</option>
+                            <option>OIDC Configuration 04</option>
+                            <option>OIDC Configuration 05</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="card-header" role="tab" id="accordionHeadingOne">
+                            <div class="mb-0 row">
+                                <div class="col-12 no-padding accordion-head">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyOne"
+                                        aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
+                                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                        <p>Allowed Flows <span><img src="images/chevron-down.svg" alt="" /></span></p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="accordionBodyOne" class="collapse show mt-5" role="tabpanel"
+                            aria-labelledby="accordionHeadingOne" aria-expanded="true" data-parent="accordion">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group d-flex">
+                                        <label class="mr-3" style="width: 30%;">Authorization Code</label>
+                                        <div class="material-switch pull-right">
+                                            <input id="AuthorizationCode" name="AuthorizationCode" type="checkbox"
+                                                checked />
+                                            <label for="AuthorizationCode" class="label-default"></label>
+                                        </div>
+                                        <div class="sa-form-checkbox" style="margin: -10px 0 0 20px;">
+                                            <label for="vzld3YSJ" class="sa-form-checkbox-label">
+                                                <input name="OTP" id="vzld3YSJ" type="checkbox">
+                                                <span class="sa-form-checkbox-pseudo-input">
+                                                    <span></span>
+                                                </span>
+                                                <span class="sa-form-checkbox-label-text">
+                                                    Use with PKCE Protocol
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group d-flex">
+                                        <label class="mr-3" style="width: 30%;">Implicit</label>
+                                        <div class="material-switch pull-right">
+                                            <input id="Implicit" name="Implicit" type="checkbox" />
+                                            <label for="Implicit" class="label-default"></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group d-flex">
+                                        <label class="mr-3" style="width: 30%;">Authorization Code</label>
+                                        <div class="material-switch pull-right">
+                                            <input id="Hybrid" name="Hybrid" type="checkbox" checked />
+                                            <label for="Hybrid" class="label-default"></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group d-flex">
+                                        <label class="mr-3" style="width: 30%;">Client Credentials</label>
+                                        <div class="material-switch pull-right">
+                                            <input id="ClientCredentials" name="ClientCredentials" type="checkbox"
+                                                checked />
+                                            <label for="ClientCredentials" class="label-default"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group d-flex">
+                                        <label class="mr-3" style="width: 30%;">Resource Owner</label>
+                                        <div class="material-switch pull-right">
+                                            <input id="ResourceOwner" name="ResourceOwner" type="checkbox" />
+                                            <label for="ResourceOwner" class="label-default"></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group d-flex">
+                                        <label class="mr-3" style="width: 30%;">Refresh Token</label>
+                                        <div class="material-switch pull-right">
+                                            <input id="RefreshToken" name="RefreshToken" type="checkbox" />
+                                            <label for="RefreshToken" class="label-default"></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group d-flex">
+                                        <label class="mr-3" style="width: 30%;">Introspection</label>
+                                        <div class="material-switch pull-right">
+                                            <input id="Introspection" name="Introspection" type="checkbox" />
+                                            <label for="Introspection" class="label-default"></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group d-flex">
+                                        <label class="mr-3" style="width: 30%;">Revocation</label>
+                                        <div class="material-switch pull-right">
+                                            <input id="Revocation" name="Revocation" type="checkbox" />
+                                            <label for="Revocation" class="label-default"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-8 mt-5 mb-5">
+                                    <div class="form-group input_fields_wrap">
+                                        <div class="sa-type-header-2 sa-type-bold float-left">
+                                            Client Redirect URL <span class="asterisk">*</span>
+                                        </div>
+                                        <button class="ml-5 add_field_button sa-button-secondary mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
+                                                <path
+                                                    d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
+                                                </path>
+                                            </svg>
+                                            Add URL
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="sa-header">
+                                <div class="sa-type-header-2 sa-type-bold">Scopes</div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-2 mb-5">
+                            <div class="sa-table-wrapper">
+                                <table class="sa-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="sa-table-th">Scope</th>
+                                            <th class="sa-table-th">Name</th>
+                                            <th class="sa-table-th">Description</th>
+                                            <th class="sa-table-th">Discoverable</th>
+                                            <th class="sa-table-th">Restrict</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="sa-table-td sa-table-v-align-middle">openId
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect scope.
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope1" name="tdScope1" type="checkbox" checked
+                                                        disabled />
+                                                    <label for="tdScope1" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope1b" name="tdScope1b" type="checkbox" />
+                                                    <label for="tdScope1b" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sa-table-td sa-table-v-align-middle">profile
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet Profile
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect profile
+                                                scope.
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope2" name="tdScope2" type="checkbox" disabled />
+                                                    <label for="tdScope2" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope2b" name="tdScope2b" type="checkbox" />
+                                                    <label for="tdScope2b" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sa-table-td sa-table-v-align-middle">email
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet Email
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect email
+                                                scope.
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope3" name="tdScope3" type="checkbox" checked
+                                                        disabled />
+                                                    <label for="tdScope3" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope3b" name="tdScope3b" type="checkbox" />
+                                                    <label for="tdScope3b" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sa-table-td sa-table-v-align-middle">phone
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet Phone
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect phone
+                                                scope.
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope4" name="tdScope4" type="checkbox" checked
+                                                        disabled />
+                                                    <label for="tdScope4" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope4b" name="tdScope4b" type="checkbox" />
+                                                    <label for="tdScope4b" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sa-table-td sa-table-v-align-middle">address
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet Address
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect address
+                                                scope.
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope5" name="tdScope5" type="checkbox" checked
+                                                        disabled />
+                                                    <label for="tdScope5" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope5b" name="tdScope5b" type="checkbox" />
+                                                    <label for="tdScope5b" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sa-table-td sa-table-v-align-middle">offline_access
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet
+                                                Offline_access
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect offline
+                                                access scope.
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope6" name="tdScope6" type="checkbox" checked
+                                                        disabled />
+                                                    <label for="tdScope6" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="material-switch pull-right">
+                                                    <input id="tdScope6b" name="tdScope6b" type="checkbox" />
+                                                    <label for="tdScope6b" class="label-default"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="sa-header">
+                            <div class="sa-type-header-2 sa-type-bold">Custom Claims</div>
+                        </div>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button class="sa-button-secondary" id="btnAdd">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
+                                <path
+                                    d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
+                                </path>
+                            </svg>
+                            Add Custom Claim
+                        </button>
+                    </div>
+
+                    <div id="emptyStateCustomClaims" class="col-12 text-center">
+                        <h2 class="sa-type-h2">Looks like you haven’t<br />
+                            <strong>created</strong> any <strong>custom claim</strong> yet</h2>
+                        <img src="images/empty-state.svg" alt="" />
+                    </div>
+
+                    <div class="col-12 mt-2 mb-5" id="CustomClaimsTable">
+                        <div class="sa-table-wrapper">
+                            <table class="sa-table" id="tblData">
+                                <thead>
+                                    <tr>
+                                        <th class="sa-table-th">Claim</th>
+                                        <th class="sa-table-th">Profile Property</th>
+                                        <th class="sa-table-th">Discoverable</th>
+                                        <th class="sa-table-th">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons-footer">
+                <button class="sa-button-secondary" id="prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                        <path
+                            d="M11.5575 12.5302L8.1225 9.09521L11.5575 5.65271L10.5 4.59521L6 9.09521L10.5 13.5952L11.5575 12.5302Z"
+                            fill="#2995F5" />
+                    </svg>
+                    Previous Step
+                </button>
+                <div class="d-flex float-right">
+                    <button class="sa-button-tertiary">Cancel</button>
+                    <button class="sa-button-primary" id="next">Next Step
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path
+                                d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#jsonSwitch').each(function () {
+                $(this).click(function () {
+                    $("#jsonField").toggle();
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var wrapper = $(".input_fields_wrap");
+            var add_button = $(".add_field_button");
+
+            var x = 1;
+            $(add_button).click(function (e) {
+                e.preventDefault();
+                x++;
+                $(wrapper).append('<div class="row"><div class="col-6 d-flex align-items-center mb-4"><input type="text" name="mytext[]"/><a href="#" class="remove_field"><img src="images/delete.svg" alt=""/></a></div></div>');
+            });
+
+            $(wrapper).on("click", ".remove_field", function (e) {
+                e.preventDefault(); $(this).parent('div').remove(); x--;
+            })
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#btnAdd").bind("click", Add);
+            $(".btnEdit").bind("click", Edit);
+            $(".btnDelete").bind("click", Delete);
+
+            function getRows() {
+                var count = $('#tblData tbody tr').length;
+                if (count > 0) {
+                    $("#CustomClaimsTable").css("display", "block");
+                    $("#emptyStateCustomClaims").css("display", "none");
+                }
+                else {
+                    $("#CustomClaimsTable").css("display", "none");
+                    $("#emptyStateCustomClaims").css("display", "block");
+                };
+            }
+
+            var rowNum = 7;
+
+            function Add() {
+                rowNum++;
+                $("#CustomClaimsTable").css("display", "block");
+                $("#emptyStateCustomClaims").css("display", "none");
+
+                $("#tblData tbody").prepend("<tr>" + "<td class='sa-table-td sa-table-v-align-middle'><input type='text'/></td>" +
+                    "<td class='sa-table-td sa-table-v-align-middle'>" +
+                    "<select name='profile' class='label ui selection fluid dropdown' style='padding:0 12px;'>" +
+                    "<option>- Unmapped -</option>" +
+                    "<option>Authenticate User ID</option>" +
+                    "<option>First Name</option>" +
+                    "<option>Last Name</option>" +
+                    "<option>Phone 01</option>" +
+                    "<option>Phone 02</option>" +
+                    "<option>Phone 03</option>" +
+                    "<option>Phone 04</option>" +
+                    "<option>Email 01</option>" +
+                    "<option>Email 02</option>" +
+                    "<option>Email 03</option>" +
+                    "<option>Email 04</option>" +
+                    "<option>Aux ID 01</option>" +
+                    "<option>Aux ID 02</option>" +
+                    "<option>Aux ID 01</option>" +
+                    "<option>Aux ID 03</option>" +
+                    "<option>Aux ID 04</option>" +
+                    "<option>Aux ID 05</option>" +
+                    "<option>Aux ID 06</option>" +
+                    "<option>Aux ID 07</option>" +
+                    "<option>Aux ID 08</option>" +
+                    "<option>Aux ID 09</option>" +
+                    "<option>Aux ID 10</option>" +
+                    "</select>" +
+                    "</td>" +
+                    "<td class='sa-table-td sa-table-v-align-middle'><div class='material-switch pull-right'>" +
+                    "<input id='tdSwitch" + rowNum + "' name='tdSwitch1' type='checkbox' />" +
+                    "<label for='tdSwitch" + rowNum + "' class='label-default'></label>" +
+                    "</div></td>" +
+                    "<td class='sa-table-td sa-table-v-align-middle'>" +
+                    "<img src='images/status-success.svg' class='btnSave'><img src='images/cancel.svg' class='btnDelete'/></td>" + "</tr>");
+                $(".btnSave").bind("click", Save);
+                $(".btnDelete").bind("click", Delete);
+                getRows();
+            };
+
+            function Save() {
+                var par = $(this).parent().parent();
+                //tr 
+                var tdCustomClaim = par.children("td:nth-child(1)");
+                var tdProfile = par.children("td:nth-child(2)");
+                var tdDiscoverable = par.children("td:nth-child(3)");
+                var tdButtons = par.children("td:nth-child(4)");
+                tdCustomClaim.html(tdCustomClaim.children("input[type=text]").val());
+                tdProfile.html(tdProfile.children("input[type=text]").val());
+                tdButtons.html("<svg class='btnEdit' width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>" +
+                    "<path d='M14.06 8.99988L15 9.93988L5.92 18.9999H5V18.0799L14.06 8.99988ZM17.66 2.99988C17.41 2.99988 17.15 3.09988 16.96 3.28988L15.13 5.11988L18.88 8.86988L20.71 7.03988C21.1 6.64988 21.1 5.99988 20.71 5.62988L18.37 3.28988C18.17 3.08988 17.92 2.99988 17.66 2.99988ZM14.06 6.18988L3 17.2499V20.9999H6.75L17.81 9.93988L14.06 6.18988Z' fill='#2995F5' />" +
+                    "</svg>" +
+                    "<img src='images/delete.svg' class='btnDelete'/>");
+                $(".btnEdit").bind("click", Edit);
+                $(".btnDelete").bind("click", Delete);
+                getRows();
+            };
+
+            function Edit() {
+                var par = $(this).parent().parent();
+                //tr 
+                var tdCustomClaim = par.children("td:nth-child(1)");
+                var tdProfile = par.children("td:nth-child(2)");
+                var tdDiscoverable = par.children("td:nth-child(3)");
+                var tdButtons = par.children("td:nth-child(4)");
+
+                tdCustomClaim.html("<input type='text' id='txtName' value='" + tdCustomClaim.html() + "'/>");
+                tdButtons.html("<img src='images/status-success.svg' class='btnSave'><img src='images/cancel.svg' class='btnSave'/></td>" + "</tr>");
+                $(".btnSave").bind("click", Save);
+                $(".btnEdit").bind("click", Edit);
+                $(".btnDelete").bind("click", Delete);
+                getRows();
+            };
+
+            function Delete() {
+                var par = $(this).parent().parent();
+                par.remove();
+                getRows();
+            };
+            getRows();
+        });
+    </script>
+
+    <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+
+</html>

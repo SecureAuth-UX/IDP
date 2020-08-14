@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth IDP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <main role="main" class="pb-5 main-container">
+        <div class="title-top title-top-internal">
+            <div class="float-left">
+                <h1 class="sa-type-header-1">
+                    <div class="sa-header-no-margin">
+                        <div class="sa-header-text d-flex">
+                            YubiKey (non-FIDO2)
+                            <div class="material-switch pull-right ml-3">
+                                <input id="yubikeySwitch" name="someSwitchOption002" type="checkbox" checked />
+                                <label for="yubikeySwitch" class="label-default"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sa-box-stack-bottom-xxmedium-padding">
+                        <div class="sa-type-body">
+                            <div class="sa-color-secondary">
+                                Users authenticate using FIDO2
+                                (WebAuthn) bound and roaming devices, such as Windows Hello and compliant YubiKeys.
+                            </div>
+                        </div>
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <div class="sa-view-body">
+            <div class="row justify-content-center">
+                <div class="col-8 mt-4">
+                    <div data-id="sa-toast"
+                        class="sa-toast sa-toast-warning-no-hover sa-toast-appear-done sa-toast-enter-done">
+                        <div class="sa-toast-icon"><svg xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24"
+                                class="sa-icon-orange sa-icon-large" transform="rotate(180) translate(3,3)">
+                                <path
+                                    d="M9 7H11V5H9V7ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 0C8.68678 0 7.38642 0.258658 6.17317 0.761205C4.95991 1.26375 3.85752 2.00035 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C3.85752 17.9997 4.95991 18.7362 6.17317 19.2388C7.38642 19.7413 8.68678 20 10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 8.68678 19.7413 7.38642 19.2388 6.17317C18.7362 4.95991 17.9997 3.85752 17.0711 2.92893C16.1425 2.00035 15.0401 1.26375 13.8268 0.761205C12.6136 0.258658 11.3132 0 10 0V0ZM9 15H11V9H9V15Z">
+                                </path>
+                            </svg></div>
+                        <div class="sa-toast-text" data-id="sa-toast-text">
+                            <div class="sa-type-small">These settings are for non-FIDO2 YubiKeys. For FIDO2-compliant
+                                YubiKeys, go back and enable FIDO2 (WebAuthn).</div>
+                        </div>
+                        <div class="sa-toast-actions"></div>
+                    </div>
+
+                    <div data-id="sa-toast"
+                        class="sa-toast sa-toast-info-no-hover sa-toast-appear-done sa-toast-enter-done">
+                        <div class="sa-toast-icon"><svg xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24"
+                                class="sa-icon-info sa-icon-large" transform="translate(1,1)">
+                                <path
+                                    d="M9 7H11V5H9V7ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 0C8.68678 0 7.38642 0.258658 6.17317 0.761205C4.95991 1.26375 3.85752 2.00035 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C3.85752 17.9997 4.95991 18.7362 6.17317 19.2388C7.38642 19.7413 8.68678 20 10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 8.68678 19.7413 7.38642 19.2388 6.17317C18.7362 4.95991 17.9997 3.85752 17.0711 2.92893C16.1425 2.00035 15.0401 1.26375 13.8268 0.761205C12.6136 0.258658 11.3132 0 10 0V0ZM9 15H11V9H9V15Z">
+                                </path>
+                            </svg></div>
+                        <div class="sa-toast-text" data-id="sa-toast-text">
+                            <div class="sa-type-small">Configure the YubiKey provisioning settings in the Workflow tab
+                                in the Classic Experience.</div>
+                        </div>
+                        <div class="sa-toast-actions"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8 mt-5">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <div class="sa-form-checkbox">
+                                <div class="sa-layout">
+                                    <div class="sa-layout-item sa-layout-item-align-left sa-layout-item-v-align-top sa-layout-item-auto-width">
+                                        <label for="vzld3YSJ" class="sa-form-checkbox-label"><input name="OTP"
+                                                id="vzld3YSJ" type="checkbox" checked=""><span
+                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                class="sa-form-checkbox-label-text"><strong>Yubico
+                                                    OTP</strong></span></label></div>
+                                </div>
+                                <div class="sa-form-checkbox-children">
+                                    <div class="sa-type-small">The YubiKey generates an encrypted password for one-time
+                                        use. Hackers require physical access of the YubiKey to generate the OTP.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <div class="sa-form-checkbox">
+                                <div class="sa-layout">
+                                    <div
+                                        class="sa-layout-item sa-layout-item-align-left sa-layout-item-v-align-top sa-layout-item-auto-width">
+                                        <label for="YknQqNmD" class="sa-form-checkbox-label"><input name="HOTP"
+                                                id="YknQqNmD" type="checkbox" checked=""><span
+                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                class="sa-form-checkbox-label-text"><strong>OATH
+                                                    HOTP</strong></span></label></div>
+                                </div>
+                                <div class="sa-form-checkbox-children">
+                                    <div class="sa-type-small">The YubiKey generates a six or eight character, one-time
+                                        password using OATH HOTP, a strong open authentication standard. The action is
+                                        event-based.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div
+                            class="form-group sa-box-stack-left-xmedium sa-box-stack-left-xsmall-padding">
+                            <div class="sa-type-paragraph sa-type-bold">Passcode length</div>
+                            <div class="sa-box-stack-bottom-xsmall">
+                                <div color="tertiary" class="sa-type-small sa-color-tertiary">Set the passcode length
+                                    for your Yubikey and Authentication App MFA methods.</div>
+                            </div>
+                            <div class="sa-grid">
+                                <div class="sa-grid-row">
+                                    <div class="sa-grid-column-2">
+                                        <div class="sa-select-wrapper">
+                                            <select name="passcode_length"
+                                                class="label ui selection dropdown">
+                                                <option value="6" selected="">6</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12">
+                    <div class="buttons-footer">
+                        <div class="d-flex float-right">
+                            <button class="sa-button-tertiary"><a href="multi-factor.html">Cancel</a></button>
+                            <button class="sa-button-primary"><a href="multi-factor.html">Save</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+    <script src="js/custom.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+
+</html>

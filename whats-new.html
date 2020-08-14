@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth IDP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="header"></div>
+    <main role="main">
+        <div class="title-top">
+            <div class="float-left">
+                <h1 class="sa-type-header-1">
+                    <div class="sa-header-no-margin">
+                        <div class="sa-header-text">What's New</div>
+                    </div>
+
+                    <div class="sa-box-stack-bottom-xxmedium-padding">
+                        <div class="sa-type-body">
+                            <div class="sa-color-secondary">
+                                Here's what's new in SecureAuth Identity Platform 20.06
+                            </div>
+                        </div>
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <div class="sa-view-body">
+            <div class="sa-box-stack-top-large-padding sa-box-stack-bottom-medium-padding">
+                <div style="display: flex; align-items: center;">
+                    <h3 class="sa-type-header-3 sa-type-bold" style="display: flex;">FIDO2 Device Support in User Logins
+                        <span class="sa-tag sa-tag-orange">
+                            <div class="sa-type-caption">New Feature!</div>
+                        </span></h3>
+                </div>
+                <div class="sa-box-stack-top-medium-padding">
+                    <div class="sa-type-paragraph">FIDO2 (WebAuthn) is now available to support compatible devices for
+                        any
+                        of your policy workflows. After users successfully register their FIDO2 devices, the
+                        authentication
+                        protocol is available as an option during the end user login experience.</div>
+                </div>
+            </div>
+            <div class="sa-header-small">
+                <div class="sa-header-text-small"></div>
+            </div>
+            <div class="sa-box-stack-top-medium-padding sa-box-stack-bottom-medium-padding">
+                <h3 class="sa-type-header-3 sa-type-bold">Expanded Data Store Support *</h3>
+                <div class="sa-box-stack-top-medium-padding">
+                    <div class="sa-type-paragraph">
+                        <p>Additional data store support is available as part of the New Experience.</p>
+                        <p>Beyond AD and SQL, administrators will now see more data store options including Azure AD,
+                            Generic LDAP, NetIQ eDirectory, and Oracle DB.</p>
+                    </div>
+                </div>
+                <div class="sa-box-stack-top-small-padding">
+                    <div class="sa-type-small">
+                        <div class="sa-color-grey_dark">* Availability depends on the Identity Platform deployment type:
+                            cloud or hybrid.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sa-header-small">
+                <div class="sa-header-text-small"></div>
+            </div>
+            <div class="sa-box-stack-top-medium-padding sa-box-stack-bottom-medium-padding">
+                <div style="display: flex; align-items: center;">
+                    <h3 class="sa-type-header-3 sa-type-bold" style="display: flex;">Dynamic IP Blocking <span
+                            class="sa-tag sa-tag-orange">
+                            <div class="sa-type-caption">New Feature!</div>
+                        </span></h3>
+                </div>
+                <div class="sa-box-stack-top-medium-padding">
+                    <div class="sa-type-paragraph">
+                        <p>Enhanced security is now available in any login workflow via Dynamic IP Blocking.</p>
+                        <p>Further protect your corporate resources against password spraying and other online password
+                            attacks by blocking the associated IP addresses for any amount of time you specify.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sa-header-small">
+                <div class="sa-header-text-small"></div>
+            </div>
+            <div class="sa-box-stack-top-medium-padding sa-box-stack-bottom-medium-padding">
+                <h3 class="sa-type-header-3 sa-type-bold">SecureAuth Connector Enhancements *</h3>
+                <div class="sa-box-stack-top-medium-padding">
+                    <div class="sa-type-paragraph">Improvements include display of the Connector GUID and Last Check
+                        time in
+                        minutes, days, and months.</div>
+                </div>
+                <div class="sa-box-stack-top-small-padding">
+                    <div class="sa-type-small">
+                        <div class="sa-color-grey_dark">* Available in the Identity Platform cloud deployment.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sa-header-small">
+                <div class="sa-header-text-small"></div>
+            </div>
+            <div class="sa-box-stack-top-medium-padding sa-box-stack-bottom-medium-padding">
+                <div>
+                    <h3 class="sa-type-header-3 sa-type-bold">New UI Experience</h3>
+                </div>
+                <div class="sa-box-stack-top-medium-padding">
+                    <div class="sa-type-paragraph">The Identity Platform boasts an all new look and feel providing users
+                        an
+                        intuitive and easy to use interface (UI) with a cleaner and more modern design.</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+
+</html>

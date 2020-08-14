@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth IDP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <main role="main" class="pb-5 main-container">
+        <div class="title-top title-top-internal">
+            <div class="float-left">
+                <h1 class="sa-type-header-1">
+                    <div class="sa-header-no-margin">
+                        <div class="sa-header-text">Login by OS</div>
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <div class="sa-view-body">
+                <div class="form-group clearfix">
+                    <select name="dates" class="label ui selection dropdown select-noborder">
+                        <option>Past 24 hs.</option>
+                        <option>Past 7 days</option>
+                        <option selected>Past 30 days</option>
+                        <option>Past year</option>
+                    </select>
+                </div>
+
+                <div class="form-group clearfix">
+                    <table class="sa-table">
+                        <thead>
+                            <tr>
+                                <th class="sa-table-th" style="width: 70%; min-width: 70%;">OS Name</th>
+                                <th class="sa-table-th" style="width: 30%; min-width: 30%;">Number of Logins</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="sa-table-td">Mac OS X</td>
+                                <td class="sa-table-td">1</td>
+                            </tr>
+                            <tr>
+                                <td class="sa-table-td">Windows 10</td>
+                                <td class="sa-table-td">1</td>
+                            </tr>
+                            <tr>
+                                <td class="sa-table-td">Android</td>
+                                <td class="sa-table-td">0</td>
+                            </tr>
+                            <tr>
+                                <td class="sa-table-td">Other</td>
+                                <td class="sa-table-td">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons-footer">
+                    <div class="d-flex float-right">
+                        <button class="sa-button-tertiary"><a href="dashboard.html">Back to Dashboard</a></button>
+                    </div>
+                </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+    <script src="js/custom.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1673 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth IDP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .material-switch {
+            margin-top: 0;
+        }
+
+        .sa-form-switch-children {
+            margin-left: 57px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <main role="main" class="pb-5 main-container">
+        <div class="title-top title-top-internal">
+            <div class="float-left">
+                <h1 class="sa-type-header-1">
+                    <div class="sa-header-no-margin">
+                        <div class="sa-header-text">Add Data Store</div>
+                    </div>
+                </h1>
+                <div class="d-flex align-items-center">
+                    <div class="steper step-active">
+                        <span>Step 1</span>
+                    </div>
+                    <div class="steper">
+                        <span>Step 2</span>
+                    </div>
+                    <div class="d-flex">
+                        <div class='circle-step circle-grey circle-active'></div>
+                        <div class='circle-step circle-grey'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sa-view-body">
+            <div class="row">
+                <div class="step active">
+                    <div class="col-8 mt-4">
+                        <div class="form-group">
+                            <label>Data Store Name <span class="asterisk">*</span></label>
+                            <div class="sa-form-description">Identifies your data store in SecureAuth® Identity Platform
+                            </div>
+                            <input type="text" placeholder="eg. Employees, Contractors, etc." />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Connection Type <span class="asterisk">*</span></label>
+                            <select name="datastores" id="selectDataStores" class="label ui selection fluid dropdown">
+                                <option hidden selected>Select your data store type </option>
+                                <option value="activeDirectory">Active Directory</option>
+                                <option value="sql">SQL Server</option>
+                                <option value="noved">NetIQ eDirectory</option>
+                                <option value="gldap">Generic LDAP</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="activeDirectory" class="sectionsData col-12 form-group">
+                        <div class="form-group">
+                            <div class="sa-form-switch">
+                                <div class="d-flex align-items-center">
+                                    <div class="material-switch pull-right">
+                                        <input id="statusSwitch" name="someSwitchOption001" type="checkbox" />
+                                        <label for="statusSwitch" class="label-default"></label>
+                                    </div>
+                                    <label class="ml-3">Use this directory for user membership validation</label>
+                                </div>
+                            </div>
+                            <div class="sa-form-switch-children">
+                                <div class="sa-type-caption"> Sets this directory to be searched as a source of user
+                                    membership data (i.e., usernames and passwords). </div>
+                            </div>
+                        </div>
+
+                        <div id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="card-header" role="tab" id="accordionHeadingOne">
+                                <div class="mb-0 row">
+                                    <div class="col-12 no-padding accordion-head">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyOne"
+                                            aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                            <p>Connection Settings <span><img src="images/chevron-down.svg" alt="" /></span></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="accordionBodyOne" class="mt-4 collapse show" role="tabpanel"
+                                aria-labelledby="accordionHeadingOne" aria-expanded="true" data-parent="accordion">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="form-group">
+                                            <div class="sa-header-text-small">Connection String</div>
+                                            <div class="sa-type-small">Enter the domain for your directory to
+                                                auto-populate
+                                                the connection string. To manually enter the connection string, click
+                                                "advanced mode".
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <label class="sa-form-label">Source Domain
+                                                        <div class="sa-form-input-block">
+                                                            <input placeholder="directory.domain" id="n_ad_sourceDomain"
+                                                                type="text" autocomplete="off" class="sa-form-input"
+                                                                value="">
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                <div class="col-8">
+                                                    <label class="sa-form-label">
+                                                        <div class="float-left">
+                                                            <div class="" style="display: inline-block;">
+                                                                <span>Connection String</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="float-right">
+                                                            <a class="sa-type-link"> advanced mode</a></div>
+                                                    </label>
+                                                    <div class="sa-form-input-block">
+                                                        <input disabled="" id="n_ad_connectString" type="text"
+                                                            autocomplete="off" class="sa-form-input" value="LDAP:///">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="sa-box-stack-top-large">
+                                                <div class="sa-header-text-small">Credentials</div>
+                                            </div>
+
+                                            <div class="card-block radiobuttons">
+                                                <label for="opt1Credentials" class="radio">
+                                                    <input type="radio" name="credentials" id="opt1Credentials"
+                                                        class="hidden" checked />
+                                                    <span class="label"></span>Enter Service Account Credentials
+                                                </label>
+
+                                                <label for="opt2CyberArk" class="radio">
+                                                    <input type="radio" name="credentials" id="opt2CyberArk"
+                                                        class="hidden" />
+                                                    <span class="label"></span>Use CyberArk Vault for Credentials
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group" id="accountCredentials">
+                                                <div class="col-8 sa-callout p-3">
+                                                    <div class="form-group">
+                                                        <label>Service Account Login <span
+                                                                class="asterisk">*</span></label>
+                                                        <div class="d-flex">
+                                                            <input type="text" placeholder="user@directory.domain" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Password <span class="asterisk">*</span></label>
+                                                        <div class="d-flex">
+                                                            <input type="password"
+                                                                placeholder="Enter account password..." />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group" id="CyberArk">
+                                                <div class="col-8 sa-callout p-3">
+                                                    <div class="form-group">
+                                                        <label>Username</label>
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Address</label>
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Safe</label>
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Folder</label>
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Object</label>
+                                                        <input type="text" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="sa-box-stack-top-large">
+                                                <div class="sa-header-text-small">Search Filter</div>
+                                            </div>
+                                            <div class="sa-box-stack-bottom-medium">
+                                                <div class="sa-type-small">Enter or select the search attribute used to
+                                                    find
+                                                    a user's account to auto-populate the search filter. To enter a
+                                                    custom
+                                                    search filter, click "advanced mode".</div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <label class="sa-form-label">Username Attribute</label>
+                                                    <div class="sa-select-wrapper">
+                                                        <select id="n_ad_searchAttribute"
+                                                            class="label ui selection fluid dropdown">
+                                                            <option value="samAccountName">samAccountName</option>
+                                                            <option value="userPrincipalName">userPrincipalName (UPN)
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <label class="sa-form-label">
+                                                        <div class="float-left">
+                                                            <span>Search Filter</span>
+                                                        </div>
+                                                        <div class="float-right">
+                                                            <a class="sa-type-link"> advanced mode</a>
+                                                        </div>
+                                                    </label>
+                                                    <div class="sa-form-input-block">
+                                                        <input disabled="" id="n_ad_searchFilter" type="text"
+                                                            autocomplete="off" class="sa-form-input"
+                                                            value="(&amp;(samAccountName=%v)(objectclass=*))">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-header mt-3" role="tab" id="accordionHeadingTwo">
+                                <div class="mb-0 row">
+                                    <div class="col-12 no-padding accordion-head">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyTwo"
+                                            aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                            <p>Advanced Settings <span><img src="images/chevron-down.svg" alt="" /></span></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="accordionBodyTwo" class="mt-4 collapse show" role="tabpanel"
+                                aria-labelledby="accordionHeadingTwo" aria-expanded="true" data-parent="accordion">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="form-group">
+                                            <label class="sa-form-label">Encryption Attribute
+                                                <div class="sa-form-description">A unique ID used to encrypt user data.
+                                                </div>
+                                                <div class="sa-form-input-block">
+                                                    <input id="n_ad_encryptionAttribute" type="text" autocomplete="off"
+                                                        class="sa-form-input" value="samAccountName">
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="sa-header-text-small">Validate User Type</div>
+                                            <div class="card-block radiobuttons">
+                                                <label for="bind" class="radio">
+                                                    <input type="radio" name="rdo" id="bind" class="hidden" checked />
+                                                    <span class="label"></span>Bind
+                                                </label>
+
+                                                <label for="search" class="radio">
+                                                    <input type="radio" name="rdo" id="search" class="hidden" />
+                                                    <span class="label"></span>Search
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sa-form-label">Connection Mode</label>
+                                            <div class="sa-select-wrapper">
+                                                <select id="n_ad_searchAttribute" class="label ui selection dropdown">
+                                                    <option value="Secure">Secure</option>
+                                                    <option value="SSL">SSL</option>
+                                                    <option value="Standard">Standard</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="sa-form-switch">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="material-switch pull-right">
+                                                        <input id="queriesSwitch" name="someSwitchOption001"
+                                                            type="checkbox" />
+                                                        <label for="queriesSwitch" class="label-default"></label>
+                                                    </div>
+                                                    <label class="ml-3">Allow Anonymous Queries</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="sa-form-switch">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="material-switch pull-right">
+                                                        <input id="userChecksSwitch" name="someSwitchOption001"
+                                                            type="checkbox" />
+                                                        <label for="userChecksSwitch" class="label-default"></label>
+                                                    </div>
+                                                    <label class="ml-3">Allow Advanced User Checks
+                                                        <span class="sa-color-green">Recommended</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="sa-form-switch-children">
+                                                <div class="sa-type-caption"> Allow SecureAuth® Identity Platform to
+                                                    search
+                                                    this
+                                                    directory for additional user information, such as account locked.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="sql" class="sectionsData col-12 form-group">
+                        <div class="form-group">
+                            <div class="sa-form-switch">
+                                <div class="d-flex align-items-center">
+                                    <div class="material-switch pull-right">
+                                        <input id="statusSwitch" name="someSwitchOption001" type="checkbox" />
+                                        <label for="statusSwitch" class="label-default"></label>
+                                    </div>
+                                    <label class="ml-3">Use this directory for user membership validation</label>
+                                </div>
+                            </div>
+                            <div class="sa-form-switch-children">
+                                <div class="sa-type-caption"> Sets this directory to be searched as a source of user
+                                    membership data (i.e., usernames and passwords). </div>
+                            </div>
+                        </div>
+
+                        <div id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="card-header" role="tab" id="accordionHeadingOne">
+                                <div class="mb-0 row">
+                                    <div class="col-12 no-padding accordion-head">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyOne"
+                                            aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                            <p>Connection Settings <span><img src="images/chevron-down.svg" alt="" /></span></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="accordionBodyOne" class="mt-4 collapse show" role="tabpanel"
+                                aria-labelledby="accordionHeadingOne" aria-expanded="true" data-parent="accordion">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="form-group">
+                                            <div class="sa-header-text-small">Connection String</div>
+                                            <div class="sa-type-small">A connection string will be auto-populated for
+                                                you
+                                                based on the information you provided below.
+                                                To enter a custom connection string, click "advanced mode".
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sa-form-label">
+                                                <div class="float-left">
+                                                    <div class="" style="display: inline-block;">
+                                                        <span>Connection String</span>
+                                                    </div>
+                                                </div>
+                                                <div class="float-right">
+                                                    <a class="sa-type-link"> advanced mode</a></div>
+                                            </label>
+                                            <div class="sa-form-input-block">
+                                                <input disabled="" id="n_ad_connectString" type="text"
+                                                    autocomplete="off" class="sa-form-input" value="LDAP:///">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Data Source</label>
+                                            <input type="text" placeholder="[ServerName]" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Initial Catalog</label>
+                                            <input type="text" placeholder="[DatabaseName]" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="sa-form-switch">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="material-switch pull-right">
+                                                        <input id="integratedSwitch" name="someSwitchOption001"
+                                                            type="checkbox" />
+                                                        <label for="integratedSwitch" class="label-default"></label>
+                                                    </div>
+                                                    <label class="ml-3">Enable Integrated Security</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="sa-form-switch">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="material-switch pull-right">
+                                                        <input id="persistSwitch" name="someSwitchOption001"
+                                                            type="checkbox" checked />
+                                                        <label for="persistSwitch" class="label-default"></label>
+                                                    </div>
+                                                    <label class="ml-3">Persist Security Info</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="sa-box-stack-top-large">
+                                                <div class="sa-header-text-small">Credentials</div>
+                                            </div>
+
+                                            <div class="card-block radiobuttons">
+                                                <label for="opt1CredentialsSql" class="radio">
+                                                    <input type="radio" name="credentialsSql" id="opt1CredentialsSql"
+                                                        class="hidden" checked />
+                                                    <span class="label"></span>Enter Service Account Credentials
+                                                </label>
+
+                                                <label for="opt2CyberArkSql" class="radio">
+                                                    <input type="radio" name="credentialsSql" id="opt2CyberArkSql"
+                                                        class="hidden" />
+                                                    <span class="label"></span>Use CyberArk Vault for Credentials
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group" id="accountCredentialsSql">
+                                                <div class="col-8 sa-callout p-3">
+                                                    <div class="form-group">
+                                                        <label>Service Account Login <span
+                                                                class="asterisk">*</span></label>
+                                                        <div class="d-flex">
+                                                            <input type="text" placeholder="user@directory.domain" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Password <span class="asterisk">*</span></label>
+                                                        <div class="d-flex">
+                                                            <input type="password"
+                                                                placeholder="Enter account password..." />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group" id="CyberArkSql">
+                                                <div class="col-8 sa-callout p-3">
+                                                    <div class="form-group">
+                                                        <label>Username</label>
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Address</label>
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Safe</label>
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Folder</label>
+                                                        <input type="text" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Object</label>
+                                                        <input type="text" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-header mt-3" role="tab" id="accordionHeadingTwo">
+                                <div class="mb-0 row">
+                                    <div class="col-12 no-padding accordion-head">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyTwo"
+                                            aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                            <p>Advanced Settings <span><img src="images/chevron-down.svg" alt="" /></span></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="accordionBodyTwo" class="mt-4 collapse show" role="tabpanel"
+                                aria-labelledby="accordionHeadingTwo" aria-expanded="true" data-parent="accordion">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="form-group">
+                                            <label class="sa-form-label">Password Format</label>
+                                            <div class="sa-select-wrapper">
+                                                <select class="label ui selection dropdown">
+                                                    <option value="Clear">Clear</option>
+                                                    <option value="Encrypted">Encrypted</option>
+                                                    <option value="Hashed">Hashed</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="sa-header-text-small">Stored Procedure Configuration
+                                            </div>
+                                            <div class="sa-type-small">
+                                                SecureAuth® Identity Platform is preconfigured to use the stored
+                                                procedure
+                                                values outlined in our <a
+                                                    href="https://docs.secureauth.com/pages/viewpage.action?pageId=60570638"
+                                                    target="_blank">SQL User Data Store Tables and Stored Procedures
+                                                    Configuration Guide</a>. If you are using custom stored procedures
+                                                for
+                                                membership and profile data access, please provide those in the
+                                                appropriate
+                                                fields below.
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Get User</label>
+                                            <div class="sa-form-description">
+                                                Checks if the username exists, and returns the same username in the case
+                                                that it does
+                                            </div>
+                                            <input type="text" value="sp_GetUser" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Create User
+                                            </label>
+                                            <div class="sa-form-description">
+                                                Inserts the username and password into the user table, and returns a
+                                                MembershipCreateStatus enumeration
+                                            </div>
+                                            <input type="text" value="sp_CreateUser" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Get/Validate Password</label>
+                                            <div class="sa-form-description">
+                                                Gets the password, password salt, and password format
+                                            </div>
+                                            <input type="text" value="sp_GetPasswordWithFormat" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Reset Password</label>
+                                            <div class="sa-form-description">
+                                                Resets the password for the given user
+                                            </div>
+                                            <input type="text" value="sp_ResetPassword" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Get User Profile</label>
+                                            <div class="sa-form-description">
+                                                Retrieves the profile of the given username
+                                            </div>
+                                            <input type="text" value="sp_GetUserProfile" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Update User Profile</label>
+                                            <div class="sa-form-description">
+                                                Updates the user profile with the given profile information
+                                            </div>
+                                            <input type="text" value="sp_UpdateUserProfile" />
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons-footer">
+                        <div class="d-flex float-right">
+                            <button class="sa-button-tertiary">Cancel</button>
+                            <button class="sa-button-primary" id="nextStepOne">Next Step <svg
+                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                    fill="none">
+                                    <path
+                                        d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
+                                        fill="white" />
+                                </svg></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="col-12 mb-5">
+                        <div class="sa-header">
+                            <div class="sa-type-header-2 sa-type-bold">Map Data Store Properties
+                            </div>
+                        </div>
+                        <div class="sa-box-stack-bottom-medium">
+                            <div class="sa-type-paragraph">Properties are required user data that need to be read
+                                from your directories or databases. &nbsp;Enter the Active Directory field that
+                                contains the property named to the left to complete configuration of your data
+                                store. Note that you cannot use the same attribute in more than one field.</div>
+                        </div>
+                        <div class="sa-table-wrapper">
+                            <table class="sa-table">
+                                <thead>
+                                    <tr>
+                                        <th class="sa-table-th">Name</th>
+                                        <th class="sa-table-th" style="width: 30%; min-width: 30%;">Active Directory
+                                            Field</th>
+                                        <th class="sa-table-th" style="width: 30%; min-width: 30%;">Data Format
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>First Name</strong> <span class="asterisk">*</span></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_first_name_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value="givenName">
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper">
+                                                    <select id="n_ad_props_profile_first_name_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                    <span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Last Name</strong> <span class="asterisk">*</span></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_last_name_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value="sn"></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_last_name_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Groups</strong> <span class="asterisk">*</span></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_groups_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value="memberOf">
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_groups_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Phone 1 (Work)</strong>
+                                            <span class="sa-color-green">Recommended</span></span></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_phone_1_field" type="text"
+                                                        autocomplete="off" class="sa-form-input"
+                                                        value="telephoneNumber"></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_phone_1_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Phone 2 (Mobile)</strong> <span
+                                                class="sa-color-green">Recommended</span></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_phone_2_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value="mobile">
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_phone_2_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Phone 3 (Alternate)</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_phone_3_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_phone_3_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Phone 4 (Alternate)</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_phone_4_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_phone_4_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Email 1 (Work)</strong> <span class="asterisk">*</span></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_email_1_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value="mail"></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_email_1_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Email 2 (Personal)</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_email_2_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_email_2_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Email 3 (Alternate)</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_email_3_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_email_3_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Email 4 (Alternate)</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_email_4_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_email_4_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>PIN</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_pin_field" type="text" autocomplete="off"
+                                                        class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_pin_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Knowledge Base Questions</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_kbqs_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_kbqs_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Knowledge Base Answers</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_kbas_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_kbas_dataFormat" disabled=""
+                                                        class="sa-form-select">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select><span class="sa-form-arrow-icon"><svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            viewBox="0 0 24 24" class="sa-icon-disabled sa-icon-small">
+                                                            <path
+                                                                d="M3.126 8.697C2.856 8.44 3.048 8 3.43 8h17.14c.382 0 .574.44.304.698L12.29 16.88a.444.444 0 0 1-.607 0L3.126 8.697z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Push Notification Tokens</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_push_notification_tokens_field"
+                                                        type="text" autocomplete="off" class="sa-form-input" value="">
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper">
+                                                    <select id="n_ad_props_profile_push_notification_tokens_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_binary">plain binary</option>
+                                                        <option value="json">json</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Hardware Token</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_hardware_token_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_hardware_token_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>One Time OATH List</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_one_time_oath_list_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_one_time_oath_list_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>OATH Token</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_oath_token_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_oath_token_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_binary">plain binary</option>
+                                                        <option value="json">json</option>
+                                                        <option value="encrypted_json">encrypted json</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Device Profiles</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_device_profiles_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_device_profiles_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_binary">plain binary</option>
+                                                        <option value="json">json</option>
+                                                    </select></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Access Histories</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_access_histories_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_access_histories_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_binary">plain binary</option>
+                                                        <option value="json">json</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Behavioral Biometrics</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_behavioral_biometrics_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_behavioral_biometrics_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Google Sync Password Date</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_google_sync_pass_date_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_google_sync_pass_date_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Cookie Revocation Keys</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_cookie_keys_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_cookie_keys_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select></div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Aux ID 1</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_aux_id_1_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_aux_id_1_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Aux ID 2</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_aux_id_2_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_aux_id_2_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Aux ID 3</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_aux_id_3_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_aux_id_3_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Aux ID 4</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_aux_id_4_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_aux_id_4_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Aux ID 5</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_aux_id_5_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_aux_id_5_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Aux ID 6</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_aux_id_6_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_aux_id_6_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Aux ID 7</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_aux_id_7_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_aux_id_7_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Aux ID 8</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_aux_id_8_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_aux_id_8_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Aux ID 9</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_aux_id_9_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_aux_id_9_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <strong>Aux ID 10</strong></td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-form-input-block"><input
+                                                        id="n_ad_props_profile_aux_id_10_field" type="text"
+                                                        autocomplete="off" class="sa-form-input" value=""></div>
+                                            </fieldset>
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
+                                            <fieldset class="sa-form-fieldset-no-margin">
+                                                <div class="sa-select-wrapper"><select
+                                                        id="n_ad_props_profile_aux_id_10_dataFormat"
+                                                        class="label ui selection fluid dropdown">
+                                                        <option value="plain_text">plain text</option>
+                                                        <option value="standard_encryption">standard encryption
+                                                        </option>
+                                                        <option value="advanced_encryption">advanced encryption
+                                                        </option>
+                                                        <option value="standard_hash">standard hash</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-footer">
+                <button class="sa-button-secondary" id="prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                        <path
+                            d="M11.5575 12.5302L8.1225 9.09521L11.5575 5.65271L10.5 4.59521L6 9.09521L10.5 13.5952L11.5575 12.5302Z"
+                            fill="#2995F5" />
+                    </svg>
+                    Previous Step
+                </button>
+                <div class="d-flex float-right">
+                    <button class="sa-button-tertiary"><a href="datastores.html">Cancel</a></button>
+                    <button class="sa-button-primary" id="next">Next Step
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <path
+                                d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $('.sectionsData').hide();
+                $('#selectDataStores').change(function () {
+                    $('.sectionsData').hide();
+                    $('#' + $(this).val()).show();
+                });
+            });
+
+            $('#CyberArk').hide();
+            $('#accountCredentials').show();
+            $('#accountCredentialsSql').show();
+            $('#CyberArkSql').hide();
+
+            $('.radiobuttons input[type="radio"]').each(function () {
+                $("#opt1Credentials").click(function () {
+                    $('#CyberArk').hide();
+                    $('#accountCredentials').show();
+                });
+                $("#opt2CyberArk").click(function () {
+                    $('#accountCredentials').hide();
+                    $('#CyberArk').show();
+                });
+
+                $("#opt1CredentialsSql").click(function () {
+                    $('#CyberArkSql').hide();
+                    $('#accountCredentialsSql').show();
+                });
+                $("#opt2CyberArkSql").click(function () {
+                    $('#accountCredentialsSql').hide();
+                    $('#CyberArkSql').show();
+                });
+            });
+        });
+    </script>
+    <script src="js/custom.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+
+</html>

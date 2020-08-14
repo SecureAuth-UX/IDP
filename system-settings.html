@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth IDP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="internal-page">
+
+    <div id="header"></div>
+
+    <main role="main">
+        <div class="title-top">
+            <div class="float-left">
+                <h1 class="sa-type-header-1">
+                    <div class="sa-header-no-margin">
+                        <div class="sa-header-text">System Settings</div>
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <div class="sa-view-body">
+            <div class="row">
+                <div class="col-8">
+                    <h2 class="sa-type-header-2 sa-type-bold">Administrator Access</h2>
+                    <div class="sa-box-stack-bottom-xxmedium-padding">
+                        <div class="sa-type-body">
+                            <div class="sa-color-secondary">
+                                Manage administrator access to SecureAuth Identity Platform
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Data Store <span class="asterisk">*</span></label>
+                        <p class="subtitle">Select the data stores for this application. Only users in these data
+                            stores
+                            can access this OIDC Configuration.</p>
+                        <select name="skills" multiple="" class="label ui selection fluid dropdown">
+                            <option>Data Store 01</option>
+                            <option>Data Store 02</option>
+                            <option>Data Store 03</option>
+                            <option>Data Store 04</option>
+                            <option>Data Store 05</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group d-flex">
+                        <label class="mr-3">Allow every group in your selected data stores to access this
+                            application.</label>
+                        <div class="material-switch pull-right">
+                            <input id="groupsSwitch" name="someSwitchOption002" type="checkbox" />
+                            <label for="groupsSwitch" class="label-default"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="groupFields">
+                        <label>Group Restrictions <span class="asterisk">*</span></label>
+                        <p class="subtitle">Only these groups will have access to this OIDC Configuration.</p>
+                        <select name="skills" multiple="" data-placeholder="Select Group"
+                            class="label ui selection fluid dropdown">
+                            <option>Group 01</option>
+                            <option>Group 02</option>
+                            <option>Group 03</option>
+                            <option>Group 04</option>
+                            <option>Group 05</option>
+                            <option>Group 06</option>
+                            <option>Group 07</option>
+                            <option>Group 08</option>
+                            <option>Group 09</option>
+                            <option>Group 10</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Authentication Policy <span class="asterisk">*</span></label>
+                        <p class="subtitle">Select the authentication policy that will apply to this OIDC
+                            Configuration.
+                        </p>
+                        <select name="policies" class="label ui selection fluid dropdown">
+                            <option>Policy 01</option>
+                            <option>Policy 02</option>
+                            <option>Policy 03</option>
+                        </select>
+                    </div>
+
+                    <div class="form-gruop mb-5">
+                        <a class="sa-link" href="classic-esperience-secureauth0.html" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5858 11L11.2929 4.70711C10.9024 4.31658 10.9024 3.68342 11.2929 3.29289C11.6834 2.90237 12.3166 2.90237 12.7071 3.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L12.7071 20.7071C12.3166 21.0976 11.6834 21.0976 11.2929 20.7071C10.9024 20.3166 10.9024 19.6834 11.2929 19.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858Z" fill="#2A81D1"/>
+                                </svg>
+                            Go to the Classic Version to finish the configuration for this System Settings
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="buttons-footer">
+                    <div class="d-flex float-right">
+                        <button class="sa-button-primary" id="saveBtn">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+    <script src="js/custom.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+
+</body>
+
+</html>

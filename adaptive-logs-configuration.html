@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth IDP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .ui.selection.dropdown {
+            min-width: 5em;
+        }
+
+        .sa-table-td {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body class="internal-page">
+
+    <div id="header"></div>
+
+    <main role="main">
+        <div class="title-top">
+            <div class="float-left">
+                <h1 class="sa-type-header-1">
+                    <div class="sa-header-no-margin">
+                        <div class="sa-header-text">Dynamic IP Blocking</div>
+                    </div>
+
+                    <div class="sa-box-stack-bottom-xxmedium-padding">
+                        <div class="sa-type-body">
+                            <div class="sa-color-secondary">
+                                Enable Dynamic IP Blocking to
+                                mitigate password spraying and other online password attacks that may impact your
+                                workflows.
+                            </div>
+                        </div>
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <div class="sa-view-body">
+            <div class="mt-5">
+                <h2 class="sa-type-header-2 sa-type-bold">Configuration</h2>
+                <div class="sa-box-stack-top-medium sa-box-stack-bottom-medium">
+                    <div color="secondary" class="sa-type-paragraph sa-color-secondary"><strong>Set the rule for how
+                            and when to block IP addresses that fail to log in with various username entries. This
+                            configuration applies to all policies in which the rule is enabled.</strong></div>
+                </div>
+                <button class="sa-button-destructive" style="margin-right: 5px;">Block</button>
+                <div class="sa-type-paragraph" style="display: inline-block;">
+                    <div class="">IP address for&nbsp;
+                        <select name="" class="label ui selection dropdown select-noborder" style="width: 50px;">
+                            <option>12</option>
+                            <option selected>24 (Recommended)</option>
+                            <option>36 (Recommended)</option>
+                            <option>48</option>
+                            <option>72</option>
+                        </select>
+                        &nbsp;hours after&nbsp;
+                        <div class="sa-tooltip-inline">
+                            <select name="" class="label ui selection dropdown select-noborder" style="width: 50px;">
+                                <option selected>5</option>
+                                <option>10 (Recommended)</option>
+                                <option>15 (Recommended)</option>
+                                <option>20</option>
+                                <option>25</option>
+                            </select>
+                        </div>&nbsp;failed login attempts against different user accounts.
+                    </div>
+                </div>
+                <div class="sa-box-stack-bottom-xsmall sa-box-stack-top-medium">
+                    <div data-id="sa-toast" class="sa-toast sa-toast-info-no-hover">
+                        <div class="sa-toast-icon"><svg xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24"
+                                class="sa-icon-info sa-icon-large" transform="translate(1,1)">
+                                <path
+                                    d="M9 7H11V5H9V7ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 0C8.68678 0 7.38642 0.258658 6.17317 0.761205C4.95991 1.26375 3.85752 2.00035 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C3.85752 17.9997 4.95991 18.7362 6.17317 19.2388C7.38642 19.7413 8.68678 20 10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 8.68678 19.7413 7.38642 19.2388 6.17317C18.7362 4.95991 17.9997 3.85752 17.0711 2.92893C16.1425 2.00035 15.0401 1.26375 13.8268 0.761205C12.6136 0.258658 11.3132 0 10 0V0ZM9 15H11V9H9V15Z">
+                                </path>
+                            </svg></div>
+                        <div class="sa-toast-text" data-id="sa-toast-text">
+                            <div class="sa-toast-text" data-id="sa-toast-text">To include this feature in your
+                                workflow, add the Dynamic IP Blocking rule in your policy.</div>
+                        </div>
+                        <div class="sa-toast-actions">
+                            <div class="sa-toast-action" data-id="sa-toast-action"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sa-header-small">
+                <div class="sa-header-text-small"></div>
+            </div>
+            <div class="sa-box-inset-small">
+                <div class="sa-box-stack-bottom-medium">
+                    <h2 class="sa-type-header-2 sa-type-bold">Exceptions</h2>
+                </div>
+                <div class="sa-box-stack-bottom-xsmall">
+                    <h3 class="sa-type-header-3">Allowed IP Addresses</h3><br>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <button class="sa-button-secondary" id="btnAdd">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                version="1.1" viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
+                                <path
+                                    d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
+                                </path>
+                            </svg>
+                            Add IP addresses
+                        </button>
+
+                        <div class="sa-table-wrapper mt-3 mb-5">
+                            <table class="sa-table mb-5" id="tblData">
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="buttons-footer">
+                    <div class="d-flex float-right">
+                        <button class="sa-button-primary" id="saveBtn">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#btnAdd").bind("click", Add);
+            $(".btnEdit").bind("click", Edit);
+            $(".btnDelete").bind("click", Delete);
+            var rowNum = 7;
+
+            function Add() {
+                rowNum++;
+                $("#tblData tbody").prepend("<tr>" +
+                    "<td class='sa-table-td sa-table-v-align-middle'><input type='text' placeholder='123.123.11.1'/></td>" +
+                    "<td class='sa-table-td sa-table-v-align-middle'>" +
+                    "<img src='images/status-success.svg' class='btnSave'><img src='images/cancel.svg' class='btnDelete'/></td>" + "</tr>");
+                $(".btnSave").bind("click", Save);
+                $(".btnDelete").bind("click", Delete);
+            };
+
+            function Save() {
+                var par = $(this).parent().parent();
+                //tr 
+                var tdIP = par.children("td:nth-child(1)");
+                var tdButtons = par.children("td:nth-child(2)");
+                var tdIPValue = tdIP.html(tdIP.children("input[type=text]").val());
+                tdIP.html("<input type='text' disabled value='" + tdIPValue.html() + "'/>");
+
+                tdButtons.html("<svg class='btnEdit' width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>" +
+                    "<path d='M14.06 8.99988L15 9.93988L5.92 18.9999H5V18.0799L14.06 8.99988ZM17.66 2.99988C17.41 2.99988 17.15 3.09988 16.96 3.28988L15.13 5.11988L18.88 8.86988L20.71 7.03988C21.1 6.64988 21.1 5.99988 20.71 5.62988L18.37 3.28988C18.17 3.08988 17.92 2.99988 17.66 2.99988ZM14.06 6.18988L3 17.2499V20.9999H6.75L17.81 9.93988L14.06 6.18988Z' fill='#2995F5' />" +
+                    "</svg>" +
+                    "<img src='images/delete.svg' class='btnDelete'/>");
+                $(".btnEdit").bind("click", Edit);
+                $(".btnDelete").bind("click", Delete);
+            };
+
+            $('#saveBtn').on('click', function () {
+                var par = $("#tblData tbody tr");
+
+                var tdIP = par.children("td:nth-child(1)");
+                var tdButtons = par.children("td:nth-child(2)");
+                var tdIPValue = tdIP.html(tdIP.children("input[type=text]").val());
+                tdIP.html("<input type='text' disabled value='" + tdIPValue.html() + "'/>");
+
+                tdButtons.html("<svg class='btnEdit' width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>" +
+                    "<path d='M14.06 8.99988L15 9.93988L5.92 18.9999H5V18.0799L14.06 8.99988ZM17.66 2.99988C17.41 2.99988 17.15 3.09988 16.96 3.28988L15.13 5.11988L18.88 8.86988L20.71 7.03988C21.1 6.64988 21.1 5.99988 20.71 5.62988L18.37 3.28988C18.17 3.08988 17.92 2.99988 17.66 2.99988ZM14.06 6.18988L3 17.2499V20.9999H6.75L17.81 9.93988L14.06 6.18988Z' fill='#2995F5' />" +
+                    "</svg>" +
+                    "<img src='images/delete.svg' class='btnDelete'/>");
+                $(".btnEdit").bind("click", Edit);
+                $(".btnDelete").bind("click", Delete);
+
+            });
+
+            function Edit() {
+                var par = $(this).parent().parent();
+                //tr 
+                var tdIP = par.children("td:nth-child(1)");
+                var tdButtons = par.children("td:nth-child(2)");
+
+                var tdIPValue = tdIP.html(tdIP.children("input[type=text]").val());
+                tdIP.html("<input type='text' value='" + tdIPValue.html() + "'/>");
+
+                tdButtons.html("<img src='images/status-success.svg' class='btnSave'><img src='images/cancel.svg' class='btnSave'/></td>" + "</tr>");
+                $(".btnSave").bind("click", Save);
+                $(".btnEdit").bind("click", Edit);
+                $(".btnDelete").bind("click", Delete);
+            };
+
+            function Delete() {
+                var par = $(this).parent().parent();
+                par.remove();
+            };
+        });
+    </script>
+
+    <script src="js/custom.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+
+</body>
+
+</html>
