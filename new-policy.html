@@ -26,29 +26,30 @@
 
     <main role="main" class="pb-5 main-container">
         <div class="title-top title-top-internal">
-            <div class="float-left mb-5">
-                <h1 class="sa-type-header-1">
-                    <div class="sa-header-no-margin">
-                        <div class="sa-header-text">New Policy</div>
-                    </div>
-                </h1>
-                <div class="d-flex align-items-center">
-                    <div class="steper step-active">
-                        <span>Step 1</span>
-                    </div>
-                    <div class="steper">
-                        <span>Step 2</span>
-                    </div>
-                    <div class="steper">
-                        <span>Step 3</span>
-                    </div>
-                    <div class="d-flex">
-                        <div class='circle-step circle-grey circle-active'></div>
-                        <div class='circle-step circle-grey'></div>
-                        <div class='circle-step circle-grey'></div>
-                    </div>
+            <h1 class="sa-type-header-1">
+                <div class="sa-header-no-margin">
+                    <div class="sa-header-text">New Policy</div>
+                </div>
+            </h1>
+            <div class="d-flex align-items-center">
+                <div class="steper step-active">
+                    <span>Step 1</span>
+                </div>
+                <div class="steper">
+                    <span>Step 2</span>
+                </div>
+                <div class="steper">
+                    <span>Step 3</span>
+                </div>
+                <div class="d-flex">
+                    <div class='circle-step circle-grey circle-active'></div>
+                    <div class='circle-step circle-grey'></div>
+                    <div class='circle-step circle-grey'></div>
                 </div>
             </div>
+
+        </div>
+        <div class="sa-view-body mt-5">
             <div class="sa-tabs">
                 <ul class="sa-tabs-list">
                     <li class="sa-tabs-list-item sa-tabs-list-item-active">Authentication Rules</li>
@@ -56,8 +57,6 @@
                     <li class="sa-tabs-list-item">Resources</li>
                 </ul>
             </div>
-        </div>
-        <div class="sa-view-body mt-5">
             <div class="step active">
                 <div class="col-8">
                     <div class="form-group">
@@ -65,10 +64,10 @@
                         <input type="text" placeholder="eg. Policy 01, etc." />
                     </div>
                 </div>
-                <div class="col-12">
+                <div class="col-12 mt-5">
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-6 mb-4">
                                 <h2 class="sa-type-header-2 sa-type-bold">Authentication Rules</h2>
                                 <div class="sa-type-paragraph">
                                     <div class="sa-color-tertiary">Configure your adaptive authentication policy by
@@ -91,52 +90,61 @@
 
                     <ul id="myDropdown" class="list-rules dropdown-content">
                         <li>
-                            <div onclick="addPerimeterRule()"
+                            <div onclick="addDynamicIPModal()" data-toggle="modal"
+                                data-target="#addDynamicIPModal"
+                                class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                <img src="images/rules/ip.svg" alt="" />
+                                <span class="sa-type-body sa-type-pointer">Dynamic IP Blocking</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div onclick="addPerimeterRuleModal()" data-toggle="modal"
+                                data-target="#addPerimeterRuleModal"
                                 class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
                                 <img src="images/rules/map-point.svg" alt="" />
                                 <span class="sa-type-body sa-type-pointer">Dynamic Perimeter</span>
                             </div>
                         </li>
                         <li>
-                            <div onclick="addCountryRule()"
+                            <div onclick="addCountryRuleModal()" data-toggle="modal" data-target="#addCountryRuleModal"
                                 class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
                                 <img src="images/rules/world.svg" alt="" />
                                 <span class="sa-type-body sa-type-pointer">Country</span></div>
                         </li>
                         <li>
-                            <div onclick="addGeoRule()"
+                            <div onclick="addGeoRuleModal()" data-toggle="modal" data-target="#addGeoRuleModal"
                                 class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
                                 <img src="images/rules/airplane.svg" alt="" />
                                 <span class="sa-type-body sa-type-pointer">Geo-velocity</span></div>
                         </li>
                         <li>
-                            <div onclick="addGroupRule()"
+                            <div onclick="addGroupRuleModal()" data-toggle="modal" data-target="#addGroupRuleModal"
                                 class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
                                 <img src="images/rules/groups.svg" alt="" />
                                 <span class="sa-type-body sa-type-pointer">Group</span>
                             </div>
                         </li>
                         <li>
-                            <div onclick="addIPRule()"
+                            <div onclick="addIPRuleModal()" data-toggle="modal" data-target="#addIPRuleModal"
                                 class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
                                 <img src="images/rules/ip.svg" alt="" />
                                 <span class="sa-type-body sa-type-pointer">IP Range</span></div>
                         </li>
                         <li>
-                            <div onclick="addThreatRule()"
+                            <div onclick="addThreatRuleModal()" data-toggle="modal" data-target="#addThreatRuleModal"
                                 class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
                                 <img src="images/rules/risk.svg" alt="" />
                                 <span class="sa-type-body sa-type-pointer">Threat Service</span>
                             </div>
                         </li>
                         <li>
-                            <div onclick="addUserRule()"
+                            <div onclick="addUserRuleModal()" data-toggle="modal" data-target="#addUserRuleModal"
                                 class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
                                 <img src="images/rules/user.svg" alt="" />
                                 <span class="sa-type-body sa-type-pointer">User</span></div>
                         </li>
                         <li>
-                            <div onclick="addRiskRule()"
+                            <div onclick="addRiskRuleModal()" data-toggle="modal" data-target="#addRiskRuleModal"
                                 class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
                                 <img src="images/rules/security.svg" alt="" />
                                 <span class="sa-type-body sa-type-pointer">User Risk</span></div>
@@ -607,17 +615,6 @@
             $(".btnRemove").click(function () {
                 $(this).parents('div.remove_and').remove();
             });
-
-            $("#redirectTo").hide();
-
-            $('#selectCondition').change(function () {
-                if (document.getElementById('selectCondition').value == "Redirect To") {
-                    $("#redirectTo").show();
-                }
-                else {
-                    $("#redirectTo").hide();
-                }
-            });
         });
     </script>
 
@@ -625,7 +622,35 @@
     <script src="https://cdn.jsdelivr.net/gh/RubaXa/Sortable/Sortable.min.js"></script>
 
     <script>
+        function select() {
+            $('select').change(function () {
+                var selectContainer = $(this).parents('div.modal-body');
+                var text = $(this).val();
+                if (text == "Redirect To") {
+                    $(selectContainer).addClass("redirectClass");
+                    $(".redirectClass .redirectTo").css("display", "block");
+                }
+                else {
+                    $(selectContainer).addClass("redirectClassRemove");
+                    $(".redirectClassRemove .redirectTo").css("display", "none");
+                }
+            });
+        }
+
         function callDropdown() {
+            $('select').change(function () {
+                var selectContainer = $(this).parents('div.modal-body');
+                var text = $(this).val();
+                if (text == "Redirect To") {
+                    $(selectContainer).addClass("redirectClass");
+                    $(".redirectClass .redirectTo").css("display", "block");
+                }
+                else {
+                    $(selectContainer).addClass("redirectClassRemove");
+                    $(".redirectClassRemove .redirectTo").css("display", "none");
+                }
+            });
+
             var order = $(".card-policies").length;
             $("#lastRule .numberOrder").html("<strong>" + order + "</strong>");
 
@@ -670,20 +695,6 @@
 
             $(".btnRemove").click(function () {
                 $(this).parents('div.remove_and').remove();
-            });
-
-            $('.selectCondition').change(function () {
-                var selectContainer = $(this).parents('div.card-policies');
-                var text = $(this).find(".text").text();
-
-                if (text == "Redirect To") {
-                    $(selectContainer).addClass("redirectClass");
-                    $(".redirectClass #redirectTo").css("display", "block");
-                }
-                else {
-                    $(selectContainer).addClass("redirectClassRemove");
-                    $(".redirectClassRemove #redirectTo").css("display", "none");
-                }
             });
 
             $("#orContainer").on('change', function () {

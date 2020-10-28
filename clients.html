@@ -20,8 +20,8 @@
     <div id="header"></div>
 
     <main role="main">
-        <div class="title-top">
-            <div class="float-left">
+        <div class="title-top d-flex">
+            <div class="col-6">
                 <h1 class="sa-type-header-1">
                     <div class="sa-header-no-margin">
                         <div class="sa-header-text">OIDC Manager</div>
@@ -35,7 +35,7 @@
                     </div>
                 </h1>
             </div>
-            <div class="float-right pt-3">
+            <div class="col-6 text-right pt-3">
                 <div class="button-primary">
                     <a href="new-client.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -47,17 +47,20 @@
                     </a>
                 </div>
             </div>
-            <div class="sa-tabs">
-                <ul class="sa-tabs-list">
-                    <li class="sa-tabs-list-item"><a href="oidc-manager.html">OIDC Configuration</a></li>
-                    <li class="sa-tabs-list-item sa-tabs-list-item-active">Clients</li>
-                </ul>
-            </div>
+
         </div>
         <div class="sa-view-body">
+            <div class="row">
 
+                <div class="col-12 mb-5">
+                    <div class="sa-tabs">
+                        <ul class="sa-tabs-list">
+                            <li class="sa-tabs-list-item"><a href="oidc-manager.html">OIDC Configuration</a></li>
+                            <li class="sa-tabs-list-item sa-tabs-list-item-active">Clients</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <div class="row pt-5">
                 <div class="col-12 text-center">
                     <h2 class="sa-type-h2">Looks like you haven’t<br />
                         <strong>created</strong> any <strong>Client</strong> yet</h2>
