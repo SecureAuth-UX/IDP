@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="SecureAuth">
     <title>SecureAuth IDP</title>
+    <link rel="icon" type="images/vnd.microsoft.icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/select.css" rel="stylesheet">
@@ -67,6 +68,7 @@
                                 <option value="sql">SQL Server</option>
                                 <option value="noved">NetIQ eDirectory</option>
                                 <option value="gldap">Generic LDAP</option>
+                                <option value="saIds">SecureAuth Identity Stores (Limited Availability)</option>
                             </select>
                         </div>
                     </div>
@@ -602,6 +604,64 @@
                                             <input type="text" value="sp_UpdateUserProfile" />
                                         </div>
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="saIds" class="sectionsData col-12 form-group">
+                        <div class="form-group">
+                            <div class="sa-form-switch">
+                                <div class="d-flex align-items-center">
+                                    <div class="material-switch pull-right">
+                                        <input id="statusSwitch" name="someSwitchOption001" type="checkbox" />
+                                        <label for="statusSwitch" class="label-default"></label>
+                                    </div>
+                                    <label class="ml-3">Use this directory for user membership validation</label>
+                                </div>
+                            </div>
+                            <div class="sa-form-switch-children">
+                                <div class="sa-type-caption"> Sets this directory to be searched as a source of user
+                                    membership data (i.e., usernames and passwords). </div>
+                            </div>
+                        </div>
+
+                        <div id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="card-header" role="tab" id="accordionHeadingOneSaIds">
+                                <div class="mb-0 row">
+                                    <div class="col-12 no-padding accordion-head">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyOneSaIds"
+                                            aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                            <p>Connection Settings <span><img src="images/chevron-down.svg"
+                                                        alt="" /></span></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="accordionBodyOneSaIds" class="mt-4 collapse show" role="tabpanel"
+                                aria-labelledby="accordionHeadingOneSaIds" aria-expanded="true" data-parent="accordion">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="form-group">
+                                            <div class="sa-type-small">
+                                                Copy the tenant domain URL and paste it into a browser to open your
+                                                <strong>SecureAuth Identity Store</strong>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Tenant domain</label><br />
+                                            <a>http://lpa-scim.acme.com <svg width="24" height="24" viewBox="0 0 24 24"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M18.4545 20.1818H8.45455V7.45455H18.4545V20.1818ZM18.4545 5.63636H8.45455C7.97233 5.63636 7.50987 5.82792 7.1689 6.1689C6.82792 6.50987 6.63636 6.97233 6.63636 7.45455V20.1818C6.63636 20.664 6.82792 21.1265 7.1689 21.4675C7.50987 21.8084 7.97233 22 8.45455 22H18.4545C18.9368 22 19.3992 21.8084 19.7402 21.4675C20.0812 21.1265 20.2727 20.664 20.2727 20.1818V7.45455C20.2727 6.97233 20.0812 6.50987 19.7402 6.1689C19.3992 5.82792 18.9368 5.63636 18.4545 5.63636ZM15.7273 2H4.81818C4.33597 2 3.87351 2.19156 3.53253 2.53253C3.19156 2.87351 3 3.33597 3 3.81818V16.5455H4.81818V3.81818H15.7273V2Z"
+                                                        fill="#2995F5" />
+                                                </svg></a>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>

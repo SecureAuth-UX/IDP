@@ -144,6 +144,10 @@ $(document).ready(function () {
         $('#gettingStarted').addClass('navActive');
     }
 
+    else if (menu.includes('/identity-store.html')) {
+        $('#identityStore').addClass('navActive');
+    }
+
     //SEE GROUPS
     $('#groupsSwitch').each(function () {
         $(this).click(function () {

@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth Identity Stores</title>
+    <link rel="icon" type="images/vnd.microsoft.icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/datepicker.css" rel="stylesheet">
+</head>
+
+<body onload="menu()">
+
+    <div id="header"></div>
+
+    <main role="main">
+        <div class="title-top title-top-internal">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="privileges.html">Privileges</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Privilege 01</li>
+                </ol>
+            </nav>
+            <div class="row">
+                <div class="col-6">
+                    <div class="float-left">
+                        <img class="profile-picture" src="images/imgProfile.svg" />
+                    </div>
+                    <div class="float-left ml-3" style="width: 75%;">
+                        <div class="d-flex">
+                            <div class="sa-header-text">
+                                <span id="titleEditable">Privilege 01</span>
+
+                                <svg class="edit-title" id="editTitle" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14.06 9L15 9.94L5.92 19H5V18.08L14.06 9ZM17.66 3C17.41 3 17.15 3.1 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04C21.1 6.65 21.1 6 20.71 5.63L18.37 3.29C18.17 3.09 17.92 3 17.66 3ZM14.06 6.19L3 17.25V21H6.75L17.81 9.94L14.06 6.19Z"
+                                        fill="#2995F5" />
+                                </svg>
+
+                                <svg class="save-title" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58171 4 3.99999 7.58172 3.99999 12C3.99999 16.4183 7.58171 20 12 20ZM6.2929 12.2929C6.68342 11.9024 7.31659 11.9024 7.70711 12.2929L9.94353 14.5293L15.2408 8.3492C15.6002 7.92987 16.2315 7.88131 16.6508 8.24073C17.0701 8.60015 17.1187 9.23145 16.7593 9.65078L10.7593 16.6508C10.3802 17.0931 9.7048 17.119 9.2929 16.7071L6.2929 13.7071C5.90238 13.3166 5.90238 12.6834 6.2929 12.2929Z"
+                                        fill="#2995F5" />
+                                </svg>
+
+                                <svg class="cancel-title" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M22 12C22 17.5219 17.5219 22 12 22C6.47698 22 2 17.5225 2 12C2 6.47644 6.47644 2 12 2C17.5225 2 22 6.47698 22 12ZM20 12C20 7.5816 16.418 4 12 4C7.58103 4 4.00001 7.58101 4.00001 12C4.00001 16.4179 7.58162 20 12 20C16.4174 20 20 16.4173 20 12ZM16.7207 7.27934C17.0931 7.65179 17.0931 8.25565 16.7207 8.6281L13.3488 12L16.7207 15.3719C17.0931 15.7443 17.0931 16.3482 16.7207 16.7207C16.3482 17.0931 15.7444 17.0931 15.3719 16.7207L12 13.3488L8.62811 16.7207C8.25566 17.0931 7.6518 17.0931 7.27935 16.7207C6.9069 16.3482 6.9069 15.7443 7.27935 15.3719L10.6513 12L7.27935 8.6281C6.9069 8.25565 6.9069 7.65179 7.27935 7.27934C7.6518 6.90689 8.25566 6.90689 8.62811 7.27934L12 10.6512L15.3719 7.27934C15.7444 6.90689 16.3482 6.90689 16.7207 7.27934Z"
+                                        fill="#E04545" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="sa-type-body sa-color-secondary">
+                            <span id="descriptionEditable">Description for this privilege</span>
+
+                            <svg class="edit-description" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14.06 9L15 9.94L5.92 19H5V18.08L14.06 9ZM17.66 3C17.41 3 17.15 3.1 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04C21.1 6.65 21.1 6 20.71 5.63L18.37 3.29C18.17 3.09 17.92 3 17.66 3ZM14.06 6.19L3 17.25V21H6.75L17.81 9.94L14.06 6.19Z"
+                                    fill="#2995F5" />
+                            </svg>
+
+                            <svg class="save-description" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58171 4 3.99999 7.58172 3.99999 12C3.99999 16.4183 7.58171 20 12 20ZM6.2929 12.2929C6.68342 11.9024 7.31659 11.9024 7.70711 12.2929L9.94353 14.5293L15.2408 8.3492C15.6002 7.92987 16.2315 7.88131 16.6508 8.24073C17.0701 8.60015 17.1187 9.23145 16.7593 9.65078L10.7593 16.6508C10.3802 17.0931 9.7048 17.119 9.2929 16.7071L6.2929 13.7071C5.90238 13.3166 5.90238 12.6834 6.2929 12.2929Z"
+                                    fill="#2995F5" />
+                            </svg>
+
+                            <svg class="cancel-description" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M22 12C22 17.5219 17.5219 22 12 22C6.47698 22 2 17.5225 2 12C2 6.47644 6.47644 2 12 2C17.5225 2 22 6.47698 22 12ZM20 12C20 7.5816 16.418 4 12 4C7.58103 4 4.00001 7.58101 4.00001 12C4.00001 16.4179 7.58162 20 12 20C16.4174 20 20 16.4173 20 12ZM16.7207 7.27934C17.0931 7.65179 17.0931 8.25565 16.7207 8.6281L13.3488 12L16.7207 15.3719C17.0931 15.7443 17.0931 16.3482 16.7207 16.7207C16.3482 17.0931 15.7444 17.0931 15.3719 16.7207L12 13.3488L8.62811 16.7207C8.25566 17.0931 7.6518 17.0931 7.27935 16.7207C6.9069 16.3482 6.9069 15.7443 7.27935 15.3719L10.6513 12L7.27935 8.6281C6.9069 8.25565 6.9069 7.65179 7.27935 7.27934C7.6518 6.90689 8.25566 6.90689 8.62811 7.27934L12 10.6512L15.3719 7.27934C15.7444 6.90689 16.3482 6.90689 16.7207 7.27934Z"
+                                    fill="#E04545" />
+                            </svg>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sa-view-body">
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="nav nav-tabs mb-4" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="usersTab" data-toggle="tab" href="#users" role="tab"
+                            aria-controls="users" aria-selected="true">Users</a>
+                        <a class="nav-item nav-link" id="groupsTab" data-toggle="tab" href="#groups" role="tab"
+                            aria-controls="groups" aria-selected="false">Groups</a>
+                    </div>
+                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="usersTab">
+                            <div class="form-group clearfix">
+                                <input id="myInputUsers" class="search-input" type="text" placeholder="Search..." style="width: 50%;">
+                                <div id="addUsers" class="button-primary float-right mb-5" data-toggle="modal" data-target="#addUsersModal">
+                                    <a data-toggle="modal" data-target="#assignGroupsModal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 18 18" fill="none">
+                                            <path
+                                                d="M9 15C5.6925 15 3 12.3075 3 9C3 5.6925 5.6925 3 9 3C12.3075 3 15 5.6925 15 9C15 12.3075 12.3075 15 9 15ZM9 1.5C8.01509 1.5 7.03982 1.69399 6.12987 2.0709C5.21993 2.44781 4.39314 3.00026 3.6967 3.6967C2.29018 5.10322 1.5 7.01088 1.5 9C1.5 10.9891 2.29018 12.8968 3.6967 14.3033C4.39314 14.9997 5.21993 15.5522 6.12987 15.9291C7.03982 16.306 8.01509 16.5 9 16.5C10.9891 16.5 12.8968 15.7098 14.3033 14.3033C15.7098 12.8968 16.5 10.9891 16.5 9C16.5 8.01509 16.306 7.03982 15.9291 6.12987C15.5522 5.21993 14.9997 4.39314 14.3033 3.6967C13.6069 3.00026 12.7801 2.44781 11.8701 2.0709C10.9602 1.69399 9.98491 1.5 9 1.5ZM9.75 5.25H8.25V8.25H5.25V9.75H8.25V12.75H9.75V9.75H12.75V8.25H9.75V5.25Z"
+                                                fill="#FAFAFA" />
+                                        </svg>
+                                        <span>Add Users</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <table class="datatable sa-table" id="tableUsers">
+                                    <thead>
+                                        <tr>
+                                            <th class="sa-table-th no-sort">
+                                                <div class="sa-form-checkbox">
+                                                    <label for="allcb" class="sa-form-checkbox-label">
+                                                        <input name="allcb" id="allcb" type="checkbox">
+                                                        <span class="sa-form-checkbox-pseudo-input">
+                                                            <span></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th class="sa-table-th">
+                                                User
+                                            </th>
+                                            <th class="sa-table-th">
+                                                Email
+                                            </th>
+                                            <th class="sa-table-th">
+                                                Identity Store
+                                            </th>
+                                            <th class="sa-table-th">
+                                                GROUP MEMEBERSHIP EXPIRE DATE
+                                            </th>
+                                            <th class="sa-table-th no-sort"></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="sa-form-checkbox">
+                                                    <label for="cb1" class="sa-form-checkbox-label">
+                                                        <input name="cb[]" id="cb1" type="checkbox">
+                                                        <span class="sa-form-checkbox-pseudo-input">
+                                                            <span></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <img src="images/user01.svg" alt=""/>
+                                                User01
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                username@secureauth.com
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Identity Store 02
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Remove </span>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="sa-form-checkbox">
+                                                    <label for="cb2" class="sa-form-checkbox-label">
+                                                        <input name="cb[]" id="cb2" type="checkbox">
+                                                        <span class="sa-form-checkbox-pseudo-input">
+                                                            <span></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <img src="images/user02.svg" alt=""/>
+                                                User02
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                username@secureauth.com
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Identity Store 01
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker2" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Remove </span>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="sa-form-checkbox">
+                                                    <label for="cb3" class="sa-form-checkbox-label">
+                                                        <input name="cb[]" id="cb3" type="checkbox">
+                                                        <span class="sa-form-checkbox-pseudo-input">
+                                                            <span></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <img src="images/user03.svg" alt=""/>
+                                                User03
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                username@secureauth.com
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Identity Store 03
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker3" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Remove </span>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="sa-form-checkbox">
+                                                    <label for="cb4" class="sa-form-checkbox-label">
+                                                        <input name="cb[]" id="cb4" type="checkbox">
+                                                        <span class="sa-form-checkbox-pseudo-input">
+                                                            <span></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <img src="images/user04.svg" alt=""/>
+                                                User04
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                username@secureauth.com
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Identity Store 02
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker4" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Remove </span>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="groups" role="tabpanel" aria-labelledby="groupsTab">
+                            <div class="form-group">
+                                <p>Select a privilege to associate it to a group to manage users in a group and groups in an identity store. A privilege is an object that does not expire unless you associate it to a group and set an expiration date.</p>
+                                <p><a href="">Learn more about privileges</a></p>
+                            </div>
+                            <div class="form-group clearfix">
+                                <input id="myInputPrivileges" class="search-input" type="text" placeholder="Search..." style="width: 50%;">
+                                <div id="addPrivileges" class="button-primary float-right mb-5" data-toggle="modal" data-target="#addPrivilegesModal">
+                                    <a data-toggle="modal" data-target="#addPrivilegesModal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 18 18" fill="none">
+                                            <path
+                                                d="M9 15C5.6925 15 3 12.3075 3 9C3 5.6925 5.6925 3 9 3C12.3075 3 15 5.6925 15 9C15 12.3075 12.3075 15 9 15ZM9 1.5C8.01509 1.5 7.03982 1.69399 6.12987 2.0709C5.21993 2.44781 4.39314 3.00026 3.6967 3.6967C2.29018 5.10322 1.5 7.01088 1.5 9C1.5 10.9891 2.29018 12.8968 3.6967 14.3033C4.39314 14.9997 5.21993 15.5522 6.12987 15.9291C7.03982 16.306 8.01509 16.5 9 16.5C10.9891 16.5 12.8968 15.7098 14.3033 14.3033C15.7098 12.8968 16.5 10.9891 16.5 9C16.5 8.01509 16.306 7.03982 15.9291 6.12987C15.5522 5.21993 14.9997 4.39314 14.3033 3.6967C13.6069 3.00026 12.7801 2.44781 11.8701 2.0709C10.9602 1.69399 9.98491 1.5 9 1.5ZM9.75 5.25H8.25V8.25H5.25V9.75H8.25V12.75H9.75V9.75H12.75V8.25H9.75V5.25Z"
+                                                fill="#FAFAFA" />
+                                        </svg>
+                                        <span>Add Privileges</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <table class="datatable sa-table" id="tablePrivileges">
+                                    <thead>
+                                        <tr>
+                                            <th class="sa-table-th no-sort">
+                                                <div class="sa-form-checkbox">
+                                                    <label for="allcb" class="sa-form-checkbox-label">
+                                                        <input name="allcb" id="allcb" type="checkbox">
+                                                        <span class="sa-form-checkbox-pseudo-input">
+                                                            <span></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th class="sa-table-th">
+                                                Privilege
+                                            </th>
+                                            <th class="sa-table-th">
+                                                Description
+                                            </th>
+                                            <th class="sa-table-th">
+                                                Type
+                                            </th>
+                                            <th class="sa-table-th">
+                                                Expire
+                                            </th>
+                                            <th class="sa-table-th no-sort"></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="sa-form-checkbox">
+                                                    <label for="cbP1" class="sa-form-checkbox-label">
+                                                        <input name="cb[]" id="cbP1" type="checkbox">
+                                                        <span class="sa-form-checkbox-pseudo-input">
+                                                            <span></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Owner
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Description for this privilege
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                System
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker5" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Remove </span>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="sa-form-checkbox">
+                                                    <label for="cbP2" class="sa-form-checkbox-label">
+                                                        <input name="cb[]" id="cbP2" type="checkbox">
+                                                        <span class="sa-form-checkbox-pseudo-input">
+                                                            <span></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Admin
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Description for this privilege
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                System
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker6" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Remove </span>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="sa-form-checkbox">
+                                                    <label for="cbP3" class="sa-form-checkbox-label">
+                                                        <input name="cb[]" id="cbP3" type="checkbox">
+                                                        <span class="sa-form-checkbox-pseudo-input">
+                                                            <span></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Admin (Read-Only)
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Description for this privilege
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                System
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker7" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Remove </span>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <div class="sa-form-checkbox">
+                                                    <label for="cbP4" class="sa-form-checkbox-label">
+                                                        <input name="cb[]" id="cbP4" type="checkbox">
+                                                        <span class="sa-form-checkbox-pseudo-input">
+                                                            <span></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                User
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Description for this privilege
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                System
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker8" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Remove </span>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10.446 14.1666C10.888 14.1666 11.3119 13.9911 11.6245 13.6785C11.937 13.3659 12.1126 12.942 12.1126 12.5C12.1126 11.575 11.3626 10.8333 10.446 10.8333C10.0039 10.8333 9.58001 11.0089 9.26745 11.3215C8.95489 11.634 8.7793 12.058 8.7793 12.5C8.7793 12.942 8.95489 13.3659 9.26745 13.6785C9.58001 13.9911 10.0039 14.1666 10.446 14.1666ZM15.446 6.66665C15.888 6.66665 16.3119 6.84224 16.6245 7.1548C16.937 7.46736 17.1126 7.89129 17.1126 8.33331V16.6666C17.1126 17.1087 16.937 17.5326 16.6245 17.8452C16.3119 18.1577 15.888 18.3333 15.446 18.3333H5.44596C5.00394 18.3333 4.58001 18.1577 4.26745 17.8452C3.95489 17.5326 3.7793 17.1087 3.7793 16.6666V8.33331C3.7793 7.40831 4.5293 6.66665 5.44596 6.66665H6.2793V4.99998C6.2793 3.89491 6.71828 2.8351 7.49969 2.0537C8.28109 1.2723 9.34089 0.833313 10.446 0.833313C10.9931 0.833313 11.535 0.941087 12.0405 1.15048C12.546 1.35988 13.0053 1.66679 13.3922 2.0537C13.7792 2.44061 14.0861 2.89994 14.2955 3.40547C14.5049 3.91099 14.6126 4.45281 14.6126 4.99998V6.66665H15.446ZM10.446 2.49998C9.78292 2.49998 9.14704 2.76337 8.6782 3.23221C8.20935 3.70105 7.94596 4.33694 7.94596 4.99998V6.66665H12.946V4.99998C12.946 4.33694 12.6826 3.70105 12.2137 3.23221C11.7449 2.76337 11.109 2.49998 10.446 2.49998Z" fill="#2A2E2F"/>
+                                                    </svg>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Group 01 Privilege
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Description for this privilege
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Dynamic
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker9" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle"
+                                                style="cursor: not-allowed;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#a9a9a9" />
+                                                </svg>
+                                                <span style="color: #a9a9a9;">Remove </span>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Add Users-->
+    <div class="modal fade" id="addUsersModal" tabindex="-1" role="dialog" aria-labelledby="addUsersModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Add Users to Privilege 01</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group clearfix">
+                        <input id="myInputAddUsers" class="search-input" type="text" placeholder="Search..." style="width: 50%;">
+                    </div>
+                    <div class="form-group">
+                        <table class="datatable sa-table" id="tableAddUsers">
+                            <thead>
+                                <tr>
+                                    <th class="sa-table-th no-sort">
+                                        <div class="sa-form-checkbox">
+                                            <label for="allcb" class="sa-form-checkbox-label">
+                                                <input name="allcb" id="allcb" type="checkbox">
+                                                <span class="sa-form-checkbox-pseudo-input">
+                                                    <span></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th class="sa-table-th">
+                                        User
+                                    </th>
+                                    <th class="sa-table-th">
+                                        Email
+                                    </th>
+                                    <th class="sa-table-th">
+                                        Identity Store
+                                    </th>
+                                    <th class="sa-table-th">
+                                        EXPIRES FOR USER ON
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr class="table-row">
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <div class="sa-form-checkbox">
+                                            <label for="cb5" class="sa-form-checkbox-label">
+                                                <input name="cb[]" id="cb5" type="checkbox">
+                                                <span class="sa-form-checkbox-pseudo-input">
+                                                    <span></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <img src="images/user01.svg" alt=""/>
+                                        User01
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        username@secureauth.com
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        Identity Store 02
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        2021 Apr 12 10:12
+                                    </td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <div class="sa-form-checkbox">
+                                            <label for="cb6" class="sa-form-checkbox-label">
+                                                <input name="cb[]" id="cb6" type="checkbox">
+                                                <span class="sa-form-checkbox-pseudo-input">
+                                                    <span></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <img src="images/user02.svg" alt=""/>
+                                        User02
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        username@secureauth.com
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        Identity Store 01
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        2021 Apr 12 10:12
+                                    </td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <div class="sa-form-checkbox">
+                                            <label for="cb7" class="sa-form-checkbox-label">
+                                                <input name="cb[]" id="cb7" type="checkbox">
+                                                <span class="sa-form-checkbox-pseudo-input">
+                                                    <span></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <img src="images/user03.svg" alt=""/>
+                                        User03
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        username@secureauth.com
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        Identity Store 03
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        2021 Apr 12 10:12
+                                    </td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <div class="sa-form-checkbox">
+                                            <label for="cb8" class="sa-form-checkbox-label">
+                                                <input name="cb[]" id="cb8" type="checkbox">
+                                                <span class="sa-form-checkbox-pseudo-input">
+                                                    <span></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <img src="images/user04.svg" alt=""/>
+                                        User04
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        username@secureauth.com
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        Identity Store 02
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        2021 Apr 12 10:12
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="sa-button-tertiary" data-dismiss="modal">Close</button>
+                    <button type="button" class="sa-button-primary" data-dismiss="modal">Add User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Add Privileges-->
+    <div class="modal fade" id="addPrivilegesModal" tabindex="-1" role="dialog" aria-labelledby="addPrivilegesModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Add Groups to Privilege 01</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group clearfix">
+                        <input id="myInputAddPrivileges" class="search-input" type="text" placeholder="Search..." style="width: 50%;">
+                    </div>
+                    <div class="form-group">
+                        <table class="datatable sa-table" id="tableAddPrivileges">
+                            <thead>
+                                <tr>
+                                    <th class="sa-table-th no-sort">
+                                        <div class="sa-form-checkbox">
+                                            <label for="allcb" class="sa-form-checkbox-label">
+                                                <input name="allcb" id="allcb" type="checkbox">
+                                                <span class="sa-form-checkbox-pseudo-input">
+                                                    <span></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th class="sa-table-th">
+                                        Group
+                                    </th>
+                                    <th class="sa-table-th">
+                                        Description
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr class="table-row">
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <div class="sa-form-checkbox">
+                                            <label for="cbPM5" class="sa-form-checkbox-label">
+                                                <input name="cb[]" id="cbPM5" type="checkbox">
+                                                <span class="sa-form-checkbox-pseudo-input">
+                                                    <span></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        Preferences
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        This is the User Tool for example a description
+                                    </td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <div class="sa-form-checkbox">
+                                            <label for="cbPM8" class="sa-form-checkbox-label">
+                                                <input name="cb[]" id="cbPM8" type="checkbox">
+                                                <span class="sa-form-checkbox-pseudo-input">
+                                                    <span></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        Privilege
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        This is the User Tool for example a description
+                                    </td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <div class="sa-form-checkbox">
+                                            <label for="cbPM7" class="sa-form-checkbox-label">
+                                                <input name="cb[]" id="cbPM7" type="checkbox">
+                                                <span class="sa-form-checkbox-pseudo-input">
+                                                    <span></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        Resource
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        This is the User Tool for example a description
+                                    </td>
+                                </tr>
+                                <tr class="table-row">
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        <div class="sa-form-checkbox">
+                                            <label for="cbPM6" class="sa-form-checkbox-label">
+                                                <input name="cb[]" id="cbPM6" type="checkbox">
+                                                <span class="sa-form-checkbox-pseudo-input">
+                                                    <span></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        IDS
+                                    </td>
+                                    <td class="sa-table-td sa-table-v-align-middle">
+                                        This is the User Tool for example a description
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="sa-button-tertiary" data-dismiss="modal">Close</button>
+                    <button type="button" class="sa-button-primary" data-dismiss="modal">Add Privileges</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#myInputUsers").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".sa-table#tableUsers .table-row").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+            $("#myInputddUsers").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".sa-table#tableAddUsers .table-row").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+            $("#myInputPrivileges").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".sa-table#tablePrivileges .table-row").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+            $("#myInputAddPrivileges").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".sa-table#tableAddPrivileges .table-row").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".link-delete").click(function () {
+                $(this).parents('.table-row').remove();
+            });
+        });
+    </script>
+
+    <script src="js/datepicker.js"></script>
+    <script>
+        var date = $("#datetimepicker").val().replace(/ /g, '<p>');
+        $(".spanDate").html('<p>' + date + '</p>');
+
+        function handleChange(event) {
+            var e = $(event.target);
+
+            var oldvalue = "" + e.data('oldvalue');
+            var newvalue = "" + e.val().replace(/ /g, '<p>');
+            if (oldvalue != newvalue) {
+                $(".spanDate").html('<p>' + newvalue + '</p>');
+                e.data('oldvalue', newvalue);
+            }
+        }
+
+        $(function () {
+            $('#datetimepicker')
+                .bind('change', handleChange)
+                .bind('blur', handleChange)
+                .bind('keydown', handleChange)
+                .bind('keyup', handleChange)
+                .data('oldvalue', '');
+        });
+    </script>
+
+    <script src="js/custom.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+    <script src="js/table.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tableUsers').dataTable({
+                "bDestroy": true,
+                "bFilter": false,
+                "iDisplayLength": 50,
+                aLengthMenu: [25, 50, 100],
+                "fnDrawCallback": function () {
+                    $('#tableUsers_info').prepend($('#tableUsers_length'));
+                }
+            });
+
+            $('#tableAddUsers').dataTable({
+                "bDestroy": true,
+                "bFilter": false,
+                "iDisplayLength": 50,
+                "bPaginate": false,
+                aLengthMenu: [25, 50, 100],
+                "fnDrawCallback": function () {
+                    $('#tableAddUsers_info').prepend($('#tableAddUsers_length'));
+                }
+            });
+
+            $('#tablePrivileges').dataTable({
+                "bDestroy": true,
+                "bFilter": false,
+                "iDisplayLength": 50,
+                aLengthMenu: [25, 50, 100],
+                "fnDrawCallback": function () {
+                    $('#tablePrivileges_info').prepend($('#tablePrivileges_length'));
+                }
+            });
+
+            $('#tableAddPrivileges').dataTable({
+                "bDestroy": true,
+                "bFilter": false,
+                "iDisplayLength": 50,
+                "bPaginate": false,
+                aLengthMenu: [25, 50, 100],
+                "fnDrawCallback": function () {
+                    $('#tableAddPrivileges_info').prepend($('#tableAddPrivileges_length'));
+                }
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1456 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth Identity Stores</title>
+    <link rel="icon" type="images/vnd.microsoft.icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/datepicker.css" rel="stylesheet">
+</head>
+
+<body onload="menu()">
+
+    <div id="header"></div>
+
+    <main role="main">
+        <div class="title-top title-top-internal">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="identity-stores.html">Identity Store</a></li>
+                    <li class="breadcrumb-item"><a href="new-identity-store.html">Identity Store 01</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">John Stinson</li>
+                </ol>
+            </nav>
+            <div class="row">
+                <div class="col-6">
+                    <div class="float-left">
+                        <img class="profile-picture" src="images/imgProfile.svg" />
+                    </div>
+                    <div class="float-left ml-3" style="width: 75%;">
+                        <div class="d-flex">
+                            <div class="sa-header-text">
+                                <span id="titleEditable">John Stinson</span>
+
+                                <svg class="edit-title" id="editTitle" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14.06 9L15 9.94L5.92 19H5V18.08L14.06 9ZM17.66 3C17.41 3 17.15 3.1 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04C21.1 6.65 21.1 6 20.71 5.63L18.37 3.29C18.17 3.09 17.92 3 17.66 3ZM14.06 6.19L3 17.25V21H6.75L17.81 9.94L14.06 6.19Z"
+                                        fill="#2995F5" />
+                                </svg>
+
+                                <svg class="save-title" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58171 4 3.99999 7.58172 3.99999 12C3.99999 16.4183 7.58171 20 12 20ZM6.2929 12.2929C6.68342 11.9024 7.31659 11.9024 7.70711 12.2929L9.94353 14.5293L15.2408 8.3492C15.6002 7.92987 16.2315 7.88131 16.6508 8.24073C17.0701 8.60015 17.1187 9.23145 16.7593 9.65078L10.7593 16.6508C10.3802 17.0931 9.7048 17.119 9.2929 16.7071L6.2929 13.7071C5.90238 13.3166 5.90238 12.6834 6.2929 12.2929Z"
+                                        fill="#2995F5" />
+                                </svg>
+
+                                <svg class="cancel-title" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M22 12C22 17.5219 17.5219 22 12 22C6.47698 22 2 17.5225 2 12C2 6.47644 6.47644 2 12 2C17.5225 2 22 6.47698 22 12ZM20 12C20 7.5816 16.418 4 12 4C7.58103 4 4.00001 7.58101 4.00001 12C4.00001 16.4179 7.58162 20 12 20C16.4174 20 20 16.4173 20 12ZM16.7207 7.27934C17.0931 7.65179 17.0931 8.25565 16.7207 8.6281L13.3488 12L16.7207 15.3719C17.0931 15.7443 17.0931 16.3482 16.7207 16.7207C16.3482 17.0931 15.7444 17.0931 15.3719 16.7207L12 13.3488L8.62811 16.7207C8.25566 17.0931 7.6518 17.0931 7.27935 16.7207C6.9069 16.3482 6.9069 15.7443 7.27935 15.3719L10.6513 12L7.27935 8.6281C6.9069 8.25565 6.9069 7.65179 7.27935 7.27934C7.6518 6.90689 8.25566 6.90689 8.62811 7.27934L12 10.6512L15.3719 7.27934C15.7444 6.90689 16.3482 6.90689 16.7207 7.27934Z"
+                                        fill="#E04545" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="sa-box-stack-bottom-xxmedium-padding">
+                            <div class="sa-type-body">
+                                <span class="sa-tag sa-tag-orange">
+                                    <div class="sa-type-caption"> Staged </div>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-6 text-right pt-3">
+                    <div class="row float-right">
+                        <div class="col-6">
+                            <label>Expiration date</label>
+                            <input type="text" value="" id="datetimepicker" class="no-border"
+                                style="cursor: pointer; text-align: right; color: #2995F5;" />
+                        </div>
+                        <div class="col-5 text-right">
+                            <div class="dropdown">
+                                <button class="sa-button-primary mb-3 dropdown-toggle" type="button">
+                                    Actions
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M4.94 5.7207L8 8.7807L11.06 5.7207L12 6.66737L8 10.6674L4 6.66737L4.94 5.7207Z"
+                                            fill="white" />
+                                    </svg>
+                                </button>
+                                <div class="dropdown-menu" style="right: 0; top: 50px;">
+                                    <a href="#" class="link-list">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M4.80491 11.0312L1 14.8361L2.41421 16.2503L7.63334 11.0312H8.54066V10.1238L9.7859 8.87859V12.2764C9.7859 12.4415 9.72031 12.5999 9.60354 12.7167C9.48678 12.8334 9.32841 12.899 9.16328 12.899H7.91803V14.1443H9.47459C9.81703 14.1443 10.4085 13.8641 10.4085 13.5217C10.4085 13.8641 11 14.1443 11.3425 14.1443H12.899V12.899H11.6538C11.4886 12.899 11.3303 12.8334 11.2135 12.7167C11.0967 12.5999 11.0311 12.4415 11.0311 12.2764V11.0312H14.1443V4.80493H13.8596L16.2503 2.41421L14.8361 1L12.899 2.93706V1.69181H11.3425C11 1.69181 10.4085 1.97199 10.4085 2.31444C10.4085 1.97199 9.81703 1.69181 9.47459 1.69181H7.91803V2.93706H9.16328C9.32841 2.93706 9.48678 3.00266 9.60354 3.11942C9.72031 3.23619 9.7859 3.39455 9.7859 3.55968V6.05017L8.54066 7.29541V7.22693C8.16086 6.87826 7.56937 6.9094 7.2207 7.29542C6.88283 7.65742 6.90159 8.22405 7.26 8.57607L6.05015 9.78592H2.93705V6.05018H8.54066V4.80493H1.6918V11.0312H4.80491ZM11.0311 4.80493L12.899 2.93706H11.6538C11.4886 2.93706 11.3303 3.00266 11.2135 3.11942C11.0967 3.23619 11.0311 3.39455 11.0311 3.55968V4.80493ZM11.0311 7.63335L12.6143 6.05018H12.899V9.78592H11.0311V7.63335ZM5.46531 7.25765C5.64046 7.4328 5.73885 7.67035 5.73885 7.91805C5.73885 8.16574 5.64046 8.40329 5.46531 8.57844C5.29016 8.75358 5.05261 8.85198 4.80492 8.85198C4.55722 8.85198 4.31967 8.75358 4.14453 8.57844C3.96938 8.40329 3.87098 8.16574 3.87098 7.91805C3.87098 7.67035 3.96938 7.4328 4.14453 7.25765C4.31967 7.08251 4.55722 6.98411 4.80492 6.98411C5.05261 6.98411 5.29016 7.08251 5.46531 7.25765Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Expire Password</span>
+                                    </a>
+                                    <a href="#" class="link-list">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1.5 15.75L17.25 9L1.5 2.25V7.5L12.75 9L1.5 10.5V15.75Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Send Invitation</span>
+                                    </a>
+                                    <a href="#" class="link-list">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9 12.75C9.39782 12.75 9.77936 12.592 10.0607 12.3107C10.342 12.0294 10.5 11.6478 10.5 11.25C10.5 10.4175 9.825 9.75 9 9.75C8.60218 9.75 8.22064 9.90804 7.93934 10.1893C7.65804 10.4706 7.5 10.8522 7.5 11.25C7.5 11.6478 7.65804 12.0294 7.93934 12.3107C8.22064 12.592 8.60218 12.75 9 12.75ZM13.5 6C13.8978 6 14.2794 6.15804 14.5607 6.43934C14.842 6.72064 15 7.10218 15 7.5V15C15 15.3978 14.842 15.7794 14.5607 16.0607C14.2794 16.342 13.8978 16.5 13.5 16.5H4.5C4.10218 16.5 3.72064 16.342 3.43934 16.0607C3.15804 15.7794 3 15.3978 3 15V7.5C3 6.6675 3.675 6 4.5 6H5.25V4.5C5.25 3.50544 5.64509 2.55161 6.34835 1.84835C7.05161 1.14509 8.00544 0.75 9 0.75C9.49246 0.75 9.98009 0.846997 10.4351 1.03545C10.89 1.22391 11.3034 1.50013 11.6517 1.84835C11.9999 2.19657 12.2761 2.60997 12.4645 3.06494C12.653 3.51991 12.75 4.00754 12.75 4.5V6H13.5ZM9 2.25C8.40326 2.25 7.83097 2.48705 7.40901 2.90901C6.98705 3.33097 6.75 3.90326 6.75 4.5V6H11.25V4.5C11.25 3.90326 11.0129 3.33097 10.591 2.90901C10.169 2.48705 9.59674 2.25 9 2.25Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Lock User</span>
+                                    </a>
+                                    <a href="#" class="link-list">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9 15C10.5913 15 12.1174 14.3679 13.2426 13.2426C14.3679 12.1174 15 10.5913 15 9C15 7.4087 14.3679 5.88258 13.2426 4.75736C12.1174 3.63214 10.5913 3 9 3C7.4087 3 5.88258 3.63214 4.75736 4.75736C3.63214 5.88258 3 7.4087 3 9C3 10.5913 3.63214 12.1174 4.75736 13.2426C5.88258 14.3679 7.4087 15 9 15ZM9 1.5C9.98491 1.5 10.9602 1.69399 11.8701 2.0709C12.7801 2.44781 13.6069 3.00026 14.3033 3.6967C14.9997 4.39314 15.5522 5.21993 15.9291 6.12987C16.306 7.03982 16.5 8.01509 16.5 9C16.5 10.9891 15.7098 12.8968 14.3033 14.3033C12.8968 15.7098 10.9891 16.5 9 16.5C4.8525 16.5 1.5 13.125 1.5 9C1.5 7.01088 2.29018 5.10322 3.6967 3.6967C5.10322 2.29018 7.01088 1.5 9 1.5ZM9.375 5.25V9.1875L12.75 11.19L12.1875 12.1125L8.25 9.75V5.25H9.375Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Suspend User</span>
+                                    </a>
+                                    <a href="#" class="link-list">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9 1.5C10.9891 1.5 12.8968 2.29018 14.3033 3.6967C15.7098 5.10322 16.5 7.01088 16.5 9C16.5 10.9891 15.7098 12.8968 14.3033 14.3033C12.8968 15.7098 10.9891 16.5 9 16.5C7.01088 16.5 5.10322 15.7098 3.6967 14.3033C2.29018 12.8968 1.5 10.9891 1.5 9C1.5 7.01088 2.29018 5.10322 3.6967 3.6967C5.10322 2.29018 7.01088 1.5 9 1.5V1.5ZM9 2.75C8.17924 2.75 7.36651 2.91166 6.60823 3.22575C5.84994 3.53984 5.16095 4.00022 4.58058 4.58058C3.40848 5.75269 2.75 7.3424 2.75 9C2.75 10.5 3.28125 11.875 4.1625 12.9563L12.9563 4.1625C11.875 3.28125 10.5 2.75 9 2.75ZM9 15.25C10.6576 15.25 12.2473 14.5915 13.4194 13.4194C14.5915 12.2473 15.25 10.6576 15.25 9C15.25 7.5 14.7188 6.125 13.8375 5.04375L5.04375 13.8375C6.125 14.7188 7.5 15.25 9 15.25Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Deactivate User</span>
+                                    </a>
+                                    <a href="#" class="link-list">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M14.25 6L11.25 9H13.5C13.5 10.1935 13.0259 11.3381 12.182 12.182C11.3381 13.0259 10.1935 13.5 9 13.5C8.25 13.5 7.5225 13.3125 6.9 12.975L5.805 14.07C6.7275 14.655 7.8225 15 9 15C10.5913 15 12.1174 14.3679 13.2426 13.2426C14.3679 12.1174 15 10.5913 15 9H17.25L14.25 6ZM4.5 9C4.5 7.80653 4.97411 6.66193 5.81802 5.81802C6.66193 4.97411 7.80653 4.5 9 4.5C9.75 4.5 10.4775 4.6875 11.1 5.025L12.195 3.93C11.2725 3.345 10.1775 3 9 3C7.4087 3 5.88258 3.63214 4.75736 4.75736C3.63214 5.88258 3 7.4087 3 9H0.75L3.75 12L6.75 9"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Reset Password</span>
+                                    </a>
+                                    <a href="#" class="link-list">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.75 2.25V3H3V4.5H3.75V14.25C3.75 14.6478 3.90804 15.0294 4.18934 15.3107C4.47064 15.592 4.85218 15.75 5.25 15.75H12.75C13.1478 15.75 13.5294 15.592 13.8107 15.3107C14.092 15.0294 14.25 14.6478 14.25 14.25V4.5H15V3H11.25V2.25H6.75ZM5.25 4.5H12.75V14.25H5.25V4.5ZM6.75 6V12.75H8.25V6H6.75ZM9.75 6V12.75H11.25V6H9.75Z"
+                                                fill="#E04545" />
+                                        </svg>
+                                        <span class="sa-type-caption" style="color: #E04545;">Delete User</span>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sa-view-body">
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="nav nav-tabs mb-4" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="userInformationTab" data-toggle="tab"
+                            href="#userInformation" role="tab" aria-controls="userInformation" aria-selected="true">User
+                            Information</a>
+                        <a class="nav-item nav-link" id="groupsTab" data-toggle="tab" href="#groupsNav" role="tab"
+                            aria-controls="groupsNav" aria-selected="false">Groups</a>
+                        <a class="nav-item nav-link" id="userActivityTab" data-toggle="tab" href="#userActivity"
+                            role="tab" aria-controls="userActivity" aria-selected="false">User Activity</a>
+                        <a class="nav-item nav-link" id="customSettingsTab" data-toggle="tab" href="#customSettings"
+                            role="tab" aria-controls="customSettings" aria-selected="false">Custom Settings</a>
+                    </div>
+                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="userInformation" role="tabpanel"
+                            aria-labelledby="userInformationTab">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>User Type</label>
+                                        <div class="sa-select-wrapper">
+                                            <select class="label ui fluid selection dropdown"
+                                                placeholder="Select option" id="userTypeSelect">
+                                                <option selected>Customer</option>
+                                                <option>Contractor</option>
+                                                <option>Corporation</option>
+                                                <option>External</option>
+                                                <option>Intern</option>
+                                                <option>Service Account</option>
+                                                <option>Temp</option>
+                                                <option>Unknown</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                            <div class="form-group mt-3" id="inputOther" style="display: none;">
+                                                <label>User Type</label>
+                                                <input type="text" placeholder="Enter your custom user type" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Username <span class="asterisk">*</span></label>
+                                        <input type="text" placeholder="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Salutation</label>
+                                        <div class="sa-select-wrapper">
+                                            <select class="label ui fluid selection dropdown"
+                                                placeholder="Select option">
+                                                <option></option>
+                                                <option>Miss</option>
+                                                <option>Ms.</option>
+                                                <option>Mrs.</option>
+                                                <option>Mr.</option>
+                                                <option>Dr.</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>First name</label>
+                                        <input type="text" placeholder="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Middle name</label>
+                                        <input type="text" placeholder="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Last name</label>
+                                        <input type="text" placeholder="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Suffix</label>
+                                        <div class="sa-select-wrapper">
+                                            <select class="label ui fluid selection dropdown"
+                                                placeholder="Select option">
+                                                <option></option>
+                                                <option>Sr.</option>
+                                                <option>Jr.</option>
+                                                <option>Esquire</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nickname</label>
+                                        <input type="text" placeholder="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        <input type="text" placeholder="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Work email</label>
+                                        <input type="text" placeholder="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Personal email</label>
+                                        <input type="text" placeholder="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Work phone</label>
+                                        <input type="text" placeholder="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mobile phone</label>
+                                        <input type="text" placeholder="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <select class="label ui fluid selection dropdown">
+                                            <option value="AFG">Afghanistan</option>
+                                            <option value="ALA">Åland Islands</option>
+                                            <option value="ALB">Albania</option>
+                                            <option value="DZA">Algeria</option>
+                                            <option value="ASM">American Samoa</option>
+                                            <option value="AND">Andorra</option>
+                                            <option value="AGO">Angola</option>
+                                            <option value="AIA">Anguilla</option>
+                                            <option value="ATA">Antarctica</option>
+                                            <option value="ATG">Antigua and Barbuda</option>
+                                            <option value="ARG">Argentina</option>
+                                            <option value="ARM">Armenia</option>
+                                            <option value="ABW">Aruba</option>
+                                            <option value="AUS">Australia</option>
+                                            <option value="AUT">Austria</option>
+                                            <option value="AZE">Azerbaijan</option>
+                                            <option value="BHS">Bahamas</option>
+                                            <option value="BHR">Bahrain</option>
+                                            <option value="BGD">Bangladesh</option>
+                                            <option value="BRB">Barbados</option>
+                                            <option value="BLR">Belarus</option>
+                                            <option value="BEL">Belgium</option>
+                                            <option value="BLZ">Belize</option>
+                                            <option value="BEN">Benin</option>
+                                            <option value="BMU">Bermuda</option>
+                                            <option value="BTN">Bhutan</option>
+                                            <option value="BOL">Bolivia, Plurinational State of</option>
+                                            <option value="BES">Bonaire, Sint Eustatius and Saba</option>
+                                            <option value="BIH">Bosnia and Herzegovina</option>
+                                            <option value="BWA">Botswana</option>
+                                            <option value="BVT">Bouvet Island</option>
+                                            <option value="BRA">Brazil</option>
+                                            <option value="IOT">British Indian Ocean Territory</option>
+                                            <option value="BRN">Brunei Darussalam</option>
+                                            <option value="BGR">Bulgaria</option>
+                                            <option value="BFA">Burkina Faso</option>
+                                            <option value="BDI">Burundi</option>
+                                            <option value="KHM">Cambodia</option>
+                                            <option value="CMR">Cameroon</option>
+                                            <option value="CAN">Canada</option>
+                                            <option value="CPV">Cape Verde</option>
+                                            <option value="CYM">Cayman Islands</option>
+                                            <option value="CAF">Central African Republic</option>
+                                            <option value="TCD">Chad</option>
+                                            <option value="CHL">Chile</option>
+                                            <option value="CHN">China</option>
+                                            <option value="CXR">Christmas Island</option>
+                                            <option value="CCK">Cocos (Keeling) Islands</option>
+                                            <option value="COL">Colombia</option>
+                                            <option value="COM">Comoros</option>
+                                            <option value="COG">Congo</option>
+                                            <option value="COD">Congo, the Democratic Republic of the</option>
+                                            <option value="COK">Cook Islands</option>
+                                            <option value="CRI">Costa Rica</option>
+                                            <option value="CIV">Côte d'Ivoire</option>
+                                            <option value="HRV">Croatia</option>
+                                            <option value="CUB">Cuba</option>
+                                            <option value="CUW">Curaçao</option>
+                                            <option value="CYP">Cyprus</option>
+                                            <option value="CZE">Czech Republic</option>
+                                            <option value="DNK">Denmark</option>
+                                            <option value="DJI">Djibouti</option>
+                                            <option value="DMA">Dominica</option>
+                                            <option value="DOM">Dominican Republic</option>
+                                            <option value="ECU">Ecuador</option>
+                                            <option value="EGY">Egypt</option>
+                                            <option value="SLV">El Salvador</option>
+                                            <option value="GNQ">Equatorial Guinea</option>
+                                            <option value="ERI">Eritrea</option>
+                                            <option value="EST">Estonia</option>
+                                            <option value="ETH">Ethiopia</option>
+                                            <option value="FLK">Falkland Islands (Malvinas)</option>
+                                            <option value="FRO">Faroe Islands</option>
+                                            <option value="FJI">Fiji</option>
+                                            <option value="FIN">Finland</option>
+                                            <option value="FRA">France</option>
+                                            <option value="GUF">French Guiana</option>
+                                            <option value="PYF">French Polynesia</option>
+                                            <option value="ATF">French Southern Territories</option>
+                                            <option value="GAB">Gabon</option>
+                                            <option value="GMB">Gambia</option>
+                                            <option value="GEO">Georgia</option>
+                                            <option value="DEU">Germany</option>
+                                            <option value="GHA">Ghana</option>
+                                            <option value="GIB">Gibraltar</option>
+                                            <option value="GRC">Greece</option>
+                                            <option value="GRL">Greenland</option>
+                                            <option value="GRD">Grenada</option>
+                                            <option value="GLP">Guadeloupe</option>
+                                            <option value="GUM">Guam</option>
+                                            <option value="GTM">Guatemala</option>
+                                            <option value="GGY">Guernsey</option>
+                                            <option value="GIN">Guinea</option>
+                                            <option value="GNB">Guinea-Bissau</option>
+                                            <option value="GUY">Guyana</option>
+                                            <option value="HTI">Haiti</option>
+                                            <option value="HMD">Heard Island and McDonald Islands</option>
+                                            <option value="VAT">Holy See (Vatican City State)</option>
+                                            <option value="HND">Honduras</option>
+                                            <option value="HKG">Hong Kong</option>
+                                            <option value="HUN">Hungary</option>
+                                            <option value="ISL">Iceland</option>
+                                            <option value="IND">India</option>
+                                            <option value="IDN">Indonesia</option>
+                                            <option value="IRN">Iran, Islamic Republic of</option>
+                                            <option value="IRQ">Iraq</option>
+                                            <option value="IRL">Ireland</option>
+                                            <option value="IMN">Isle of Man</option>
+                                            <option value="ISR">Israel</option>
+                                            <option value="ITA">Italy</option>
+                                            <option value="JAM">Jamaica</option>
+                                            <option value="JPN">Japan</option>
+                                            <option value="JEY">Jersey</option>
+                                            <option value="JOR">Jordan</option>
+                                            <option value="KAZ">Kazakhstan</option>
+                                            <option value="KEN">Kenya</option>
+                                            <option value="KIR">Kiribati</option>
+                                            <option value="PRK">Korea, Democratic People's Republic of</option>
+                                            <option value="KOR">Korea, Republic of</option>
+                                            <option value="KWT">Kuwait</option>
+                                            <option value="KGZ">Kyrgyzstan</option>
+                                            <option value="LAO">Lao People's Democratic Republic</option>
+                                            <option value="LVA">Latvia</option>
+                                            <option value="LBN">Lebanon</option>
+                                            <option value="LSO">Lesotho</option>
+                                            <option value="LBR">Liberia</option>
+                                            <option value="LBY">Libya</option>
+                                            <option value="LIE">Liechtenstein</option>
+                                            <option value="LTU">Lithuania</option>
+                                            <option value="LUX">Luxembourg</option>
+                                            <option value="MAC">Macao</option>
+                                            <option value="MKD">Macedonia, the former Yugoslav Republic of</option>
+                                            <option value="MDG">Madagascar</option>
+                                            <option value="MWI">Malawi</option>
+                                            <option value="MYS">Malaysia</option>
+                                            <option value="MDV">Maldives</option>
+                                            <option value="MLI">Mali</option>
+                                            <option value="MLT">Malta</option>
+                                            <option value="MHL">Marshall Islands</option>
+                                            <option value="MTQ">Martinique</option>
+                                            <option value="MRT">Mauritania</option>
+                                            <option value="MUS">Mauritius</option>
+                                            <option value="MYT">Mayotte</option>
+                                            <option value="MEX">Mexico</option>
+                                            <option value="FSM">Micronesia, Federated States of</option>
+                                            <option value="MDA">Moldova, Republic of</option>
+                                            <option value="MCO">Monaco</option>
+                                            <option value="MNG">Mongolia</option>
+                                            <option value="MNE">Montenegro</option>
+                                            <option value="MSR">Montserrat</option>
+                                            <option value="MAR">Morocco</option>
+                                            <option value="MOZ">Mozambique</option>
+                                            <option value="MMR">Myanmar</option>
+                                            <option value="NAM">Namibia</option>
+                                            <option value="NRU">Nauru</option>
+                                            <option value="NPL">Nepal</option>
+                                            <option value="NLD">Netherlands</option>
+                                            <option value="NCL">New Caledonia</option>
+                                            <option value="NZL">New Zealand</option>
+                                            <option value="NIC">Nicaragua</option>
+                                            <option value="NER">Niger</option>
+                                            <option value="NGA">Nigeria</option>
+                                            <option value="NIU">Niue</option>
+                                            <option value="NFK">Norfolk Island</option>
+                                            <option value="MNP">Northern Mariana Islands</option>
+                                            <option value="NOR">Norway</option>
+                                            <option value="OMN">Oman</option>
+                                            <option value="PAK">Pakistan</option>
+                                            <option value="PLW">Palau</option>
+                                            <option value="PSE">Palestinian Territory, Occupied</option>
+                                            <option value="PAN">Panama</option>
+                                            <option value="PNG">Papua New Guinea</option>
+                                            <option value="PRY">Paraguay</option>
+                                            <option value="PER">Peru</option>
+                                            <option value="PHL">Philippines</option>
+                                            <option value="PCN">Pitcairn</option>
+                                            <option value="POL">Poland</option>
+                                            <option value="PRT">Portugal</option>
+                                            <option value="PRI">Puerto Rico</option>
+                                            <option value="QAT">Qatar</option>
+                                            <option value="REU">Réunion</option>
+                                            <option value="ROU">Romania</option>
+                                            <option value="RUS">Russian Federation</option>
+                                            <option value="RWA">Rwanda</option>
+                                            <option value="BLM">Saint Barthélemy</option>
+                                            <option value="SHN">Saint Helena, Ascension and Tristan da Cunha</option>
+                                            <option value="KNA">Saint Kitts and Nevis</option>
+                                            <option value="LCA">Saint Lucia</option>
+                                            <option value="MAF">Saint Martin (French part)</option>
+                                            <option value="SPM">Saint Pierre and Miquelon</option>
+                                            <option value="VCT">Saint Vincent and the Grenadines</option>
+                                            <option value="WSM">Samoa</option>
+                                            <option value="SMR">San Marino</option>
+                                            <option value="STP">Sao Tome and Principe</option>
+                                            <option value="SAU">Saudi Arabia</option>
+                                            <option value="SEN">Senegal</option>
+                                            <option value="SRB">Serbia</option>
+                                            <option value="SYC">Seychelles</option>
+                                            <option value="SLE">Sierra Leone</option>
+                                            <option value="SGP">Singapore</option>
+                                            <option value="SXM">Sint Maarten (Dutch part)</option>
+                                            <option value="SVK">Slovakia</option>
+                                            <option value="SVN">Slovenia</option>
+                                            <option value="SLB">Solomon Islands</option>
+                                            <option value="SOM">Somalia</option>
+                                            <option value="ZAF">South Africa</option>
+                                            <option value="SGS">South Georgia and the South Sandwich Islands</option>
+                                            <option value="SSD">South Sudan</option>
+                                            <option value="ESP">Spain</option>
+                                            <option value="LKA">Sri Lanka</option>
+                                            <option value="SDN">Sudan</option>
+                                            <option value="SUR">Suriname</option>
+                                            <option value="SJM">Svalbard and Jan Mayen</option>
+                                            <option value="SWZ">Swaziland</option>
+                                            <option value="SWE">Sweden</option>
+                                            <option value="CHE">Switzerland</option>
+                                            <option value="SYR">Syrian Arab Republic</option>
+                                            <option value="TWN">Taiwan, Province of China</option>
+                                            <option value="TJK">Tajikistan</option>
+                                            <option value="TZA">Tanzania, United Republic of</option>
+                                            <option value="THA">Thailand</option>
+                                            <option value="TLS">Timor-Leste</option>
+                                            <option value="TGO">Togo</option>
+                                            <option value="TKL">Tokelau</option>
+                                            <option value="TON">Tonga</option>
+                                            <option value="TTO">Trinidad and Tobago</option>
+                                            <option value="TUN">Tunisia</option>
+                                            <option value="TUR">Turkey</option>
+                                            <option value="TKM">Turkmenistan</option>
+                                            <option value="TCA">Turks and Caicos Islands</option>
+                                            <option value="TUV">Tuvalu</option>
+                                            <option value="UGA">Uganda</option>
+                                            <option value="UKR">Ukraine</option>
+                                            <option value="ARE">United Arab Emirates</option>
+                                            <option value="GBR">United Kingdom</option>
+                                            <option selected value="USA">United States</option>
+                                            <option value="UMI">United States Minor Outlying Islands</option>
+                                            <option value="URY">Uruguay</option>
+                                            <option value="UZB">Uzbekistan</option>
+                                            <option value="VUT">Vanuatu</option>
+                                            <option value="VEN">Venezuela, Bolivarian Republic of</option>
+                                            <option value="VNM">Viet Nam</option>
+                                            <option value="VGB">Virgin Islands, British</option>
+                                            <option value="VIR">Virgin Islands, U.S.</option>
+                                            <option value="WLF">Wallis and Futuna</option>
+                                            <option value="ESH">Western Sahara</option>
+                                            <option value="YEM">Yemen</option>
+                                            <option value="ZMB">Zambia</option>
+                                            <option value="ZWE">Zimbabwe</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address line</label>
+                                        <span class="subtitle">Street address, P.O. box</span>
+                                        <input type="text" placeholder="1234 Example St" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input type="text" placeholder="Boston" />
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-9">
+                                                <label>State / Province / Region</label>
+                                                <input type="text" placeholder="Massachusetts" />
+                                            </div>
+                                            <div class="col-3">
+                                                <label>Zip code</label>
+                                                <input type="text" placeholder="02101" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Time zone</label>
+                                        <select class="label ui fluid selection dropdown">
+                                            <option timeZoneId="1" gmtAdjustment="GMT-12:00" useDaylightTime="0"
+                                                value="-12">(GMT-12:00) International Date Line West</option>
+                                            <option timeZoneId="2" gmtAdjustment="GMT-11:00" useDaylightTime="0"
+                                                value="-11">(GMT-11:00) Midway Island, Samoa</option>
+                                            <option timeZoneId="3" gmtAdjustment="GMT-10:00" useDaylightTime="0"
+                                                value="-10">(GMT-10:00) Hawaii</option>
+                                            <option timeZoneId="4" gmtAdjustment="GMT-09:00" useDaylightTime="1"
+                                                value="-9">(GMT-09:00) Alaska</option>
+                                            <option timeZoneId="5" gmtAdjustment="GMT-08:00" useDaylightTime="1"
+                                                value="-8">(GMT-08:00) Pacific Time (US & Canada)</option>
+                                            <option timeZoneId="6" gmtAdjustment="GMT-08:00" useDaylightTime="1"
+                                                value="-8">(GMT-08:00) Tijuana, Baja California</option>
+                                            <option timeZoneId="7" gmtAdjustment="GMT-07:00" useDaylightTime="0"
+                                                value="-7">(GMT-07:00) Arizona</option>
+                                            <option timeZoneId="8" gmtAdjustment="GMT-07:00" useDaylightTime="1"
+                                                value="-7">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+                                            <option timeZoneId="9" gmtAdjustment="GMT-07:00" useDaylightTime="1"
+                                                value="-7">(GMT-07:00) Mountain Time (US & Canada)</option>
+                                            <option timeZoneId="10" gmtAdjustment="GMT-06:00" useDaylightTime="0"
+                                                value="-6">(GMT-06:00) Central America</option>
+                                            <option timeZoneId="11" gmtAdjustment="GMT-06:00" useDaylightTime="1"
+                                                value="-6">(GMT-06:00) Central Time (US & Canada)</option>
+                                            <option timeZoneId="12" gmtAdjustment="GMT-06:00" useDaylightTime="1"
+                                                value="-6">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+                                            <option timeZoneId="13" gmtAdjustment="GMT-06:00" useDaylightTime="0"
+                                                value="-6">(GMT-06:00) Saskatchewan</option>
+                                            <option timeZoneId="14" gmtAdjustment="GMT-05:00" useDaylightTime="0"
+                                                value="-5">(GMT-05:00) Bogota, Lima, Quito, Rio Branco</option>
+                                            <option timeZoneId="15" gmtAdjustment="GMT-05:00" useDaylightTime="1"
+                                                value="-5">(GMT-05:00) Eastern Time (US & Canada)</option>
+                                            <option timeZoneId="16" gmtAdjustment="GMT-05:00" useDaylightTime="1"
+                                                value="-5">(GMT-05:00) Indiana (East)</option>
+                                            <option timeZoneId="17" gmtAdjustment="GMT-04:00" useDaylightTime="1"
+                                                value="-4">(GMT-04:00) Atlantic Time (Canada)</option>
+                                            <option timeZoneId="18" gmtAdjustment="GMT-04:00" useDaylightTime="0"
+                                                value="-4">(GMT-04:00) Caracas, La Paz</option>
+                                            <option timeZoneId="19" gmtAdjustment="GMT-04:00" useDaylightTime="0"
+                                                value="-4">(GMT-04:00) Manaus</option>
+                                            <option timeZoneId="20" gmtAdjustment="GMT-04:00" useDaylightTime="1"
+                                                value="-4">(GMT-04:00) Santiago</option>
+                                            <option timeZoneId="21" gmtAdjustment="GMT-03:30" useDaylightTime="1"
+                                                value="-3.5">(GMT-03:30) Newfoundland</option>
+                                            <option timeZoneId="22" gmtAdjustment="GMT-03:00" useDaylightTime="1"
+                                                value="-3">(GMT-03:00) Brasilia</option>
+                                            <option timeZoneId="23" gmtAdjustment="GMT-03:00" useDaylightTime="0"
+                                                value="-3">(GMT-03:00) Buenos Aires, Georgetown</option>
+                                            <option timeZoneId="24" gmtAdjustment="GMT-03:00" useDaylightTime="1"
+                                                value="-3">(GMT-03:00) Greenland</option>
+                                            <option timeZoneId="25" gmtAdjustment="GMT-03:00" useDaylightTime="1"
+                                                value="-3">(GMT-03:00) Montevideo</option>
+                                            <option timeZoneId="26" gmtAdjustment="GMT-02:00" useDaylightTime="1"
+                                                value="-2">(GMT-02:00) Mid-Atlantic</option>
+                                            <option timeZoneId="27" gmtAdjustment="GMT-01:00" useDaylightTime="0"
+                                                value="-1">(GMT-01:00) Cape Verde Is.</option>
+                                            <option timeZoneId="28" gmtAdjustment="GMT-01:00" useDaylightTime="1"
+                                                value="-1">(GMT-01:00) Azores</option>
+                                            <option timeZoneId="29" gmtAdjustment="GMT+00:00" useDaylightTime="0"
+                                                value="0">(GMT+00:00) Casablanca, Monrovia, Reykjavik</option>
+                                            <option timeZoneId="30" gmtAdjustment="GMT+00:00" useDaylightTime="1"
+                                                value="0">(GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon,
+                                                London</option>
+                                            <option timeZoneId="31" gmtAdjustment="GMT+01:00" useDaylightTime="1"
+                                                value="1">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna
+                                            </option>
+                                            <option timeZoneId="32" gmtAdjustment="GMT+01:00" useDaylightTime="1"
+                                                value="1">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague
+                                            </option>
+                                            <option timeZoneId="33" gmtAdjustment="GMT+01:00" useDaylightTime="1"
+                                                value="1">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+                                            <option timeZoneId="34" gmtAdjustment="GMT+01:00" useDaylightTime="1"
+                                                value="1">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+                                            <option timeZoneId="35" gmtAdjustment="GMT+01:00" useDaylightTime="1"
+                                                value="1">(GMT+01:00) West Central Africa</option>
+                                            <option timeZoneId="36" gmtAdjustment="GMT+02:00" useDaylightTime="1"
+                                                value="2">(GMT+02:00) Amman</option>
+                                            <option timeZoneId="37" gmtAdjustment="GMT+02:00" useDaylightTime="1"
+                                                value="2">(GMT+02:00) Athens, Bucharest, Istanbul</option>
+                                            <option timeZoneId="38" gmtAdjustment="GMT+02:00" useDaylightTime="1"
+                                                value="2">(GMT+02:00) Beirut</option>
+                                            <option timeZoneId="39" gmtAdjustment="GMT+02:00" useDaylightTime="1"
+                                                value="2">(GMT+02:00) Cairo</option>
+                                            <option timeZoneId="40" gmtAdjustment="GMT+02:00" useDaylightTime="0"
+                                                value="2">(GMT+02:00) Harare, Pretoria</option>
+                                            <option timeZoneId="41" gmtAdjustment="GMT+02:00" useDaylightTime="1"
+                                                value="2">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius
+                                            </option>
+                                            <option timeZoneId="42" gmtAdjustment="GMT+02:00" useDaylightTime="1"
+                                                value="2">(GMT+02:00) Jerusalem</option>
+                                            <option timeZoneId="43" gmtAdjustment="GMT+02:00" useDaylightTime="1"
+                                                value="2">(GMT+02:00) Minsk</option>
+                                            <option timeZoneId="44" gmtAdjustment="GMT+02:00" useDaylightTime="1"
+                                                value="2">(GMT+02:00) Windhoek</option>
+                                            <option timeZoneId="45" gmtAdjustment="GMT+03:00" useDaylightTime="0"
+                                                value="3">(GMT+03:00) Kuwait, Riyadh, Baghdad</option>
+                                            <option timeZoneId="46" gmtAdjustment="GMT+03:00" useDaylightTime="1"
+                                                value="3">(GMT+03:00) Moscow, St. Petersburg, Volgograd</option>
+                                            <option timeZoneId="47" gmtAdjustment="GMT+03:00" useDaylightTime="0"
+                                                value="3">(GMT+03:00) Nairobi</option>
+                                            <option timeZoneId="48" gmtAdjustment="GMT+03:00" useDaylightTime="0"
+                                                value="3">(GMT+03:00) Tbilisi</option>
+                                            <option timeZoneId="49" gmtAdjustment="GMT+03:30" useDaylightTime="1"
+                                                value="3.5">(GMT+03:30) Tehran</option>
+                                            <option timeZoneId="50" gmtAdjustment="GMT+04:00" useDaylightTime="0"
+                                                value="4">(GMT+04:00) Abu Dhabi, Muscat</option>
+                                            <option timeZoneId="51" gmtAdjustment="GMT+04:00" useDaylightTime="1"
+                                                value="4">(GMT+04:00) Baku</option>
+                                            <option timeZoneId="52" gmtAdjustment="GMT+04:00" useDaylightTime="1"
+                                                value="4">(GMT+04:00) Yerevan</option>
+                                            <option timeZoneId="53" gmtAdjustment="GMT+04:30" useDaylightTime="0"
+                                                value="4.5">(GMT+04:30) Kabul</option>
+                                            <option timeZoneId="54" gmtAdjustment="GMT+05:00" useDaylightTime="1"
+                                                value="5">(GMT+05:00) Yekaterinburg</option>
+                                            <option timeZoneId="55" gmtAdjustment="GMT+05:00" useDaylightTime="0"
+                                                value="5">(GMT+05:00) Islamabad, Karachi, Tashkent</option>
+                                            <option timeZoneId="56" gmtAdjustment="GMT+05:30" useDaylightTime="0"
+                                                value="5.5">(GMT+05:30) Sri Jayawardenapura</option>
+                                            <option timeZoneId="57" gmtAdjustment="GMT+05:30" useDaylightTime="0"
+                                                value="5.5">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+                                            <option timeZoneId="58" gmtAdjustment="GMT+05:45" useDaylightTime="0"
+                                                value="5.75">(GMT+05:45) Kathmandu</option>
+                                            <option timeZoneId="59" gmtAdjustment="GMT+06:00" useDaylightTime="1"
+                                                value="6">(GMT+06:00) Almaty, Novosibirsk</option>
+                                            <option timeZoneId="60" gmtAdjustment="GMT+06:00" useDaylightTime="0"
+                                                value="6">(GMT+06:00) Astana, Dhaka</option>
+                                            <option timeZoneId="61" gmtAdjustment="GMT+06:30" useDaylightTime="0"
+                                                value="6.5">(GMT+06:30) Yangon (Rangoon)</option>
+                                            <option timeZoneId="62" gmtAdjustment="GMT+07:00" useDaylightTime="0"
+                                                value="7">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+                                            <option timeZoneId="63" gmtAdjustment="GMT+07:00" useDaylightTime="1"
+                                                value="7">(GMT+07:00) Krasnoyarsk</option>
+                                            <option timeZoneId="64" gmtAdjustment="GMT+08:00" useDaylightTime="0"
+                                                value="8">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+                                            <option timeZoneId="65" gmtAdjustment="GMT+08:00" useDaylightTime="0"
+                                                value="8">(GMT+08:00) Kuala Lumpur, Singapore</option>
+                                            <option timeZoneId="66" gmtAdjustment="GMT+08:00" useDaylightTime="0"
+                                                value="8">(GMT+08:00) Irkutsk, Ulaan Bataar</option>
+                                            <option timeZoneId="67" gmtAdjustment="GMT+08:00" useDaylightTime="0"
+                                                value="8">(GMT+08:00) Perth</option>
+                                            <option timeZoneId="68" gmtAdjustment="GMT+08:00" useDaylightTime="0"
+                                                value="8">(GMT+08:00) Taipei</option>
+                                            <option timeZoneId="69" gmtAdjustment="GMT+09:00" useDaylightTime="0"
+                                                value="9">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+                                            <option timeZoneId="70" gmtAdjustment="GMT+09:00" useDaylightTime="0"
+                                                value="9">(GMT+09:00) Seoul</option>
+                                            <option timeZoneId="71" gmtAdjustment="GMT+09:00" useDaylightTime="1"
+                                                value="9">(GMT+09:00) Yakutsk</option>
+                                            <option timeZoneId="72" gmtAdjustment="GMT+09:30" useDaylightTime="0"
+                                                value="9.5">(GMT+09:30) Adelaide</option>
+                                            <option timeZoneId="73" gmtAdjustment="GMT+09:30" useDaylightTime="0"
+                                                value="9.5">(GMT+09:30) Darwin</option>
+                                            <option timeZoneId="74" gmtAdjustment="GMT+10:00" useDaylightTime="0"
+                                                value="10">(GMT+10:00) Brisbane</option>
+                                            <option timeZoneId="75" gmtAdjustment="GMT+10:00" useDaylightTime="1"
+                                                value="10">(GMT+10:00) Canberra, Melbourne, Sydney</option>
+                                            <option timeZoneId="76" gmtAdjustment="GMT+10:00" useDaylightTime="1"
+                                                value="10">(GMT+10:00) Hobart</option>
+                                            <option timeZoneId="77" gmtAdjustment="GMT+10:00" useDaylightTime="0"
+                                                value="10">(GMT+10:00) Guam, Port Moresby</option>
+                                            <option timeZoneId="78" gmtAdjustment="GMT+10:00" useDaylightTime="1"
+                                                value="10">(GMT+10:00) Vladivostok</option>
+                                            <option timeZoneId="79" gmtAdjustment="GMT+11:00" useDaylightTime="1"
+                                                value="11">(GMT+11:00) Magadan, Solomon Is., New Caledonia</option>
+                                            <option timeZoneId="80" gmtAdjustment="GMT+12:00" useDaylightTime="1"
+                                                value="12">(GMT+12:00) Auckland, Wellington</option>
+                                            <option timeZoneId="81" gmtAdjustment="GMT+12:00" useDaylightTime="0"
+                                                value="12">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
+                                            <option timeZoneId="82" gmtAdjustment="GMT+13:00" useDaylightTime="0"
+                                                value="13">(GMT+13:00) Nuku'alofa</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Preferred language</label>
+                                        <div class="sa-select-wrapper">
+                                            <select class="label ui fluid selection dropdown"
+                                                placeholder="Select option">
+                                                <option>English</option>
+                                                <option>Spanish</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="groupsNav" role="tabpanel" aria-labelledby="groupsTab">
+                            <div class="form-group clearfix">
+                                <p class="float-left mt-3">Allow access to Resources and Privileges by assigning the
+                                    user to Groups</p>
+                                <div id="assignGroups" class="button-primary float-right mb-5">
+                                    <a data-toggle="modal" data-target="#assignGroupsModal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 18 18" fill="none">
+                                            <path
+                                                d="M9 15C5.6925 15 3 12.3075 3 9C3 5.6925 5.6925 3 9 3C12.3075 3 15 5.6925 15 9C15 12.3075 12.3075 15 9 15ZM9 1.5C8.01509 1.5 7.03982 1.69399 6.12987 2.0709C5.21993 2.44781 4.39314 3.00026 3.6967 3.6967C2.29018 5.10322 1.5 7.01088 1.5 9C1.5 10.9891 2.29018 12.8968 3.6967 14.3033C4.39314 14.9997 5.21993 15.5522 6.12987 15.9291C7.03982 16.306 8.01509 16.5 9 16.5C10.9891 16.5 12.8968 15.7098 14.3033 14.3033C15.7098 12.8968 16.5 10.9891 16.5 9C16.5 8.01509 16.306 7.03982 15.9291 6.12987C15.5522 5.21993 14.9997 4.39314 14.3033 3.6967C13.6069 3.00026 12.7801 2.44781 11.8701 2.0709C10.9602 1.69399 9.98491 1.5 9 1.5ZM9.75 5.25H8.25V8.25H5.25V9.75H8.25V12.75H9.75V9.75H12.75V8.25H9.75V5.25Z"
+                                                fill="#FAFAFA" />
+                                        </svg>
+                                        <span>Assign Group</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <table class="datatable sa-table" id="tableGroups">
+                                    <thead>
+                                        <tr>
+                                            <th class="sa-table-th">
+                                                NAME
+                                            </th>
+                                            <th class="sa-table-th">
+                                                DESCRIPTION
+                                            </th>
+                                            <th class="sa-table-th">
+                                                GROUP MEMEBERSHIP EXPIRE DATE
+                                            </th>
+                                            <th class="sa-table-th no-sort"></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Developers of...
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Developers of the west coast offices
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker2" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Unassign </span>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Store Temporary
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Description of the gorup Store Temporary
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <span class="sa-tag sa-tag-success">
+                                                    <div class="sa-type-caption"> Tomorrow </div>
+                                                </span>
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Unassign </span>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Sales trainee
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Description of the gorup Store Temporary
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker4" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Unassign </span>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                New Staff England
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Description of the gorup Store Temporary
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker5" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Unassign </span>
+
+                                            </td>
+                                        </tr>
+                                        <tr class="table-row">
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Marketing
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                Description of the gorup Store Temporary
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle">
+                                                <input type="text" value="" id="datetimepicker3" class="no-border"
+                                                    style="cursor: pointer; padding:0; color: #2995F5;" />
+                                            </td>
+                                            <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                                style="cursor: pointer;">
+
+                                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.49967 13.334C5.55967 13.334 3.16634 10.9407 3.16634 8.00065C3.16634 5.06065 5.55967 2.66732 8.49967 2.66732C11.4397 2.66732 13.833 5.06065 13.833 8.00065C13.833 10.9407 11.4397 13.334 8.49967 13.334ZM8.49967 1.33398C7.6242 1.33398 6.75729 1.50642 5.94845 1.84145C5.13961 2.17649 4.40469 2.66755 3.78563 3.28661C2.53539 4.53685 1.83301 6.23254 1.83301 8.00065C1.83301 9.76876 2.53539 11.4645 3.78563 12.7147C4.40469 13.3338 5.13961 13.8248 5.94845 14.1598C6.75729 14.4949 7.6242 14.6673 8.49967 14.6673C10.2678 14.6673 11.9635 13.9649 13.2137 12.7147C14.464 11.4645 15.1663 9.76876 15.1663 8.00065C15.1663 7.12517 14.9939 6.25827 14.6589 5.44943C14.3238 4.64059 13.8328 3.90566 13.2137 3.28661C12.5947 2.66755 11.8597 2.17649 11.0509 1.84145C10.2421 1.50642 9.37515 1.33398 8.49967 1.33398V1.33398ZM5.16634 8.66732H11.833V7.33398H5.16634"
+                                                        fill="#E04545" />
+                                                </svg>
+                                                <span style="color: #E04545;">Unassign </span>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="userActivity" role="tabpanel" aria-labelledby="userActivityTab">
+                            <p>See all the activity for this user.</p>
+                            <table class="datatable sa-table" id="tableActivity">
+                                <thead>
+                                    <tr>
+                                        <th class="sa-table-th">
+                                            Activity
+                                        </th>
+                                        <th class="sa-table-th">
+                                            When
+                                        </th>
+                                        <th class="sa-table-th no-sort"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-row">
+                                        <td class="sa-table-td sa-table-v-align-middle">
+                                            Google Authenticator registered for Owner Owner
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle">
+                                            12 hours ago
+                                        </td>
+
+                                        <td class="sa-table-td sa-table-v-align-middle" style="cursor: pointer;">
+                                            <a data-toggle="modal" data-target="#userActivityDetailsModal">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.00033 6.00049C8.53076 6.00049 9.03947 6.2112 9.41454 6.58627C9.78961 6.96135 10.0003 7.47006 10.0003 8.00049C10.0003 8.53092 9.78961 9.03963 9.41454 9.4147C9.03947 9.78978 8.53076 10.0005 8.00033 10.0005C7.46989 10.0005 6.96118 9.78978 6.58611 9.4147C6.21104 9.03963 6.00033 8.53092 6.00033 8.00049C6.00033 7.47006 6.21104 6.96135 6.58611 6.58627C6.96118 6.2112 7.46989 6.00049 8.00033 6.00049V6.00049ZM8.00033 3.00049C11.3337 3.00049 14.1803 5.07382 15.3337 8.00049C14.1803 10.9272 11.3337 13.0005 8.00033 13.0005C4.66699 13.0005 1.82033 10.9272 0.666992 8.00049C1.82033 5.07382 4.66699 3.00049 8.00033 3.00049ZM2.12033 8.00049C3.22033 10.2405 5.49366 11.6672 8.00033 11.6672C10.507 11.6672 12.7803 10.2405 13.8803 8.00049C12.7803 5.76049 10.507 4.33382 8.00033 4.33382C5.49366 4.33382 3.22033 5.76049 2.12033 8.00049Z"
+                                                        fill="#2995F5" />
+                                                </svg>
+                                                <span style="color: #2995F5;">Details</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="sa-table-td sa-table-v-align-middle">
+                                            User deleted security factor
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle">
+                                            13 hours ago
+                                        </td>
+
+                                        <td class="sa-table-td sa-table-v-align-middle link-delete"
+                                            style="cursor: pointer;">
+                                            <a data-toggle="modal" data-target="#userActivityDetailsModal">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.00033 6.00049C8.53076 6.00049 9.03947 6.2112 9.41454 6.58627C9.78961 6.96135 10.0003 7.47006 10.0003 8.00049C10.0003 8.53092 9.78961 9.03963 9.41454 9.4147C9.03947 9.78978 8.53076 10.0005 8.00033 10.0005C7.46989 10.0005 6.96118 9.78978 6.58611 9.4147C6.21104 9.03963 6.00033 8.53092 6.00033 8.00049C6.00033 7.47006 6.21104 6.96135 6.58611 6.58627C6.96118 6.2112 7.46989 6.00049 8.00033 6.00049V6.00049ZM8.00033 3.00049C11.3337 3.00049 14.1803 5.07382 15.3337 8.00049C14.1803 10.9272 11.3337 13.0005 8.00033 13.0005C4.66699 13.0005 1.82033 10.9272 0.666992 8.00049C1.82033 5.07382 4.66699 3.00049 8.00033 3.00049ZM2.12033 8.00049C3.22033 10.2405 5.49366 11.6672 8.00033 11.6672C10.507 11.6672 12.7803 10.2405 13.8803 8.00049C12.7803 5.76049 10.507 4.33382 8.00033 4.33382C5.49366 4.33382 3.22033 5.76049 2.12033 8.00049Z"
+                                                        fill="#2995F5" />
+                                                </svg>
+                                                <span style="color: #2995F5;">Details</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="sa-table-td sa-table-v-align-middle">
+                                            Google Authenticator desregistered for Owner Owner
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle">
+                                            1 day ago
+                                        </td>
+
+                                        <td class="sa-table-td sa-table-v-align-middle" style="cursor: pointer;">
+                                            <a data-toggle="modal" data-target="#userActivityDetailsModal">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.00033 6.00049C8.53076 6.00049 9.03947 6.2112 9.41454 6.58627C9.78961 6.96135 10.0003 7.47006 10.0003 8.00049C10.0003 8.53092 9.78961 9.03963 9.41454 9.4147C9.03947 9.78978 8.53076 10.0005 8.00033 10.0005C7.46989 10.0005 6.96118 9.78978 6.58611 9.4147C6.21104 9.03963 6.00033 8.53092 6.00033 8.00049C6.00033 7.47006 6.21104 6.96135 6.58611 6.58627C6.96118 6.2112 7.46989 6.00049 8.00033 6.00049V6.00049ZM8.00033 3.00049C11.3337 3.00049 14.1803 5.07382 15.3337 8.00049C14.1803 10.9272 11.3337 13.0005 8.00033 13.0005C4.66699 13.0005 1.82033 10.9272 0.666992 8.00049C1.82033 5.07382 4.66699 3.00049 8.00033 3.00049ZM2.12033 8.00049C3.22033 10.2405 5.49366 11.6672 8.00033 11.6672C10.507 11.6672 12.7803 10.2405 13.8803 8.00049C12.7803 5.76049 10.507 4.33382 8.00033 4.33382C5.49366 4.33382 3.22033 5.76049 2.12033 8.00049Z"
+                                                        fill="#2995F5" />
+                                                </svg>
+                                                <span style="color: #2995F5;">Details</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="sa-table-td sa-table-v-align-middle">
+                                            Owner Owner login into SecureAuth IdP Platform
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle">
+                                            2 days ago
+                                        </td>
+
+                                        <td class="sa-table-td sa-table-v-align-middle" style="cursor: pointer;">
+                                            <a data-toggle="modal" data-target="#userActivityDetailsModal">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.00033 6.00049C8.53076 6.00049 9.03947 6.2112 9.41454 6.58627C9.78961 6.96135 10.0003 7.47006 10.0003 8.00049C10.0003 8.53092 9.78961 9.03963 9.41454 9.4147C9.03947 9.78978 8.53076 10.0005 8.00033 10.0005C7.46989 10.0005 6.96118 9.78978 6.58611 9.4147C6.21104 9.03963 6.00033 8.53092 6.00033 8.00049C6.00033 7.47006 6.21104 6.96135 6.58611 6.58627C6.96118 6.2112 7.46989 6.00049 8.00033 6.00049V6.00049ZM8.00033 3.00049C11.3337 3.00049 14.1803 5.07382 15.3337 8.00049C14.1803 10.9272 11.3337 13.0005 8.00033 13.0005C4.66699 13.0005 1.82033 10.9272 0.666992 8.00049C1.82033 5.07382 4.66699 3.00049 8.00033 3.00049ZM2.12033 8.00049C3.22033 10.2405 5.49366 11.6672 8.00033 11.6672C10.507 11.6672 12.7803 10.2405 13.8803 8.00049C12.7803 5.76049 10.507 4.33382 8.00033 4.33382C5.49366 4.33382 3.22033 5.76049 2.12033 8.00049Z"
+                                                        fill="#2995F5" />
+                                                </svg>
+                                                <span style="color: #2995F5;">Details</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="sa-table-td sa-table-v-align-middle">
+                                            User changed password through profile
+                                        </td>
+                                        <td class="sa-table-td sa-table-v-align-middle">
+                                            2 week ago
+                                        </td>
+
+                                        <td class="sa-table-td sa-table-v-align-middle" style="cursor: pointer;">
+                                            <a data-toggle="modal" data-target="#userActivityDetailsModal">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.00033 6.00049C8.53076 6.00049 9.03947 6.2112 9.41454 6.58627C9.78961 6.96135 10.0003 7.47006 10.0003 8.00049C10.0003 8.53092 9.78961 9.03963 9.41454 9.4147C9.03947 9.78978 8.53076 10.0005 8.00033 10.0005C7.46989 10.0005 6.96118 9.78978 6.58611 9.4147C6.21104 9.03963 6.00033 8.53092 6.00033 8.00049C6.00033 7.47006 6.21104 6.96135 6.58611 6.58627C6.96118 6.2112 7.46989 6.00049 8.00033 6.00049V6.00049ZM8.00033 3.00049C11.3337 3.00049 14.1803 5.07382 15.3337 8.00049C14.1803 10.9272 11.3337 13.0005 8.00033 13.0005C4.66699 13.0005 1.82033 10.9272 0.666992 8.00049C1.82033 5.07382 4.66699 3.00049 8.00033 3.00049ZM2.12033 8.00049C3.22033 10.2405 5.49366 11.6672 8.00033 11.6672C10.507 11.6672 12.7803 10.2405 13.8803 8.00049C12.7803 5.76049 10.507 4.33382 8.00033 4.33382C5.49366 4.33382 3.22033 5.76049 2.12033 8.00049Z"
+                                                        fill="#2995F5" />
+                                                </svg>
+                                                <span style="color: #2995F5;">Details</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="customSettings" role="tabpanel"
+                            aria-labelledby="customSettingsTab">
+                            <p>Customize the Privileges available to the user, in addition to Group settings </p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Privileges</label>
+                                        <p class="subtitle">Add or delete privileges specific to user. This can be
+                                            permanent or temporary.</p>
+                                        <div class="sa-select-wrapper">
+                                            <select class="label ui fluid selection dropdown" multiple
+                                                placeholder="Select option" id="userTypeSelect">
+                                                <option selected>Privilege 01</option>
+                                                <option>Privilege 02</option>
+                                                <option>Privilege 03</option>
+                                                <option>Privilege 04</option>
+                                                <option>Privilege 05</option>
+                                                <option>Privilege 06</option>
+                                                <option>Privilege 07</option>
+                                                <option>Privilege 08</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Assign Groups-->
+    <div class="modal fade" id="assignGroupsModal" tabindex="-1" role="dialog" aria-labelledby="assignGroupsModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Assign Groups to Marcus Fernandez </h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="myInput" class="search-input" type="text" placeholder="Search..." style="width: 50%;">
+                    </div>
+                    <div class="form-group" id="toastAssign" style="display: none;">
+                        <div data-id="sa-toast"
+                            class="sa-toast sa-toast-wrapper sa-toast-success sa-toast-appear-done sa-toast-enter-done">
+                            <div class="sa-toast-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 0C4.5 0 0 4.5 0 10C0 15.5 4.5 20 10 20C15.5 20 20 15.5 20 10C20 4.5 15.5 0 10 0ZM8 15L3 10L4.41 8.59L8 12.17L15.59 4.58L17 6L8 15Z"
+                                        fill="#FAFAFA" />
+                                </svg>
+                            </div>
+                            <div class="sa-toast-text" data-id="sa-toast-text">2 groups assigned to user, out of
+                                20,000,000
+                            </div>
+                        </div>
+                    </div>
+                    <table class="datatable sa-table" id="tableAssignGroups">
+                        <thead>
+                            <tr>
+                                <th class="sa-table-th no-sort">
+                                    <div class="sa-form-checkbox">
+                                        <label for="allcb" class="sa-form-checkbox-label">
+                                            <input name="allcb" id="allcb" type="checkbox">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </th>
+                                <th class="sa-table-th">
+                                    Groups
+                                </th>
+                                <th class="sa-table-th">
+                                    Description
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    <div class="sa-form-checkbox">
+                                        <label for="cb1" class="sa-form-checkbox-label">
+                                            <input name="cb[]" id="cb1" type="checkbox">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Front End Developers
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    This is the group of Front End Developers
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    <div class="sa-form-checkbox">
+                                        <label for="cb2" class="sa-form-checkbox-label">
+                                            <input name="cb[]" id="cb2" type="checkbox">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Front End Developers
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    This is the group of Front End Developers
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    <div class="sa-form-checkbox">
+                                        <label for="cb3" class="sa-form-checkbox-label">
+                                            <input name="cb[]" id="cb3" type="checkbox">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Front End Developers
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    This is the group of Front End Developers
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    <div class="sa-form-checkbox">
+                                        <label for="cb4" class="sa-form-checkbox-label">
+                                            <input name="cb[]" id="cb4" type="checkbox">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Front End Developers
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    This is the group of Front End Developers
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    <div class="sa-form-checkbox">
+                                        <label for="cb5" class="sa-form-checkbox-label">
+                                            <input name="cb[]" id="cb5" type="checkbox">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Front End Developers
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    This is the group of Front End Developers
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    <div class="sa-form-checkbox">
+                                        <label for="cb6" class="sa-form-checkbox-label">
+                                            <input name="cb[]" id="cb6" type="checkbox">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Front End Developers
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    This is the group of Front End Developers
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    <div class="sa-form-checkbox">
+                                        <label for="cb7" class="sa-form-checkbox-label">
+                                            <input name="cb[]" id="cb7" type="checkbox">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Front End Developers
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    This is the group of Front End Developers
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="sa-button-tertiary" data-dismiss="modal">Close</button>
+                    <button type="button" class="sa-button-primary" onclick="assignGroups()">Assign</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal User details-->
+    <div class="modal fade" id="userActivityDetailsModal" tabindex="-1" role="dialog"
+        aria-labelledby="userActivityDetailsModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Activity details</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="datatable sa-table" id="tableUserDetails">
+                        <thead>
+                            <tr>
+                                <th class="sa-table-th">
+                                    What
+                                </th>
+                                <th class="sa-table-th">
+                                    Actor
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Performed by
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    API
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    IP address
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    24.63.247.43
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    When
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    2021 April 12 14:12
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    User
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Owner Owner
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Notes
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Credencial Name ::
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    Event time (ISO8601)
+                                </td>
+                                <td class="sa-table-td sa-table-v-align-middle">
+                                    2020-0715T14:06:53-07:00
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="sa-button-tertiary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".sa-table .table-row").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+        function assignGroups() {
+            $("#toastAssign").css("display", "block");
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".link-delete").click(function () {
+                $(this).parents('.table-row').remove();
+            });
+        });
+    </script>
+
+    <script src="js/datepicker.js"></script>
+    <script>
+        var date = $("#datetimepicker").val().replace(/ /g, '<p>');
+        $(".spanDate").html('<p>' + date + '</p>');
+
+        function handleChange(event) {
+            var e = $(event.target);
+
+            var oldvalue = "" + e.data('oldvalue');
+            var newvalue = "" + e.val().replace(/ /g, '<p>');
+            if (oldvalue != newvalue) {
+                $(".spanDate").html('<p>' + newvalue + '</p>');
+                e.data('oldvalue', newvalue);
+            }
+        }
+
+        $(function () {
+            $('#datetimepicker')
+                .bind('change', handleChange)
+                .bind('blur', handleChange)
+                .bind('keydown', handleChange)
+                .bind('keyup', handleChange)
+                .data('oldvalue', '');
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $('#userTypeSelect').change(function () {
+                    var input = $(this).val();
+
+                    if ($(this).val() == "other") {
+                        $("#inputOther").css("display", "block");
+                    }
+                    else {
+                        $("#inputOther").css("display", "none");
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="js/custom.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+    <script src="js/table.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tableAssignGroups').dataTable({
+                "bDestroy": true,
+                "bFilter": false,
+                "bPaginate": false,
+                "iDisplayLength": 50,
+                aLengthMenu: [25, 50, 100],
+                "fnDrawCallback": function () {
+                    $('#tableAssignGroups_info').prepend($('#tableAssignGroups_length'));
+                }
+            });
+
+            $('#tableUserDetails').dataTable({
+                "bDestroy": true,
+                "bFilter": false,
+                "iDisplayLength": 50,
+                "bPaginate": false,
+                aLengthMenu: [25, 50, 100],
+                "fnDrawCallback": function () {
+                    $('#tableUserDetails_info').prepend($('#tableUserDetails_length'));
+                }
+            });
+
+            $('#tableGroups').dataTable({
+                "bDestroy": true,
+                "bFilter": false,
+                "bInfo":false,
+                "iDisplayLength": 50,
+                aLengthMenu: [25, 50, 100],
+                "fnDrawCallback": function () {
+                    $('#tableGroups_info').prepend($('#tableGroups_length'));
+                }
+            });
+
+            $('#tableActivity').dataTable({
+                "bDestroy": true,
+                "bFilter": false,
+                "iDisplayLength": 50,
+                aLengthMenu: [25, 50, 100],
+                "fnDrawCallback": function () {
+                    $('#tableActivity_info').prepend($('#tableActivity_length'));
+                }
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+
+</html>

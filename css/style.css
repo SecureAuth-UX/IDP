@@ -401,6 +401,7 @@ label {
     border-radius: 100px;
     padding: 12px 24px;
     display: inline-block;
+    cursor: pointer;
 }
 
 .sa-button-primary a {
@@ -461,6 +462,10 @@ a:not([href]), .sa-type-link {
 .table {
     display: flex;
     flex-direction: column;
+}
+
+.search-input {
+    border-color: #2995F5;
 }
 
 .table-row {

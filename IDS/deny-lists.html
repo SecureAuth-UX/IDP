@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth Identity Stores</title>
+    <link rel="icon" type="images/vnd.microsoft.icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <link href="css/sa.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body onload="menu()">
+
+    <div id="header"></div>
+
+    <main role="main">
+        <div class="title-top title-top-internal">
+            <div class="row">
+                <div class="col-8">
+                    <h1 class="sa-type-header-1">
+                        <div class="sa-header-no-margin">
+                            <div class="sa-header-text">
+                                <span class="testTitle">Deny Lists</span>
+                            </div>
+                        </div>
+                    </h1>
+                </div>
+                <div class="col-4 text-right pt-3">
+                    <div class="sa-button-primary">
+                        <a href="new-deny-list.html">
+
+                            <svg width="19" height="18" viewBox="0 0 19 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.5 15C6.1925 15 3.5 12.3075 3.5 9C3.5 5.6925 6.1925 3 9.5 3C12.8075 3 15.5 5.6925 15.5 9C15.5 12.3075 12.8075 15 9.5 15ZM9.5 1.5C8.51509 1.5 7.53982 1.69399 6.62987 2.0709C5.71993 2.44781 4.89314 3.00026 4.1967 3.6967C2.79018 5.10322 2 7.01088 2 9C2 10.9891 2.79018 12.8968 4.1967 14.3033C4.89314 14.9997 5.71993 15.5522 6.62987 15.9291C7.53982 16.306 8.51509 16.5 9.5 16.5C11.4891 16.5 13.3968 15.7098 14.8033 14.3033C16.2098 12.8968 17 10.9891 17 9C17 8.01509 16.806 7.03982 16.4291 6.12987C16.0522 5.21993 15.4997 4.39314 14.8033 3.6967C14.1069 3.00026 13.2801 2.44781 12.3701 2.0709C11.4602 1.69399 10.4849 1.5 9.5 1.5ZM10.25 5.25H8.75V8.25H5.75V9.75H8.75V12.75H10.25V9.75H13.25V8.25H10.25V5.25Z"
+                                    fill="#FAFAFA" />
+                            </svg>
+
+                            <span>Add New Deny List</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sa-view-body">
+            <div class="mb-5 mt-5 pt-4">
+                <input id="myInput" type="text" placeholder="Search..." class="search-input" style="width: 50%;">
+            </div>
+            <div class="dropdown">
+                <button class="sa-button-secondary mb-3 dropdown-toggle" type="button">
+                    Bulk Actions
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5.5575 6.43506L9 9.87756L12.4425 6.43506L13.5 7.50006L9 12.0001L4.5 7.50006L5.5575 6.43506Z"
+                            fill="#2995F5" />
+                    </svg>
+                </button>
+                <div class="dropdown-menu" style="left: 0; top: 50px;">
+                    <a href="#" class="link-list">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6.75 2.25V3H3V4.5H3.75V14.25C3.75 14.6478 3.90804 15.0294 4.18934 15.3107C4.47064 15.592 4.85218 15.75 5.25 15.75H12.75C13.1478 15.75 13.5294 15.592 13.8107 15.3107C14.092 15.0294 14.25 14.6478 14.25 14.25V4.5H15V3H11.25V2.25H6.75ZM5.25 4.5H12.75V14.25H5.25V4.5ZM6.75 6V12.75H8.25V6H6.75ZM9.75 6V12.75H11.25V6H9.75Z"
+                                fill="#E04545" />
+                        </svg>
+                        <span class="sa-type-caption" style="color: #E04545;">Delete Deny Lists</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <table class="datatable sa-table">
+                <thead>
+                    <tr>
+                        <th class="sa-table-th no-sort">
+                            <div class="sa-form-checkbox">
+                                <label for="allcb" class="sa-form-checkbox-label">
+                                    <input name="allcb" id="allcb" type="checkbox">
+                                    <span class="sa-form-checkbox-pseudo-input">
+                                        <span></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </th>
+                        <th class="sa-table-th">
+                            Name
+                        </th>
+                        <th class="sa-table-th">
+                            Quantity
+                        </th>
+                        <th class="sa-table-th">
+                            Date Created
+                        </th>
+                        <th class="sa-table-th">
+                            Date Last Updated
+                        </th>
+                        <th class="sa-table-th no-sort"></th>
+                    </tr>
+                </thead>
+
+                <tbody class="table-content">
+                    <tr class="table-row">
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <div class="sa-form-checkbox">
+                                <label for="cb1" class="sa-form-checkbox-label">
+                                    <input name="cb[]" id="cb1" type="checkbox">
+                                    <span class="sa-form-checkbox-pseudo-input">
+                                        <span></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <a>Name of Deny List</a>
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            78 keywords
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            2021 April 12 10:12
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            2021 April 12 10:12
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-toggle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16ZM12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10ZM12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4V4Z"
+                                            fill="#2995F5" />
+                                    </svg>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <img class="closeActions" alt="" src="images/close.svg" />
+                                    <a href="#" class="cloneIds">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M13.8409 15.1364H6.34091V5.59091H13.8409V15.1364ZM13.8409 4.22727H6.34091C5.97925 4.22727 5.6324 4.37094 5.37667 4.62667C5.12094 4.8824 4.97727 5.22925 4.97727 5.59091V15.1364C4.97727 15.498 5.12094 15.8449 5.37667 16.1006C5.6324 16.3563 5.97925 16.5 6.34091 16.5H13.8409C14.2026 16.5 14.5494 16.3563 14.8051 16.1006C15.0609 15.8449 15.2045 15.498 15.2045 15.1364V5.59091C15.2045 5.22925 15.0609 4.8824 14.8051 4.62667C14.5494 4.37094 14.2026 4.22727 13.8409 4.22727ZM11.7955 1.5H3.61364C3.25198 1.5 2.90513 1.64367 2.6494 1.8994C2.39367 2.15513 2.25 2.50198 2.25 2.86364V12.4091H3.61364V2.86364H11.7955V1.5Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Clone Deny List</span>
+                                    </a>
+                                    <a href="#" class="link-list">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.545 6.75L11.25 7.455L4.44 14.25H3.75V13.56L10.545 6.75ZM13.245 2.25C13.0575 2.25 12.8625 2.325 12.72 2.4675L11.3475 3.84L14.16 6.6525L15.5325 5.28C15.825 4.9875 15.825 4.5 15.5325 4.2225L13.7775 2.4675C13.6275 2.3175 13.44 2.25 13.245 2.25ZM10.545 4.6425L2.25 12.9375V15.75H5.0625L13.3575 7.455L10.545 4.6425Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Edit Deny List</span>
+                                    </a>
+                                    <a href="#" class="link-delete" data-toggle="modal"
+                                        data-target="#deleteUserModal" data-toggle="modal"
+                                        data-target="#deleteUserModal">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.75 2.25V3H3V4.5H3.75V14.25C3.75 14.6478 3.90804 15.0294 4.18934 15.3107C4.47064 15.592 4.85218 15.75 5.25 15.75H12.75C13.1478 15.75 13.5294 15.592 13.8107 15.3107C14.092 15.0294 14.25 14.6478 14.25 14.25V4.5H15V3H11.25V2.25H6.75ZM5.25 4.5H12.75V14.25H5.25V4.5ZM6.75 6V12.75H8.25V6H6.75ZM9.75 6V12.75H11.25V6H9.75Z"
+                                                fill="#E04545" />
+                                        </svg>
+                                        <span class="sa-type-caption" style="color: #E04545;">Delete Deny List</span>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <div class="sa-form-checkbox">
+                                <label for="cb2" class="sa-form-checkbox-label">
+                                    <input name="cb[]" id="cb2" type="checkbox">
+                                    <span class="sa-form-checkbox-pseudo-input">
+                                        <span></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <a>Name of Deny List</a>
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            78 keywords
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            2021 April 12 10:12
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            2021 April 12 10:12
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-toggle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16ZM12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10ZM12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4V4Z"
+                                            fill="#2995F5" />
+                                    </svg>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <img class="closeActions" alt="" src="images/close.svg" />
+                                    <a href="#" class="cloneIds">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M13.8409 15.1364H6.34091V5.59091H13.8409V15.1364ZM13.8409 4.22727H6.34091C5.97925 4.22727 5.6324 4.37094 5.37667 4.62667C5.12094 4.8824 4.97727 5.22925 4.97727 5.59091V15.1364C4.97727 15.498 5.12094 15.8449 5.37667 16.1006C5.6324 16.3563 5.97925 16.5 6.34091 16.5H13.8409C14.2026 16.5 14.5494 16.3563 14.8051 16.1006C15.0609 15.8449 15.2045 15.498 15.2045 15.1364V5.59091C15.2045 5.22925 15.0609 4.8824 14.8051 4.62667C14.5494 4.37094 14.2026 4.22727 13.8409 4.22727ZM11.7955 1.5H3.61364C3.25198 1.5 2.90513 1.64367 2.6494 1.8994C2.39367 2.15513 2.25 2.50198 2.25 2.86364V12.4091H3.61364V2.86364H11.7955V1.5Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Clone Deny List</span>
+                                    </a>
+                                    <a href="#" class="link-list">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.545 6.75L11.25 7.455L4.44 14.25H3.75V13.56L10.545 6.75ZM13.245 2.25C13.0575 2.25 12.8625 2.325 12.72 2.4675L11.3475 3.84L14.16 6.6525L15.5325 5.28C15.825 4.9875 15.825 4.5 15.5325 4.2225L13.7775 2.4675C13.6275 2.3175 13.44 2.25 13.245 2.25ZM10.545 4.6425L2.25 12.9375V15.75H5.0625L13.3575 7.455L10.545 4.6425Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Edit Deny List</span>
+                                    </a>
+                                    <a href="#" class="link-delete" data-toggle="modal"
+                                        data-target="#deleteUserModal" data-toggle="modal"
+                                        data-target="#deleteUserModal">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.75 2.25V3H3V4.5H3.75V14.25C3.75 14.6478 3.90804 15.0294 4.18934 15.3107C4.47064 15.592 4.85218 15.75 5.25 15.75H12.75C13.1478 15.75 13.5294 15.592 13.8107 15.3107C14.092 15.0294 14.25 14.6478 14.25 14.25V4.5H15V3H11.25V2.25H6.75ZM5.25 4.5H12.75V14.25H5.25V4.5ZM6.75 6V12.75H8.25V6H6.75ZM9.75 6V12.75H11.25V6H9.75Z"
+                                                fill="#E04545" />
+                                        </svg>
+                                        <span class="sa-type-caption" style="color: #E04545;">Delete Deny List</span>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <div class="sa-form-checkbox">
+                                <label for="cb3" class="sa-form-checkbox-label">
+                                    <input name="cb[]" id="cb3" type="checkbox">
+                                    <span class="sa-form-checkbox-pseudo-input">
+                                        <span></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <a>Name of Deny List</a>
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            78 keywords
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            2021 April 12 10:12
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            2021 April 12 10:12
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-toggle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16ZM12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10ZM12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4V4Z"
+                                            fill="#2995F5" />
+                                    </svg>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <img class="closeActions" alt="" src="images/close.svg" />
+                                    <a href="#" class="cloneIds">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M13.8409 15.1364H6.34091V5.59091H13.8409V15.1364ZM13.8409 4.22727H6.34091C5.97925 4.22727 5.6324 4.37094 5.37667 4.62667C5.12094 4.8824 4.97727 5.22925 4.97727 5.59091V15.1364C4.97727 15.498 5.12094 15.8449 5.37667 16.1006C5.6324 16.3563 5.97925 16.5 6.34091 16.5H13.8409C14.2026 16.5 14.5494 16.3563 14.8051 16.1006C15.0609 15.8449 15.2045 15.498 15.2045 15.1364V5.59091C15.2045 5.22925 15.0609 4.8824 14.8051 4.62667C14.5494 4.37094 14.2026 4.22727 13.8409 4.22727ZM11.7955 1.5H3.61364C3.25198 1.5 2.90513 1.64367 2.6494 1.8994C2.39367 2.15513 2.25 2.50198 2.25 2.86364V12.4091H3.61364V2.86364H11.7955V1.5Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Clone Deny List</span>
+                                    </a>
+                                    <a href="#" class="link-list">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.545 6.75L11.25 7.455L4.44 14.25H3.75V13.56L10.545 6.75ZM13.245 2.25C13.0575 2.25 12.8625 2.325 12.72 2.4675L11.3475 3.84L14.16 6.6525L15.5325 5.28C15.825 4.9875 15.825 4.5 15.5325 4.2225L13.7775 2.4675C13.6275 2.3175 13.44 2.25 13.245 2.25ZM10.545 4.6425L2.25 12.9375V15.75H5.0625L13.3575 7.455L10.545 4.6425Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Edit Deny List</span>
+                                    </a>
+                                    <a href="#" class="link-delete" data-toggle="modal"
+                                        data-target="#deleteUserModal" data-toggle="modal"
+                                        data-target="#deleteUserModal">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.75 2.25V3H3V4.5H3.75V14.25C3.75 14.6478 3.90804 15.0294 4.18934 15.3107C4.47064 15.592 4.85218 15.75 5.25 15.75H12.75C13.1478 15.75 13.5294 15.592 13.8107 15.3107C14.092 15.0294 14.25 14.6478 14.25 14.25V4.5H15V3H11.25V2.25H6.75ZM5.25 4.5H12.75V14.25H5.25V4.5ZM6.75 6V12.75H8.25V6H6.75ZM9.75 6V12.75H11.25V6H9.75Z"
+                                                fill="#E04545" />
+                                        </svg>
+                                        <span class="sa-type-caption" style="color: #E04545;">Delete Deny List</span>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <div class="sa-form-checkbox">
+                                <label for="cb4" class="sa-form-checkbox-label">
+                                    <input name="cb[]" id="cb4" type="checkbox">
+                                    <span class="sa-form-checkbox-pseudo-input">
+                                        <span></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <a>Name of Deny List</a>
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            78 keywords
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            2021 April 12 10:12
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            2021 April 12 10:12
+                        </td>
+                        <td class="sa-table-td sa-table-v-align-middle">
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-toggle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M12 16C12.5304 16 13.0391 16.2107 13.4142 16.5858C13.7893 16.9609 14 17.4696 14 18C14 18.5304 13.7893 19.0391 13.4142 19.4142C13.0391 19.7893 12.5304 20 12 20C11.4696 20 10.9609 19.7893 10.5858 19.4142C10.2107 19.0391 10 18.5304 10 18C10 17.4696 10.2107 16.9609 10.5858 16.5858C10.9609 16.2107 11.4696 16 12 16ZM12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10ZM12 4C12.5304 4 13.0391 4.21071 13.4142 4.58579C13.7893 4.96086 14 5.46957 14 6C14 6.53043 13.7893 7.03914 13.4142 7.41421C13.0391 7.78929 12.5304 8 12 8C11.4696 8 10.9609 7.78929 10.5858 7.41421C10.2107 7.03914 10 6.53043 10 6C10 5.46957 10.2107 4.96086 10.5858 4.58579C10.9609 4.21071 11.4696 4 12 4V4Z"
+                                            fill="#2995F5" />
+                                    </svg>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <img class="closeActions" alt="" src="images/close.svg" />
+                                    <a href="#" class="cloneIds">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M13.8409 15.1364H6.34091V5.59091H13.8409V15.1364ZM13.8409 4.22727H6.34091C5.97925 4.22727 5.6324 4.37094 5.37667 4.62667C5.12094 4.8824 4.97727 5.22925 4.97727 5.59091V15.1364C4.97727 15.498 5.12094 15.8449 5.37667 16.1006C5.6324 16.3563 5.97925 16.5 6.34091 16.5H13.8409C14.2026 16.5 14.5494 16.3563 14.8051 16.1006C15.0609 15.8449 15.2045 15.498 15.2045 15.1364V5.59091C15.2045 5.22925 15.0609 4.8824 14.8051 4.62667C14.5494 4.37094 14.2026 4.22727 13.8409 4.22727ZM11.7955 1.5H3.61364C3.25198 1.5 2.90513 1.64367 2.6494 1.8994C2.39367 2.15513 2.25 2.50198 2.25 2.86364V12.4091H3.61364V2.86364H11.7955V1.5Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Clone Deny List</span>
+                                    </a>
+                                    <a href="#" class="link-list">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.545 6.75L11.25 7.455L4.44 14.25H3.75V13.56L10.545 6.75ZM13.245 2.25C13.0575 2.25 12.8625 2.325 12.72 2.4675L11.3475 3.84L14.16 6.6525L15.5325 5.28C15.825 4.9875 15.825 4.5 15.5325 4.2225L13.7775 2.4675C13.6275 2.3175 13.44 2.25 13.245 2.25ZM10.545 4.6425L2.25 12.9375V15.75H5.0625L13.3575 7.455L10.545 4.6425Z"
+                                                fill="#2A2E2F" />
+                                        </svg>
+                                        <span class="sa-type-caption">Edit Deny List</span>
+                                    </a>
+                                    <a href="#" class="link-delete" data-toggle="modal"
+                                        data-target="#deleteUserModal" data-toggle="modal"
+                                        data-target="#deleteUserModal">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.75 2.25V3H3V4.5H3.75V14.25C3.75 14.6478 3.90804 15.0294 4.18934 15.3107C4.47064 15.592 4.85218 15.75 5.25 15.75H12.75C13.1478 15.75 13.5294 15.592 13.8107 15.3107C14.092 15.0294 14.25 14.6478 14.25 14.25V4.5H15V3H11.25V2.25H6.75ZM5.25 4.5H12.75V14.25H5.25V4.5ZM6.75 6V12.75H8.25V6H6.75ZM9.75 6V12.75H11.25V6H9.75Z"
+                                                fill="#E04545" />
+                                        </svg>
+                                        <span class="sa-type-caption" style="color: #E04545;">Delete Deny List</span>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+
+    <script>
+        $('.label.ui.dropdown')
+            .dropdown();
+
+        $('.no.label.ui.dropdown')
+            .dropdown({
+                useLabels: false
+            });
+
+        $('.ui.button').on('click', function () {
+            $('.ui.dropdown')
+                .dropdown('restore defaults')
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".sa-table .table-row").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".link-delete").click(function () {
+                $(this).parents('.table-row').remove();
+            });
+
+            $(".cloneIds").click(function () {
+                $(".table-content .table-row:first-child").clone().appendTo(".table-content");
+            })
+
+        });
+    </script>
+
+    <script src="js/custom.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+    <script src="js/table.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.datatable').dataTable({
+                "bDestroy": true,
+                "bFilter": false,
+                "iDisplayLength": 50,
+                aLengthMenu: [25, 50, 100],
+                "fnDrawCallback": function () {
+                    $('.dataTables_info').prepend($('.dataTables_length'));
+                }
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+
+</html>
