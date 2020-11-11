@@ -107,9 +107,9 @@ $(document).ready(function () {
     //ACCORDION ARROW
     $('.accordion-head a').on('click', function () {
         if ($(this).attr('aria-expanded') == 'true') {
-            $(this).find('span').html('<img src="images/chevron-right.svg" alt=""/>');
+            $(this).find('span').html('<img src="../images/chevron-right.svg" alt=""/>');
         } else {
-            $(this).find('span').html('<img src="images/chevron-down.svg" alt=""/>');
+            $(this).find('span').html('<img src="../images/chevron-down.svg" alt=""/>');
         }
     });
 
