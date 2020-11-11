@@ -1365,15 +1365,15 @@ table.dataTable thead th::after {
 }
 
 table.dataTable thead th.sorting:after {
-    content: url(../../images/arrow-spinner.svg) !important;
+    content: url(../images/arrow-spinner.svg) !important;
 }
 
 table.dataTable thead th.sorting_asc:after {
-    content: url(../../images/arrow-down.svg) !important;
+    content: url(../images/arrow-down.svg) !important;
 }
 
 table.dataTable thead th.sorting_desc:after {
-    content: url(../../images/arrow-up.svg) !important;
+    content: url(../images/arrow-up.svg) !important;
 }
 
 table.dataTable thead th.sorting.no-sort:after, table.dataTable thead th.sorting_asc.no-sort:after, table.dataTable thead th.sorting_desc.no-sort:after {
