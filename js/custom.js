@@ -182,15 +182,11 @@ $(document).ready(function () {
             $('.avatar .profile .profile-picture').removeClass('imgSubmenu');
             $('.chevron-bottom').css('display', 'inline');
             $('.chevron-top').css('display', 'none');
-            // $('#top-menu').css('top', '170px');
-            // $('#top-menu').css('height', '85%');
         }
         else {
             $('.avatar .profile .profile-picture').addClass('imgSubmenu');
             $('.chevron-top').css('display', 'inline');
             $('.chevron-bottom').css('display', 'none');
-            // $('#top-menu').css('top', '250px');
-            // $('#top-menu').css('height', '65%');
         }
     });
 
@@ -207,16 +203,12 @@ $(document).ready(function () {
             $('#submenu').removeClass('show');
             $('.collapseButton-expand').css('display', 'inline');
             $("#collapseButton").attr('style', 'left:85px; top:112px');
-            // $('.title-top').attr('style', 'padding:20px 50px 20px 138px');
-            // $('.sa-view-body').attr('style', 'padding:150px 50px 20px 25px');
             $(".buttons-footer").css("width", x);
         }
         else {
             $('.collapseButton-collapse').css('display', 'inline');
             $('.collapseButton-expand').css('display', 'none');
             $("#collapseButton").attr('style', 'left:280px; top:112px');
-            // $('.title-top').attr('style', 'padding:20px 50px 20px 345px');
-            // $('.sa-view-body').attr('style', 'padding:150px 50px 20px 50px');
             $(".buttons-footer").css("width", x);
         }
     });
@@ -336,40 +328,6 @@ $(document).ready(function () {
             }
         }
     });
-
-    //LIST & GRID VIEW
-    var elements = document.getElementsByClassName("table-row");
-    var i;
-
-    // List View
-    $("#listView").click(function () {
-        for (i = 0; i < elements.length; i++) {
-            $(elements[i]).addClass("listView");
-            $(elements[i]).removeClass("gridView");
-            $('.table').addClass("tableListView");
-            $('.table').removeClass("tableGridView");
-        }
-    });
-
-    // Grid View
-    $("#gridView").click(function () {
-        for (i = 0; i < elements.length; i++) {
-            $(elements[i]).addClass("gridView");
-            $(elements[i]).removeClass("listView");
-            $('.table').addClass("tableGridView");
-            $('.table').removeClass("tableListView");
-        }
-    });
-
-    var container = document.getElementById("listGridViewButtons");
-    var btns = container.getElementsByClassName("btn-view");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function () {
-            var current = document.getElementsByClassName("active-view");
-            current[0].className = current[0].className.replace(" active-view", "");
-            this.className += " active-view";
-        });
-    }
 
     //ACTIONS LIST
 
