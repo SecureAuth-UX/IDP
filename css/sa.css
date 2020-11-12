@@ -1405,7 +1405,7 @@ ul.sa-list-check-gold > li::before {
 .sa-toast .sa-toast-icon::before {
       content: "";
       position: absolute;
-      background-color: #fff;
+      background-color: transparent;
       width: 19px;
       height: 19px;
       border-radius: 50%;

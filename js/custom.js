@@ -136,6 +136,14 @@ $(document).ready(function () {
         $('#systemSettings').addClass('navActive');
     }
 
+    else if (menu.includes('/email-provider.html')) {
+        $('#emailProvider').addClass('navActive');
+    }
+
+    else if (menu.includes('/email-templates.html')) {
+        $('#emailTemplates').addClass('navActive');
+    }
+
     else if (menu.includes('/whats-new.html')) {
         $('#news').addClass('navActive');
     }
