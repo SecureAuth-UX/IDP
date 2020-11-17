@@ -137,7 +137,7 @@ $(document).ready(function () {
     }
 
     else if (menu.includes('/email-provider.html')) {
-        $('#emailProvider').addClass('navActive');
+        $('.emailProvider').addClass('navActive');
     }
 
     else if (menu.includes('/email-templates.html')) {
