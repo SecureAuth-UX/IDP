@@ -1,55 +1,56 @@
 $(document).ready(function () {
+    $(window).load(function () {
+        //ACTIVE MENU
+        var menu = window.location.href;
 
-    //ACTIVE MENU
-    var menu = window.location.href;
+        if (menu.includes('/identity-stores.html')) {
+            $('.ids').addClass('navActive');
+        }
 
-    if (menu.includes('/identity-stores.html')) {
-        $('.ids').addClass('navActive');
-    }
+        else if (menu.includes('/new-identity-store.html')) {
+            $('.ids').addClass('navActive');
+        }
 
-    else if (menu.includes('/new-identity-store.html')) {
-        $('.ids').addClass('navActive');
-    }
+        else if (menu.includes('/new-user.html')) {
+            $('.ids').addClass('navActive');
+        }
 
-    else if (menu.includes('/new-user.html')) {
-        $('.ids').addClass('navActive');
-    }
+        else if (menu.includes('/groups.html')) {
+            $('.groups-menu').addClass('navActive');
+        }
 
-    else if (menu.includes('/groups.html')) {
-        $('.groups-menu').addClass('navActive');
-    }
+        else if (menu.includes('/new-group.html')) {
+            $('.groups-menu').addClass('navActive');
+        }
 
-    else if (menu.includes('/new-group.html')) {
-        $('.groups-menu').addClass('navActive');
-    }
+        else if (menu.includes('/privileges.html')) {
+            $('.privileges-menu').addClass('navActive');
+        }
 
-    else if (menu.includes('/privileges.html')) {
-        $('.privileges-menu').addClass('navActive');
-    }
+        else if (menu.includes('/new-privilege.html')) {
+            $('.privileges-menu').addClass('navActive');
+        }
 
-    else if (menu.includes('/new-privilege.html')) {
-        $('.privileges-menu').addClass('navActive');
-    }
+        else if (menu.includes('/password-policies.html')) {
+            $('.pwdPolicies').addClass('navActive');
+        }
 
-    else if (menu.includes('/password-policies.html')) {
-        $('.pwdPolicies').addClass('navActive');
-    }
+        else if (menu.includes('/new-password-policy.html')) {
+            $('.pwdPolicies').addClass('navActive');
+        }
 
-    else if (menu.includes('/new-password-policy.html')) {
-        $('.pwdPolicies').addClass('navActive');
-    }
+        else if (menu.includes('/deny-lists.html')) {
+            $('.deny-list-menu').addClass('navActive');
+        }
 
-    else if (menu.includes('/deny-lists.html')) {
-        $('.deny-list-menu').addClass('navActive');
-    }
+        else if (menu.includes('/new-deny-list.html')) {
+            $('.deny-list-menu').addClass('navActive');
+        }
 
-    else if (menu.includes('/new-deny-list.html')) {
-        $('.deny-list-menu').addClass('navActive');
-    }
-
-    else if (menu.includes('/index.html')) {
-        $('#gettingStarted').addClass('navActive');
-    }
+        else if (menu.includes('/index.html')) {
+            $('#gettingStarted').addClass('navActive');
+        }
+    });
 
     //ACCORDION ARROW
     $('.accordion-head a').on('click', function () {
