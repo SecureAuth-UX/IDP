@@ -13,6 +13,7 @@
     <link href="css/select.css" rel="stylesheet">
     <link href="css/sa.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/jquery-steps.css" rel="stylesheet">
 </head>
 
 <body>
@@ -44,390 +45,412 @@
             </div>
         </div>
         <div class="sa-view-body">
-            <div class="step active">
-                <div class="col-8">
-                    <div class="form-group">
-                        <label>Client Name <span class="asterisk">*</span></label>
-                        <input type="text" placeholder="eg. Client 01, etc." />
-                    </div>
-                    <div class="form-group d-flex">
-                        <label class="mr-3">Status</label>
-                        <div class="material-switch pull-right">
-                            <input id="statusSwitch" name="someSwitchOption001" type="checkbox" checked />
-                            <label for="statusSwitch" class="label-default"></label>
-                        </div>
-                    </div>
+            <div class="step-app" id="demo">
+                <ul class="step-steps d-none">
+                    <li data-step-target="step1"></li>
+                    <li data-step-target="step2"></li>
+                    <li data-step-target="step3"></li>
+                </ul>
 
-                    <div class="form-group d-flex">
-                        <label class="mr-3">JSON Web Encryption</label>
-                        <div class="material-switch pull-right">
-                            <input id="jsonSwitch" name="jsonSwitch" type="checkbox" checked />
-                            <label for="jsonSwitch" class="label-default"></label>
-                        </div>
-                    </div>
-
-                    <div class="form-group" id="jsonField">
-                        <label>JSON Web Key URL <span class="asterisk">*</span></label>
-                        <input type="text" placeholder="Insert URL" />
-                    </div>
-
-                    <div class="form-group">
-                        <label>OIDC Configuration Associated <span class="asterisk">*</span></label>
-                        <p class="subtitle">Select the OIDC Configuration that be associated with this client.</p>
-                        <select name="oidc" class="label ui selection fluid dropdown">
-                            <option>OIDC Configuration 01</option>
-                            <option>OIDC Configuration 02</option>
-                            <option>OIDC Configuration 03</option>
-                            <option>OIDC Configuration 04</option>
-                            <option>OIDC Configuration 05</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="card-header" role="tab" id="accordionHeadingOne">
-                            <div class="mb-0 row">
-                                <div class="col-12 no-padding accordion-head">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyOne"
-                                        aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
-                                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        <p>Allowed Flows <span><img src="images/chevron-down.svg" alt="" /></span></p>
-                                    </a>
+                <div class="step-content">
+                    <div class="step-tab-panel" data-step="step1">
+                        <div class="col-8">
+                            <div class="form-group">
+                                <label>Client Name <span class="asterisk">*</span></label>
+                                <input type="text" placeholder="eg. Client 01, etc." />
+                            </div>
+                            <div class="form-group d-flex">
+                                <label class="mr-3">Status</label>
+                                <div class="material-switch pull-right">
+                                    <input id="statusSwitch" name="someSwitchOption001" type="checkbox" checked />
+                                    <label for="statusSwitch" class="label-default"></label>
                                 </div>
                             </div>
-                        </div>
 
-                        <div id="accordionBodyOne" class="collapse show mt-5" role="tabpanel"
-                            aria-labelledby="accordionHeadingOne" aria-expanded="true" data-parent="accordion">
+                            <div class="form-group d-flex">
+                                <label class="mr-3">JSON Web Encryption</label>
+                                <div class="material-switch pull-right">
+                                    <input id="jsonSwitch" name="jsonSwitch" type="checkbox" checked />
+                                    <label for="jsonSwitch" class="label-default"></label>
+                                </div>
+                            </div>
+
+                            <div class="form-group" id="jsonField">
+                                <label>JSON Web Key URL <span class="asterisk">*</span></label>
+                                <input type="text" placeholder="Insert URL" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>OIDC Configuration Associated <span class="asterisk">*</span></label>
+                                <p class="subtitle">Select the OIDC Configuration that be associated with this client.
+                                </p>
+                                <select name="oidc" class="label ui selection fluid dropdown">
+                                    <option>OIDC Configuration 01</option>
+                                    <option>OIDC Configuration 02</option>
+                                    <option>OIDC Configuration 03</option>
+                                    <option>OIDC Configuration 04</option>
+                                    <option>OIDC Configuration 05</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div id="accordion" role="tablist" aria-multiselectable="true">
+                                <div class="card-header" role="tab" id="accordionHeadingOne">
+                                    <div class="mb-0 row">
+                                        <div class="col-12 no-padding accordion-head">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyOne"
+                                                aria-expanded="true" aria-controls="accordionBodyOne"
+                                                class="collapsed ">
+                                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                <p>Allowed Flows <span><img src="images/chevron-down.svg"
+                                                            alt="" /></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="accordionBodyOne" class="collapse show mt-5" role="tabpanel"
+                                    aria-labelledby="accordionHeadingOne" aria-expanded="true" data-parent="accordion">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group d-flex">
+                                                <label class="mr-3" style="width: 30%;">Authorization Code</label>
+                                                <div class="material-switch pull-right">
+                                                    <input id="AuthorizationCode" name="AuthorizationCode"
+                                                        type="checkbox" checked />
+                                                    <label for="AuthorizationCode" class="label-default"></label>
+                                                </div>
+                                                <div class="sa-form-checkbox" style="margin: -10px 0 0 20px;">
+                                                    <label for="vzld3YSJ" class="sa-form-checkbox-label">
+                                                        <input name="OTP" id="vzld3YSJ" type="checkbox">
+                                                        <span class="sa-form-checkbox-pseudo-input">
+                                                            <span></span>
+                                                        </span>
+                                                        <span class="sa-form-checkbox-label-text">
+                                                            Use with PKCE Protocol
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group d-flex">
+                                                <label class="mr-3" style="width: 30%;">Implicit</label>
+                                                <div class="material-switch pull-right">
+                                                    <input id="Implicit" name="Implicit" type="checkbox" />
+                                                    <label for="Implicit" class="label-default"></label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group d-flex">
+                                                <label class="mr-3" style="width: 30%;">Authorization Code</label>
+                                                <div class="material-switch pull-right">
+                                                    <input id="Hybrid" name="Hybrid" type="checkbox" checked />
+                                                    <label for="Hybrid" class="label-default"></label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group d-flex">
+                                                <label class="mr-3" style="width: 30%;">Client Credentials</label>
+                                                <div class="material-switch pull-right">
+                                                    <input id="ClientCredentials" name="ClientCredentials"
+                                                        type="checkbox" checked />
+                                                    <label for="ClientCredentials" class="label-default"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group d-flex">
+                                                <label class="mr-3" style="width: 30%;">Resource Owner</label>
+                                                <div class="material-switch pull-right">
+                                                    <input id="ResourceOwner" name="ResourceOwner" type="checkbox" />
+                                                    <label for="ResourceOwner" class="label-default"></label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group d-flex">
+                                                <label class="mr-3" style="width: 30%;">Refresh Token</label>
+                                                <div class="material-switch pull-right">
+                                                    <input id="RefreshToken" name="RefreshToken" type="checkbox" />
+                                                    <label for="RefreshToken" class="label-default"></label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group d-flex">
+                                                <label class="mr-3" style="width: 30%;">Introspection</label>
+                                                <div class="material-switch pull-right">
+                                                    <input id="Introspection" name="Introspection" type="checkbox" />
+                                                    <label for="Introspection" class="label-default"></label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group d-flex">
+                                                <label class="mr-3" style="width: 30%;">Revocation</label>
+                                                <div class="material-switch pull-right">
+                                                    <input id="Revocation" name="Revocation" type="checkbox" />
+                                                    <label for="Revocation" class="label-default"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-8 mt-5 mb-5">
+                                            <div class="form-group input_fields_wrap">
+                                                <div class="sa-type-header-2 sa-type-bold float-left">
+                                                    Client Redirect URL <span class="asterisk">*</span>
+                                                </div>
+                                                <button class="ml-5 add_field_button sa-button-secondary mb-4">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                        viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
+                                                        <path
+                                                            d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
+                                                        </path>
+                                                    </svg>
+                                                    Add URL
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-tab-panel" data-step="step2">
+                        <div class="col-12">
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="form-group d-flex">
-                                        <label class="mr-3" style="width: 30%;">Authorization Code</label>
-                                        <div class="material-switch pull-right">
-                                            <input id="AuthorizationCode" name="AuthorizationCode" type="checkbox"
-                                                checked />
-                                            <label for="AuthorizationCode" class="label-default"></label>
-                                        </div>
-                                        <div class="sa-form-checkbox" style="margin: -10px 0 0 20px;">
-                                            <label for="vzld3YSJ" class="sa-form-checkbox-label">
-                                                <input name="OTP" id="vzld3YSJ" type="checkbox">
-                                                <span class="sa-form-checkbox-pseudo-input">
-                                                    <span></span>
-                                                </span>
-                                                <span class="sa-form-checkbox-label-text">
-                                                    Use with PKCE Protocol
-                                                </span>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group d-flex">
-                                        <label class="mr-3" style="width: 30%;">Implicit</label>
-                                        <div class="material-switch pull-right">
-                                            <input id="Implicit" name="Implicit" type="checkbox" />
-                                            <label for="Implicit" class="label-default"></label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group d-flex">
-                                        <label class="mr-3" style="width: 30%;">Authorization Code</label>
-                                        <div class="material-switch pull-right">
-                                            <input id="Hybrid" name="Hybrid" type="checkbox" checked />
-                                            <label for="Hybrid" class="label-default"></label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group d-flex">
-                                        <label class="mr-3" style="width: 30%;">Client Credentials</label>
-                                        <div class="material-switch pull-right">
-                                            <input id="ClientCredentials" name="ClientCredentials" type="checkbox"
-                                                checked />
-                                            <label for="ClientCredentials" class="label-default"></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group d-flex">
-                                        <label class="mr-3" style="width: 30%;">Resource Owner</label>
-                                        <div class="material-switch pull-right">
-                                            <input id="ResourceOwner" name="ResourceOwner" type="checkbox" />
-                                            <label for="ResourceOwner" class="label-default"></label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group d-flex">
-                                        <label class="mr-3" style="width: 30%;">Refresh Token</label>
-                                        <div class="material-switch pull-right">
-                                            <input id="RefreshToken" name="RefreshToken" type="checkbox" />
-                                            <label for="RefreshToken" class="label-default"></label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group d-flex">
-                                        <label class="mr-3" style="width: 30%;">Introspection</label>
-                                        <div class="material-switch pull-right">
-                                            <input id="Introspection" name="Introspection" type="checkbox" />
-                                            <label for="Introspection" class="label-default"></label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group d-flex">
-                                        <label class="mr-3" style="width: 30%;">Revocation</label>
-                                        <div class="material-switch pull-right">
-                                            <input id="Revocation" name="Revocation" type="checkbox" />
-                                            <label for="Revocation" class="label-default"></label>
-                                        </div>
+                                    <div class="sa-header">
+                                        <div class="sa-type-header-2 sa-type-bold">Scopes</div>
                                     </div>
                                 </div>
 
-                                <div class="col-8 mt-5 mb-5">
-                                    <div class="form-group input_fields_wrap">
-                                        <div class="sa-type-header-2 sa-type-bold float-left">
-                                            Client Redirect URL <span class="asterisk">*</span>
-                                        </div>
-                                        <button class="ml-5 add_field_button sa-button-secondary mb-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                                                viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
-                                                <path
-                                                    d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
-                                                </path>
-                                            </svg>
-                                            Add URL
-                                        </button>
+                                <div class="col-12 mt-2 mb-5">
+                                    <div class="sa-table-wrapper">
+                                        <table class="sa-table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="sa-table-th">Scope</th>
+                                                    <th class="sa-table-th">Name</th>
+                                                    <th class="sa-table-th">Description</th>
+                                                    <th class="sa-table-th">Discoverable</th>
+                                                    <th class="sa-table-th">Restrict</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="sa-table-td sa-table-v-align-middle">openId
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connet
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connect
+                                                        scope.
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope1" name="tdScope1" type="checkbox" checked
+                                                                disabled />
+                                                            <label for="tdScope1" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope1b" name="tdScope1b" type="checkbox" />
+                                                            <label for="tdScope1b" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sa-table-td sa-table-v-align-middle">profile
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connet
+                                                        Profile
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connect
+                                                        profile
+                                                        scope.
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope2" name="tdScope2" type="checkbox"
+                                                                disabled />
+                                                            <label for="tdScope2" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope2b" name="tdScope2b" type="checkbox" />
+                                                            <label for="tdScope2b" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sa-table-td sa-table-v-align-middle">email
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connet Email
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connect email
+                                                        scope.
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope3" name="tdScope3" type="checkbox" checked
+                                                                disabled />
+                                                            <label for="tdScope3" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope3b" name="tdScope3b" type="checkbox" />
+                                                            <label for="tdScope3b" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sa-table-td sa-table-v-align-middle">phone
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connet Phone
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connect phone
+                                                        scope.
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope4" name="tdScope4" type="checkbox" checked
+                                                                disabled />
+                                                            <label for="tdScope4" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope4b" name="tdScope4b" type="checkbox" />
+                                                            <label for="tdScope4b" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sa-table-td sa-table-v-align-middle">address
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connet
+                                                        Address
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connect
+                                                        address
+                                                        scope.
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope5" name="tdScope5" type="checkbox" checked
+                                                                disabled />
+                                                            <label for="tdScope5" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope5b" name="tdScope5b" type="checkbox" />
+                                                            <label for="tdScope5b" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sa-table-td sa-table-v-align-middle">offline_access
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connet
+                                                        Offline_access
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">OpenID Connect
+                                                        offline
+                                                        access scope.
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope6" name="tdScope6" type="checkbox" checked
+                                                                disabled />
+                                                            <label for="tdScope6" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="sa-table-td sa-table-v-align-middle">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="tdScope6b" name="tdScope6b" type="checkbox" />
+                                                            <label for="tdScope6b" class="label-default"></label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
 
-            <div class="step">
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="sa-header">
-                                <div class="sa-type-header-2 sa-type-bold">Scopes</div>
+                    <div class="step-tab-panel" data-step="step3">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="sa-header">
+                                    <div class="sa-type-header-2 sa-type-bold">Custom Claims</div>
+                                </div>
                             </div>
-                        </div>
+                            <div class="col-6 text-right">
+                                <button class="sa-button-secondary" id="btnAdd">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        version="1.1" viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
+                                        <path
+                                            d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
+                                        </path>
+                                    </svg>
+                                    Add Custom Claim
+                                </button>
+                            </div>
 
-                        <div class="col-12 mt-2 mb-5">
-                            <div class="sa-table-wrapper">
-                                <table class="sa-table">
-                                    <thead>
-                                        <tr>
-                                            <th class="sa-table-th">Scope</th>
-                                            <th class="sa-table-th">Name</th>
-                                            <th class="sa-table-th">Description</th>
-                                            <th class="sa-table-th">Discoverable</th>
-                                            <th class="sa-table-th">Restrict</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="sa-table-td sa-table-v-align-middle">openId
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect scope.
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope1" name="tdScope1" type="checkbox" checked
-                                                        disabled />
-                                                    <label for="tdScope1" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope1b" name="tdScope1b" type="checkbox" />
-                                                    <label for="tdScope1b" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sa-table-td sa-table-v-align-middle">profile
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet Profile
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect profile
-                                                scope.
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope2" name="tdScope2" type="checkbox" disabled />
-                                                    <label for="tdScope2" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope2b" name="tdScope2b" type="checkbox" />
-                                                    <label for="tdScope2b" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sa-table-td sa-table-v-align-middle">email
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet Email
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect email
-                                                scope.
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope3" name="tdScope3" type="checkbox" checked
-                                                        disabled />
-                                                    <label for="tdScope3" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope3b" name="tdScope3b" type="checkbox" />
-                                                    <label for="tdScope3b" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sa-table-td sa-table-v-align-middle">phone
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet Phone
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect phone
-                                                scope.
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope4" name="tdScope4" type="checkbox" checked
-                                                        disabled />
-                                                    <label for="tdScope4" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope4b" name="tdScope4b" type="checkbox" />
-                                                    <label for="tdScope4b" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sa-table-td sa-table-v-align-middle">address
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet Address
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect address
-                                                scope.
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope5" name="tdScope5" type="checkbox" checked
-                                                        disabled />
-                                                    <label for="tdScope5" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope5b" name="tdScope5b" type="checkbox" />
-                                                    <label for="tdScope5b" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sa-table-td sa-table-v-align-middle">offline_access
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connet
-                                                Offline_access
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">OpenID Connect offline
-                                                access scope.
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope6" name="tdScope6" type="checkbox" checked
-                                                        disabled />
-                                                    <label for="tdScope6" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                            <td class="sa-table-td sa-table-v-align-middle">
-                                                <div class="material-switch pull-right">
-                                                    <input id="tdScope6b" name="tdScope6b" type="checkbox" />
-                                                    <label for="tdScope6b" class="label-default"></label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div id="emptyStateCustomClaims" class="col-12 text-center">
+                                <h2 class="sa-type-h2">Looks like you haven’t<br />
+                                    <strong>created</strong> any <strong>custom claim</strong> yet</h2>
+                                <img src="images/empty-state.svg" alt="" />
+                            </div>
+
+                            <div class="col-12 mt-2 mb-5" id="CustomClaimsTable">
+                                <div class="sa-table-wrapper">
+                                    <table class="sa-table" id="tblData">
+                                        <thead>
+                                            <tr>
+                                                <th class="sa-table-th">Claim</th>
+                                                <th class="sa-table-th">Profile Property</th>
+                                                <th class="sa-table-th">Discoverable</th>
+                                                <th class="sa-table-th">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="step">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="sa-header">
-                            <div class="sa-type-header-2 sa-type-bold">Custom Claims</div>
-                        </div>
-                    </div>
-                    <div class="col-6 text-right">
-                        <button class="sa-button-secondary" id="btnAdd">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                version="1.1" viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
-                                <path
-                                    d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
-                                </path>
-                            </svg>
-                            Add Custom Claim
-                        </button>
-                    </div>
-
-                    <div id="emptyStateCustomClaims" class="col-12 text-center">
-                        <h2 class="sa-type-h2">Looks like you haven’t<br />
-                            <strong>created</strong> any <strong>custom claim</strong> yet</h2>
-                        <img src="images/empty-state.svg" alt="" />
-                    </div>
-
-                    <div class="col-12 mt-2 mb-5" id="CustomClaimsTable">
-                        <div class="sa-table-wrapper">
-                            <table class="sa-table" id="tblData">
-                                <thead>
-                                    <tr>
-                                        <th class="sa-table-th">Claim</th>
-                                        <th class="sa-table-th">Profile Property</th>
-                                        <th class="sa-table-th">Discoverable</th>
-                                        <th class="sa-table-th">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="buttons-footer">
-                <button class="sa-button-secondary" id="prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
-                        <path
-                            d="M11.5575 12.5302L8.1225 9.09521L11.5575 5.65271L10.5 4.59521L6 9.09521L10.5 13.5952L11.5575 12.5302Z"
-                            fill="#2995F5" />
-                    </svg>
-                    Previous Step
-                </button>
-                <div class="d-flex float-right">
-                    <button class="sa-button-tertiary">Cancel</button>
-                    <button class="sa-button-primary" id="next">Next Step
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <div class="step-footer buttons-footer">
+                    <button class="step-btn sa-button-secondary" id="prev" data-step-action="prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
                             <path
-                                d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
-                                fill="white" />
+                                d="M11.5575 12.5302L8.1225 9.09521L11.5575 5.65271L10.5 4.59521L6 9.09521L10.5 13.5952L11.5575 12.5302Z"
+                                fill="#2995F5" />
                         </svg>
+                        Previous Step
                     </button>
+                    <div class="d-flex float-right">
+                        <button class="sa-button-tertiary"><a href="policies.html">Cancel</a></button>
+                        <button class="step-btn sa-button-primary" id="next" data-step-action="next">
+                            Next Step
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                fill="none">
+                                <path
+                                    d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
+                                    fill="white" />
+                            </svg>
+                        </button>
+                        <button data-step-action="finish" class="step-btn sa-button-primary">Save</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -584,6 +607,15 @@
                 getRows();
             };
             getRows();
+        });
+    </script>
+
+    <script src="js/jquery-steps.js"></script>
+    <script>
+        $('#demo').steps({
+            onFinish: function () {
+                location.href = "clients.html"
+            }
         });
     </script>
 

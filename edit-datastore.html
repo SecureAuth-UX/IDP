@@ -13,6 +13,7 @@
     <link href="css/select.css" rel="stylesheet">
     <link href="css/sa.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-steps.css">
 
     <style>
         .material-switch {
@@ -50,295 +51,302 @@
             </div>
         </div>
         <div class="sa-view-body">
-            <div class="row">
-                <div class="step active">
-                    <div class="col-8 mt-4">
-                        <div class="form-group">
-                            <label>Data Store Name <span class="asterisk">*</span></label>
-                            <div class="sa-form-description">Identifies your data store in SecureAuth® Identity Platform
-                            </div>
-                            <input type="text" placeholder="eg. Employees, Contractors, etc." value="Data Store" />
-                        </div>
-
-                        <div class="form-group">
-                            <label>Connection Type <span class="asterisk">*</span></label>
-                            <select name="datastores" id="selectDataStores" class="label ui selection fluid dropdown">
-                                <option hidden>Select your data store type </option>
-                                <option value="activeDirectory" selected>Active Directory</option>
-                                <option value="sql">SQL Server</option>
-                                <option value="noved">NetIQ eDirectory</option>
-                                <option value="gldap">Generic LDAP</option>
-                                <option value="saIds">SecureAuth Identity Stores (Limited Availability)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div id="activeDirectory" class="sectionsData col-12 form-group">
-                        <div class="form-group">
-                            <div class="sa-form-switch">
-                                <div class="d-flex align-items-center">
-                                    <div class="material-switch pull-right">
-                                        <input id="statusSwitch" name="someSwitchOption001" type="checkbox" checked />
-                                        <label for="statusSwitch" class="label-default"></label>
-                                    </div>
-                                    <label class="ml-3">Use this directory for user membership validation</label>
+            <div class="step-app" id="demo">
+                <ul class="step-steps d-none">
+                    <li data-step-target="step1"></li>
+                    <li data-step-target="step2"></li>
+                </ul>
+                <div class="step-content">
+                    <div class="step-tab-panel" data-step="step1">
+                        <div class="col-8 mt-4">
+                            <div class="form-group">
+                                <label>Data Store Name <span class="asterisk">*</span></label>
+                                <div class="sa-form-description">Identifies your data store in SecureAuth® Identity
+                                    Platform
                                 </div>
+                                <input type="text" value="Data Store 01" placeholder="eg. Employees, Contractors, etc." />
                             </div>
-                            <div class="sa-form-switch-children">
-                                <div class="sa-type-caption"> Sets this directory to be searched as a source of user
-                                    membership data (i.e., usernames and passwords). </div>
+
+                            <div class="form-group">
+                                <label>Connection Type <span class="asterisk">*</span></label>
+                                <select name="datastores" id="selectDataStores"
+                                    class="label ui selection fluid dropdown">
+                                    <option hidden selected>Select your data store type </option>
+                                    <option value="activeDirectory" selected>Active Directory</option>
+                                    <option value="sql">SQL Server</option>
+                                    <option value="noved">NetIQ eDirectory</option>
+                                    <option value="gldap">Generic LDAP</option>
+                                    <option value="saIds">SecureAuth Identity Stores (Limited Availability)</option>
+                                </select>
                             </div>
                         </div>
 
-                        <div id="accordion" role="tablist" aria-multiselectable="true">
-                            <div class="card-header mt-3" role="tab" id="accordionHeadingOne">
-                                <div class="mb-0 row">
-                                    <div class="col-12 no-padding accordion-head">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyOne"
-                                            aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                            <p>Connection Settings <span><img src="images/chevron-down.svg"
-                                                        alt="" /></span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="accordionBodyOne" class="mt-4 collapse show" role="tabpanel"
-                                aria-labelledby="accordionHeadingOne" aria-expanded="true" data-parent="accordion">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="form-group">
-                                            <div class="sa-header-text-small">Connection String</div>
-                                            <div class="sa-type-small">Enter the domain for your directory to
-                                                auto-populate
-                                                the connection string. To manually enter the connection string, click
-                                                "advanced mode".
-                                            </div>
+                        <div id="activeDirectory" class="sectionsData col-12 form-group" style="display: block;">
+                            <div class="form-group">
+                                <div class="sa-form-switch">
+                                    <div class="d-flex align-items-center">
+                                        <div class="material-switch pull-right">
+                                            <input id="statusSwitch" name="someSwitchOption001" type="checkbox" />
+                                            <label for="statusSwitch" class="label-default"></label>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <label class="sa-form-label">Source Domain
-                                                        <div class="sa-form-input-block">
-                                                            <input placeholder="directory.domain" id="n_ad_sourceDomain"
-                                                                type="text" autocomplete="off" class="sa-form-input"
-                                                                value="directory.domain">
-                                                        </div>
-                                                    </label>
+                                        <label class="ml-3">
+                                            Use this directory for user membership validation</label>
+                                    </div>
+                                </div>
+                                <div class="sa-form-switch-children">
+                                    <div class="sa-type-caption"> Sets this directory to be searched as a source of
+                                        user membership data (i.e., usernames and passwords). </div>
+                                </div>
+                            </div>
+
+                            <div id="accordion" role="tablist" aria-multiselectable="true">
+                                <div class="card-header" role="tab" id="accordionHeadingOne">
+                                    <div class="mb-0 row">
+                                        <div class="col-12 no-padding accordion-head">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyOne"
+                                                aria-expanded="true" aria-controls="accordionBodyOne"
+                                                class="collapsed ">
+                                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                <p>Connection Settings <span><img src="images/chevron-down.svg"
+                                                            alt="" /></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="accordionBodyOne" class="mt-4 collapse show" role="tabpanel"
+                                    aria-labelledby="accordionHeadingOne" aria-expanded="true" data-parent="accordion">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="form-group">
+                                                <div class="sa-header-text-small">Connection String</div>
+                                                <div class="sa-type-small">Enter the domain for your directory to
+                                                    auto-populate the connection string. To manually enter the
+                                                    connection string,
+                                                    click "advanced mode".
                                                 </div>
-                                                <div class="col-8">
-                                                    <label class="sa-form-label">
-                                                        <div class="float-left">
-                                                            <div class="" style="display: inline-block;">
-                                                                <span>Connection String</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="d-flex">
+                                                    <div class="mr-3">
+                                                        <label>Source Domain</label>
+                                                        <input placeholder="directory.domain" id="n_ad_sourceDomain"
+                                                            type="text" autocomplete="off" class="sa-form-input" value="directory.domain">
+                                                    </div>
+                                                    <div class="w-100">
+                                                        <label class="w-100">
+                                                            <div class="float-left">
+                                                                <div class="" style="display: inline-block;">
+                                                                    <span>Connection String</span>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="float-right">
-                                                            <a class="sa-type-link"> advanced mode</a></div>
-                                                    </label>
-                                                    <div class="sa-form-input-block">
+                                                            <div class="float-right text-right">
+                                                                <a class="sa-type-link"> advanced mode</a></div>
+                                                        </label>
                                                         <input disabled="" id="n_ad_connectString" type="text"
                                                             autocomplete="off" class="sa-form-input" value="LDAP:///">
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <div class="sa-box-stack-top-large">
-                                                <div class="sa-header-text-small">Credentials</div>
-                                            </div>
-
-                                            <div class="card-block radiobuttons">
-                                                <label for="opt1Credentials" class="radio">
-                                                    <input type="radio" name="credentials" id="opt1Credentials"
-                                                        checked />
-                                                    <span class="label"></span>Enter Service Account Credentials
-                                                </label>
-
-                                                <label for="opt2CyberArk" class="radio">
-                                                    <input type="radio" name="credentials" id="opt2CyberArk"
-                                                        class="hidden" />
-                                                    <span class="label"></span>Use CyberArk Vault for Credentials
-                                                </label>
-                                            </div>
-
-                                            <div class="form-group" id="accountCredentials">
-                                                <div class="col-8 sa-callout p-3">
-                                                    <div class="form-group">
-                                                        <label>Service Account Login <span
-                                                                class="asterisk">*</span></label>
-                                                        <div class="d-flex">
-                                                            <input type="text" placeholder="user@directory.domain"
-                                                                value="user@mail.com" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Password <span class="asterisk">*</span></label>
-                                                        <div class="d-flex">
-                                                            <input type="password"
-                                                                placeholder="Enter account password..."
-                                                                value="Password.123" />
-                                                        </div>
-                                                    </div>
+                                            <div class="form-group">
+                                                <div class="sa-box-stack-top-large">
+                                                    <div class="sa-header-text-small">Credentials</div>
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group" id="CyberArk">
-                                                <div class="col-8 sa-callout p-3">
-                                                    <div class="form-group">
-                                                        <label>Username</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Address</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Safe</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Folder</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Object</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="sa-box-stack-top-large">
-                                                <div class="sa-header-text-small">Search Filter</div>
-                                            </div>
-                                            <div class="sa-box-stack-bottom-medium">
-                                                <div class="sa-type-small">Enter or select the search attribute used to
-                                                    find
-                                                    a user's account to auto-populate the search filter. To enter a
-                                                    custom
-                                                    search filter, click "advanced mode".</div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <label class="sa-form-label">Username Attribute</label>
-                                                    <div class="sa-select-wrapper">
-                                                        <select id="n_ad_searchAttribute"
-                                                            class="label ui selection fluid dropdown">
-                                                            <option value="samAccountName">samAccountName</option>
-                                                            <option value="userPrincipalName">userPrincipalName (UPN)
-                                                            </option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
-                                                    <label class="sa-form-label">
-                                                        <div class="float-left">
-                                                            <span>Search Filter</span>
-                                                        </div>
-                                                        <div class="float-right">
-                                                            <a class="sa-type-link"> advanced mode</a>
-                                                        </div>
+                                                <div class="card-block radiobuttons">
+                                                    <label for="opt1Credentials" class="radio">
+                                                        <input type="radio" name="credentials" id="opt1Credentials"
+                                                            class="hidden" checked />
+                                                        <span class="label"></span>Enter Service Account Credentials
                                                     </label>
-                                                    <div class="sa-form-input-block">
-                                                        <input disabled="" id="n_ad_searchFilter" type="text"
-                                                            autocomplete="off" class="sa-form-input"
-                                                            value="(&amp;(samAccountName=%v)(objectclass=*))">
+
+                                                    <label for="opt2CyberArk" class="radio">
+                                                        <input type="radio" name="credentials" id="opt2CyberArk"
+                                                            class="hidden" />
+                                                        <span class="label"></span>Use CyberArk Vault for
+                                                        Credentials
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-group" id="accountCredentials">
+                                                    <div class="col-8 sa-callout p-3">
+                                                        <div class="form-group">
+                                                            <label>Service Account Login <span
+                                                                    class="asterisk">*</span></label>
+                                                            <div class="d-flex">
+                                                                <input type="text" value="user@mail.com"
+                                                                    placeholder="user@directory.domain" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Password <span class="asterisk">*</span></label>
+                                                            <div class="d-flex">
+                                                                <input type="password" value="Password.123"
+                                                                    placeholder="Enter account password..." />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" id="CyberArk">
+                                                    <div class="col-8 sa-callout p-3">
+                                                        <div class="form-group">
+                                                            <label>Username</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Address</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Safe</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Folder</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Object</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="sa-box-stack-top-large">
+                                                    <div class="sa-header-text-small">Search Filter</div>
+                                                </div>
+                                                <div class="sa-box-stack-bottom-medium">
+                                                    <div class="sa-type-small">Enter or select the search attribute
+                                                        used to find a user's account to auto-populate the search
+                                                        filter. To
+                                                        enter a custom search filter, click "advanced mode".</div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <label>Username Attribute</label>
+                                                        <div class="sa-select-wrapper">
+                                                            <select id="n_ad_searchAttribute"
+                                                                class="label ui selection fluid dropdown">
+                                                                <option value="samAccountName">samAccountName </option>
+                                                                <option value="userPrincipalName">userPrincipalName
+                                                                    (UPN)</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <label class="w-100">
+                                                            <div class="float-left">
+                                                                <span>Search Filter</span>
+                                                            </div>
+                                                            <div class="float-right">
+                                                                <a class="sa-type-link"> advanced mode</a>
+                                                            </div>
+                                                        </label>
+                                                        <div class="sa-form-input-block">
+                                                            <input disabled="" id="n_ad_searchFilter" type="text"
+                                                                autocomplete="off" class="sa-form-input"
+                                                                value="(&amp;(samAccountName=%v)(objectclass=*))">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="card-header mt-3" role="tab" id="accordionHeadingTwo">
-                                <div class="mb-0 row">
-                                    <div class="col-12 no-padding accordion-head">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyTwo"
-                                            aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                            <p>Advanced Settings <span><img src="images/chevron-down.svg"
-                                                        alt="" /></span></p>
-                                        </a>
+                                <div class="card-header mt-3" role="tab" id="accordionHeadingTwo">
+                                    <div class="mb-0 row">
+                                        <div class="col-12 no-padding accordion-head">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyTwo"
+                                                aria-expanded="true" aria-controls="accordionBodyOne"
+                                                class="collapsed ">
+                                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                <p>Advanced Settings <span><img src="images/chevron-down.svg"
+                                                            alt="" /></span></p>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div id="accordionBodyTwo" class="mt-4 collapse show" role="tabpanel"
-                                aria-labelledby="accordionHeadingTwo" aria-expanded="true" data-parent="accordion">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="form-group">
-                                            <label class="sa-form-label">Encryption Attribute
-                                                <div class="sa-form-description">A unique ID used to encrypt user data.
-                                                </div>
-                                                <div class="sa-form-input-block">
+                                <div id="accordionBodyTwo" class="mt-4 collapse show" role="tabpanel"
+                                    aria-labelledby="accordionHeadingTwo" aria-expanded="true" data-parent="accordion">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="form-group">
+                                                <label class="w-100">Encryption Attribute
+                                                    <div class="sa-form-description">A unique ID used to encrypt user
+                                                        data.
+                                                    </div>
                                                     <input id="n_ad_encryptionAttribute" type="text" autocomplete="off"
-                                                        class="sa-form-input" value="samAccountName">
-                                                </div>
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="sa-header-text-small">Validate User Type</div>
-                                            <div class="card-block radiobuttons">
-                                                <label for="bind" class="radio">
-                                                    <input type="radio" name="rdo" id="bind" class="hidden" checked />
-                                                    <span class="label"></span>Bind
-                                                </label>
-
-                                                <label for="search" class="radio">
-                                                    <input type="radio" name="rdo" id="search" class="hidden" />
-                                                    <span class="label"></span>Search
+                                                        value="samAccountName">
                                                 </label>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sa-form-label">Connection Mode</label>
-                                            <div class="sa-select-wrapper">
-                                                <select id="n_ad_searchAttribute" class="label ui selection dropdown">
-                                                    <option value="Secure">Secure</option>
-                                                    <option value="SSL">SSL</option>
-                                                    <option value="Standard">Standard</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                            <div class="form-group">
+                                                <div class="sa-header-text-small">Validate User Type</div>
+                                                <div class="card-block radiobuttons">
+                                                    <label for="bind" class="radio">
+                                                        <input type="radio" name="rdo" id="bind" class="hidden"
+                                                            checked />
+                                                        <span class="label"></span>Bind
+                                                    </label>
 
-                                        <div class="form-group">
-                                            <div class="sa-form-switch">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="material-switch pull-right">
-                                                        <input id="queriesSwitch" name="someSwitchOption001"
-                                                            type="checkbox" />
-                                                        <label for="queriesSwitch" class="label-default"></label>
-                                                    </div>
-                                                    <label class="ml-3">Allow Anonymous Queries</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="sa-form-switch">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="material-switch pull-right">
-                                                        <input id="userChecksSwitch" name="someSwitchOption001"
-                                                            type="checkbox" checked />
-                                                        <label for="userChecksSwitch" class="label-default"></label>
-                                                    </div>
-                                                    <label class="ml-3">Allow Advanced User Checks
-                                                        <span class="sa-color-green">Recommended</span>
+                                                    <label for="search" class="radio">
+                                                        <input type="radio" name="rdo" id="search" class="hidden" />
+                                                        <span class="label"></span>Search
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="sa-form-switch-children">
-                                                <div class="sa-type-caption"> Allow SecureAuth® Identity Platform to
-                                                    search
-                                                    this
-                                                    directory for additional user information, such as account locked.
+                                            <div class="form-group">
+                                                <label>Connection Mode</label>
+                                                <div class="sa-select-wrapper">
+                                                    <select id="n_ad_searchAttribute"
+                                                        class="label ui selection dropdown">
+                                                        <option value="Secure">Secure</option>
+                                                        <option value="SSL">SSL</option>
+                                                        <option value="Standard">Standard</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="sa-form-switch">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="queriesSwitch" name="someSwitchOption001"
+                                                                type="checkbox" checked />
+                                                            <label for="queriesSwitch" class="label-default"></label>
+                                                        </div>
+                                                        <label class="ml-3">Allow Anonymous Queries</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="sa-form-switch">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="userChecksSwitch" name="someSwitchOption001"
+                                                                type="checkbox" checked />
+                                                            <label for="userChecksSwitch" class="label-default"></label>
+                                                        </div>
+                                                        <label class="ml-3">Allow Advanced User Checks
+                                                            <span class="sa-color-green">Recommended</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sa-form-switch-children">
+                                                    <div class="sa-type-caption"> Allow SecureAuth® Identity
+                                                        Platform to
+                                                        search
+                                                        this
+                                                        directory for additional user information, such as account
+                                                        locked.
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -346,351 +354,356 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div id="sql" class="sectionsData col-12 form-group">
-                        <div class="form-group">
-                            <div class="sa-form-switch">
-                                <div class="d-flex align-items-center">
-                                    <div class="material-switch pull-right">
-                                        <input id="statusSwitch" name="someSwitchOption001" type="checkbox" />
-                                        <label for="statusSwitch" class="label-default"></label>
+                        <div id="sql" class="sectionsData col-12 form-group">
+                            <div class="form-group">
+                                <div class="sa-form-switch">
+                                    <div class="d-flex align-items-center">
+                                        <div class="material-switch pull-right">
+                                            <input id="statusSwitch" name="someSwitchOption001" type="checkbox" />
+                                            <label for="statusSwitch" class="label-default"></label>
+                                        </div>
+                                        <label class="ml-3">Use this directory for user membership
+                                            validation</label>
                                     </div>
-                                    <label class="ml-3">Use this directory for user membership validation</label>
                                 </div>
-                            </div>
-                            <div class="sa-form-switch-children">
-                                <div class="sa-type-caption"> Sets this directory to be searched as a source of user
-                                    membership data (i.e., usernames and passwords). </div>
-                            </div>
-                        </div>
-
-                        <div id="accordion" role="tablist" aria-multiselectable="true">
-                            <div class="card-header mt-3" role="tab" id="accordionHeadingOne">
-                                <div class="mb-0 row">
-                                    <div class="col-12 no-padding accordion-head">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyOne"
-                                            aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                            <p>Connection Settings <span><img src="images/chevron-down.svg"
-                                                        alt="" /></span></p>
-                                        </a>
-                                    </div>
+                                <div class="sa-form-switch-children">
+                                    <div class="sa-type-caption"> Sets this directory to be searched as a source of
+                                        user
+                                        membership data (i.e., usernames and passwords). </div>
                                 </div>
                             </div>
 
-                            <div id="accordionBodyOne" class="mt-4 collapse show" role="tabpanel"
-                                aria-labelledby="accordionHeadingOne" aria-expanded="true" data-parent="accordion">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="form-group">
-                                            <div class="sa-header-text-small">Connection String</div>
-                                            <div class="sa-type-small">A connection string will be auto-populated for
-                                                you
-                                                based on the information you provided below.
-                                                To enter a custom connection string, click "advanced mode".
-                                            </div>
+                            <div id="accordion" role="tablist" aria-multiselectable="true">
+                                <div class="card-header" role="tab" id="accordionHeadingOne">
+                                    <div class="mb-0 row">
+                                        <div class="col-12 no-padding accordion-head">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyOne"
+                                                aria-expanded="true" aria-controls="accordionBodyOne"
+                                                class="collapsed ">
+                                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                <p>Connection Settings <span><img src="images/chevron-down.svg"
+                                                            alt="" /></span></p>
+                                            </a>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="sa-form-label">
-                                                <div class="float-left">
-                                                    <div class="" style="display: inline-block;">
-                                                        <span>Connection String</span>
-                                                    </div>
-                                                </div>
-                                                <div class="float-right">
-                                                    <a class="sa-type-link"> advanced mode</a></div>
-                                            </label>
-                                            <div class="sa-form-input-block">
-                                                <input disabled="" id="n_ad_connectString" type="text"
-                                                    autocomplete="off" class="sa-form-input" value="LDAP:///">
-                                            </div>
-                                        </div>
+                                    </div>
+                                </div>
 
-                                        <div class="form-group">
-                                            <label>Data Source</label>
-                                            <input type="text" placeholder="[ServerName]" />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Initial Catalog</label>
-                                            <input type="text" placeholder="[DatabaseName]" />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="sa-form-switch">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="material-switch pull-right">
-                                                        <input id="integratedSwitch" name="someSwitchOption001"
-                                                            type="checkbox" />
-                                                        <label for="integratedSwitch" class="label-default"></label>
-                                                    </div>
-                                                    <label class="ml-3">Enable Integrated Security</label>
+                                <div id="accordionBodyOne" class="mt-4 collapse show" role="tabpanel"
+                                    aria-labelledby="accordionHeadingOne" aria-expanded="true" data-parent="accordion">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="form-group">
+                                                <div class="sa-header-text-small">Connection String</div>
+                                                <div class="sa-type-small">A connection string will be
+                                                    auto-populated
+                                                    for
+                                                    you
+                                                    based on the information you provided below.
+                                                    To enter a custom connection string, click "advanced mode".
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="sa-form-switch">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="material-switch pull-right">
-                                                        <input id="persistSwitch" name="someSwitchOption001"
-                                                            type="checkbox" checked />
-                                                        <label for="persistSwitch" class="label-default"></label>
-                                                    </div>
-                                                    <label class="ml-3">Persist Security Info</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="sa-box-stack-top-large">
-                                                <div class="sa-header-text-small">Credentials</div>
-                                            </div>
-
-                                            <div class="card-block radiobuttons">
-                                                <label for="opt1CredentialsSql" class="radio">
-                                                    <input type="radio" name="credentialsSql" id="opt1CredentialsSql"
-                                                        class="hidden" checked />
-                                                    <span class="label"></span>Enter Service Account Credentials
-                                                </label>
-
-                                                <label for="opt2CyberArkSql" class="radio">
-                                                    <input type="radio" name="credentialsSql" id="opt2CyberArkSql"
-                                                        class="hidden" />
-                                                    <span class="label"></span>Use CyberArk Vault for Credentials
-                                                </label>
-                                            </div>
-
-                                            <div class="form-group" id="accountCredentialsSql">
-                                                <div class="col-8 sa-callout p-3">
-                                                    <div class="form-group">
-                                                        <label>Service Account Login <span
-                                                                class="asterisk">*</span></label>
-                                                        <div class="d-flex">
-                                                            <input type="text" placeholder="user@directory.domain" />
+                                            <div class="form-group">
+                                                <label>
+                                                    <div class="float-left">
+                                                        <div class="" style="display: inline-block;">
+                                                            <span>Connection String</span>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Password <span class="asterisk">*</span></label>
-                                                        <div class="d-flex">
-                                                            <input type="password"
-                                                                placeholder="Enter account password..." />
+                                                    <div class="float-right">
+                                                        <a class="sa-type-link"> advanced mode</a></div>
+                                                </label>
+                                                <div class="sa-form-input-block">
+                                                    <input disabled="" id="n_ad_connectString" type="text"
+                                                        autocomplete="off" class="sa-form-input" value="LDAP:///">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Data Source</label>
+                                                <input type="text" placeholder="[ServerName]" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Initial Catalog</label>
+                                                <input type="text" placeholder="[DatabaseName]" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="sa-form-switch">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="integratedSwitch" name="someSwitchOption001"
+                                                                type="checkbox" />
+                                                            <label for="integratedSwitch" class="label-default"></label>
+                                                        </div>
+                                                        <label class="ml-3">Enable Integrated Security</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="sa-form-switch">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="material-switch pull-right">
+                                                            <input id="persistSwitch" name="someSwitchOption001"
+                                                                type="checkbox" checked />
+                                                            <label for="persistSwitch" class="label-default"></label>
+                                                        </div>
+                                                        <label class="ml-3">Persist Security Info</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="sa-box-stack-top-large">
+                                                    <div class="sa-header-text-small">Credentials</div>
+                                                </div>
+
+                                                <div class="card-block radiobuttons">
+                                                    <label for="opt1CredentialsSql" class="radio">
+                                                        <input type="radio" name="credentialsSql"
+                                                            id="opt1CredentialsSql" class="hidden" checked />
+                                                        <span class="label"></span>Enter Service Account Credentials
+                                                    </label>
+
+                                                    <label for="opt2CyberArkSql" class="radio">
+                                                        <input type="radio" name="credentialsSql" id="opt2CyberArkSql"
+                                                            class="hidden" />
+                                                        <span class="label"></span>Use CyberArk Vault for
+                                                        Credentials
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-group" id="accountCredentialsSql">
+                                                    <div class="col-8 sa-callout p-3">
+                                                        <div class="form-group">
+                                                            <label>Service Account Login <span
+                                                                    class="asterisk">*</span></label>
+                                                            <div class="d-flex">
+                                                                <input type="text"
+                                                                    placeholder="user@directory.domain" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Password <span class="asterisk">*</span></label>
+                                                            <div class="d-flex">
+                                                                <input type="password"
+                                                                    placeholder="Enter account password..." />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" id="CyberArkSql">
+                                                    <div class="col-8 sa-callout p-3">
+                                                        <div class="form-group">
+                                                            <label>Username</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Address</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Safe</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Folder</label>
+                                                            <input type="text" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Object</label>
+                                                            <input type="text" />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group" id="CyberArkSql">
-                                                <div class="col-8 sa-callout p-3">
-                                                    <div class="form-group">
-                                                        <label>Username</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Address</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Safe</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Folder</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Object</label>
-                                                        <input type="text" />
-                                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-header mt-3" role="tab" id="accordionHeadingTwo">
+                                    <div class="mb-0 row">
+                                        <div class="col-12 no-padding accordion-head">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyTwo"
+                                                aria-expanded="true" aria-controls="accordionBodyOne"
+                                                class="collapsed ">
+                                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                <p>Advanced Settings <span><img src="images/chevron-down.svg"
+                                                            alt="" /></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="accordionBodyTwo" class="mt-4 collapse show" role="tabpanel"
+                                    aria-labelledby="accordionHeadingTwo" aria-expanded="true" data-parent="accordion">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="form-group">
+                                                <label>Password Format</label>
+                                                <div class="sa-select-wrapper">
+                                                    <select class="label ui selection dropdown">
+                                                        <option value="Clear">Clear</option>
+                                                        <option value="Encrypted">Encrypted</option>
+                                                        <option value="Hashed">Hashed</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card-header mt-3" role="tab" id="accordionHeadingTwo">
-                                <div class="mb-0 row">
-                                    <div class="col-12 no-padding accordion-head">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyTwo"
-                                            aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                            <p>Advanced Settings <span><img src="images/chevron-down.svg"
-                                                        alt="" /></span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="accordionBodyTwo" class="mt-4 collapse show" role="tabpanel"
-                                aria-labelledby="accordionHeadingTwo" aria-expanded="true" data-parent="accordion">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="form-group">
-                                            <label class="sa-form-label">Password Format</label>
-                                            <div class="sa-select-wrapper">
-                                                <select class="label ui selection dropdown">
-                                                    <option value="Clear">Clear</option>
-                                                    <option value="Encrypted">Encrypted</option>
-                                                    <option value="Hashed">Hashed</option>
-                                                </select>
+                                            <div class="form-group">
+                                                <div class="sa-header-text-small">Stored Procedure Configuration
+                                                </div>
+                                                <div class="sa-type-small">
+                                                    SecureAuth® Identity Platform is preconfigured to use the stored
+                                                    procedure
+                                                    values outlined in our <a
+                                                        href="https://docs.secureauth.com/pages/viewpage.action?pageId=60570638"
+                                                        target="_blank">SQL User Data Store Tables and Stored
+                                                        Procedures
+                                                        Configuration Guide</a>. If you are using custom stored
+                                                    procedures
+                                                    for
+                                                    membership and profile data access, please provide those in the
+                                                    appropriate
+                                                    fields below.
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="sa-header-text-small">Stored Procedure Configuration
-                                            </div>
-                                            <div class="sa-type-small">
-                                                SecureAuth® Identity Platform is preconfigured to use the stored
-                                                procedure
-                                                values outlined in our <a
-                                                    href="https://docs.secureauth.com/pages/viewpage.action?pageId=60570638"
-                                                    target="_blank">SQL User Data Store Tables and Stored Procedures
-                                                    Configuration Guide</a>. If you are using custom stored procedures
-                                                for
-                                                membership and profile data access, please provide those in the
-                                                appropriate
-                                                fields below.
-                                            </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label>Get User</label>
-                                            <div class="sa-form-description">
-                                                Checks if the username exists, and returns the same username in the case
-                                                that it does
+                                            <div class="form-group">
+                                                <label>Get User</label>
+                                                <div class="sa-form-description">
+                                                    Checks if the username exists, and returns the same username in
+                                                    the
+                                                    case
+                                                    that it does
+                                                </div>
+                                                <input type="text" value="sp_GetUser" />
                                             </div>
-                                            <input type="text" value="sp_GetUser" />
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label>Create User
-                                            </label>
-                                            <div class="sa-form-description">
-                                                Inserts the username and password into the user table, and returns a
-                                                MembershipCreateStatus enumeration
+                                            <div class="form-group">
+                                                <label>Create User
+                                                </label>
+                                                <div class="sa-form-description">
+                                                    Inserts the username and password into the user table, and
+                                                    returns a
+                                                    MembershipCreateStatus enumeration
+                                                </div>
+                                                <input type="text" value="sp_CreateUser" />
                                             </div>
-                                            <input type="text" value="sp_CreateUser" />
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label>Get/Validate Password</label>
-                                            <div class="sa-form-description">
-                                                Gets the password, password salt, and password format
+                                            <div class="form-group">
+                                                <label>Get/Validate Password</label>
+                                                <div class="sa-form-description">
+                                                    Gets the password, password salt, and password format
+                                                </div>
+                                                <input type="text" value="sp_GetPasswordWithFormat" />
                                             </div>
-                                            <input type="text" value="sp_GetPasswordWithFormat" />
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label>Reset Password</label>
-                                            <div class="sa-form-description">
-                                                Resets the password for the given user
+                                            <div class="form-group">
+                                                <label>Reset Password</label>
+                                                <div class="sa-form-description">
+                                                    Resets the password for the given user
+                                                </div>
+                                                <input type="text" value="sp_ResetPassword" />
                                             </div>
-                                            <input type="text" value="sp_ResetPassword" />
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label>Get User Profile</label>
-                                            <div class="sa-form-description">
-                                                Retrieves the profile of the given username
+                                            <div class="form-group">
+                                                <label>Get User Profile</label>
+                                                <div class="sa-form-description">
+                                                    Retrieves the profile of the given username
+                                                </div>
+                                                <input type="text" value="sp_GetUserProfile" />
                                             </div>
-                                            <input type="text" value="sp_GetUserProfile" />
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label>Update User Profile</label>
-                                            <div class="sa-form-description">
-                                                Updates the user profile with the given profile information
+                                            <div class="form-group">
+                                                <label>Update User Profile</label>
+                                                <div class="sa-form-description">
+                                                    Updates the user profile with the given profile information
+                                                </div>
+                                                <input type="text" value="sp_UpdateUserProfile" />
                                             </div>
-                                            <input type="text" value="sp_UpdateUserProfile" />
-                                        </div>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div id="saIds" class="sectionsData col-12 form-group">
-                        <div class="form-group">
-                            <div class="sa-form-switch">
-                                <div class="d-flex align-items-center">
-                                    <div class="material-switch pull-right">
-                                        <input id="statusSwitch" name="someSwitchOption001" type="checkbox" />
-                                        <label for="statusSwitch" class="label-default"></label>
-                                    </div>
-                                    <label class="ml-3">Use this directory for user membership validation</label>
-                                </div>
-                            </div>
-                            <div class="sa-form-switch-children">
-                                <div class="sa-type-caption"> Sets this directory to be searched as a source of user
-                                    membership data (i.e., usernames and passwords). </div>
-                            </div>
-                        </div>
-
-                        <div id="accordion" role="tablist" aria-multiselectable="true">
-                            <div class="card-header" role="tab" id="accordionHeadingOneSaIds">
-                                <div class="mb-0 row">
-                                    <div class="col-12 no-padding accordion-head">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordionBodyOneSaIds"
-                                            aria-expanded="true" aria-controls="accordionBodyOne" class="collapsed ">
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                            <p>Connection Settings <span><img src="images/chevron-down.svg"
-                                                        alt="" /></span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="accordionBodyOneSaIds" class="mt-4 collapse show" role="tabpanel"
-                                aria-labelledby="accordionHeadingOneSaIds" aria-expanded="true" data-parent="accordion">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="form-group">
-                                            <div class="sa-type-small">
-                                                Copy the tenant domain URL and paste it into a browser to open your
-                                                <strong>SecureAuth Identity Store</strong>
-                                            </div>
+                        <div id="saIds" class="sectionsData col-12 form-group">
+                            <div class="form-group">
+                                <div class="sa-form-switch">
+                                    <div class="d-flex align-items-center">
+                                        <div class="material-switch pull-right">
+                                            <input id="statusSwitch" name="someSwitchOption001" type="checkbox" />
+                                            <label for="statusSwitch" class="label-default"></label>
                                         </div>
+                                        <label class="ml-3">Use this directory for user membership
+                                            validation</label>
+                                    </div>
+                                </div>
+                                <div class="sa-form-switch-children">
+                                    <div class="sa-type-caption"> Sets this directory to be searched as a source of
+                                        user
+                                        membership data (i.e., usernames and passwords). </div>
+                                </div>
+                            </div>
 
-                                        <div class="form-group">
-                                            <label>Tenant domain</label><br />
-                                            <a>http://lpa-scim.acme.com <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M18.4545 20.1818H8.45455V7.45455H18.4545V20.1818ZM18.4545 5.63636H8.45455C7.97233 5.63636 7.50987 5.82792 7.1689 6.1689C6.82792 6.50987 6.63636 6.97233 6.63636 7.45455V20.1818C6.63636 20.664 6.82792 21.1265 7.1689 21.4675C7.50987 21.8084 7.97233 22 8.45455 22H18.4545C18.9368 22 19.3992 21.8084 19.7402 21.4675C20.0812 21.1265 20.2727 20.664 20.2727 20.1818V7.45455C20.2727 6.97233 20.0812 6.50987 19.7402 6.1689C19.3992 5.82792 18.9368 5.63636 18.4545 5.63636ZM15.7273 2H4.81818C4.33597 2 3.87351 2.19156 3.53253 2.53253C3.19156 2.87351 3 3.33597 3 3.81818V16.5455H4.81818V3.81818H15.7273V2Z"
-                                                        fill="#2995F5" />
-                                                </svg></a>
+                            <div id="accordion" role="tablist" aria-multiselectable="true">
+                                <div class="card-header" role="tab" id="accordionHeadingOneSaIds">
+                                    <div class="mb-0 row">
+                                        <div class="col-12 no-padding accordion-head">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                                href="#accordionBodyOneSaIds" aria-expanded="true"
+                                                aria-controls="accordionBodyOne" class="collapsed ">
+                                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                <p>Connection Settings <span><img src="images/chevron-down.svg"
+                                                            alt="" /></span></p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <div id="accordionBodyOneSaIds" class="mt-4 collapse show" role="tabpanel"
+                                    aria-labelledby="accordionHeadingOneSaIds" aria-expanded="true"
+                                    data-parent="accordion">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="form-group">
+                                                <div class="sa-type-small">
+                                                    Copy the tenant domain URL and paste it into a browser to open
+                                                    your
+                                                    <strong>SecureAuth Identity Store</strong>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Tenant domain</label><br />
+                                                <a>http://lpa-scim.acme.com <svg width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M18.4545 20.1818H8.45455V7.45455H18.4545V20.1818ZM18.4545 5.63636H8.45455C7.97233 5.63636 7.50987 5.82792 7.1689 6.1689C6.82792 6.50987 6.63636 6.97233 6.63636 7.45455V20.1818C6.63636 20.664 6.82792 21.1265 7.1689 21.4675C7.50987 21.8084 7.97233 22 8.45455 22H18.4545C18.9368 22 19.3992 21.8084 19.7402 21.4675C20.0812 21.1265 20.2727 20.664 20.2727 20.1818V7.45455C20.2727 6.97233 20.0812 6.50987 19.7402 6.1689C19.3992 5.82792 18.9368 5.63636 18.4545 5.63636ZM15.7273 2H4.81818C4.33597 2 3.87351 2.19156 3.53253 2.53253C3.19156 2.87351 3 3.33597 3 3.81818V16.5455H4.81818V3.81818H15.7273V2Z"
+                                                            fill="#2995F5" />
+                                                    </svg></a>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="buttons-footer">
-                        <div class="d-flex float-right">
-                            <button class="sa-button-tertiary">Cancel</button>
-                            <button class="sa-button-primary" id="nextStepOne">Next Step <svg
-                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
-                                    fill="none">
-                                    <path
-                                        d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
-                                        fill="white" />
-                                </svg></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="col-12 mb-5">
+                    <div class="step-tab-panel mb-5" data-step="step2">
                         <div class="sa-header">
                             <div class="sa-type-header-2 sa-type-bold">Map Data Store Properties
                             </div>
                         </div>
                         <div class="sa-box-stack-bottom-medium">
-                            <div class="sa-type-paragraph">Properties are required user data that need to be read
+                            <div class="sa-type-paragraph">Properties are required user data that need to be
+                                read
                                 from your directories or databases. &nbsp;Enter the Active Directory field that
                                 contains the property named to the left to complete configuration of your data
                                 store. Note that you cannot use the same attribute in more than one field.</div>
@@ -700,7 +713,8 @@
                                 <thead>
                                     <tr>
                                         <th class="sa-table-th">Name</th>
-                                        <th class="sa-table-th" style="width: 30%; min-width: 30%;">Active Directory
+                                        <th class="sa-table-th" style="width: 30%; min-width: 30%;">Active
+                                            Directory
                                             Field</th>
                                         <th class="sa-table-th" style="width: 30%; min-width: 30%;">Data Format
                                         </th>
@@ -749,7 +763,8 @@
                                             <fieldset class="sa-form-fieldset-no-margin">
                                                 <div class="sa-form-input-block"><input
                                                         id="n_ad_props_profile_last_name_field" type="text"
-                                                        autocomplete="off" class="sa-form-input" value="sn"></div>
+                                                        autocomplete="off" class="sa-form-input" value="sn">
+                                                </div>
                                             </fieldset>
                                         </td>
                                         <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
@@ -946,7 +961,8 @@
                                             <fieldset class="sa-form-fieldset-no-margin">
                                                 <div class="sa-form-input-block"><input
                                                         id="n_ad_props_profile_email_1_field" type="text"
-                                                        autocomplete="off" class="sa-form-input" value="mail"></div>
+                                                        autocomplete="off" class="sa-form-input" value="mail">
+                                                </div>
                                             </fieldset>
                                         </td>
                                         <td class="sa-table-td sa-table-v-align-middle" style="height: 40px;">
@@ -1645,26 +1661,31 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="buttons-footer">
-                <button class="sa-button-secondary" id="prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
-                        <path
-                            d="M11.5575 12.5302L8.1225 9.09521L11.5575 5.65271L10.5 4.59521L6 9.09521L10.5 13.5952L11.5575 12.5302Z"
-                            fill="#2995F5" />
-                    </svg>
-                    Previous Step
-                </button>
-                <div class="d-flex float-right">
-                    <button class="sa-button-tertiary"><a href="datastores.html">Cancel</a></button>
-                    <button class="sa-button-primary" id="next">Next Step
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+
+                <div class="step-footer buttons-footer">
+                    <button class="step-btn sa-button-secondary" id="prev" data-step-action="prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
                             <path
-                                d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
-                                fill="white" />
+                                d="M11.5575 12.5302L8.1225 9.09521L11.5575 5.65271L10.5 4.59521L6 9.09521L10.5 13.5952L11.5575 12.5302Z"
+                                fill="#2995F5" />
                         </svg>
+                        Previous Step
                     </button>
+                    <div class="d-flex float-right">
+                        <button class="sa-button-tertiary"><a href="policies.html">Cancel</a></button>
+                        <button class="step-btn sa-button-primary" id="next" data-step-action="next">
+                            Next Step
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                fill="none">
+                                <path
+                                    d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
+                                    fill="white" />
+                            </svg>
+                        </button>
+                        <button data-step-action="finish" class="step-btn sa-button-primary">Save</button>
+                    </div>
                 </div>
+
             </div>
         </div>
     </main>
@@ -1691,7 +1712,7 @@
         $(document).ready(function () {
             $(function () {
                 $('.sectionsData').hide();
-                $("#activeDirectory").css("display", "block");
+                $('.sectionsData#activeDirectory').show();
                 $('#selectDataStores').change(function () {
                     $('.sectionsData').hide();
                     $('#' + $(this).val()).show();
@@ -1724,6 +1745,16 @@
             });
         });
     </script>
+
+    <script src="js/jquery-steps.js"></script>
+    <script>
+        $('#demo').steps({
+            onFinish: function () {
+                location.href = "datastores.html"
+            }
+        });
+    </script>
+
     <script src="js/custom.js"></script>
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>

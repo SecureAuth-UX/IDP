@@ -13,6 +13,7 @@
     <link href="css/select.css" rel="stylesheet">
     <link href="css/sa.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-steps.css">
 
     <style>
         .show {
@@ -51,488 +52,516 @@
 
         </div>
         <div class="sa-view-body mt-5">
-            <div class="sa-tabs">
-                <ul class="sa-tabs-list">
-                    <li class="sa-tabs-list-item sa-tabs-list-item-active">Authentication Rules</li>
-                    <li class="sa-tabs-list-item">Multi-Factor Methods</li>
-                    <li class="sa-tabs-list-item">Resources</li>
+            <div class="step-app" id="demo">
+                <ul class="step-steps">
+                    <li data-step-target="step1">Authentication Rules</li>
+                    <li data-step-target="step2">Multi-Factor Methods</li>
+                    <li data-step-target="step3">Resources</li>
                 </ul>
-            </div>
-            <div class="step active">
-                <div class="col-8">
-                    <div class="form-group">
-                        <label>Policy Name <span class="asterisk">*</span></label>
-                        <input type="text" placeholder="eg. Policy 01, etc." />
-                    </div>
-                </div>
-                <div class="col-12 mt-5">
-                    <div class="form-group">
+                <div class="step-content">
+                    <div class="step-tab-panel" data-step="step1">
                         <div class="row">
-                            <div class="col-6 mb-4">
-                                <h2 class="sa-type-header-2 sa-type-bold">Authentication Rules</h2>
-                                <div class="sa-type-paragraph">
-                                    <div class="sa-color-tertiary">Configure your adaptive authentication policy by
-                                        combining and ordering rules. Rules are honored from top to bottom.</div>
+                            <div class="col-8">
+                                <div class="form-group">
+                                    <label>Policy Name <span class="asterisk">*</span></label>
+                                    <input type="text" placeholder="eg. Policy 01, etc." value="Policy Name" />
+                                </div>
+                            </div>
+                            <div class="col-12 mt-5">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-6 mb-4">
+                                            <h2 class="sa-type-header-2 sa-type-bold">Authentication Rules</h2>
+                                            <div class="sa-type-paragraph">
+                                                <div class="sa-color-tertiary">Configure your adaptive authentication
+                                                    policy by
+                                                    combining and ordering rules. Rules are honored from top to bottom.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-right">
+                                            <button onclick="myFunction()" class="dropbtn sa-button-secondary">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                    viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
+                                                    <path
+                                                        d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
+                                                    </path>
+                                                </svg>
+                                                Add new rule
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <ul id="myDropdown" class="list-rules dropdown-content">
+                                    <li>
+                                        <div onclick="addDynamicIPModal()" data-toggle="modal"
+                                            data-target="#addDynamicIPModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/ip.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Dynamic IP Blocking</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addPerimeterRuleModal()" data-toggle="modal"
+                                            data-target="#addPerimeterRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/map-point.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Dynamic Perimeter</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addCountryRuleModal()" data-toggle="modal"
+                                            data-target="#addCountryRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/world.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Country</span></div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addGeoRuleModal()" data-toggle="modal"
+                                            data-target="#addGeoRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/airplane.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Geo-velocity</span></div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addGroupRuleModal()" data-toggle="modal"
+                                            data-target="#addGroupRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/groups.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Group</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addIPRuleModal()" data-toggle="modal"
+                                            data-target="#addIPRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/ip.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">IP Range</span></div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addThreatRuleModal()" data-toggle="modal"
+                                            data-target="#addThreatRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/risk.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Threat Service</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addUserRuleModal()" data-toggle="modal"
+                                            data-target="#addUserRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/user.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">User</span></div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addRiskRuleModal()" data-toggle="modal"
+                                            data-target="#addRiskRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/security.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">User Risk</span></div>
+                                    </li>
+                                </ul>
+
+                                <div id="sortable" class="slides">
+                                    <div id="orContainer"></div>
+                                </div>
+                                <!-- END RULE -->
+                                <div id="lastRule"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-tab-panel" data-step="step2">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="sa-box-stack-top-small-padding">
+                                    <h2 class="sa-type-header-2 sa-type-bold">Multi-Factor Methods</h2>
+                                    <div
+                                        class="sa-box-stack-top-xsmall sa-box-stack-top-small-padding sa-box-stack-bottom-xmedium-padding">
+                                        <div class="sa-type-paragraph">
+                                            <div class="sa-color-tertiary">Limit the MFA methods users can choose when
+                                                authenticating with this policy. Additional methods can be enabled from
+                                                global
+                                                Multi-Factor Methods settings page.</div>
+                                        </div>
+                                    </div>
+                                    <div class="sa-box-stack-bottom-medium-padding"></div>
+                                    <div class="sa-box-stack-bottom-xsmall sa-box-stack-bottom-small-padding">
+                                        <div class="sa-grid">
+                                            <div class="sa-grid-row">
+                                                <div
+                                                    class="sa-grid-column-12 sa-grid-column-medium-6 sa-grid-column-large-5">
+                                                    <div class="sa-box-stack-bottom-xmedium">
+                                                        <div class="sa-type-paragraph sa-type-bold">Login Workflow</div>
+                                                        <div class="sa-box-stack-bottom-xsmall">
+                                                            <div color="tertiary"
+                                                                class="sa-type-paragraph sa-color-tertiary">
+                                                                Select a login experience for this policy.</div>
+                                                        </div>
+                                                        <select class="custom-select">
+                                                            <option>Passwordless</option>
+                                                            <option selected>Username & Password | MFA Methods</option>
+                                                            <option>Username | MFA Methods | Password</option>
+                                                            <option>(Valid Persistent Token) | MFA Methods</option>
+                                                            <option>(Valid Persistent Token) | MFA Methods | Password
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">FIDO2 (WebAuthn)</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="pnHnNPBd"
+                                                                    class="sa-form-checkbox-label"><input id="pnHnNPBd"
+                                                                        type="checkbox" value="16" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">FIDO2
+                                                                        Devices</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">Yubikey</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="6G09y4SI"
+                                                                    class="sa-form-checkbox-label"><input id="6G09y4SI"
+                                                                        type="checkbox" value="1" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Yubico
+                                                                        OTP</span></label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="sZPYruod"
+                                                                    class="sa-form-checkbox-label"><input id="sZPYruod"
+                                                                        type="checkbox" value="2" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">OATH
+                                                                        HOTP</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">Authentication Apps</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="qMuoCuHk"
+                                                                    class="sa-form-checkbox-label"><input id="qMuoCuHk"
+                                                                        type="checkbox" value="4" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Timed
+                                                                        passcode
+                                                                        from
+                                                                        app</span></label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="WiwhEByR"
+                                                                    class="sa-form-checkbox-label"><input id="WiwhEByR"
+                                                                        type="checkbox" value="5" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Login
+                                                                        notification</span></label></div>
+                                                            <div
+                                                                class="sa-box-stack-left-xmedium sa-box-stack-top-xsmall-padding sa-box-stack-left-xsmall-padding sa-box-stack-bottom-small-padding">
+                                                                <h3 class="sa-type-header-3">Accept Method</h3>
+                                                                <div class="card-block radiobuttons">
+                                                                    <div class="clearfix">
+                                                                        <label for="opt1Credentials" class="radio"
+                                                                            style="margin:10px 15px 10px 0">
+                                                                            <input type="radio" name="acceptMethod"
+                                                                                id="opt1Credentials" class="hidden"
+                                                                                checked />
+                                                                            <span class="label"></span>User selects
+                                                                            accept
+                                                                            or
+                                                                            deny
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="clearfix">
+                                                                        <label for="opt2CyberArk" class="radio"
+                                                                            style="margin:10px 15px 10px 0">
+                                                                            <input type="radio" name="acceptMethod"
+                                                                                id="opt2CyberArk" class="hidden" />
+                                                                            <span class="label"></span>User selects
+                                                                            matching
+                                                                            chraracter displayed on device
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="7TutFoyQ"
+                                                                    class="sa-form-checkbox-label"><input id="7TutFoyQ"
+                                                                        type="checkbox" value="6" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Biometric
+                                                                        identification</span></label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="siqwNaQt"
+                                                                    class="sa-form-checkbox-label"><input id="siqwNaQt"
+                                                                        type="checkbox" value="7" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">One-time
+                                                                        passcode</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">Text Message</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="qHIG0BT1"
+                                                                    class="sa-form-checkbox-label"><input id="qHIG0BT1"
+                                                                        type="checkbox" value="8" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Login
+                                                                        confirmation
+                                                                        link</span></label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="it8WCZwP"
+                                                                    class="sa-form-checkbox-label"><input id="it8WCZwP"
+                                                                        type="checkbox" value="9" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">One-time
+                                                                        passcode</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">Email</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="RL5wjJTs"
+                                                                    class="sa-form-checkbox-label"><input id="RL5wjJTs"
+                                                                        type="checkbox" value="10" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Login
+                                                                        confirmation
+                                                                        link</span></label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="nyWhl1VX"
+                                                                    class="sa-form-checkbox-label"><input id="nyWhl1VX"
+                                                                        type="checkbox" value="11" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">One-time
+                                                                        passcode</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">Security Questions</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="6wOgxEwN"
+                                                                    class="sa-form-checkbox-label"><input id="6wOgxEwN"
+                                                                        type="checkbox" value="13" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Security
+                                                                        questions</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">PIN</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="t9fUCDoq"
+                                                                    class="sa-form-checkbox-label"><input id="t9fUCDoq"
+                                                                        type="checkbox" value="14" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Personal
+                                                                        identification number</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-tab-panel" data-step="step3">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="sa-header">
+                                    <div class="sa-type-header-2 sa-type-bold">Resources</div>
+                                    <div class="sa-color-grey_dark">Manage which resources have this policy applied
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-6 text-right">
-                                <button onclick="myFunction()" class="dropbtn sa-button-secondary">
+                                <button class="sa-button-secondary" data-toggle="modal" data-target="#selectApps">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                         version="1.1" viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
                                         <path
                                             d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
                                         </path>
                                     </svg>
-                                    Add new rule
+                                    Select Resources for this policy
                                 </button>
                             </div>
+
+                            <div class="col-12 text-center">
+                                <h2 class="sa-type-h2">Looks like you haven’t<br />
+                                    <strong>assignated</strong> any <strong>Resources</strong> yet</h2>
+                            </div>
+                            <div class="col-12 text-center pt-5">
+                                <img src="images/empty-state.svg" alt="" />
+                            </div>
                         </div>
-                    </div>
 
-                    <ul id="myDropdown" class="list-rules dropdown-content">
-                        <li>
-                            <div onclick="addDynamicIPModal()" data-toggle="modal"
-                                data-target="#addDynamicIPModal"
-                                class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
-                                <img src="images/rules/ip.svg" alt="" />
-                                <span class="sa-type-body sa-type-pointer">Dynamic IP Blocking</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div onclick="addPerimeterRuleModal()" data-toggle="modal"
-                                data-target="#addPerimeterRuleModal"
-                                class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
-                                <img src="images/rules/map-point.svg" alt="" />
-                                <span class="sa-type-body sa-type-pointer">Dynamic Perimeter</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div onclick="addCountryRuleModal()" data-toggle="modal" data-target="#addCountryRuleModal"
-                                class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
-                                <img src="images/rules/world.svg" alt="" />
-                                <span class="sa-type-body sa-type-pointer">Country</span></div>
-                        </li>
-                        <li>
-                            <div onclick="addGeoRuleModal()" data-toggle="modal" data-target="#addGeoRuleModal"
-                                class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
-                                <img src="images/rules/airplane.svg" alt="" />
-                                <span class="sa-type-body sa-type-pointer">Geo-velocity</span></div>
-                        </li>
-                        <li>
-                            <div onclick="addGroupRuleModal()" data-toggle="modal" data-target="#addGroupRuleModal"
-                                class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
-                                <img src="images/rules/groups.svg" alt="" />
-                                <span class="sa-type-body sa-type-pointer">Group</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div onclick="addIPRuleModal()" data-toggle="modal" data-target="#addIPRuleModal"
-                                class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
-                                <img src="images/rules/ip.svg" alt="" />
-                                <span class="sa-type-body sa-type-pointer">IP Range</span></div>
-                        </li>
-                        <li>
-                            <div onclick="addThreatRuleModal()" data-toggle="modal" data-target="#addThreatRuleModal"
-                                class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
-                                <img src="images/rules/risk.svg" alt="" />
-                                <span class="sa-type-body sa-type-pointer">Threat Service</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div onclick="addUserRuleModal()" data-toggle="modal" data-target="#addUserRuleModal"
-                                class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
-                                <img src="images/rules/user.svg" alt="" />
-                                <span class="sa-type-body sa-type-pointer">User</span></div>
-                        </li>
-                        <li>
-                            <div onclick="addRiskRuleModal()" data-toggle="modal" data-target="#addRiskRuleModal"
-                                class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
-                                <img src="images/rules/security.svg" alt="" />
-                                <span class="sa-type-body sa-type-pointer">User Risk</span></div>
-                        </li>
-                    </ul>
+                        <!-- The Modal -->
+                        <div class="modal" id="selectApps">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
 
-                    <div id="sortable" class="slides">
-                        <div id="orContainer"></div>
-                    </div>
-                    <!-- END RULE -->
-                    <div id="lastRule"></div>
-                </div>
-            </div>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Select the Resources you need to add to this Policy</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
 
-            <div class="step">
-                <div class="col-12">
-                    <div class="row">
-                        <div class="sa-box-stack-top-small-padding">
-                            <h2 class="sa-type-header-2 sa-type-bold">Multi-Factor Methods</h2>
-                            <div
-                                class="sa-box-stack-top-xsmall sa-box-stack-top-small-padding sa-box-stack-bottom-xmedium-padding">
-                                <div class="sa-type-paragraph">
-                                    <div class="sa-color-tertiary">Limit the MFA methods users can choose when
-                                        authenticating with this policy. Additional methods can be enabled from global
-                                        Multi-Factor Methods settings page.</div>
-                                </div>
-                            </div>
-                            <div class="sa-box-stack-bottom-medium-padding"></div>
-                            <div class="sa-box-stack-bottom-xsmall sa-box-stack-bottom-small-padding">
-                                <div class="sa-grid">
-                                    <div class="sa-grid-row">
-                                        <div class="sa-grid-column-12 sa-grid-column-medium-6 sa-grid-column-large-5">
-                                            <div class="sa-box-stack-bottom-xmedium">
-                                                <div class="sa-type-paragraph sa-type-bold">Login Workflow</div>
-                                                <div class="sa-box-stack-bottom-xsmall">
-                                                    <div color="tertiary" class="sa-type-paragraph sa-color-tertiary">
-                                                        Select a login experience for this policy.</div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <div class="col-5 mb-3">
+                                            <input id="myInput" class="search-input" type="text"
+                                                placeholder="Search Application..">
+                                        </div>
+
+                                        <div class="table" id="ResourcesTable">
+                                            <div class="table-row table-header">
+                                                <div class="table-row-column table-row-index">Name</div>
+                                                <div class="table-row-column">Description</div>
+                                                <div class="table-row-column table-center " style="width: 40%;">Policy
                                                 </div>
-                                                <select class="custom-select">
-                                                    <option>Passwordless</option>
-                                                    <option selected>Username & Password | MFA Methods</option>
-                                                    <option>Username | MFA Methods | Password</option>
-                                                    <option>(Valid Persistent Token) | MFA Methods</option>
-                                                    <option>(Valid Persistent Token) | MFA Methods | Password</option>
-                                                </select>
+                                            </div>
+
+                                            <div class="table-row remove_app">
+                                                <div class="table-row-column table-row-index">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45"
+                                                        viewBox="0 0 45 45" fill="none">
+                                                        <path
+                                                            d="M7.5 7.50012H13.125L16.875 3.75012H28.125L31.875 7.50012H37.5C38.4946 7.50012 39.4484 7.89521 40.1516 8.59847C40.8549 9.30173 41.25 10.2556 41.25 11.2501V33.7501C41.25 34.7447 40.8549 35.6985 40.1516 36.4018C39.4484 37.105 38.4946 37.5001 37.5 37.5001H7.5C6.50544 37.5001 5.55161 37.105 4.84835 36.4018C4.14509 35.6985 3.75 34.7447 3.75 33.7501V11.2501C3.75 10.2556 4.14509 9.30173 4.84835 8.59847C5.55161 7.89521 6.50544 7.50012 7.5 7.50012ZM22.5 13.1251C20.0136 13.1251 17.629 14.1128 15.8709 15.871C14.1127 17.6291 13.125 20.0137 13.125 22.5001C13.125 24.9865 14.1127 27.3711 15.8709 29.1292C17.629 30.8874 20.0136 31.8751 22.5 31.8751C24.9864 31.8751 27.371 30.8874 29.1291 29.1292C30.8873 27.3711 31.875 24.9865 31.875 22.5001C31.875 20.0137 30.8873 17.6291 29.1291 15.871C27.371 14.1128 24.9864 13.1251 22.5 13.1251ZM22.5 16.8751C23.9918 16.8751 25.4226 17.4678 26.4775 18.5226C27.5324 19.5775 28.125 21.0083 28.125 22.5001C28.125 23.992 27.5324 25.4227 26.4775 26.4776C25.4226 27.5325 23.9918 28.1251 22.5 28.1251C21.0082 28.1251 19.5774 27.5325 18.5225 26.4776C17.4676 25.4227 16.875 23.992 16.875 22.5001C16.875 21.0083 17.4676 19.5775 18.5225 18.5226C19.5774 17.4678 21.0082 16.8751 22.5 16.8751Z"
+                                                            fill="#C7CCCE" />
+                                                    </svg>
+                                                    <p><strong>Application 01</strong></p>
+                                                </div>
+                                                <div class="table-row-column">
+                                                    <p>SAML Application</p>
+                                                </div>
+                                                <div class="table-row-column table-center row-list-view ">
+                                                    <span class="sa-tag sa-tag-info"
+                                                        style="line-height: 16px; vertical-align: top; margin-top: 4px;">
+                                                        <div class="sa-type-caption">Assigned to this Policy</div>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="table-row remove_app">
+                                                <div class="table-row-column table-row-index">
+                                                    <img src="images/litmos.svg" alt="" />
+                                                    <p><strong>Application 02</strong></p>
+                                                </div>
+                                                <div class="table-row-column">
+                                                    <p>SAML Application</p>
+                                                </div>
+                                                <div class="table-row-column table-center row-list-view ">
+                                                    <span class="sa-tag sa-tag-dark"
+                                                        style="line-height: 16px; vertical-align: top; margin-top: 4px;">
+                                                        <div class="sa-type-caption">New Custom Policy 13</div>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="table-row remove_app">
+                                                <div class="table-row-column table-row-index">
+                                                    <img src="images/jenkins.svg" alt="" />
+                                                    <p><strong>Application 03</strong></p>
+                                                </div>
+                                                <div class="table-row-column">
+                                                    <p>SAML Application</p>
+                                                </div>
+                                                <div class="table-row-column table-center row-list-view ">
+                                                    <span class="sa-tag sa-tag-dark"
+                                                        style="line-height: 16px; vertical-align: top; margin-top: 4px;">
+                                                        <div class="sa-type-caption">New Custom Policy 13</div>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="">
-                                    <h3 class="sa-type-header-3">FIDO2 (WebAuthn)</h3>
-                                    <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
-                                        <fieldset class="sa-form-fieldset-no-margin">
-                                            <ul color="secondary" class="sa-list-none">
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="pnHnNPBd"
-                                                            class="sa-form-checkbox-label"><input id="pnHnNPBd"
-                                                                type="checkbox" value="16" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">FIDO2
-                                                                Devices</span></label></div>
-                                                </li>
-                                            </ul>
-                                        </fieldset>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn sa-button-primary" data-dismiss="modal">Add
+                                            Resources</button>
+                                        <button type="button" class="btn sa-button-tertiary"
+                                            data-dismiss="modal">Cancel</button>
                                     </div>
-                                </div>
-                                <div class="">
-                                    <h3 class="sa-type-header-3">Yubikey</h3>
-                                    <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
-                                        <fieldset class="sa-form-fieldset-no-margin">
-                                            <ul color="secondary" class="sa-list-none">
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="6G09y4SI"
-                                                            class="sa-form-checkbox-label"><input id="6G09y4SI"
-                                                                type="checkbox" value="1" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">Yubico
-                                                                OTP</span></label></div>
-                                                </li>
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="sZPYruod"
-                                                            class="sa-form-checkbox-label"><input id="sZPYruod"
-                                                                type="checkbox" value="2" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">OATH
-                                                                HOTP</span></label></div>
-                                                </li>
-                                            </ul>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <h3 class="sa-type-header-3">Authentication Apps</h3>
-                                    <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
-                                        <fieldset class="sa-form-fieldset-no-margin">
-                                            <ul color="secondary" class="sa-list-none">
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="qMuoCuHk"
-                                                            class="sa-form-checkbox-label"><input id="qMuoCuHk"
-                                                                type="checkbox" value="4" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">Timed passcode from
-                                                                app</span></label></div>
-                                                </li>
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="WiwhEByR"
-                                                            class="sa-form-checkbox-label"><input id="WiwhEByR"
-                                                                type="checkbox" value="5" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">Login
-                                                                notification</span></label></div>
-                                                    <div
-                                                        class="sa-box-stack-left-xmedium sa-box-stack-top-xsmall-padding sa-box-stack-left-xsmall-padding sa-box-stack-bottom-small-padding">
-                                                        <h3 class="sa-type-header-3">Accept Method</h3>
-                                                        <div class="card-block radiobuttons">
-                                                            <div class="clearfix">
-                                                                <label for="opt1Credentials" class="radio"
-                                                                    style="margin:10px 15px 10px 0">
-                                                                    <input type="radio" name="acceptMethod"
-                                                                        id="opt1Credentials" class="hidden" checked />
-                                                                    <span class="label"></span>User selects accept or
-                                                                    deny
-                                                                </label>
-                                                            </div>
-                                                            <div class="clearfix">
-                                                                <label for="opt2CyberArk" class="radio"
-                                                                    style="margin:10px 15px 10px 0">
-                                                                    <input type="radio" name="acceptMethod"
-                                                                        id="opt2CyberArk" class="hidden" />
-                                                                    <span class="label"></span>User selects matching
-                                                                    chraracter displayed on device
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="7TutFoyQ"
-                                                            class="sa-form-checkbox-label"><input id="7TutFoyQ"
-                                                                type="checkbox" value="6" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">Biometric
-                                                                identification</span></label></div>
-                                                </li>
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="siqwNaQt"
-                                                            class="sa-form-checkbox-label"><input id="siqwNaQt"
-                                                                type="checkbox" value="7" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">One-time
-                                                                passcode</span></label></div>
-                                                </li>
-                                            </ul>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <h3 class="sa-type-header-3">Text Message</h3>
-                                    <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
-                                        <fieldset class="sa-form-fieldset-no-margin">
-                                            <ul color="secondary" class="sa-list-none">
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="qHIG0BT1"
-                                                            class="sa-form-checkbox-label"><input id="qHIG0BT1"
-                                                                type="checkbox" value="8" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">Login confirmation
-                                                                link</span></label></div>
-                                                </li>
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="it8WCZwP"
-                                                            class="sa-form-checkbox-label"><input id="it8WCZwP"
-                                                                type="checkbox" value="9" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">One-time
-                                                                passcode</span></label></div>
-                                                </li>
-                                            </ul>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <h3 class="sa-type-header-3">Email</h3>
-                                    <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
-                                        <fieldset class="sa-form-fieldset-no-margin">
-                                            <ul color="secondary" class="sa-list-none">
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="RL5wjJTs"
-                                                            class="sa-form-checkbox-label"><input id="RL5wjJTs"
-                                                                type="checkbox" value="10" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">Login confirmation
-                                                                link</span></label></div>
-                                                </li>
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="nyWhl1VX"
-                                                            class="sa-form-checkbox-label"><input id="nyWhl1VX"
-                                                                type="checkbox" value="11" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">One-time
-                                                                passcode</span></label></div>
-                                                </li>
-                                            </ul>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <h3 class="sa-type-header-3">Security Questions</h3>
-                                    <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
-                                        <fieldset class="sa-form-fieldset-no-margin">
-                                            <ul color="secondary" class="sa-list-none">
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="6wOgxEwN"
-                                                            class="sa-form-checkbox-label"><input id="6wOgxEwN"
-                                                                type="checkbox" value="13" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">Security
-                                                                questions</span></label></div>
-                                                </li>
-                                            </ul>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <h3 class="sa-type-header-3">PIN</h3>
-                                    <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
-                                        <fieldset class="sa-form-fieldset-no-margin">
-                                            <ul color="secondary" class="sa-list-none">
-                                                <li>
-                                                    <div class="sa-form-checkbox"><label for="t9fUCDoq"
-                                                            class="sa-form-checkbox-label"><input id="t9fUCDoq"
-                                                                type="checkbox" value="14" checked=""><span
-                                                                class="sa-form-checkbox-pseudo-input"><span></span></span><span
-                                                                class="sa-form-checkbox-label-text">Personal
-                                                                identification number</span></label></div>
-                                                </li>
-                                            </ul>
-                                        </fieldset>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="step">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="sa-header">
-                            <div class="sa-type-header-2 sa-type-bold">Resources</div>
-                            <div class="sa-color-grey_dark">Manage which resources have this policy applied
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 text-right">
-                        <button class="sa-button-secondary" data-toggle="modal" data-target="#selectApps">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                version="1.1" viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
-                                <path
-                                    d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
-                                </path>
-                            </svg>
-                            Select Resources for this policy
-                        </button>
-                    </div>
-
-                    <div class="col-12 text-center">
-                        <h2 class="sa-type-h2">Looks like you haven’t<br />
-                            <strong>assignated</strong> any <strong>Resources</strong> yet</h2>
-                    </div>
-                    <div class="col-12 text-center pt-5">
-                        <img src="images/empty-state.svg" alt="" />
-                    </div>
-                </div>
-
-                <!-- The Modal -->
-                <div class="modal" id="selectApps">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Select the Resources you need to add to this Policy</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <div class="col-5 mb-3">
-                                    <input id="myInput" class="search-input" type="text" placeholder="Search Application..">
-                                </div>
-
-                                <div class="table" id="ResourcesTable">
-                                    <div class="table-row table-header">
-                                        <div class="table-row-column table-row-index">Name</div>
-                                        <div class="table-row-column">Description</div>
-                                        <div class="table-row-column table-center " style="width: 40%;">Policy</div>
-                                    </div>
-
-                                    <div class="table-row remove_app">
-                                        <div class="table-row-column table-row-index">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45"
-                                                viewBox="0 0 45 45" fill="none">
-                                                <path
-                                                    d="M7.5 7.50012H13.125L16.875 3.75012H28.125L31.875 7.50012H37.5C38.4946 7.50012 39.4484 7.89521 40.1516 8.59847C40.8549 9.30173 41.25 10.2556 41.25 11.2501V33.7501C41.25 34.7447 40.8549 35.6985 40.1516 36.4018C39.4484 37.105 38.4946 37.5001 37.5 37.5001H7.5C6.50544 37.5001 5.55161 37.105 4.84835 36.4018C4.14509 35.6985 3.75 34.7447 3.75 33.7501V11.2501C3.75 10.2556 4.14509 9.30173 4.84835 8.59847C5.55161 7.89521 6.50544 7.50012 7.5 7.50012ZM22.5 13.1251C20.0136 13.1251 17.629 14.1128 15.8709 15.871C14.1127 17.6291 13.125 20.0137 13.125 22.5001C13.125 24.9865 14.1127 27.3711 15.8709 29.1292C17.629 30.8874 20.0136 31.8751 22.5 31.8751C24.9864 31.8751 27.371 30.8874 29.1291 29.1292C30.8873 27.3711 31.875 24.9865 31.875 22.5001C31.875 20.0137 30.8873 17.6291 29.1291 15.871C27.371 14.1128 24.9864 13.1251 22.5 13.1251ZM22.5 16.8751C23.9918 16.8751 25.4226 17.4678 26.4775 18.5226C27.5324 19.5775 28.125 21.0083 28.125 22.5001C28.125 23.992 27.5324 25.4227 26.4775 26.4776C25.4226 27.5325 23.9918 28.1251 22.5 28.1251C21.0082 28.1251 19.5774 27.5325 18.5225 26.4776C17.4676 25.4227 16.875 23.992 16.875 22.5001C16.875 21.0083 17.4676 19.5775 18.5225 18.5226C19.5774 17.4678 21.0082 16.8751 22.5 16.8751Z"
-                                                    fill="#C7CCCE" />
-                                            </svg>
-                                            <p><strong>Application 01</strong></p>
-                                        </div>
-                                        <div class="table-row-column">
-                                            <p>SAML Application</p>
-                                        </div>
-                                        <div class="table-row-column table-center row-list-view ">
-                                            <span class="sa-tag sa-tag-info"
-                                                style="line-height: 16px; vertical-align: top; margin-top: 4px;">
-                                                <div class="sa-type-caption">Assigned to this Policy</div>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <div class="table-row remove_app">
-                                        <div class="table-row-column table-row-index">
-                                            <img src="images/litmos.svg" alt="" />
-                                            <p><strong>Application 02</strong></p>
-                                        </div>
-                                        <div class="table-row-column">
-                                            <p>SAML Application</p>
-                                        </div>
-                                        <div class="table-row-column table-center row-list-view ">
-                                            <span class="sa-tag sa-tag-dark"
-                                                style="line-height: 16px; vertical-align: top; margin-top: 4px;">
-                                                <div class="sa-type-caption">New Custom Policy 13</div>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <div class="table-row remove_app">
-                                        <div class="table-row-column table-row-index">
-                                            <img src="images/jenkins.svg" alt="" />
-                                            <p><strong>Application 03</strong></p>
-                                        </div>
-                                        <div class="table-row-column">
-                                            <p>SAML Application</p>
-                                        </div>
-                                        <div class="table-row-column table-center row-list-view ">
-                                            <span class="sa-tag sa-tag-dark"
-                                                style="line-height: 16px; vertical-align: top; margin-top: 4px;">
-                                                <div class="sa-type-caption">New Custom Policy 13</div>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn sa-button-primary" data-dismiss="modal">Add
-                                    Resources</button>
-                                <button type="button" class="btn sa-button-tertiary"
-                                    data-dismiss="modal">Cancel</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="buttons-footer">
-                <button class="sa-button-secondary" id="prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
-                        <path
-                            d="M11.5575 12.5302L8.1225 9.09521L11.5575 5.65271L10.5 4.59521L6 9.09521L10.5 13.5952L11.5575 12.5302Z"
-                            fill="#2995F5" />
-                    </svg>
-                    Previous Step
-                </button>
-                <div class="d-flex float-right">
-                    <button class="sa-button-tertiary"><a href="policies.html">Cancel</a></button>
-                    <button class="sa-button-primary" id="next">Next Step
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <div class="step-footer buttons-footer">
+                    <button class="step-btn sa-button-secondary" id="prev" data-step-action="prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
                             <path
-                                d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
-                                fill="white" />
+                                d="M11.5575 12.5302L8.1225 9.09521L11.5575 5.65271L10.5 4.59521L6 9.09521L10.5 13.5952L11.5575 12.5302Z"
+                                fill="#2995F5" />
                         </svg>
+                        Previous Step
                     </button>
+                    <div class="d-flex float-right">
+                        <button class="sa-button-tertiary"><a href="policies.html">Cancel</a></button>
+                        <button class="step-btn sa-button-primary" id="next" data-step-action="next">
+                            Next Step
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                fill="none">
+                                <path
+                                    d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
+                                    fill="white" />
+                            </svg>
+                        </button>
+                        <button data-step-action="finish" class="step-btn sa-button-primary">Save</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -715,6 +744,15 @@
             });
 
         }
+    </script>
+
+    <script src="js/jquery-steps.js"></script>
+    <script>
+        $('#demo').steps({
+            onFinish: function () {
+                location.href = "policies.html"
+            }
+        });
     </script>
 
     <script src="js/custom.js"></script>

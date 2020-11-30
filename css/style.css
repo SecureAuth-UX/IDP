@@ -386,6 +386,36 @@ label {
     color: #9ccdf8;
 }
 
+.sa-tabs-list {
+    border-bottom: 0;
+}
+
+.sa-tabs-list .sa-tabs-list-item a, .nav-item.nav-link {
+    color: #838586;
+    text-decoration: none;
+    text-transform: capitalize;
+    cursor: pointer;
+    min-width: auto;
+    white-space: nowrap;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 4px 15.5px;
+    margin-right: 5px;
+    line-height: 24px;
+    border: 0;
+    border-bottom: 7px solid transparent;
+}
+
+.sa-tabs-list .sa-tabs-list-item a:hover, .nav-item.nav-link:hover {
+    color: #9ccdf8;
+}
+
+.nav-item.nav-link.active {
+    color: #2995f5;
+    border-color: #2995f5;
+}
+
 .sa-view-body {
     padding: 0 50px 20px 65px;
 }
@@ -1192,5 +1222,55 @@ input:focus {
 @media (min-width: 992px) {
     .modal-lg, .modal-xl {
         max-width: 900px;
+    }
+}
+
+.circle-big {
+    position: relative;
+    width: 114px;
+    height: 114px;
+    margin: 0 auto 15px auto;
+}
+
+.circle-big svg {
+    width: 114px;
+    height: 114px;
+}
+
+.circle-big .bg {
+    fill: none;
+    stroke-width: 10px;
+    stroke: #F2F2F2;
+}
+
+.circle-big .progress {
+    fill: none;
+    stroke-width: 10px;
+    stroke: #65B76D;
+    stroke-linecap: round;
+    stroke-dasharray: 326.56;
+    stroke-dashoffset: 240;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    animation: big 1.5s ease-in-out;
+}
+
+.circle-big .text {
+    position: absolute;
+    width: 100%;
+    top: 45px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 22px;
+    color: #646464;
+}
+
+@keyframes big {
+    from {
+        stroke-dashoffset: 326.56;
+    }
+    to {
+        stroke-dashoffset: 240;
     }
 }

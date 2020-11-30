@@ -1,0 +1,66 @@
+.step-app>.step-steps {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.step-app>.step-steps>li {
+  color: #838586;
+  text-decoration: none;
+  text-transform: capitalize;
+  cursor: pointer;
+  min-width: auto;
+  white-space: nowrap;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 4px 15.5px;
+  margin-right: 5px;
+  line-height: 24px;
+  border: 0;
+  border-bottom: 7px solid transparent;
+}
+
+.step-app>.step-steps>li:hover {
+  color: #9ccdf8;
+}
+
+.step-app>.step-steps>li:last-child a {
+  border: none;
+}
+
+.step-app>.step-steps>li.active {
+  background-color: transparent;
+  color: #2995f5;
+  border-color: #2995f5;
+}
+
+.step-app>.step-steps>li.error {
+  background-color: #e7505a;
+  color: #fff;
+}
+
+.step-app>.step-steps>li>.number {
+  background: #fff;
+  padding: 0 8px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 15px;
+  border-radius: 3px;
+  color: #333;
+}
+
+.step-app>.step-content {
+ margin-top: 30px;
+}
+
+.step-app>.step-content>.step-tab-panel {
+  display: none;
+}
+
+.step-app>.step-content>.step-tab-panel.active {
+  display: block;
+}
