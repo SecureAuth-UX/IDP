@@ -1365,7 +1365,7 @@ table.dataTable thead th::after {
 }
 
 table.dataTable thead th.sorting:after {
-    content: url(../images/arrow-spinner.svg) !important;
+    content: url(../../images/arrow-spinner.svg) !important;
 }
 
 table.dataTable thead th.sorting_asc:after {
