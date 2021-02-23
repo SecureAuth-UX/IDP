@@ -252,7 +252,7 @@ function addCountryRuleModal() {
         '</div>' +
         '<div class="form-group">' +
         '<div class="card-block radiobuttons" id="countryRadio">' +
-        '<span class="mr-3">IF the user’s current location</span>' +
+        '<span class="mr-3">IF the user’s current location </span>' +
         '<label for="isCountry" class="radio" style="margin:10px 15px 10px 0">' +
         '<input type="radio" name="countryRadio" id="isCountry" value="is" class="hidden" checked />' +
         '<span class="label"></span>is' +
@@ -550,14 +550,14 @@ function addGeoRuleModal() {
         '<input type="text" placeholder="Add URL" id="urlRedirectToGeo" class="urlRedirectTo" />' +
         '</div>' +
         '<div class="form-group">' +
-        '<div class="card-block radiobuttons" id="geoRadio">' +
+        '<div class="card-block radiobuttons" id="GeoRadio">' +
         '<span class="mr-3">IF the user</span>' +
         '<label for="isGeo" class="radio" style="margin:10px 15px 10px 0">' +
-        '<input type="radio" name="countryRadio" id="isGeo" value="is" class="hidden" checked />' +
+        '<input type="radio" name="GeoRadio" id="isGeo" value="has" class="hidden" checked />' +
         '<span class="label"></span>has' +
         '</label>' +
         '<label for="isNotGeo" class="radio" style="margin:10px 15px 10px 0">' +
-        '<input type="radio" name="countryRadio" id="isNotGeo" value="is not" class="hidden" />' +
+        '<input type="radio" name="GeoRadio" id="isNotGeo" value="has not" class="hidden" />' +
         '<span class="label"></span>has not' +
         '</label>' +
         '</div>' +
@@ -911,6 +911,60 @@ function addRiskRuleModal() {
 
 // OR RULE
 
+function addConditionalPassword() {
+    rowNum++;
+
+    $("#orContainer").append(
+        '<div class="form-group card-policies remove_field" style="position:relative;">' +
+        '<div class="condition-rule or-condition">OR</div>' +
+        '<div class="row">' +
+        '<div class="col-9 d-flex align-items-center flex-wrap">' +
+        '<a class="sa-type-link" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA4CAYAAAD959hAAAAA2ElEQVRYR2P8/////5+//zDcfvKc4d3nrwwgIMTLzaAqI8nAzsoC5qMDfOoZf/z6/f/4tdsMv//8QdHHysLCYKmlimEoyDB86hkv33v0//m7D1hdIikkwKCjKIsid+X+YwZ86hkPXrz+/+fv31gNZGdlZbDT00CRO3TpBgM+9dQ3kOpepnqkUD3ZgAzEGiNkCjKOGkhmyCG0jdQwHC0P4WlgtDwEBwXBSmq0PBwtbUgPgSFSwI6Wh6PlIWpPYLQ8xMjsQyQvk15I4dYxUr08Wh6OlocDXB4CAJlGbwe3urZkAAAAAElFTkSuQmCC&quot;); position: relative; display: block; width: 10px; height: 28px; background-position: center center; background-repeat: no-repeat; background-size: cover; cursor: move;"></a>' +
+        '<p class="numberOrder"><strong>' + rowNum + '</strong> <strong> Conditional Password</strong></p>' +
+        '<p style="color:#2372B8; flex-basis:100%;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">'+
+        '<path d="M8.25 6.75H9.75V5.25H8.25V6.75ZM9 15C5.6925 15 3 12.3075 3 9C3 5.6925 5.6925 3 9 3C12.3075 3 15 5.6925 15 9C15 12.3075 12.3075 15 9 15ZM9 1.5C8.01509 1.5 7.03982 1.69399 6.12987 2.0709C5.21993 2.44781 4.39314 3.00026 3.6967 3.6967C2.29018 5.10322 1.5 7.01088 1.5 9C1.5 10.9891 2.29018 12.8968 3.6967 14.3033C4.39314 14.9997 5.21993 15.5522 6.12987 15.9291C7.03982 16.306 8.01509 16.5 9 16.5C10.9891 16.5 12.8968 15.7098 14.3033 14.3033C15.7098 12.8968 16.5 10.9891 16.5 9C16.5 8.01509 16.306 7.03982 15.9291 6.12987C15.5522 5.21993 14.9997 4.39314 14.3033 3.6967C13.6069 3.00026 12.7801 2.44781 11.8701 2.0709C10.9602 1.69399 9.98491 1.5 9 1.5ZM8.25 12.75H9.75V8.25H8.25V12.75Z" fill="#2372B8"/></svg>'+
+        'You must add at least one and not more than four unique conditions.</p>'+
+        '</div>' +
+        '<div class="col-3 text-right">' +
+        '<button class="dropbtn sa-type-link" id="dropdownMenuButton" data-toggle="dropdown">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">' +
+        '<path d="M2 2H8.66667V6.44444H2V2ZM15.3333 9.77778H22V14.2222H15.3333V9.77778ZM15.3333 17.5556H22V22H15.3333V17.5556ZM13.1111 13.1111H6.44444V18.6667H13.1111V20.8889H6.44444H4.22222V8.66667H6.44444V10.8889H13.1111V13.1111Z" fill="#2995F5" />' +
+        '</svg>' +
+        'Add condition' +
+        '</button>' +
+        '<ul class="list-rules dropdown-menu" aria-labelledby="dropdownMenuButton">' +
+        '<li>' +
+        '<div onclick="addDeviceRecognitionAnd()" class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">' +
+        '<img src="images/rules/desktop.svg" alt="" />' +
+        '<span class="sa-type-body sa-type-pointer">Device Recognition</span>' +
+        '</div>' +
+        '</li>' +
+        '<li>' +
+        '<div onclick="addGroupRuleAnd()"' +
+        'class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">' +
+        '<img src="images/rules/groups.svg" alt="" />' +
+        '<span class="sa-type-body sa-type-pointer">Group</span>' +
+        '</div>' +
+        '</li>' +
+        '<li>' +
+        '<div onclick="addMfaAnd()" class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">' +
+        '<img src="images/rules/lock.svg" alt="" />' +
+        '<span class="sa-type-body sa-type-pointer">Multi-Factor Methods</span></div>' +
+        '</li>' +
+        '<li>' +
+        '<div onclick="addUserRuleAnd()" class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">' +
+        '<img src="images/rules/user.svg" alt="" />' +
+        '<span class="sa-type-body sa-type-pointer">User</span></div>' +
+        '</li>' +
+        '</ul>' +
+        '<img src="images/delete.svg" alt="" class="float-right btnDelete" />' +
+        '</div>' +
+        '</div>' +
+        '<div id="andContainer" class="andContainer"></div>' +
+        '</div>');
+    callDropdown();
+}
+
 function addDynamicIPRule() {
     rowNum++;
     var selectConditionRule = $("#selectRulesDynamicIp option:selected").text();
@@ -1090,12 +1144,10 @@ function addCountryRule() {
         '<p class="numberOrder"><strong>' + rowNum + '</strong></p>' +
         '<a href="" class="mr-2">' + selectConditionRule + '</a>' +
         '<a href="">' + redirectTo + '</a>' +
-        '<p>IF</p>' +
-        '<div class="sa-color-tertiary">the user’s current location</div>' +
+        '<p>IF the user’s current location </p>' +
         '<a href="">' + radioRule + '</a>' +
-        '<div class="sa-color-tertiary mr-2">within</div>' +
+        '<p>in</p>' +
         '<a href="">' + inputRule + '</a>' +
-        '<div class="sa-color-tertiary ml-2">from their previous location</div>' +
         '</div>' +
         '<div class="col-3 text-right">' +
         '<button class="dropbtn sa-type-link" id="dropdownMenuButton" data-toggle="dropdown">' +
@@ -1704,13 +1756,12 @@ function addCountryRuleAnd() {
         '<div class="row">' +
         '<div class="col-10 d-flex align-items-center">' +
         '<a class="sa-type-link" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA4CAYAAAD959hAAAAA2ElEQVRYR2P8/////5+//zDcfvKc4d3nrwwgIMTLzaAqI8nAzsoC5qMDfOoZf/z6/f/4tdsMv//8QdHHysLCYKmlimEoyDB86hkv33v0//m7D1hdIikkwKCjKIsid+X+YwZ86hkPXrz+/+fv31gNZGdlZbDT00CRO3TpBgM+9dQ3kOpepnqkUD3ZgAzEGiNkCjKOGkhmyCG0jdQwHC0P4WlgtDwEBwXBSmq0PBwtbUgPgSFSwI6Wh6PlIWpPYLQ8xMjsQyQvk15I4dYxUr08Wh6OlocDXB4CAJlGbwe3urZkAAAAAElFTkSuQmCC&quot;); position: relative; display: block; width: 10px; height: 28px; background-position: center center; background-repeat: no-repeat; background-size: cover; cursor: move;"></a>' +
-        '<p>IF</p>' +
-        '<div class="sa-color-tertiary">the user’s current location</div>' +
+        '<p>IF the user’s current location </p>' +
         '<select name="aaa" class="label ui selection dropdown select-noborder">' +
         '<option>is</option>' +
         '<option>is not</option>' +
         '</select>' +
-        '<div class="sa-color-tertiary mr-2">within</div>' +
+        '<p>in </p>' +
         '<select name="countries" id="countriesSelection" multiple="" class="label ui selection dropdown">' +
         '<option>Afghanistan</option>' +
         '<option>Aland Islands</option>' +
@@ -1958,7 +2009,6 @@ function addCountryRuleAnd() {
         '<option>Zambia</option>' +
         '<option>Zimbabwe</option>' +
         '</select>' +
-        '<div class="sa-color-tertiary ml-2">from their previous location</div>' +
         '</div>' +
         '<div class="col-2 text-right">' +
         '<img src="images/remove.svg" alt="" class="float-right btnRemove" />' +
@@ -2162,6 +2212,69 @@ function addRiskRuleAnd() {
         '<option selected>High</option>' +
         '<option>Medium</option>' +
         '<option>Low</option>' +
+        '</select>' +
+        '</div>' +
+        '<div class="col-2 text-right">' +
+        '<img src="images/remove.svg" alt="" class="float-right btnRemove" />' +
+        '</div>' +
+        '</div>' +
+        '</div>');
+    callDropdown();
+}
+
+function addDeviceRecognitionAnd() {
+    var hola = $('.card-policies').find('.dropdown-menu.show').closest('.card-policies');
+    var drop = $('.dropdown-menu');
+
+    $('.card-policies.card-relative').removeClass("card-relative");
+
+    if ($(drop).hasClass('show')) {
+        $(hola).addClass("card-relative");
+    }
+
+    $('.card-policies.card-relative #andContainer').append(
+        '<div class="card-policies-grey remove_and">' +
+        '<div class="condition-rule and-condition">AND</div>' +
+        '<div class="row">' +
+        '<div class="col-10 d-flex align-items-center">' +
+        '<a class="sa-type-link" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA4CAYAAAD959hAAAAA2ElEQVRYR2P8/////5+//zDcfvKc4d3nrwwgIMTLzaAqI8nAzsoC5qMDfOoZf/z6/f/4tdsMv//8QdHHysLCYKmlimEoyDB86hkv33v0//m7D1hdIikkwKCjKIsid+X+YwZ86hkPXrz+/+fv31gNZGdlZbDT00CRO3TpBgM+9dQ3kOpepnqkUD3ZgAzEGiNkCjKOGkhmyCG0jdQwHC0P4WlgtDwEBwXBSmq0PBwtbUgPgSFSwI6Wh6PlIWpPYLQ8xMjsQyQvk15I4dYxUr08Wh6OlocDXB4CAJlGbwe3urZkAAAAAElFTkSuQmCC&quot;); position: relative; display: block; width: 10px; height: 28px; background-position: center center; background-repeat: no-repeat; background-size: cover; cursor: move;"></a>' +
+        '<p>IF the Device is recognized</p>' +
+        '</div>' +
+        '<div class="col-2 text-right">' +
+        '<img src="images/remove.svg" alt="" class="float-right btnRemove" />' +
+        '</div>' +
+        '</div>' + 
+        '</div>');
+    callDropdown();
+}
+
+function addMfaAnd() {
+    var hola = $('.card-policies').find('.dropdown-menu.show').closest('.card-policies');
+    var drop = $('.dropdown-menu');
+
+    $('.card-policies.card-relative').removeClass("card-relative");
+
+    if ($(drop).hasClass('show')) {
+        $(hola).addClass("card-relative");
+    }
+
+    $('.card-policies.card-relative #andContainer').append(
+        '<div class="card-policies-grey remove_and">' +
+        '<div class="condition-rule and-condition">AND</div>' +
+        '<div class="row">' +
+        '<div class="col-10 d-flex align-items-center">' +
+        '<a class="sa-type-link" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA4CAYAAAD959hAAAAA2ElEQVRYR2P8/////5+//zDcfvKc4d3nrwwgIMTLzaAqI8nAzsoC5qMDfOoZf/z6/f/4tdsMv//8QdHHysLCYKmlimEoyDB86hkv33v0//m7D1hdIikkwKCjKIsid+X+YwZ86hkPXrz+/+fv31gNZGdlZbDT00CRO3TpBgM+9dQ3kOpepnqkUD3ZgAzEGiNkCjKOGkhmyCG0jdQwHC0P4WlgtDwEBwXBSmq0PBwtbUgPgSFSwI6Wh6PlIWpPYLQ8xMjsQyQvk15I4dYxUr08Wh6OlocDXB4CAJlGbwe3urZkAAAAAElFTkSuQmCC&quot;); position: relative; display: block; width: 10px; height: 28px; background-position: center center; background-repeat: no-repeat; background-size: cover; cursor: move;"></a>' +
+        '<p>IF Multi-factor Methods selected</p>' +
+        '<select name="aaa" class="label ui selection dropdown select-noborder">' +
+        '<option>uses</option>' +
+        '<option>doesn' + "'" + 't use</option>' +
+        '</select>' +
+        '<select multiple="" class="label ui selection dropdown">' +
+        '<option>Biometric Identification</option>' +
+        '<option>Yubikey</option>' +
+        '<option>Text Message</option>' +
+        '<option>Email</option>' +
+        '<option>PIN</option>' +
         '</select>' +
         '</div>' +
         '<div class="col-2 text-right">' +
