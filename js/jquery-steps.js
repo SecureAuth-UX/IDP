@@ -1,11 +1,3 @@
-/*!
-    * Steps v1.1.0
-    * https://github.com/oguzhanoya/jquery-steps
-    *
-    * Copyright (c) 2020 oguzhanoya
-    * Released under the MIT license
-    */
-
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('jquery')) :
     typeof define === 'function' && define.amd ? define(['jquery'], factory) :
