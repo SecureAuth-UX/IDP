@@ -46,7 +46,7 @@
             width: 100%;
         }
 
-        .dropdown .select-option .hida {
+        .dropdown .select-option .select-options-btn {
             background-color: #fff;
             border-color: #727e83;
             border-radius: 5px;
@@ -63,12 +63,21 @@
 
         .dropdown .mutliSelect {
             display: none;
+            position: absolute;
+            top: 57px;
+            left: 0;
+            background-color: #FFFFFF;
+            width: 100%;
         }
 
         .dropdown ul {
             list-style: none;
             padding: 0;
             margin-top: 20px;
+            border: 1px solid #2A2E2F;
+            margin: 0 20px;
+            padding: 20px;
+            border-radius: 4px;
         }
 
         .multiSel {
@@ -92,15 +101,7 @@
             float: left;
             background: #EEEFFC;
             border: 1px solid #242D80;
-        }
-
-        .keywords-container::after {
-            content: "x";
-            margin-left: 30px;
-        }
-
-        .keywords-count.keywords-container::after {
-            content: "";
+            display: block;
         }
     </style>
 </head>
@@ -191,7 +192,7 @@
 
             <div class="dropdown">
                 <div class="select-option">
-                    <input type="button" class="hida" placeholder="Select option" value="Select options" />
+                    <input type="button" class="select-options-btn" placeholder="Select option" value="Select options" />
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 10L12 15L17 10H7Z" fill="#2995F5" />
                     </svg>
@@ -268,9 +269,8 @@
             $(".dropdown").slideToggle('fast');
         });
 
-
-        $(".dropdown .hida").on('click', function () {
-            $(".dropdown .mutliSelect").slideToggle('fast').css("display", "contents");
+        $(".dropdown .select-options-btn").on('click', function () {
+            $(".dropdown .mutliSelect").slideToggle('fast').css("display", "block");
         });
 
         var $dropdown = $('.dropdown');
@@ -286,7 +286,7 @@
 
             var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
                 title = $(this).val();
-            
+
 
             if ($(this).is(':checked')) {
                 var html = '<span title="' + title + '" class="keywords-container">' + title + '</span>';
@@ -294,16 +294,17 @@
             } else {
                 var counter = $(".multiSel .keywords-container").length;
                 $('span[title="' + title + '"]').remove();
-                var ret = $(".hida");
+                var ret = $(".select-options-btn");
+                $(".multiSel").hide();
             }
 
             var counter = $(".multiSel .keywords-container").length;
             if ($(counter).length > 0) {
-                $(".keywords-count").html(counter + " Selected").addClass("keywords-container");   
+                $(".keywords-count").html(counter + " Selected").addClass("keywords-container").css("display", "block");
             }
             else {
-                $(".keywords-count").hide();   
-            }          
+                $(".keywords-count").hide();
+            }
         });
     </script>
     <script src="js/custom.js"></script>
