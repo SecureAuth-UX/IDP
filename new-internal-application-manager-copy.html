@@ -48,7 +48,7 @@
 
         .dropdown .select-option .select-options-btn {
             background-color: #fff;
-            border-color: #727e83;
+            border-color: #2A2E2F;
             border-radius: 5px;
             color: #191c1d;
             text-align: left;
@@ -68,6 +68,7 @@
             left: 0;
             background-color: #FFFFFF;
             width: 100%;
+            z-index: 9;
         }
 
         .dropdown ul {
@@ -76,7 +77,7 @@
             margin-top: 20px;
             border: 1px solid #2A2E2F;
             margin: 0 20px;
-            padding: 20px;
+            padding: 10px;
             border-radius: 4px;
         }
 
@@ -102,6 +103,29 @@
             background: #EEEFFC;
             border: 1px solid #242D80;
             display: block;
+        }
+
+        .sa-form-checkbox {
+            padding: 5px 10px;
+            display: flex;
+            margin-bottom: 0;
+        }
+
+        .sa-form-checkbox .sa-form-checkbox-pseudo-input>span {
+            border-color: #535EC1;
+        }
+
+        .sa-form-checkbox:hover {
+            background-color: #EEEFFC;
+        }
+
+        .sa-form-checkbox .sa-form-checkbox-label:not(.sa-form-checkbox-disabled):hover .sa-form-checkbox-pseudo-input {
+            box-shadow: none;
+        }
+
+        .sa-form-checkbox input[type="checkbox"]:checked+.sa-form-checkbox-pseudo-input>span {
+            background-color: #535EC1;
+            border-color: #535EC1;
         }
     </style>
 </head>
@@ -186,76 +210,82 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-8">
+                    <button class="button-dropdown">Select Option</button>
+                    <span title="" class="keywords-count"></span>
 
-            <button class="button-dropdown">Select Option</button>
-            <span title="" class="keywords-count"></span>
-
-            <div class="dropdown">
-                <div class="select-option">
-                    <input type="button" class="select-options-btn" placeholder="Select option" value="Select options" />
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 10L12 15L17 10H7Z" fill="#2995F5" />
-                    </svg>
-                </div>
-                <div class="multiSel"></div>
-                <div class="mutliSelect">
-                    <ul>
-                        <li>
-                            <div class="sa-form-checkbox">
-                                <label for="Option01" class="sa-form-checkbox-label">
-                                    <input id="Option01" type="checkbox" value="Option 01">
-                                    <span class="sa-form-checkbox-pseudo-input">
-                                        <span></span>
-                                    </span>
-                                    <span class="sa-form-checkbox-label-text">Option 01</span>
-                                </label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sa-form-checkbox">
-                                <label for="Option02" class="sa-form-checkbox-label">
-                                    <input id="Option02" type="checkbox" value="Option 02">
-                                    <span class="sa-form-checkbox-pseudo-input">
-                                        <span></span>
-                                    </span>
-                                    <span class="sa-form-checkbox-label-text">Option 02</span>
-                                </label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sa-form-checkbox">
-                                <label for="Option03" class="sa-form-checkbox-label">
-                                    <input id="Option03" type="checkbox" value="Option 03">
-                                    <span class="sa-form-checkbox-pseudo-input">
-                                        <span></span>
-                                    </span>
-                                    <span class="sa-form-checkbox-label-text">Option 03</span>
-                                </label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sa-form-checkbox">
-                                <label for="Option04" class="sa-form-checkbox-label">
-                                    <input id="Option04" type="checkbox" value="Option 04">
-                                    <span class="sa-form-checkbox-pseudo-input">
-                                        <span></span>
-                                    </span>
-                                    <span class="sa-form-checkbox-label-text">Option 04</span>
-                                </label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sa-form-checkbox">
-                                <label for="Option05" class="sa-form-checkbox-label">
-                                    <input id="Option05" type="checkbox" value="Option 05">
-                                    <span class="sa-form-checkbox-pseudo-input">
-                                        <span></span>
-                                    </span>
-                                    <span class="sa-form-checkbox-label-text">Option 05</span>
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="dropdown">
+                        <div class="select-option">
+                            <input type="button" class="select-options-btn" placeholder="Select option"
+                                value="Select options" />
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10L12 15L17 10H7Z" fill="#2995F5" />
+                            </svg>
+                        </div>
+                        <div class="multiSel"></div>
+                        <div class="mutliSelect">
+                            <ul>
+                                <li>
+                                    <div class="sa-form-checkbox">
+                                        <label for="Option01" class="sa-form-checkbox-label">
+                                            <input id="Option01" type="checkbox" value="Option 01">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                            <span class="sa-form-checkbox-label-text">Option 01</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sa-form-checkbox">
+                                        <label for="Option02" class="sa-form-checkbox-label">
+                                            <input id="Option02" type="checkbox" value="Option 02">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                            <span class="sa-form-checkbox-label-text">Option 02</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sa-form-checkbox">
+                                        <label for="Option03" class="sa-form-checkbox-label">
+                                            <input id="Option03" type="checkbox" value="Option 03">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                            <span class="sa-form-checkbox-label-text">Option 03</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sa-form-checkbox">
+                                        <label for="Option04" class="sa-form-checkbox-label">
+                                            <input id="Option04" type="checkbox" value="Option 04">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                            <span class="sa-form-checkbox-label-text">Option 04</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sa-form-checkbox">
+                                        <label for="Option05" class="sa-form-checkbox-label">
+                                            <input id="Option05" type="checkbox" value="Option 05">
+                                            <span class="sa-form-checkbox-pseudo-input">
+                                                <span></span>
+                                            </span>
+                                            <span class="sa-form-checkbox-label-text">Option 05</span>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="sa-button-tertiary float-right mt-4 close-dropdown">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -266,11 +296,15 @@
 
     <script>
         $(".button-dropdown").on('click', function () {
-            $(".dropdown").slideToggle('fast');
+            $(".dropdown").slideToggle('fast').css("display", "flow-root");
         });
 
         $(".dropdown .select-options-btn").on('click', function () {
             $(".dropdown .mutliSelect").slideToggle('fast').css("display", "block");
+        });
+
+        $(".dropdown .close-dropdown").on('click', function () {
+            $(".dropdown").slideUp('fast');
         });
 
         var $dropdown = $('.dropdown');
@@ -278,7 +312,7 @@
         $(document).mouseup(e => {
             if (!$dropdown.is(e.target)
                 && $dropdown.has(e.target).length === 0) {
-                $dropdown.css("display", "none");
+                $dropdown.slideUp();
             }
         });
 
@@ -289,7 +323,7 @@
 
 
             if ($(this).is(':checked')) {
-                var html = '<span title="' + title + '" class="keywords-container">' + title + '</span>';
+                var html = '<span title="' + title + '" value="' + title + '" class="keywords-container">' + title + '<a class="remove-tag" style="margin-left:20px; vertical-align: text-bottom;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.00714L8.99286 0L5 3.99286L1.00714 0L0 1.00714L3.99286 5L0 8.99286L1.00714 10L5 6.00714L8.99286 10L10 8.99286L6.00714 5L10 1.00714Z" fill="#242D80"/></svg></a></span>';
                 $('.multiSel').append(html).css("display", "flex");
             } else {
                 var counter = $(".multiSel .keywords-container").length;
@@ -304,6 +338,22 @@
             }
             else {
                 $(".keywords-count").hide();
+            }
+        });
+
+        $(document).on("click", ".remove-tag", function () {
+            $(this).parent().remove();
+            var value = $(this).parent().attr("value");
+
+            $('.mutliSelect input[value="' + value + '"]').removeAttr("checked");
+
+            var counter = $(".multiSel .keywords-container").length;
+            if ($(counter).length > 0) {
+                $(".keywords-count").html(counter + " Selected").addClass("keywords-container").css("display", "block");
+            }
+            else {
+                $(".keywords-count").hide();
+                $(".multiSel").hide();
             }
         });
     </script>
