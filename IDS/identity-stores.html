@@ -84,6 +84,25 @@
             width: 24px;
             height: 24px;
         }
+
+        .carousel-indicators {
+            margin-bottom: 0;
+            bottom: -25px;
+        }
+
+        .carousel-indicators li {
+            background-color: #C7CCCE;
+            width: 8px;
+            height: 8px;
+            border-radius: 100%;
+            opacity: 1;
+            margin-right: 6px;
+            margin-left: 6px;
+        }
+
+        .carousel-indicators .active {
+            background-color: #FF7B00;
+        }
     </style>
 </head>
 
@@ -662,9 +681,6 @@
                 overlay.appendTo(document.body).add().css("display", "block");
             });
         });
-
-
-
     </script>
 
     <div class="modal" tabindex="-1" role="dialog" id="myModal">
@@ -772,7 +788,9 @@
 
                 <div class="modal-footer">
                     <a id="myModalClose" class="text-left">Never show this message again</a>
-                    <button type="button" class="sa-button-secondary" onclick="window.open('https://docs.secureauth.com/2104/en/secureauth-identity-store.html', '_blank')" style="margin-right: 100px;">
+                    <button type="button" class="sa-button-secondary"
+                        onclick="window.open('https://docs.secureauth.com/2104/en/secureauth-identity-store.html', '_blank')"
+                        style="margin-right: 100px;">
                         Learn More
                     </button>
                     <a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>
