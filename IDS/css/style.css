@@ -1205,6 +1205,14 @@ input.no-border {
     max-width: 100%;
 }
 
+.modal .modal-dialog {
+    -webkit-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    top: 50%;
+    margin: 0 auto;
+}
+
 .modal .modal-header, .modal .modal-body {
     padding: 2rem 1rem;
     margin: 0 2rem;
