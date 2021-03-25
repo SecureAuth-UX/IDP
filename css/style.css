@@ -46,7 +46,7 @@ img {
 }
 
 #header, #header.menuIcons .header:hover {
-    width: 330px;
+    width: 270px;
     z-index: 9;
 }
 
@@ -60,7 +60,7 @@ img {
     border-radius: 0 30px 0 0;
     height: 100%;
     position: fixed;
-    width: 281px;
+    width: 252px;
 }
 
 #header.menuIcons .header:hover {
@@ -84,7 +84,7 @@ main {
     margin: 0;
     position: fixed;
     z-index: 99999;
-    width: 281px;
+    width: 252px;
 }
 
 .avatar, #header.menuIcons .header:hover .avatar {
@@ -124,22 +124,44 @@ main {
     width: 85%;
 }
 
-.sa-navigation-link, .sa-navigation-link.navActive, .sa-navigation-link.navLinkA .active, .sa-navigation-link:hover, #header.menuIcons .header:hover .sa-navigation-link, #header.menuIcons .header:hover .sa-navigation-link:hover {
+.sa-navigation-link, 
+.sa-navigation-link.navActive, 
+.sa-navigation-link.navLinkA .active, 
+.sa-navigation-link:hover, 
+#header.menuIcons .header:hover .sa-navigation-link, 
+#header.menuIcons .header:hover .sa-navigation-link:hover {
     font-size: 12px;
     padding: 4px 8px;
     margin-left: 20px;
+}
+
+.sa-navigation-link#emailSettings {
+    display: block;
+}
+
+.sa-navigation-link#emailSettings a {
+    font-size: 12px;
+}
+
+.sa-navigation-link#emailSettings:hover,
+#header.menuIcons .header:hover .sa-navigation-link#emailSettings:hover {
+    background-color: transparent;
 }
 
 .sa-navigation-link span, #header.menuIcons .header:hover .sa-navigation-link span {
     vertical-align: middle;
 }
 
-.sa-navigation-link.navActive, .sa-navigation-link.navLinkA .active, #header.menuIcons .header:hover .sa-navigation-link.navActive, #header.menuIcons .header:hover .sa-navigation-link.navLinkA .active {
+.sa-navigation-link.navActive,
+.sa-navigation-link.navLinkA .active,
+#header.menuIcons .header:hover .sa-navigation-link.navActive,
+#header.menuIcons .header:hover .sa-navigation-link.navLinkA .active {
     background-color: #2995F5;
     padding: 4px 8px;
 }
 
-.sa-navigation-link:hover, #header.menuIcons .header:hover .sa-navigation-link:hover {
+.sa-navigation-link:hover, 
+#header.menuIcons .header:hover .sa-navigation-link:hover {
     padding: 4px 8px;
     background-color: #2372B8;
 }
@@ -168,7 +190,7 @@ main {
 #top-menu, #header.menuIcons .header:hover #top-menu {
     top: 140px;
     position: fixed;
-    width: 281px;
+    width: 252px;
     overflow: auto;
     padding: 60px 0 100px;
     background-color: #1E5A90;
@@ -205,7 +227,7 @@ main {
 
 #collapseButton {
     position: fixed;
-    left: 280px;
+    left: 252px;
     top: 112px;
     cursor: pointer;
     z-index: 9999;
@@ -252,11 +274,21 @@ main {
     height: 24px;
 }
 
-#header.menuIcons .sa-navigation-category, #header.menuIcons .sa-navigation-link span, #header.menuIcons .logoComplete, #header.menuIcons .avatar .profile p {
+#header.menuIcons .sa-navigation-category, 
+#header.menuIcons .sa-navigation-link span, 
+#header.menuIcons .logoComplete, 
+#header.menuIcons .avatar .profile p,
+#header.menuIcons #emailSettings svg.arrow-svg,
+#header.menuIcons #emailSettings #emailSettingsCollapse {
     display: none;
 }
 
-#header.menuIcons .header:hover .sa-navigation-category, #header.menuIcons .header:hover .sa-navigation-link span, #header.menuIcons .header:hover .logoComplete, #header.menuIcons .header:hover .avatar .profile p {
+#header.menuIcons .header:hover #emailSettings svg.arrow-svg,
+#header.menuIcons .header:hover #emailSettings #emailSettingsCollapse,
+#header.menuIcons .header:hover .sa-navigation-category, 
+#header.menuIcons .header:hover .sa-navigation-link span, 
+#header.menuIcons .header:hover .logoComplete, 
+#header.menuIcons .header:hover .avatar .profile p {
     display: inline-block;
 }
 

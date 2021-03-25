@@ -99,7 +99,7 @@ $(document).ready(function () {
         else {
             $('.collapseButton-collapse').css('display', 'inline');
             $('.collapseButton-expand').css('display', 'none');
-            $("#collapseButton").attr('style', 'left:280px; top:112px');
+            $("#collapseButton").attr('style', 'left:252px; top:112px');
             $(".buttons-footer").css("width", x);
         }
     });

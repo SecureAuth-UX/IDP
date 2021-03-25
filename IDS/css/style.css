@@ -27,7 +27,7 @@ img {
 }
 
 #header, #header.menuIcons .header:hover {
-    width: 330px;
+    width: 270px;
     z-index: 9;
 }
 
@@ -41,7 +41,7 @@ img {
     border-radius: 0 30px 0 0;
     height: 100%;
     position: fixed;
-    width: 281px;
+    width: 252px;
 }
 
 #header.menuIcons .header:hover {
@@ -65,7 +65,7 @@ main {
     margin: 0;
     position: fixed;
     z-index: 99999;
-    width: 281px;
+    width: 252px;
 }
 
 .avatar, #header.menuIcons .header:hover .avatar {
@@ -149,7 +149,7 @@ main {
 #top-menu, #header.menuIcons .header:hover #top-menu {
     top: 140px;
     position: fixed;
-    width: 281px;
+    width: 252px;
     overflow: auto;
     padding: 60px 0 100px;
     background-color: #1E5A90;
@@ -186,7 +186,7 @@ main {
 
 #collapseButton {
     position: fixed;
-    left: 280px;
+    left: 252px;
     top: 112px;
     cursor: pointer;
     z-index: 9999;
