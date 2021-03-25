@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(window).load(function() {
+    $(window).load(function () {
         //ACTIVE MENU
         var menu = $(location).attr('href');
 
@@ -75,13 +75,13 @@ $(document).ready(function () {
         else if (menu.includes('/edit-application.html')) {
             $('#app').addClass('navActive');
         }
-        else if (menu.includes('/redirect-manager.html')) {
+        else if (menu.includes('/internal-application-manager.html')) {
             $('#customizedResources').addClass('navActive');
         }
-        else if (menu.includes('/new-redirect.html')) {
+        else if (menu.includes('/new-internal-application-manager.html')) {
             $('#customizedResources').addClass('navActive');
         }
-        else if (menu.includes('/edit-redirect.html')) {
+        else if (menu.includes('/edit-internal-application-manager.html')) {
             $('#customizedResources').addClass('navActive');
         }
         else if (menu.includes('/portal-manager.html')) {
@@ -139,11 +139,11 @@ $(document).ready(function () {
             $('#identityStore').addClass('navActive');
         }
     });
-    
+
     //SEE GROUPS
     $('#groupsSwitch').each(function () {
         $(this).click(function () {
-            $("#groupFields").toggle();
+            $("#groupFields").toggleClass("groupFields-disabled");
         });
     });
 
@@ -203,6 +203,78 @@ $(document).ready(function () {
             $("#collapseButton").attr('style', 'left:280px; top:112px');
             $(".buttons-footer").css("width", x);
         }
+    });
+
+    //EDIT TITLE AND DESCRIPTION
+
+    $(".save-title").css("display", "none");
+    $(".cancel-title").css("display", "none");
+
+    $('#titleEditable').click(function () {
+        $('#titleEditable').attr('contenteditable', 'true');
+        $('#titleEditable').addClass('borderTitle');
+        $(".edit-title").css("display", "none");
+        $(".save-title").css("display", "inline-block");
+        $(".cancel-title").css("display", "inline-block");
+    });
+
+    $('.edit-title').click(function () {
+        $('#titleEditable').attr('contenteditable', 'true');
+        $('#titleEditable').addClass('borderTitle');
+        $(".edit-title").css("display", "none");
+        $(".save-title").css("display", "inline-block");
+        $(".cancel-title").css("display", "inline-block");
+    });
+
+    $('.save-title').click(function () {
+        $('#titleEditable').attr('contenteditable', 'false');
+        $('#titleEditable').removeClass('borderTitle');
+        $(".edit-title").css("display", "inline-block");
+        $(".save-title").css("display", "none");
+        $(".cancel-title").css("display", "none");
+    });
+
+    $('.cancel-title').click(function () {
+        $('#titleEditable').attr('contenteditable', 'false');
+        $('#titleEditable').removeClass('borderTitle');
+        $(".edit-title").css("display", "inline-block");
+        $(".save-title").css("display", "none");
+        $(".cancel-title").css("display", "none");
+    });
+
+    $(".save-description").css("display", "none");
+    $(".cancel-description").css("display", "none");
+
+    $('#descriptionEditable').click(function () {
+        $('#descriptionEditable').attr('contenteditable', 'true');
+        $('#descriptionEditable').addClass('borderTitle');
+        $(".edit-description").css("display", "none");
+        $(".save-description").css("display", "inline-block");
+        $(".cancel-description").css("display", "inline-block");
+    });
+
+    $('.edit-description').click(function () {
+        $('#descriptionEditable').attr('contenteditable', 'true');
+        $('#descriptionEditable').addClass('borderTitle');
+        $(".edit-description").css("display", "none");
+        $(".save-description").css("display", "inline-block");
+        $(".cancel-description").css("display", "inline-block");
+    });
+
+    $('.save-description').click(function () {
+        $('#descriptionEditable').attr('contenteditable', 'false');
+        $('#descriptionEditable').removeClass('borderTitle');
+        $(".edit-description").css("display", "inline-block");
+        $(".save-description").css("display", "none");
+        $(".cancel-description").css("display", "none");
+    });
+
+    $('.cancel-description').click(function () {
+        $('#descriptionEditable').attr('contenteditable', 'false');
+        $('#descriptionEditable').removeClass('borderTitle');
+        $(".edit-description").css("display", "inline-block");
+        $(".save-description").css("display", "none");
+        $(".cancel-description").css("display", "none");
     });
 
     //STEPPER
@@ -322,5 +394,4 @@ $(document).ready(function () {
             $(row).hide();
         });
     });
-
 });
