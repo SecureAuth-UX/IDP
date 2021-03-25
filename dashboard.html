@@ -30,6 +30,10 @@
             z-index: 100;
             display: none;
         }
+
+        .modal-footer {
+            justify-content: space-between;
+        }
     </style>
 </head>
 
@@ -420,12 +424,14 @@
                                                 <div class="sa-type-caption">
                                                     <h2 bold="true" color="orange_main"
                                                         class="sa-type-header-2 sa-color-orange_main sa-type-bold">
-                                                        <strong>0</strong></h2>
+                                                        <strong>0</strong>
+                                                    </h2>
                                                 </div>
                                             </span>
                                             <div class="sa-widget-statistic-table-value-label">
                                                 <div color="secondary" class="sa-type-small sa-color-secondary">
-                                                    <strong>Past 24h</strong></div>
+                                                    <strong>Past 24h</strong>
+                                                </div>
                                             </div>
                                         </li>
                                         <li><span mode="light" class="sa-tag sa-tag-success tag-light"
@@ -433,7 +439,8 @@
                                                 <div class="sa-type-caption">
                                                     <h2 bold="true" color="green_main"
                                                         class="sa-type-header-2 sa-color-green_main sa-type-bold">
-                                                        <strong>7</strong></h2>
+                                                        <strong>7</strong>
+                                                    </h2>
                                                 </div>
                                             </span>
                                             <div class="sa-widget-statistic-table-value-label">
@@ -447,7 +454,8 @@
                                                 <div class="sa-type-caption">
                                                     <h2 bold="true" color="violet_main"
                                                         class="sa-type-header-2 sa-color-violet_main sa-type-bold">
-                                                        <strong>19</strong></h2>
+                                                        <strong>19</strong>
+                                                    </h2>
                                                 </div>
                                             </span>
                                             <div class="sa-widget-statistic-table-value-label">
@@ -461,12 +469,14 @@
                                                 <div class="sa-type-caption">
                                                     <h2 bold="true" color="pink_light"
                                                         class="sa-type-header-2 sa-color-pink_light sa-type-bold">
-                                                        <strong>835</strong></h2>
+                                                        <strong>835</strong>
+                                                    </h2>
                                                 </div>
                                             </span>
                                             <div class="sa-widget-statistic-table-value-label">
                                                 <div color="secondary" class="sa-type-small sa-color-secondary">
-                                                    <strong>Past Year</strong></div>
+                                                    <strong>Past Year</strong>
+                                                </div>
                                             </div>
                                         </li>
                                     </ul>
@@ -501,7 +511,8 @@
                                         <li><span class="sa-widget-statistic-list-bar">
                                                 <div bold="true" color="blue_main"
                                                     class="sa-type-micro sa-widget-statistic-item-info sa-color-blue_main sa-type-bold">
-                                                    <strong>NONE</strong></div>
+                                                    <strong>NONE</strong>
+                                                </div>
                                                 <div
                                                     class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
                                                     <div class="sa-color-bg-pink_light sa-widget-statistic-list-value-bar"
@@ -519,7 +530,8 @@
                                         <li><span class="sa-widget-statistic-list-bar">
                                                 <div bold="true" color="blue_main"
                                                     class="sa-type-micro sa-widget-statistic-item-info sa-color-blue_main sa-type-bold">
-                                                    <strong>PIN</strong></div>
+                                                    <strong>PIN</strong>
+                                                </div>
                                                 <div
                                                     class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
                                                     <div class="sa-color-bg-orange_light sa-widget-statistic-list-value-bar"
@@ -536,7 +548,8 @@
                                         <li><span class="sa-widget-statistic-list-bar">
                                                 <div bold="true" color="blue_main"
                                                     class="sa-type-micro sa-widget-statistic-item-info sa-color-blue_main sa-type-bold">
-                                                    <strong>YUBIKEY</strong></div>
+                                                    <strong>YUBIKEY</strong>
+                                                </div>
                                                 <div
                                                     class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
                                                     <div class="sa-color-bg-green_light sa-widget-statistic-list-value-bar"
@@ -554,7 +567,8 @@
                                         <li><span class="sa-widget-statistic-list-bar">
                                                 <div bold="true" color="blue_main"
                                                     class="sa-type-micro sa-widget-statistic-item-info sa-color-blue_main sa-type-bold">
-                                                    <strong>SMSLINK</strong></div>
+                                                    <strong>SMSLINK</strong>
+                                                </div>
                                                 <div
                                                     class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
                                                     <div class="sa-color-bg-violet_light sa-widget-statistic-list-value-bar"
@@ -572,7 +586,8 @@
                                         <li><span class="sa-widget-statistic-list-bar">
                                                 <div bold="true" color="blue_main"
                                                     class="sa-type-micro sa-widget-statistic-item-info sa-color-blue_main sa-type-bold">
-                                                    <strong>SMS</strong></div>
+                                                    <strong>SMS</strong>
+                                                </div>
                                                 <div
                                                     class="sa-color-bg-grey_disabled sa-widget-statistic-list-background-bar">
                                                     <div class="sa-color-bg-pink_main sa-widget-statistic-list-value-bar"
@@ -732,6 +747,9 @@
                     </div>
                 </div>
             </div>
+            <button class="abrir"
+            style="position: absolute; bottom:30px; right: 30px; background-color: #134f5c; color: #FFF; cursor: pointer; border-radius: 100%;border: 0; outline: none; padding: 5px 10px; width: 30px; height: 30px;">?</button>
+
         </div>
     </main>
     <script src="js/jquery-3.5.1.min.js"></script>
@@ -766,26 +784,60 @@
 
     <script type='text/javascript'>
         $(function () {
+            var pt = $('.modal');
             var overlay = $('<div id="overlay"></div>');
-            overlay.show();
-            overlay.appendTo(document.body);
-            $('.modal').show();
-            $('.close').click(function () {
-                $('.modal').hide();
+
+            let modal = {
+                visite: "false"
+            };
+
+            localStorage.setItem("modal", JSON.stringify(modal));
+
+            if (localStorage.getItem("visite") === "true") {
+                let visite = localStorage.getItem("visite");
+                let modal = JSON.parse(localStorage.getItem("modal"));
+                localStorage.setItem("visite", "true");
+                pt.hide();
                 overlay.appendTo(document.body).remove();
-                return false;
+
+            }
+            else {
+                localStorage.setItem("visite", "false");
+                pt.show();
+                overlay.appendTo(document.body).add().css("display", "block");
+            }
+
+            $('#myModalClose').click(function () {
+                let visite = localStorage.getItem("visite", "true");
+                localStorage.setItem("visite", "true");
+                pt.hide();
+                overlay.appendTo(document.body).remove();
+            });
+
+            $('#modalClose').click(function () {
+                let visite = localStorage.getItem("visite", "false");
+                localStorage.setItem("visite", "false");
+                pt.hide();
+                overlay.appendTo(document.body).remove();
+            });
+
+            $('.abrir').click(function () {
+                let visite = localStorage.getItem("visite");
+                let modal = JSON.parse(localStorage.getItem("modal"));
+                localStorage.setItem("visite", "false");
+                pt.show();
+                overlay.appendTo(document.body).add().css("display", "block");
             });
         });
     </script>
+
     <div class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h2 class="modal-title">Welcome to the SecureAuth® Identity Platform!</h2>
                     <p class="modal-subtitle">Ready to start better identity security?</p>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="close" id="modalClose">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -806,9 +858,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <p>Get detailed steps by clicking Get Started.</p>
+                    <a id="myModalClose" class="text-left">Never show this message again</a>
                     <button type="button" class="sa-button-primary" onclick="location.href='getting-started.html'">
-                        Get Started
+                        Learn More
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                             <path
                                 d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
