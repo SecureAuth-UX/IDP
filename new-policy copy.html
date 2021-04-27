@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="SecureAuth">
+    <title>SecureAuth Identity Platform</title>
+    <link rel="icon" type="images/vnd.microsoft.icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="js/master.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+        });
+
+        $(window).load(function () {
+            $(".se-pre-con").fadeOut("slow");
+            $("body").fadeIn("slow");
+        });
+    </script>
+
+    <link href="css/jquery-steps.css" rel="stylesheet">
+
+    <style>
+        .show {
+            display: block;
+        }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCKM50N26W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-RCKM50N26W');
+    </script>
+</head>
+
+<body style="display: none;">
+    <div class="se-pre-con"></div>
+    <div id="header"></div>
+
+    <main role="main" class="pb-5 main-container">
+        <div class="title-top title-top-internal">
+            <h1 class="sa-type-header-1">
+                <div class="sa-header-no-margin">
+                    <div class="sa-header-text">
+                        <span id="titleEditable">New Policy Name</span>
+
+                        <svg class="edit-title" id="editTitle" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.06 9L15 9.94L5.92 19H5V18.08L14.06 9ZM17.66 3C17.41 3 17.15 3.1 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04C21.1 6.65 21.1 6 20.71 5.63L18.37 3.29C18.17 3.09 17.92 3 17.66 3ZM14.06 6.19L3 17.25V21H6.75L17.81 9.94L14.06 6.19Z"
+                                fill="#2995F5" />
+                        </svg>
+
+                        <svg class="save-title" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58171 4 3.99999 7.58172 3.99999 12C3.99999 16.4183 7.58171 20 12 20ZM6.2929 12.2929C6.68342 11.9024 7.31659 11.9024 7.70711 12.2929L9.94353 14.5293L15.2408 8.3492C15.6002 7.92987 16.2315 7.88131 16.6508 8.24073C17.0701 8.60015 17.1187 9.23145 16.7593 9.65078L10.7593 16.6508C10.3802 17.0931 9.7048 17.119 9.2929 16.7071L6.2929 13.7071C5.90238 13.3166 5.90238 12.6834 6.2929 12.2929Z"
+                                fill="#2995F5" />
+                        </svg>
+
+                        <svg class="cancel-title" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M22 12C22 17.5219 17.5219 22 12 22C6.47698 22 2 17.5225 2 12C2 6.47644 6.47644 2 12 2C17.5225 2 22 6.47698 22 12ZM20 12C20 7.5816 16.418 4 12 4C7.58103 4 4.00001 7.58101 4.00001 12C4.00001 16.4179 7.58162 20 12 20C16.4174 20 20 16.4173 20 12ZM16.7207 7.27934C17.0931 7.65179 17.0931 8.25565 16.7207 8.6281L13.3488 12L16.7207 15.3719C17.0931 15.7443 17.0931 16.3482 16.7207 16.7207C16.3482 17.0931 15.7444 17.0931 15.3719 16.7207L12 13.3488L8.62811 16.7207C8.25566 17.0931 7.6518 17.0931 7.27935 16.7207C6.9069 16.3482 6.9069 15.7443 7.27935 15.3719L10.6513 12L7.27935 8.6281C6.9069 8.25565 6.9069 7.65179 7.27935 7.27934C7.6518 6.90689 8.25566 6.90689 8.62811 7.27934L12 10.6512L15.3719 7.27934C15.7444 6.90689 16.3482 6.90689 16.7207 7.27934Z"
+                                fill="#E04545" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="sa-type-body sa-color-secondary">
+                    <span id="descriptionEditable">Description for this section</span>
+
+                    <svg class="edit-description" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.06 9L15 9.94L5.92 19H5V18.08L14.06 9ZM17.66 3C17.41 3 17.15 3.1 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04C21.1 6.65 21.1 6 20.71 5.63L18.37 3.29C18.17 3.09 17.92 3 17.66 3ZM14.06 6.19L3 17.25V21H6.75L17.81 9.94L14.06 6.19Z"
+                            fill="#2995F5" />
+                    </svg>
+
+                    <svg class="save-description" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58171 4 3.99999 7.58172 3.99999 12C3.99999 16.4183 7.58171 20 12 20ZM6.2929 12.2929C6.68342 11.9024 7.31659 11.9024 7.70711 12.2929L9.94353 14.5293L15.2408 8.3492C15.6002 7.92987 16.2315 7.88131 16.6508 8.24073C17.0701 8.60015 17.1187 9.23145 16.7593 9.65078L10.7593 16.6508C10.3802 17.0931 9.7048 17.119 9.2929 16.7071L6.2929 13.7071C5.90238 13.3166 5.90238 12.6834 6.2929 12.2929Z"
+                            fill="#2995F5" />
+                    </svg>
+
+                    <svg class="cancel-description" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M22 12C22 17.5219 17.5219 22 12 22C6.47698 22 2 17.5225 2 12C2 6.47644 6.47644 2 12 2C17.5225 2 22 6.47698 22 12ZM20 12C20 7.5816 16.418 4 12 4C7.58103 4 4.00001 7.58101 4.00001 12C4.00001 16.4179 7.58162 20 12 20C16.4174 20 20 16.4173 20 12ZM16.7207 7.27934C17.0931 7.65179 17.0931 8.25565 16.7207 8.6281L13.3488 12L16.7207 15.3719C17.0931 15.7443 17.0931 16.3482 16.7207 16.7207C16.3482 17.0931 15.7444 17.0931 15.3719 16.7207L12 13.3488L8.62811 16.7207C8.25566 17.0931 7.6518 17.0931 7.27935 16.7207C6.9069 16.3482 6.9069 15.7443 7.27935 15.3719L10.6513 12L7.27935 8.6281C6.9069 8.25565 6.9069 7.65179 7.27935 7.27934C7.6518 6.90689 8.25566 6.90689 8.62811 7.27934L12 10.6512L15.3719 7.27934C15.7444 6.90689 16.3482 6.90689 16.7207 7.27934Z"
+                            fill="#E04545" />
+                    </svg>
+                </div>
+            </h1>
+
+            <div class="d-flex align-items-center">
+                <div class="steper step-active">
+                    <span>Step 1</span>
+                </div>
+                <div class="steper">
+                    <span>Step 2</span>
+                </div>
+                <div class="steper">
+                    <span>Step 3</span>
+                </div>
+                <div class="d-flex">
+                    <div class='circle-step circle-grey circle-active'></div>
+                    <div class='circle-step circle-grey'></div>
+                    <div class='circle-step circle-grey'></div>
+                </div>
+            </div>
+        </div>
+        <div class="sa-view-body mt-5">
+            <div class="step-app" id="demo">
+                <ul class="step-steps">
+                    <li data-step-target="step1">Authentication Rules</li>
+                    <li data-step-target="step2">Multi-Factor Methods</li>
+                    <li data-step-target="step3">Resources</li>
+                </ul>
+                <div class="step-content">
+                    <div class="step-tab-panel" data-step="step1">
+                        <div class="row">
+                            <div class="col-12 mt-5">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-6 mb-4">
+                                            <h2 class="sa-type-header-2 sa-type-bold">Authentication Rules</h2>
+                                            <div class="sa-type-paragraph">
+                                                <div class="sa-color-tertiary">Configure your adaptive authentication
+                                                    policy by
+                                                    combining and ordering rules. Rules are honored from top to bottom.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-right">
+                                            <button onclick="myFunction()" class="dropbtn sa-button-secondary">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                    viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
+                                                    <path
+                                                        d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
+                                                    </path>
+                                                </svg>
+                                                Add new rule
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <ul id="myDropdown" class="list-rules dropdown-content">
+                                    <li>
+                                        <div onclick="addConditionalPassword()"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/password.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Conditional Password</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addCountryRuleModal()" data-toggle="modal"
+                                            data-target="#addCountryRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/world.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Country</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addDynamicIPModal()" data-toggle="modal"
+                                            data-target="#addDynamicIPModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/ip.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Dynamic IP Blocking</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addPerimeterRuleModal()" data-toggle="modal"
+                                            data-target="#addPerimeterRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/map-point.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Dynamic Perimeter</span>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div onclick="addGeoRuleModal()" data-toggle="modal"
+                                            data-target="#addGeoRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/airplane.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Geo-velocity</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addGroupRuleModal()" data-toggle="modal"
+                                            data-target="#addGroupRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/groups.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Group</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addIPRuleModal()" data-toggle="modal"
+                                            data-target="#addIPRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/ip.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">IP Range</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addThreatRuleModal()" data-toggle="modal"
+                                            data-target="#addThreatRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/risk.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">Threat Service</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addUserRuleModal()" data-toggle="modal"
+                                            data-target="#addUserRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/user.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">User</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div onclick="addRiskRuleModal()" data-toggle="modal"
+                                            data-target="#addRiskRuleModal"
+                                            class="sa-box-stack-top-xsmall-padding sa-box-stack-bottom-xsmall-padding">
+                                            <img src="images/rules/security.svg" alt="" />
+                                            <span class="sa-type-body sa-type-pointer">User Risk</span>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div id="sortable" class="slides">
+                                    <div id="orContainer"></div>
+                                </div>
+                                <!-- END RULE -->
+                                <div id="lastRule"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-tab-panel" data-step="step2">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="sa-box-stack-top-small-padding">
+                                    <h2 class="sa-type-header-2 sa-type-bold">Multi-Factor Methods</h2>
+                                    <div
+                                        class="sa-box-stack-top-xsmall sa-box-stack-top-small-padding sa-box-stack-bottom-xmedium-padding">
+                                        <div class="sa-type-paragraph">
+                                            <div class="sa-color-tertiary">Limit the MFA methods users can choose when
+                                                authenticating with this policy. Additional methods can be enabled from
+                                                global
+                                                Multi-Factor Methods settings page.</div>
+                                        </div>
+                                    </div>
+                                    <div class="sa-box-stack-bottom-medium-padding"></div>
+                                    <div class="sa-box-stack-bottom-xsmall sa-box-stack-bottom-small-padding">
+                                        <div class="sa-grid">
+                                            <div class="sa-grid-row">
+                                                <div
+                                                    class="sa-grid-column-12 sa-grid-column-medium-6 sa-grid-column-large-5">
+                                                    <div class="sa-box-stack-bottom-xmedium">
+                                                        <div class="sa-type-paragraph sa-type-bold">Login Workflow</div>
+                                                        <div class="sa-box-stack-bottom-xsmall">
+                                                            <div color="tertiary"
+                                                                class="sa-type-paragraph sa-color-tertiary">
+                                                                Select a login experience for this policy.</div>
+                                                        </div>
+                                                        <select class="custom-select">
+                                                            <option>Passwordless</option>
+                                                            <option selected>Username & Password | MFA Methods</option>
+                                                            <option>Username | MFA Methods | Password</option>
+                                                            <option>(Valid Persistent Token) | MFA Methods</option>
+                                                            <option>(Valid Persistent Token) | MFA Methods | Password
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">FIDO2 (WebAuthn)</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="pnHnNPBd"
+                                                                    class="sa-form-checkbox-label"><input id="pnHnNPBd"
+                                                                        type="checkbox" value="16" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">FIDO2
+                                                                        Devices</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">Yubikey</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="6G09y4SI"
+                                                                    class="sa-form-checkbox-label"><input id="6G09y4SI"
+                                                                        type="checkbox" value="1" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Yubico
+                                                                        OTP</span></label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="sZPYruod"
+                                                                    class="sa-form-checkbox-label"><input id="sZPYruod"
+                                                                        type="checkbox" value="2" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">OATH
+                                                                        HOTP</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">Authentication Apps</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="qMuoCuHk"
+                                                                    class="sa-form-checkbox-label"><input id="qMuoCuHk"
+                                                                        type="checkbox" value="4" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Timed
+                                                                        passcode
+                                                                        from
+                                                                        app</span></label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="WiwhEByR"
+                                                                    class="sa-form-checkbox-label"><input id="WiwhEByR"
+                                                                        type="checkbox" value="5" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Login
+                                                                        notification</span></label></div>
+                                                            <div
+                                                                class="sa-box-stack-left-xmedium sa-box-stack-top-xsmall-padding sa-box-stack-left-xsmall-padding sa-box-stack-bottom-small-padding">
+                                                                <h3 class="sa-type-header-3">Accept Method</h3>
+                                                                <div class="card-block radiobuttons">
+                                                                    <div class="clearfix">
+                                                                        <label for="opt1Credentials" class="radio"
+                                                                            style="margin:10px 15px 10px 0">
+                                                                            <input type="radio" name="acceptMethod"
+                                                                                id="opt1Credentials" class="hidden"
+                                                                                checked />
+                                                                            <span class="label"></span>User selects
+                                                                            accept
+                                                                            or
+                                                                            deny
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="clearfix">
+                                                                        <label for="opt2CyberArk" class="radio"
+                                                                            style="margin:10px 15px 10px 0">
+                                                                            <input type="radio" name="acceptMethod"
+                                                                                id="opt2CyberArk" class="hidden" />
+                                                                            <span class="label"></span>User selects
+                                                                            matching
+                                                                            chraracter displayed on device
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="7TutFoyQ"
+                                                                    class="sa-form-checkbox-label"><input id="7TutFoyQ"
+                                                                        type="checkbox" value="6" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Biometric
+                                                                        identification</span></label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="siqwNaQt"
+                                                                    class="sa-form-checkbox-label"><input id="siqwNaQt"
+                                                                        type="checkbox" value="7" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">One-time
+                                                                        passcode</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">Text Message</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="qHIG0BT1"
+                                                                    class="sa-form-checkbox-label"><input id="qHIG0BT1"
+                                                                        type="checkbox" value="8" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Login
+                                                                        confirmation
+                                                                        link</span></label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="it8WCZwP"
+                                                                    class="sa-form-checkbox-label"><input id="it8WCZwP"
+                                                                        type="checkbox" value="9" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">One-time
+                                                                        passcode</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">Email</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="RL5wjJTs"
+                                                                    class="sa-form-checkbox-label"><input id="RL5wjJTs"
+                                                                        type="checkbox" value="10" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Login
+                                                                        confirmation
+                                                                        link</span></label></div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="nyWhl1VX"
+                                                                    class="sa-form-checkbox-label"><input id="nyWhl1VX"
+                                                                        type="checkbox" value="11" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">One-time
+                                                                        passcode</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">Security Questions</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="6wOgxEwN"
+                                                                    class="sa-form-checkbox-label"><input id="6wOgxEwN"
+                                                                        type="checkbox" value="13" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Security
+                                                                        questions</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <h3 class="sa-type-header-3">PIN</h3>
+                                            <div class="sa-box-stack-bottom-xmedium sa-box-stack-top-xsmall-padding">
+                                                <fieldset class="sa-form-fieldset-no-margin">
+                                                    <ul color="secondary" class="sa-list-none">
+                                                        <li>
+                                                            <div class="sa-form-checkbox"><label for="t9fUCDoq"
+                                                                    class="sa-form-checkbox-label"><input id="t9fUCDoq"
+                                                                        type="checkbox" value="14" checked=""><span
+                                                                        class="sa-form-checkbox-pseudo-input"><span></span></span><span
+                                                                        class="sa-form-checkbox-label-text">Personal
+                                                                        identification number</span></label></div>
+                                                        </li>
+                                                    </ul>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-tab-panel" data-step="step3">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="sa-header">
+                                    <div class="sa-type-header-2 sa-type-bold">Resources</div>
+                                    <div class="sa-color-grey_dark">Manage which resources have this policy applied
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 text-right">
+                                <button class="sa-button-secondary" data-toggle="modal" data-target="#selectApps">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        version="1.1" viewBox="0 0 24 24" class="sa-icon-info sa-icon-medium">
+                                        <path
+                                            d="M13 11h4a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4zm9 1c0 5.522-4.478 10-10 10S2 17.522 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10zm-2 0a8 8 0 0 0-8-8 8 8 0 1 0 8 8z">
+                                        </path>
+                                    </svg>
+                                    Select Resources for this policy
+                                </button>
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <h2 class="sa-type-h2">Looks like you haven’t<br />
+                                    <strong>assignated</strong> any <strong>Resources</strong> yet
+                                </h2>
+                            </div>
+                            <div class="col-12 text-center pt-5">
+                                <img src="images/empty-state.svg" alt="" />
+                            </div>
+                        </div>
+
+                        <!-- The Modal -->
+                        <div class="modal" id="selectApps">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Select the Resources you need to add to this Policy</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <div class="col-5 mb-3">
+                                            <input id="myInput" class="search-input" type="text"
+                                                placeholder="Search Application..">
+                                        </div>
+
+                                        <div class="table" id="ResourcesTable">
+                                            <div class="table-row table-header">
+                                                <div class="table-row-column table-row-index">Name</div>
+                                                <div class="table-row-column">Description</div>
+                                                <div class="table-row-column table-center " style="width: 40%;">Policy
+                                                </div>
+                                            </div>
+
+                                            <div class="table-row remove_app">
+                                                <div class="table-row-column table-row-index">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45"
+                                                        viewBox="0 0 45 45" fill="none">
+                                                        <path
+                                                            d="M7.5 7.50012H13.125L16.875 3.75012H28.125L31.875 7.50012H37.5C38.4946 7.50012 39.4484 7.89521 40.1516 8.59847C40.8549 9.30173 41.25 10.2556 41.25 11.2501V33.7501C41.25 34.7447 40.8549 35.6985 40.1516 36.4018C39.4484 37.105 38.4946 37.5001 37.5 37.5001H7.5C6.50544 37.5001 5.55161 37.105 4.84835 36.4018C4.14509 35.6985 3.75 34.7447 3.75 33.7501V11.2501C3.75 10.2556 4.14509 9.30173 4.84835 8.59847C5.55161 7.89521 6.50544 7.50012 7.5 7.50012ZM22.5 13.1251C20.0136 13.1251 17.629 14.1128 15.8709 15.871C14.1127 17.6291 13.125 20.0137 13.125 22.5001C13.125 24.9865 14.1127 27.3711 15.8709 29.1292C17.629 30.8874 20.0136 31.8751 22.5 31.8751C24.9864 31.8751 27.371 30.8874 29.1291 29.1292C30.8873 27.3711 31.875 24.9865 31.875 22.5001C31.875 20.0137 30.8873 17.6291 29.1291 15.871C27.371 14.1128 24.9864 13.1251 22.5 13.1251ZM22.5 16.8751C23.9918 16.8751 25.4226 17.4678 26.4775 18.5226C27.5324 19.5775 28.125 21.0083 28.125 22.5001C28.125 23.992 27.5324 25.4227 26.4775 26.4776C25.4226 27.5325 23.9918 28.1251 22.5 28.1251C21.0082 28.1251 19.5774 27.5325 18.5225 26.4776C17.4676 25.4227 16.875 23.992 16.875 22.5001C16.875 21.0083 17.4676 19.5775 18.5225 18.5226C19.5774 17.4678 21.0082 16.8751 22.5 16.8751Z"
+                                                            fill="#C7CCCE" />
+                                                    </svg>
+                                                    <p><strong>Application 01</strong></p>
+                                                </div>
+                                                <div class="table-row-column">
+                                                    <p>SAML Application</p>
+                                                </div>
+                                                <div class="table-row-column table-center row-list-view ">
+                                                    <span class="sa-tag sa-tag-info"
+                                                        style="line-height: 16px; vertical-align: top; margin-top: 4px;">
+                                                        <div class="sa-type-caption">Assigned to this Policy</div>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="table-row remove_app">
+                                                <div class="table-row-column table-row-index">
+                                                    <img src="images/litmos.svg" alt="" />
+                                                    <p><strong>Application 02</strong></p>
+                                                </div>
+                                                <div class="table-row-column">
+                                                    <p>SAML Application</p>
+                                                </div>
+                                                <div class="table-row-column table-center row-list-view ">
+                                                    <span class="sa-tag sa-tag-dark"
+                                                        style="line-height: 16px; vertical-align: top; margin-top: 4px;">
+                                                        <div class="sa-type-caption">New Custom Policy 13</div>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="table-row remove_app">
+                                                <div class="table-row-column table-row-index">
+                                                    <img src="images/jenkins.svg" alt="" />
+                                                    <p><strong>Application 03</strong></p>
+                                                </div>
+                                                <div class="table-row-column">
+                                                    <p>SAML Application</p>
+                                                </div>
+                                                <div class="table-row-column table-center row-list-view ">
+                                                    <span class="sa-tag sa-tag-dark"
+                                                        style="line-height: 16px; vertical-align: top; margin-top: 4px;">
+                                                        <div class="sa-type-caption">New Custom Policy 13</div>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn sa-button-primary" data-dismiss="modal">Add
+                                            Resources</button>
+                                        <button type="button" class="btn sa-button-tertiary"
+                                            data-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-footer buttons-footer">
+                    <button class="step-btn sa-button-secondary" id="prev" data-step-action="prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                            <path
+                                d="M11.5575 12.5302L8.1225 9.09521L11.5575 5.65271L10.5 4.59521L6 9.09521L10.5 13.5952L11.5575 12.5302Z"
+                                fill="#2995F5" />
+                        </svg>
+                        Previous Step
+                    </button>
+                    <div class="d-flex float-right">
+                        <button class="sa-button-tertiary"><a href="policies.html">Cancel</a></button>
+                        <button class="step-btn sa-button-primary" id="next" data-step-action="next">
+                            Next Step
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                fill="none">
+                                <path
+                                    d="M6.44238 12.435L9.87738 9L6.44238 5.5575L7.49988 4.5L11.9999 9L7.49988 13.5L6.44238 12.435Z"
+                                    fill="white" />
+                            </svg>
+                        </button>
+                        <button data-step-action="finish" class="step-btn sa-button-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        $(document).on('click', '.select-container', function () {
+            $(this).parent().toggleClass("open-select");
+            $(this).find('ul').slideToggle();
+        });
+
+        $(document).on('click', '.open-select .select-option', function () {
+
+            var store = $(this).html();
+
+            $(this).toggleClass('selected');
+            $('.open-select .select-option').not($(this)).removeClass('selected');
+            $('.open-select .store-default').html(store).attr('value', $(this).attr('value'));
+
+            if ($(this).hasClass("selected") && $(this).attr("value") == "Redirect To") {
+                $(".redirectTo").css("display", "block");
+            }
+            else {
+                $(".redirectTo").css("display", "none");
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/RubaXa/Sortable/Sortable.min.js"></script>
+    <script src="js/rules.js"></script>
+
+    <script>
+        $("#orContainer").on('change', function () {
+            $(this).find('.card-policies').each(function (rowNum) {
+                $(this).find('.numberOrder').text(rowNum + 1);
+            });
+        });
+
+        Sortable.create(orContainer, {
+            animation: 100,
+            group: 'orContainer',
+            draggable: '.card-policies',
+            handle: '.card-policies',
+            swapThreshold: 0.65,
+            fallbackOnBody: true
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".btnDelete").click(function () {
+                $(this).parents('div.remove_field').remove();
+                $("#orContainer").on('change', function () {
+                    $(this).find('.card-policies').each(function (rowNum) {
+                        $(this).find('.numberOrder').text(rowNum + 1);
+                    });
+                });
+            });
+
+            $(".btnRemove").click(function () {
+                $(this).parents('div.remove_and').remove();
+            });
+        });
+    </script>
+
+    <script src="js/tags.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/RubaXa/Sortable/Sortable.min.js"></script>
+
+    <script>
+        function keyup() {
+            var value = $("#myInput").val().toLowerCase();
+            alert(value);
+            $("ul li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        }
+
+        function callDropdown() {
+            tags();
+            var order = $(".card-policies").length;
+            $("#lastRule .numberOrder").html("<strong>" + order + "</strong>");
+
+            $(".btnDelete").click(function () {
+                rowNum--;
+                $(this).parents('div.remove_field').remove();
+
+                var order = $(".card-policies").length;
+                $("#lastRule .numberOrder").html("<strong>" + order + "</strong>");
+
+                $("#orContainer").find('.card-policies').each(function (rowNum) {
+                    $(this).find('.numberOrder').text(rowNum + 1);
+                });
+            });
+
+            $(".btnRemove").click(function () {
+                $(this).parents('div.remove_and').remove();
+            });
+
+            $("#orContainer").on('change', function () {
+                $(this).find('.card-policies').each(function (rowNum) {
+                    $(this).find('.numberOrder').text(rowNum + 1);
+                });
+            });
+
+            var buttonsTwo = $(".button-dropdown");
+
+            $(buttonsTwo).unbind('click').bind('click', function (e) {
+                $(this).parent().toggleClass("dropdownParent");
+
+                if ($(".button-dropdown").parent().hasClass("dropdownParent")) {
+                    $(".dropdownParent .multiple-dropdown").show();
+                }
+                else {
+                    $(".multiple-dropdown").hide();
+                }
+
+                insertFunctionButton();
+            });
+
+
+            var buttons = $(".link-dropdown");
+
+            $(buttons).unbind('click').bind('click', function (e) {
+                $(this).parent().toggleClass("dropdownParent");
+
+                if ($(".link-dropdown").parent().hasClass("dropdownParent")) {
+                    $(".dropdownParent .multiple-dropdown").show();
+                }
+                else {
+                    $(".multiple-dropdown").hide();
+                }
+
+                insertFunction();
+            });
+
+            Sortable.create(andContainer, {
+                animation: 100,
+                group: 'andContainer',
+                draggable: '.card-policies-grey',
+                handle: '.card-policies-grey',
+                filter: '.card-policies',
+                swapThreshold: 0.65,
+                fallbackOnBody: true
+            });
+
+
+        }
+
+        function insertFunctionButton() {
+
+            $(".dropdownParent .mutliSelect input[type='checkbox']").on('click', function () {
+
+                var title = $(this).val();
+
+                if ($(this).is(':checked')) {
+                    $('.dropdownParent .mutliSelect input[value="' + title + '"]').prop("checked", true);
+                    var html = '<span title="' + title + '" value="' + title + '" class="keywords-container">' + title + '<a class="remove-tag" style="margin-left:20px; vertical-align: text-bottom;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.00714L8.99286 0L5 3.99286L1.00714 0L0 1.00714L3.99286 5L0 8.99286L1.00714 10L5 6.00714L8.99286 10L10 8.99286L6.00714 5L10 1.00714Z" fill="#242D80"/></svg></a></span>';
+                    $('.dropdownParent .multiSel').append(html).css("display", "flex");
+                } else {
+                    $('span[title="' + title + '"]').remove();
+                    var ret = $(".select-options-btn");
+                }
+
+                var counter = 0;
+                counter = $(".dropdownParent .mutliSelect input[type='checkbox']:checked").length;
+
+                if ($(counter).length > 0) {
+                    $(".dropdownParent .keywords-count").html(counter + " Selected").addClass("keywords-container").css("display", "block");
+                }
+                else {
+                    $(".dropdownParent .keywords-count").hide();
+                    $(".dropdownParent .multiSel").hide();
+                }
+
+                findDuplicate();
+            });
+
+            $(document).on("click", ".dropdownParent .remove-tag", function () {
+                $(this).parent().remove();
+                var value = $(this).parent().attr("value");
+
+                $('.dropdownParent .mutliSelect input[value="' + value + '"]').prop("checked", false);
+
+                var counter = 0;
+                counter = $(".dropdownParent .multiSel .keywords-container").length;
+                if ($(counter).length > 0) {
+                    $(".dropdownParent .keywords-count").html(counter + " Selected").addClass("keywords-container").css("display", "block");
+                }
+                else {
+                    $(".dropdownParent .keywords-count").hide();
+                    $(".dropdownParent .multiSel").hide();
+                }
+            });
+
+            $(".dropdownParent .multiple-dropdown .select-options-btn").on('click', function () {
+                $(".dropdownParent  .multiple-dropdown .mutliSelect").css("display", "block");
+            });
+
+            $(".dropdownParent .multiple-dropdown .close-dropdown").on('click', function () {
+                $(".dropdownParent .multiple-dropdown").slideUp('fast');
+                $(".dropdownParent .button-dropdown").parent().removeClass("dropdownParent");
+            });
+
+            var $dropdown = $('.dropdownParent .multiple-dropdown .mutliSelect');
+
+            $(document).mouseup(e => {
+                if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0) {
+                    $dropdown.slideUp();
+                    $dropdown.parent().removeClass("dropdownParent");
+                }
+            });
+        }
+
+        function insertFunction() {
+
+            $(".dropdownParent .mutliSelect input[type='checkbox']").on('click', function () {
+
+                var title = $(this).val();
+
+                if ($(this).is(':checked')) {
+                    $('.dropdownParent .mutliSelect input[value="' + title + '"]').prop("checked", true);
+                    var html = '<span title="' + title + '" value="' + title + '" class="keywords-container">' + title + '<a class="remove-tag" style="margin-left:20px; vertical-align: text-bottom;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.00714L8.99286 0L5 3.99286L1.00714 0L0 1.00714L3.99286 5L0 8.99286L1.00714 10L5 6.00714L8.99286 10L10 8.99286L6.00714 5L10 1.00714Z" fill="#242D80"/></svg></a></span>';
+                    $('.dropdownParent .multiSel').append(html).css("display", "flex");
+                } else {
+                    $('span[title="' + title + '"]').remove();
+                    var ret = $(".select-options-btn");
+                }
+
+                var counter = 0;
+                counter = $(".dropdownParent .mutliSelect input[type='checkbox']:checked").length;
+
+                if ($(counter).length > 0) {
+                    $(".dropdownParent .link-dropdown").html(counter + " Selected").addClass("keywords-container").css("display", "block");
+                }
+                else {
+                    $(".dropdownParent .link-dropdown").html("Select Groups").removeClass("keywords-container");
+                    $(".dropdownParent .multiSel").hide();
+                }
+                findDuplicate();
+            });
+
+            $(document).on("click", ".dropdownParent .remove-tag", function () {
+                $(this).parent().remove();
+                var value = $(this).parent().attr("value");
+
+                $('.dropdownParent .mutliSelect input[value="' + value + '"]').prop("checked", false);
+
+                var counter = 0;
+                counter = $(".dropdownParent .multiSel .keywords-container").length;
+                if ($(counter).length > 0) {
+                    $(".dropdownParent .link-dropdown").html(counter + " Selected").addClass("keywords-container").css("display", "block");
+                }
+                else {
+                    $(".dropdownParent .link-dropdown").html("Select Groups").removeClass("keywords-container");
+                    $(".dropdownParent .multiSel").hide();
+                }
+            });
+
+            $(".dropdownParent .multiple-dropdown .select-options-btn").on('click', function () {
+                $(".dropdownParent  .multiple-dropdown .mutliSelect").css("display", "block");
+            });
+
+            $(".dropdownParent .multiple-dropdown .close-dropdown").on('click', function () {
+                $(".dropdownParent .multiple-dropdown").hide();
+                $(".dropdownParent .link-dropdown").parent().removeClass("dropdownParent");
+            });
+
+            var $dropdown = $('.dropdownParent .multiple-dropdown .mutliSelect');
+
+            $(document).mouseup(e => {
+                if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0) {
+                    $dropdown.slideUp();
+                    $dropdown.parent().removeClass("dropdownParent");
+                }
+            });
+        }
+
+        function findDuplicate() {
+            var retval = 0;
+            $(".dropdownParent .multiSel").each(function () {
+                if (str.trim() == $(this).text().trim()) {
+                    retval = 1;
+                    return false;
+                }
+            });
+            return retval;
+        }
+    </script>
+
+    <script src="js/jquery-steps.js"></script>
+    <script>
+        $('#demo').steps({
+            onFinish: function () {
+                location.href = "policies.html"
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -39,7 +39,7 @@ $(document).ready(function () {
             $(this).parent().remove();
             var value = $(this).parent().attr("value");
 
-            $('.dropdownParent .mutliSelect input[value="' + value + '"]').removeAttr("checked");
+            $('.dropdownParent .mutliSelect input[value="' + value + '"]').prop("checked", false);
 
             var counter = 0;
             counter = $(".dropdownParent .multiSel .keywords-container").length;

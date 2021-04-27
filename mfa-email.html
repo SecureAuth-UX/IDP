@@ -9,13 +9,36 @@
     <title>SecureAuth Identity Platform</title>
     <link rel="icon" type="images/vnd.microsoft.icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/select.css" rel="stylesheet">
-    <link href="css/sa.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/master.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+        });
+
+        $(window).load(function () {
+            $(".se-pre-con").fadeOut("slow");
+            $("body").fadeIn("slow");
+        });
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCKM50N26W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-RCKM50N26W');
+    </script>
 </head>
 
-<body>
+<body style="display: none;">
+    <div class="se-pre-con"></div>
 
     <div id="header"></div>
 
@@ -116,17 +139,19 @@
                             <div color="tertiary" class="sa-type-small sa-color-tertiary">Set the passcodes length for
                                 your Text Message, Email and Voice Phone Call MFA methods</div>
                         </div>
-                        <div class="sa-grid">
-                            <div class="sa-grid-row">
-                                <div class="sa-grid-column-2">
-                                    <div class="sa-select-wrapper">
-                                        <select name="otp_length" class="label ui selection dropdown">
-                                            <option value="4">4</option>
-                                            <option value="5" selected="">5</option>
-                                            <option value="6">6</option>
-                                        </select>
-                                    </div>
-                                </div>
+
+                        <div class="select-container" style="width: 15%;">
+                            <div class="select-dropdown">
+                                <svg class="select-arrow" width="27" height="24" viewBox="0 0 27 24"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.2998 10L13.7998 15L19.2998 10H8.2998Z" fill="#2995F5" />
+                                </svg>
+                                <span class="store-default" value="">5</span>
+                                <ul class="s-dropdown u-hide">
+                                    <li class="select-option" value="4">4</li>
+                                    <li class="select-option" value="5">5</li>
+                                    <li class="select-option" value="6">6</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -186,30 +211,18 @@
         </div>
     </main>
 
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/semantic.min.js"></script>
+    <script src="js/dropdown.js"></script>
     <script>
-        $('.label.ui.dropdown')
-            .dropdown();
+        $(document).on('click', '.select-container', function () {
+            $(this).parent().toggleClass("open-select");
+            $(this).find('ul').slideToggle();
+        });
 
-        $('.no.label.ui.dropdown')
-            .dropdown({
-                useLabels: false
-            });
-
-        $('.ui.button').on('click', function () {
-            $('.ui.dropdown')
-                .dropdown('restore defaults')
-        })
-    </script>
-    <script src="js/custom.js"></script>
-
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script>
-        $(function () {
-            $("#header").load("header.html");
-            $("#footer").load("footer.html");
+        $(document).on('click', '.open-select .select-option', function () {
+            var store = $(this).html();
+            $(this).toggleClass('selected');
+            $('.open-select .select-option').not($(this)).removeClass('selected');
+            $('.open-select .store-default').html(store).attr('value', $(this).attr('value'));
         });
     </script>
 </body>
