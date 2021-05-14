@@ -1209,7 +1209,7 @@ input.no-border {
     -webkit-transform: translate(0, -50%);
     -o-transform: translate(0, -50%);
     transform: translate(0, -50%);
-    top: 50%;
+    top: 5%;
     margin: 0 auto;
 }
 
